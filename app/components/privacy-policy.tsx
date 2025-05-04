@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Separator } from "@/app/components/ui/separator";
 function Privacypolicy() {
@@ -122,7 +122,7 @@ function Privacypolicy() {
                         <h4 className="text-lg font-medium mt-4 mb-2">Usage Data</h4>
                         <p>Usage Data is collected automatically when using the Service.</p>
                         <p className="mt-2">
-                            Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address),
+                            Usage Data may include information such as Your Device&apos;s Internet Protocol address (e.g. IP address),
                             browser type, browser version, the pages of our Service that You visit, the time and date of Your visit,
                             the time spent on those pages, unique device identifiers and other diagnostic data.
                         </p>
@@ -207,7 +207,7 @@ function Privacypolicy() {
                     </section>
 
                     {/* Continue with the rest of the sections in the same pattern */}
-                    {/* I've shown the first few sections - you would continue with the remaining content */}
+                    {/* I&apos;ve shown the first few sections - you would continue with the remaining content */}
 
                     <Separator />
 

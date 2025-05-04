@@ -45,7 +45,7 @@ export default function AboutPage() {
                                     <h3 className="font-semibold text-lg mb-2">Advanced Text Formatting</h3>
                                     <p className="text-muted-foreground">
                                         Transform your plain text into beautifully formatted content with our powerful tools.
-                                        Whether you need Markdown conversion, code formatting, or rich text editing, we've got you covered.
+                                        Whether you need Markdown conversion, code formatting, or rich text editing, we&apos;ve got you covered.
                                     </p>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ export default function AboutPage() {
                             <div>
                                 <h3 className="font-semibold">Continuous Innovation</h3>
                                 <p className="text-muted-foreground">
-                                    We're constantly updating our tools with new features based on user feedback and industry trends.
+                                    We&apos;re constantly updating our tools with new features based on user feedback and industry trends.
                                 </p>
                             </div>
                         </div>
