@@ -17,7 +17,7 @@ function Terms() {
                             We are Technind.click (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our,&quot;), a company registered in India at plot no 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012.
                         </p>
                         <p>
-                            We operate the website www.techmind.click (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+                            We operate the website www.techmind.click (the `&quot;Site`&quot;), as well as any other related products and services that refer or link to these legal terms (the `&quot;Legal Terms`&quot;) (collectively, the `&quot;Services`&quot;).
                         </p>
                         <p>
                             You can contact us by email at info@techmind.click or by mail to plot no 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012, India.
@@ -168,7 +168,7 @@ function Terms() {
 
                         <h3 className="text-xl font-semibold mb-2">Informal Negotiations</h3>
                         <p>
-                            To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms (each a "Dispute" and collectively, the "Disputes") brought by either you or us (individually, a "Party" and collectively, the "Parties"), the Parties agree to first attempt to negotiate any Dispute informally for at least thirty (30) days before initiating arbitration. Such informal negotiations commence upon written notice from one Party to the other Party.
+                            To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms (each a `&quot;Dispute`&quot; and collectively, the `&quot;Disputes`&quot;) brought by either you or us (individually, a `&quot;Party`&quot; and collectively, the `&quot;Parties`&quot;), the Parties agree to first attempt to negotiate any Dispute informally for at least thirty (30) days before initiating arbitration. Such informal negotiations commence upon written notice from one Party to the other Party.
                         </p>
 
                         <h3 className="text-xl font-semibold mb-2 mt-6">Binding Arbitration</h3>
