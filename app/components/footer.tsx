@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/app/components/ui/button";
 const Footer = () => {
     return (
         <footer className="border-t py-6">
