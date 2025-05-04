@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PDF Tools - Optimize, Split, Merge & Convert",
-  description: "Free online tools to work with PDFs and images",
+  title: "Text Formatter",
+  description: "Free online tools to Convert case and format text",
   icons: {
     icon: '/techmind-favicon.svg',
     // Optional: add other icons for different devices
