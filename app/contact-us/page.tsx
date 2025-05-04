@@ -1,4 +1,3 @@
-import { Layout } from 'lucide-react'
 import { Metadata } from "next";
 import Contactus from '../components/contact-us';
 import Header from '../components/header';
