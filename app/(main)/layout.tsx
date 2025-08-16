@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--geist-sans",
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   title: "Text Formatter",
   description: "Free online tools to Convert case and format text",
   icons: {
-    icon: '/techmind-favicon.svg',
+    icon: "/techmind-favicon.svg",
     // Optional: add other icons for different devices
-    shortcut: '/techmind-favicon.ico',
-    apple: '/techmind-favicon.png',
+    shortcut: "/techmind-favicon.ico",
+    apple: "/techmind-favicon.png",
   },
 };
 
