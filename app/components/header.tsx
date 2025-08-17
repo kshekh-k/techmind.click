@@ -8,6 +8,22 @@ import {
 import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+
+const LINKS = [
+    {
+        href: "/",
+        label: "Case Converter"
+    },
+    {
+        href: "/image-to-pdf",
+        label: "Image to PDF"
+    },
+    {
+        href: "/blogs",
+        label: "Blogs"
+    }
+]
+
 const Header = () => {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -18,28 +34,13 @@ const Header = () => {
                     </Link>
                     <NavigationMenu>
                         <NavigationMenuList>
-                            <NavigationMenuItem>
-                                <Link href="/" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                        Case Converter
+                            {LINKS.map(link => (
+                                <NavigationMenuItem key={link.href}>
+                                    <NavigationMenuLink href={link.href} className={navigationMenuTriggerStyle()}>
+                                        {link.label}
                                     </NavigationMenuLink>
-                                </Link>
-                            </NavigationMenuItem>
-                            {/* <NavigationMenuItem>
-                                <Link href="/image-to-webp" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                        Image to WebP
-                                    </NavigationMenuLink>
-                                </Link>
-                            </NavigationMenuItem> */}
-                            <NavigationMenuItem>
-                                <Link href="/image-to-pdf" legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                        Image to PDF
-                                    </NavigationMenuLink>
-                                </Link>
-                            </NavigationMenuItem>
-
+                                </NavigationMenuItem>
+                            ))}
                         </NavigationMenuList>
                     </NavigationMenu>
                 </div>
