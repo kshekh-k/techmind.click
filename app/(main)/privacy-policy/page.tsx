@@ -1,16 +1,16 @@
+import Layout from "@/app/components/layout";
+import Privacypolicy from "@/app/components/privacy-policy";
 import { Metadata } from "next";
-import Layout from '../components/layout'
-import Privacypolicy from '../components/privacy-policy'
 export const metadata: Metadata = {
-    title: "Privacy Policy | Techmin.click",
-    description: "Privacy policy for Techmin.click Text Formatter",
+  title: "Privacy Policy | Techmin.click",
+  description: "Privacy policy for Techmin.click Text Formatter",
 };
 function PrivacyPlocypage() {
-    return (
-        <Layout>
-            <Privacypolicy />
-        </Layout>
-    )
+  return (
+    <Layout>
+      <Privacypolicy />
+    </Layout>
+  );
 }
 
-export default PrivacyPlocypage
+export default PrivacyPlocypage;
