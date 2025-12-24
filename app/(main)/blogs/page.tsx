@@ -6,9 +6,17 @@ import { strapiClient } from "@/app/lib/strapi";
 export default async function BlogsPage() {
   const articles = strapiClient.collection("articles");
 
-  const allArticles = await articles.find({
-    populate: ["cover", "author"],
-  });
+  let allArticles = { data: [] } as any;
+  try {
+    allArticles = await articles.find({
+      populate: ["cover", "author"],
+    });
+  } catch (err) {
+    // Log and continue — avoid failing the entire build when external fetch fails during prerender
+    // eslint-disable-next-line no-console
+    console.error("Failed to fetch articles from Strapi:", err);
+    allArticles = { data: [] } as any;
+  }
 
   return (
     <>
@@ -16,7 +24,7 @@ export default async function BlogsPage() {
       <div className="container mx-auto py-12">
         <h1 className="text-4xl font-semibold">Blogs</h1>
         <div className="grid grid-cols-4 gap-6 mt-12">
-          {allArticles.data.map((article) => (
+          {allArticles.data.map((article:any) => (
             <div key={article.id} className="bg-white p-4 rounded shadow">
               <div className="aspect-video bg-gray-100 overflow-hidden">
                 <Image
