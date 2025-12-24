@@ -8,7 +8,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/app/comp
 import { Tabs, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/app/components/ui/tooltip";
 import { LucideCaseLower, LucideCaseSensitive, LucideCaseUpper, Undo2 } from "lucide-react";
-import { TbAlignCenter, TbAlignLeft2, TbAlignRight2, TbLetterCase } from "react-icons/tb";
+import { TbAlignCenter, TbAlignLeft2, TbAlignRight2, TbLetterCase, TbHash } from "react-icons/tb";
 import { LiaListSolid } from "react-icons/lia";
 import { FaListOl, FaListUl } from "react-icons/fa";
 type FormatAction =
@@ -31,7 +31,8 @@ type FormatAction =
     | "invert-case"
     | "alternating-case"
     | "remove-spaces"
-    | "reverse-text";
+    | "reverse-text"
+    | "slug";
 
 type ListType = "bullet" | "number" | "circle" | "none";
 
@@ -130,6 +131,9 @@ export default function TextFormatter() {
             case "reverse-text":
                 result = text.split("").reverse().join("");
                 break;
+            case "slug":
+                result = slugify(text);
+                break;
             case "clear":
                 result = "";
                 newListType = "none";
@@ -180,6 +184,18 @@ export default function TextFormatter() {
             .join("\n");
     };
 
+    const slugify = (input: string): string => {
+        return input
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/\p{Diacritic}/gu, "")
+            .replace(/[^a-z0-9\s-]/g, "")
+            .trim()
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-")
+            .replace(/^-+|-+$/g, "");
+    };
+
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
         setText(e.target.value);
     };
@@ -201,13 +217,15 @@ export default function TextFormatter() {
         if (e.key === "Tab") {
             e.preventDefault();
             const { selectionStart, selectionEnd } = e.currentTarget;
-            const newText = text.substring(0, selectionStart) + "\t" + text.substring(selectionEnd);
+            const start = selectionStart ?? 0;
+            const end = selectionEnd ?? start;
+            const newText = text.substring(0, start) + "\t" + text.substring(end);
             setText(newText);
 
             setTimeout(() => {
                 if (textAreaRef.current) {
-                    textAreaRef.current.selectionStart = selectionStart + 1;
-                    textAreaRef.current.selectionEnd = selectionStart + 1;
+                    textAreaRef.current.selectionStart = start + 1;
+                    textAreaRef.current.selectionEnd = start + 1;
                 }
             }, 0);
         }
@@ -251,7 +269,7 @@ export default function TextFormatter() {
         <div className="max-w-6xl mx-auto px-4">
             <Card className="shadow-lg">
                 <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-center">Advanced Text Formatter</CardTitle>
+                    <CardTitle as="h1" className="text-2xl font-bold text-center">Advanced Text Formatter</CardTitle>
                 </CardHeader>
                 <CardContent>
 
@@ -322,11 +340,19 @@ export default function TextFormatter() {
                                     </Tooltip>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
-                                            <Button variant="outline" onClick={() => formatText("sentencecase")} className="rounded-l-none">
+                                            <Button variant="outline" onClick={() => formatText("sentencecase")} className="rounded-none border-r-0">
                                                 <TbLetterCase className="size-6" />
                                             </Button>
                                         </TooltipTrigger>
                                         <TooltipContent>Sentence Case</TooltipContent>
+                                    </Tooltip>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button variant="outline" onClick={() => formatText("slug")} className="rounded-l-none">
+                                                <TbHash className="size-5" />
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent>Slugify</TooltipContent>
                                     </Tooltip>
                                 </div>
 
@@ -413,6 +439,10 @@ export default function TextFormatter() {
 
                             <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">
                                 Sentence case
+                            </Button>
+
+                            <Button variant="outlineLime" onClick={() => formatText("slug")} className="rounded">
+                                Slugify
                             </Button>
 
                         </div>
