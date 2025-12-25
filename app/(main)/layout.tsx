@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "TechMind",
     images: [
       {
-        url: "https://techmind.click/text-case-converter-and-formatter-techmind-click.png",
+        url: "/images/text-case-converter-and-formatter-techmind-click-otg.png",
         width: 1200,
         height: 630,
         alt: "Text Case Converter & Formatter"
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "Text Case Converter & Formatter – TechMind",
     description:
       "Instantly convert and format text using our free case converter tool.",
-    images: ["https://techmind.click/text-case-converter-and-formatter-techmind-click.png"]
+    images: ["/images/text-case-converter-and-formatter-techmind-click-otg.png"]
   },  
   
   icons: {

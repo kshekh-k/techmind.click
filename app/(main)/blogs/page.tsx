@@ -1,57 +1,53 @@
 import Header from "@/app/components/header";
 import Link from "next/link";
 import Image from "next/image";
-import { strapiClient } from "@/app/lib/strapi";
+import blogs from "@/app/data/blog.json";
+import { BlogType } from "@/app/lib/types";
+import Layout from "@/app/components/layout";
 
-export default async function BlogsPage() {
-  const articles = strapiClient.collection("articles");
-
-  let allArticles = { data: [] } as any;
-  try {
-    allArticles = await articles.find({
-      populate: ["cover", "author"],
-    });
-  } catch (err) {
-    // Log and continue — avoid failing the entire build when external fetch fails during prerender
-    // eslint-disable-next-line no-console
-    console.error("Failed to fetch articles from Strapi:", err);
-    allArticles = { data: [] } as any;
-  }
-
+export default function BlogsPage() {
   return (
     <>
-      <Header />
-      <div className="container mx-auto py-12">
+ 
+<Layout>
+      <div className="max-w-7xl mx-auto p-3 md:p-4" >
         <h1 className="text-4xl font-semibold">Blogs</h1>
-        <div className="grid grid-cols-4 gap-6 mt-12">
-          {allArticles.data.map((article:any) => (
-            <div key={article.id} className="bg-white p-4 rounded shadow">
-              <div className="aspect-video bg-gray-100 overflow-hidden">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {(blogs as BlogType[]).map((blog) => (
+            <div key={blog.id} className="bg-white p-4 rounded shadow">
+              {blog.cover && (
                 <Image
-                  src={
-                    article.cover?.url
-                      ? `${process.env.STRAPI_URL}${article.cover.url}`
-                      : "/images/no-image-placeholder.png"
-                  }
-                  alt={article.title}
-                  height={article.cover?.height || 300}
-                  width={article.cover?.width || 300}
-                  className="size-full object-cover"
+                  src={blog.cover.url}
+                  alt={blog.title}
+                  width={blog.cover.width}
+                  height={blog.cover.height}
+                  className="rounded"
                 />
-              </div>
-              <div className="space-y-1">
-                <Link
-                  href={`/blogs/${article.documentId}`}
-                  className="text-xl font-semibold mt-4 hover:text-blue-500 duration-150 inline-block"
-                >
-                  {article.title}
-                </Link>
-                <p className="">{article.description}</p>
-              </div>
+              )}
+
+              <h2 className="text-xl font-semibold mt-4">
+                <Link href={`/blogs/${blog.slug}`} className="hover:text-purple-600 transition">{blog.title}</Link>
+              </h2>
+
+              {/* Meta info */}
+              <p className="text-sm text-gray-500">
+                <time dateTime={blog.date}>
+                  {new Date(blog.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+                {" • "}
+                By {blog.author}
+              </p>
+
+              <p className="text-gray-600">{blog.description}</p>
             </div>
           ))}
         </div>
-      </div>
+      </div></Layout>
     </>
   );
 }
