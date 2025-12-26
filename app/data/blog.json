@@ -1,20 +1,84 @@
 [
   {
-    "title": "Create SEO Friendly Blog Using JSON in Next.js",
-    "description": "Learn how to build a fast and SEO-optimized blog using JSON and HTML.",
-    "slug": "nextjs-json-blog",
+    "id": 1,
+    "title": "Slug Converter, Text Formatter & URL Generator",
+    "description": "Slug Converter, Text Formatter & URL Generator",
+    "keywords": [
+      "slug converter",
+      "url slug generator",
+      "text formatter",
+      "slug generator",
+      "seo slug converter",
+      "online slug converter",
+      "url formatting tool",
+      "clean url generator",
+      "seo friendly urls",
+      "content formatting tool"
+    ],
+    "slug": "slug-converter-text-formatter",
     "date": "2026-01-01T00:00:00.000Z",
     "author": "Admin",
     "cover": {
-      "url": "/images/text-case-converter-and-formatter-techmind-click.png",
+      "url": "/images/slug-converter-text-formatter-techmind-click.png",
       "width": 1200,
       "height": 630
     },
     "content": "<h2>What Is a Slug Converter?</h2>\n\n<p>\nA <strong>Slug Converter</strong> is a simple online tool that helps you change\nthe capitalization style of your text in one click. Instead of manually editing\neach word or sentence, you can instantly convert text into different formats.\n</p>\n\n<p>\nThis is especially useful for writers, developers, students, content creators,\nand SEO professionals who work with large amounts of text every day.\n</p>\n\n<h3>Common Case Conversion Options</h3>\n\n<ul>\n  <li><strong>UPPERCASE</strong> – Converts all letters to capital letters</li>\n  <li><strong>lowercase</strong> – Converts all letters to small letters</li>\n  <li><strong>Sentence case</strong> – Capitalizes the first letter of each sentence</li>\n  <li><strong>Title Case</strong> – Capitalizes the first letter of each word</li>\n  <li><strong>Toggle Case</strong> – Switches uppercase to lowercase and vice versa</li>\n</ul>\n\n<hr>\n<h2>What Is Text Formatting?</h2>\n\n<p>\n<strong>Text formatting</strong> helps you clean, organize, and structure your text\nto make it more readable and professional. This is useful when preparing content\nfor blogs, emails, documents, or websites.\n</p>\n\n<h3>Popular Text Formatting Features</h3>\n\n<ul>\n  <li>Remove extra spaces</li>\n  <li>Trim leading and trailing spaces</li>\n  <li>Remove empty lines</li>\n  <li>Add line breaks</li>\n  <li>Format paragraphs properly</li>\n</ul>\n\n<p>\nUsing a text formatter saves time and ensures your content looks clean and polished.\n</p>\n\n<hr>\n<h2>What Is a Slug Converter?</h2>\n\n<p>\nA <strong>Slug Converter</strong> transforms normal text into a URL-friendly format,\ncommonly used in blog URLs and web pages.\n</p>\n\n<p>\nSlugs are important for <strong>SEO</strong> because they make URLs readable for both\nusers and search engines.\n</p>\n\n<h3>Example</h3>\n\n<p>\n<strong>Input:</strong> Slug Converter & Formatter Tool\n</p>\n\n<p>\n<strong>Output Slug:</strong> text-case-converter-formatter-tool\n</p>\n\n<hr>\n<h2>How to Use a Slug Converter, Formatter & Slug Tool</h2>\n\n<h3>Step 1: Enter Your Text</h3>\n<p>\nPaste or type your text into the input box.\n</p>\n\n<h3>Step 2: Choose an Action</h3>\n<p>\nSelect the option you want:\n</p>\n\n<ul>\n  <li>Convert Slug</li>\n  <li>Format text</li>\n  <li>Generate a URL slug</li>\n</ul>\n\n<h3>Step 3: Copy the Result</h3>\n<p>\nOnce the text is converted, simply copy and use it anywhere you want.\n</p>\n\n<hr>\n<h2>Who Can Benefit From These Tools?</h2>\n\n<ul>\n  <li>Bloggers and content writers</li>\n  <li>Web developers and designers</li>\n  <li>SEO professionals</li>\n  <li>Students and teachers</li>\n  <li>Digital marketers</li>\n</ul>\n\n<hr>\n<h2>Why Use an Online Text Tool?</h2>\n\n<p>\nOnline text tools are fast, free, and require no installation. They help you\nsave time, reduce manual effort, and avoid formatting mistakes.\n</p>\n\n<p>\nWhether you are writing content, preparing URLs, or cleaning text,\na Slug converter and formatter is an essential productivity tool.\n</p>\n\n<hr>\n<h2>Final Thoughts</h2>\n\n<p>\nA <strong>Slug Converter, Text Formatter, and Slug Generator</strong>\nsimplifies everyday text tasks. With just a few clicks, you can convert,\nformat, and optimize text efficiently.\n</p>\n\n<p>\nIf you work with text regularly, using these tools will significantly improve\nyour workflow and accuracy.\n</p>\n"
   },
   {
+    "id": 2,
+    "title": "How TechMind Helps Writers, Students, and Professionals Work Smarter?",
+    "description": "Working with text every day should not be time-consuming. TechMind is built to help writers, students, and professionals handle text faster and more efficiently using simple, smart online tools.",
+    "keywords": [
+      "TechMind",
+      "text case converter",
+      "text formatter",
+      "online text tools",
+      "writing productivity tools",
+      "tools for riters",
+      "tools for students",
+      "professional writing tools",
+      "text formatting online",
+      "clean text tool",
+      "slug generator",
+      "content formatting tool"
+    ],
+    "slug": "techMind-helps-writers",
+    "date": "2026-01-01T00:00:00.000Z",
+    "author": "Admin",
+    "cover": {
+      "url": "/images/techMind-helps-writers-techmind-click.png",
+      "width": 1200,
+      "height": 630
+    },
+    "content": "<h2>How TechMind Helps Writers, Students, and Professionals Work Smarter?</h2>\n<p>\n  <strong>Working with text every day should not be time-consuming.</strong>\n  TechMind is built to help writers, students, and professionals handle text\n  faster and more efficiently using simple, smart online tools.\n</p>\n\n<p>\n  From emails and blogs to assignments and office documents, small text issues\n  often slow down productivity. TechMind removes this friction by automating\n  common text formatting tasks, allowing users to focus on what truly matters.\n</p>\n\n<h2>Everyday Text Editing Problems</h2>\n\n<p>\n  Small text issues can easily interrupt workflow. Common problems include\n  incorrect capitalization, extra spaces, broken formatting, and messy copied\n  content. Although these issues may seem minor, fixing them repeatedly can\n  become frustrating and time-consuming.\n</p>\n\n<p>\n  TechMind solves these problems instantly. Users can simply paste their text,\n  apply the required tool, and receive clean, formatted output within seconds —\n  no technical skills required.\n</p>\n\n<h2>Helping Writers Create Better Content</h2>\n\n<p>\n  Writers focus on ideas, creativity, and delivering clear messages. Poor text\n  formatting, however, can distract readers and reduce the quality of content.\n  TechMind helps writers maintain consistent structure, spacing, and readability.\n</p>\n\n<p>\n  Whether writing blog articles, social media posts, or professional emails,\n  proper formatting improves clarity. With TechMind handling the formatting,\n  writers can edit faster and publish content with confidence.\n</p>\n\n<h2>Making Student Work Clear and Organized</h2>\n\n<p>\n  Students often gather text from multiple sources when working on assignments\n  and research projects. This can result in inconsistent styles, uneven spacing,\n  and mixed capitalization.\n</p>\n\n<p>\n  TechMind allows students to quickly clean and organize their text, making\n  assignments easier to read and more professional. Using such tools also helps\n  students understand the importance of clear structure and presentation in\n  academic writing.\n</p>\n\n<h2>Supporting Professionals and Business Work</h2>\n\n<p>\n  In professional environments, clear communication is essential. Reports,\n  proposals, emails, and internal documents must be well-formatted to build\n  trust and maintain professionalism.\n</p>\n\n<p>\n  TechMind helps professionals prepare clean, readable text without wasting\n  valuable time. Since it is web-based, it works on any device without requiring\n  installation, making it ideal for individuals, teams, and businesses.\n</p>\n\n<h2>What Makes TechMind Special</h2>\n\n<p>\n  TechMind is designed with simplicity and performance in mind. It focuses only\n  on practical features and removes unnecessary steps, creating a smooth and\n  beginner-friendly experience.\n</p>\n\n<p>\n  As digital communication continues to grow, tools like TechMind make daily\n  work easier by automating repetitive text tasks. By saving time and reducing\n  effort, TechMind helps users create high-quality content with ease.\n</p>\n"
+  },
+  {
+    "id": 3,
     "title": "Text Case Converter & Formatter Tool",
     "description": "Convert text case, format content, and generate SEO-friendly slugs easily.",
+    "keywords": [
+      "text case converter",
+      "text formatter",
+      "slug converter",
+      "case converter online",
+      "uppercase to lowercase",
+      "lowercase to uppercase",
+      "sentence case converter",
+      "title case converter",
+      "toggle case tool",
+      "text formatting tool",
+      "online text tools",
+      "seo slug generator",
+      "url slug converter",
+      "content formatting tool",
+      "writing productivity tools",
+      "tools for writers",
+      "tools for students",
+      "tools for developers",
+      "online text editor",
+      "clean text tool"
+    ],
     "slug": "text-case-converter",
     "date": "2026-01-01T00:00:00.000Z",
     "author": "Admin",

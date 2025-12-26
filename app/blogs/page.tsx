@@ -31,16 +31,17 @@ export default function BlogsPage() {
               </h2>
 
               {/* Meta info */}
-              <p className="text-sm text-gray-500">
-                <time dateTime={blog.date}>
+              <p className="text-sm text-gray-500 py-2 flex gap-2">
+                 <span>
+                🗓️ <time dateTime={blog.date}>
                   {new Date(blog.date).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",
                   })}
-                </time>
-                {" • "}
-                By {blog.author}
+                </time></span>
+               <span> 
+                👤 {blog.author}</span>
               </p>
 
               <p className="text-gray-600">{blog.description}</p>

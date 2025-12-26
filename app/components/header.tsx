@@ -23,7 +23,7 @@ const LINKS = [
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex h-14 items-center justify-between">
         <nav className="px-3 md:px-4 flex justify-between flex-1">
           <Link

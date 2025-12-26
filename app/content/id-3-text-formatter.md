@@ -1,6 +1,29 @@
 ---
+id: 3
 title: Text Case Converter & Formatter Tool
 description: Convert text case, format content, and generate SEO-friendly slugs easily.
+keywords: [
+  "text case converter",
+  "text formatter",
+  "slug converter",
+  "case converter online",
+  "uppercase to lowercase",
+  "lowercase to uppercase",
+  "sentence case converter",
+  "title case converter",
+  "toggle case tool",
+  "text formatting tool",
+  "online text tools",
+  "seo slug generator",
+  "url slug converter",
+  "content formatting tool",
+  "writing productivity tools",
+  "tools for writers",
+  "tools for students",
+  "tools for developers",
+  "online text editor",
+  "clean text tool",
+]
 slug: text-case-converter
 date: 2026-01-01
 author: Admin

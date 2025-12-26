@@ -1,11 +1,24 @@
 ---
-title: Create SEO Friendly Blog Using JSON in Next.js
-description: Learn how to build a fast and SEO-optimized blog using JSON and HTML.
-slug: nextjs-json-blog
+id: 1
+title: Slug Converter, Text Formatter & URL Generator
+description: Slug Converter, Text Formatter & URL Generator
+keywords: [
+  "slug converter",
+  "url slug generator",
+  "text formatter",
+  "slug generator",
+  "seo slug converter",
+  "online slug converter",
+  "url formatting tool",
+  "clean url generator",
+  "seo friendly urls",
+  "content formatting tool"
+]
+slug: slug-converter-text-formatter
 date: 2026-01-01
 author: Admin
 cover:
-  url: /images/text-case-converter-and-formatter-techmind-click.png
+  url: /images/slug-converter-text-formatter-techmind-click.png
   width: 1200
   height: 630
 ---

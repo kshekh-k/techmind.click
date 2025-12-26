@@ -13,8 +13,21 @@ export function convertMarkdownToJson(): BlogType[] {
     const raw = fs.readFileSync(path.join(BLOGS_DIR, file), "utf-8");
     const { data, content } = matter(raw);
 
+    // Ensure keywords is always an array
+    let keywords = data.keywords;
+    if (typeof keywords === 'string') {
+      try {
+        keywords = JSON.parse(keywords);
+      } catch {
+        keywords = [keywords];
+      }
+    }
+    if (!Array.isArray(keywords)) {
+      keywords = [];
+    }
     return {
       ...data,
+      keywords,
       content: marked.parse(content),
     } as BlogType;
   });
