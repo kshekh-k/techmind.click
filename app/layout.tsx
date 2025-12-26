@@ -56,7 +56,13 @@ export default function RootLayout({
         <meta name="twitter:title" content={siteTitle} />
         <meta name="twitter:description" content={siteDescription} />
         <meta name="twitter:image" content={ogImage} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/techmind-favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         {/* Google Analytics – Load Script */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1LY4EXMSGY"
