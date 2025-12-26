@@ -9,7 +9,6 @@ export type BlogType = {
   slug: string;
   title: string;
   description: string;
-  keywords: any;
   content: string; // HTML string
   author: string;
   date: string;
