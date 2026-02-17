@@ -5,13 +5,15 @@ import { Textarea } from "@/app/components/ui/textarea";
 // import { toast } from "@/app/components/ui/use-toast";
 import { Label } from "@/app/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 export default function Contactus() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-6xl">
             <div className="text-center mb-12">
                 <h1 className="text-3xl font-bold mb-2">Contact Us</h1>
-                <p className="text-muted-foreground">We&apos;d love to hear from you!</p>
+                <p className="text-muted-foreground max-w-4xl mx-auto">We’d love to hear from you. If you have any questions, feedback, or suggestions about our text formatting tools, feel free to reach out. Our team is here to assist you and will respond as quickly as possible during business hours.
+</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -53,6 +55,36 @@ export default function Contactus() {
                                     Send Message
                                 </Button>
                             </form>
+                            <div className="mt-6 flex items-center justify-center gap-4">
+                                <a
+                                    href="https://www.facebook.com/kshekh01011986"
+                                    aria-label="Facebook"
+                                    className="rounded-full border p-2 text-muted-foreground transition-colors hover:text-primary"
+                                >
+                                    <Facebook className="size-5" />
+                                </a>
+                                <a
+                                    href="https://x.com/kamranshekh"
+                                    aria-label="X"
+                                    className="rounded-full border p-2 text-muted-foreground transition-colors hover:text-primary"
+                                >
+                                    <FaXTwitter className="size-5" />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/kshekh/"
+                                    aria-label="LinkedIn"
+                                    className="rounded-full border p-2 text-muted-foreground transition-colors hover:text-primary"
+                                >
+                                    <Linkedin className="size-5" />
+                                </a>
+                                <a
+                                    href="https://www.instagram.com/kshekh/"
+                                    aria-label="Instagram"
+                                    className="rounded-full border p-2 text-muted-foreground transition-colors hover:text-primary"
+                                >
+                                    <Instagram className="size-5" />
+                                </a>
+                            </div>
                         </CardContent>
                     </Card>
                 </div>
@@ -65,18 +97,11 @@ export default function Contactus() {
                         <CardContent className="space-y-4">
                             <div className="flex items-start gap-4">
                                 <div className="bg-primary/10 p-3 rounded-full">
-                                    <Mail className="h-5 w-5 text-primary" />
+                                    <Mail className="size-5 text-primary" />
                                 </div>
                                 <div>
                                     <h3 className="font-medium">Email Us</h3>
-                                    <p className="text-muted-foreground">
-                                        <a
-                                            href="mailto:info@techmind.click"
-                                            className="hover:text-primary hover:underline"
-                                        >
-                                            info@techmind.click
-                                        </a>
-                                    </p>
+                                    
                                     <p className="text-muted-foreground">
                                         <a
                                             href="mailto:kshekh@gmail.com"
@@ -90,12 +115,12 @@ export default function Contactus() {
 
                             <div className="flex items-start gap-4">
                                 <div className="bg-primary/10 p-3 rounded-full">
-                                    <MapPin className="h-5 w-5 text-primary" />
+                                    <MapPin className="size-5 text-primary" />
                                 </div>
                                 <div>
                                     <h3 className="font-medium">Our Location</h3>
                                     <p className="text-muted-foreground">
-                                        plot no 47, Narayanpuri, Jhotwara
+                                       Narayanpuri, Jhotwara
                                     </p>
                                     <p className="text-muted-foreground">Jaipur, Rajasthan 302012</p>
                                     <p className="text-muted-foreground">India</p>
@@ -111,16 +136,12 @@ export default function Contactus() {
                         <CardContent>
                             <div className="space-y-2">
                                 <div className="flex justify-between">
-                                    <span className="text-muted-foreground">Monday - Friday</span>
-                                    <span>9:00 AM - 6:00 PM</span>
+                                    <span className="text-muted-foreground">Monday - Sunday</span>
+                                    <span>24/7</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span className="text-muted-foreground">Saturday</span>
-                                    <span>10:00 AM - 4:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-muted-foreground">Sunday</span>
-                                    <span>Closed</span>
+                                    <span className="text-muted-foreground">Contact</span>
+                                    <span>Via Email</span>
                                 </div>
                             </div>
                         </CardContent>

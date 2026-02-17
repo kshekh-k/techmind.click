@@ -1,8 +1,8 @@
 import "./globals.css";
 import Script from "next/script";
-const siteTitle = "TechMind – Online Text Formatting & Editing Tools";
+const siteTitle = "Free Online Text Formatter Tool | TechMind Click";
 const siteDescription =
-  "TechMind - Free online tools for text formatting, case conversion, and image conversion. Improve your writing and productivity with smart online utilities.";
+  "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily.";
 const siteKeywords = [
   "TechMind",
   "text case converter",

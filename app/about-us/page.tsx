@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Layout from "@/app/components/layout";
 import AboutPage from "@/app/components/about-us";
 export const metadata: Metadata = {
-  title: "About Us | TechMind",
+  title: "About Us | TechMind.click",
   description:
     "Learn about TechMind - your solution for advanced text formatting and image processing needs.",
 };
