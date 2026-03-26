@@ -87,7 +87,7 @@ export default async function BlogPage({ params }: PageProps) {
     <Layout>
       <div className="max-w-7xl mx-auto p-3 md:p-4">
         <article className="prose prose-lg mx-auto max-w-4xl bg-white border rounded p-5 shadow-sm">
-          <h1 className="leading-tight mb-0 pb-2">{blog.title}</h1>
+          <h1 className="leading-tight mb-0 pb-2 font-bold">{blog.title}</h1>
 
           {/* Meta info */}
           <p className="text-gray-500 m-0! py-1 flex gap-2">
