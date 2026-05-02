@@ -1,0 +1,123 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4C1D95"/>
+      <stop offset="100%" stop-color="#1E0B3B"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7B2FBE" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#7B2FBE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4A1A9E" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#4A1A9E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-text">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="900" cy="200" rx="500" ry="380" fill="url(#glow1)"/>
+  <ellipse cx="300" cy="450" rx="380" ry="300" fill="url(#glow3)"/>
+  <ellipse cx="550" cy="280" rx="280" ry="220" fill="url(#glow2)" opacity="0.5"/>
+
+  <!-- Stars -->
+  <circle cx="140" cy="55" r="2.5" fill="white" opacity="0.9"/>
+  <circle cx="1020" cy="90" r="2" fill="white" opacity="0.7"/>
+  <circle cx="1100" cy="190" r="3" fill="white" opacity="0.8"/>
+  <circle cx="95" cy="340" r="2" fill="white" opacity="0.6"/>
+  <circle cx="1060" cy="480" r="2.5" fill="white" opacity="0.9"/>
+  <circle cx="660" cy="130" r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="200" cy="560" r="2" fill="white" opacity="0.6"/>
+  <circle cx="1140" cy="320" r="1.5" fill="white" opacity="0.7"/>
+
+  <!-- Title -->
+  <text x="600" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" font-weight="800" fill="white" filter="url(#glow-text)">How to Convert Text to Uppercase Online</text>
+  <!-- Subtitle -->
+  <text x="600" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="500" fill="#C4B5FD">Fast, Free &amp; No Sign-up Required</text>
+
+  <!-- Left T card -->
+  <rect x="48" y="226" width="110" height="110" rx="18" fill="#5B21B6" fill-opacity="0.65" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="103" y="303" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" font-weight="800" fill="#E9D5FF">A</text>
+
+  <!-- Left doc card -->
+  <rect x="58" y="358" width="94" height="90" rx="14" fill="#4C1D95" fill-opacity="0.6" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="74" y="374" width="62" height="8" rx="4" fill="#A78BFA" opacity="0.6"/>
+  <rect x="74" y="388" width="50" height="8" rx="4" fill="#A78BFA" opacity="0.4"/>
+  <rect x="74" y="402" width="56" height="8" rx="4" fill="#A78BFA" opacity="0.4"/>
+  <circle cx="118" cy="426" r="14" fill="#7C3AED" opacity="0.8"/>
+  <text x="118" y="432" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white">✓</text>
+
+  <!-- Browser window -->
+  <rect x="196" y="182" width="680" height="330" rx="20" fill="#5B21B6" fill-opacity="0.55" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.4"/>
+  <!-- Browser bar -->
+  <rect x="196" y="182" width="680" height="52" rx="20" fill="#6D28D9" fill-opacity="0.7"/>
+  <rect x="196" y="210" width="680" height="24" fill="#6D28D9" fill-opacity="0.7"/>
+  <circle cx="232" cy="208" r="9" fill="#FF5F57"/>
+  <circle cx="262" cy="208" r="9" fill="#FEBC2E"/>
+  <circle cx="292" cy="208" r="9" fill="#28C840"/>
+
+  <!-- Row 1 ACTIVE -->
+  <rect x="220" y="252" width="632" height="72" rx="12" fill="#7C3AED" fill-opacity="0.75" stroke="#C4B5FD" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="258" y="296" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#E9D5FF">Aa</text>
+  <text x="298" y="296" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="white" letter-spacing="2">CONVERT TEXT TO UPPERCASE</text>
+
+  <!-- Row 2 -->
+  <rect x="220" y="338" width="632" height="62" rx="12" fill="#6D28D9" fill-opacity="0.55" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="258" y="377" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#C4B5FD">T</text>
+  <text x="294" y="377" font-family="Arial, sans-serif" font-size="20" fill="#E9D5FF">convert text to lowercase</text>
+  <text x="818" y="377" font-family="Arial, sans-serif" font-size="22" fill="#C4B5FD">→</text>
+
+  <!-- Row 3 -->
+  <rect x="220" y="414" width="632" height="62" rx="12" fill="#6D28D9" fill-opacity="0.55" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="258" y="453" font-family="Arial, sans-serif" font-size="18" fill="#C4B5FD">⌁</text>
+  <text x="294" y="453" font-family="Arial, sans-serif" font-size="20" fill="#E9D5FF">convert-text-to-slug</text>
+  <text x="820" y="453" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#A78BFA">✓</text>
+
+  <!-- Right grid panel -->
+  <rect x="908" y="192" width="188" height="222" rx="18" fill="#5B21B6" fill-opacity="0.6" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.4"/>
+  <!-- Grid cells 3x3 -->
+  <rect x="922" y="206" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="946" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#E9D5FF">A</text>
+  <rect x="978" y="206" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="1002" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#E9D5FF">T</text>
+  <rect x="1034" y="206" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="1058" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#E9D5FF">a</text>
+  <rect x="922" y="262" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="946" y="294" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#E9D5FF">≡</text>
+  <rect x="978" y="262" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="1002" y="294" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#E9D5FF">↕</text>
+  <rect x="1034" y="262" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="1058" y="294" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#E9D5FF">↩</text>
+  <rect x="922" y="318" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="946" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#E9D5FF">∧</text>
+  <rect x="978" y="318" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="1002" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#E9D5FF">↺</text>
+  <rect x="1034" y="318" width="48" height="48" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="1058" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#E9D5FF">🗑</text>
+
+  <!-- Bottom toolbar -->
+  <rect x="196" y="528" width="680" height="58" rx="16" fill="#5B21B6" fill-opacity="0.6" stroke="#A78BFA" stroke-width="1" stroke-opacity="0.35"/>
+  <rect x="214" y="540" width="72" height="34" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="250" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#E9D5FF">Aa</text>
+  <rect x="296" y="540" width="72" height="34" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="332" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#E9D5FF">Tt</text>
+  <rect x="378" y="540" width="72" height="34" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="414" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#E9D5FF">⇄</text>
+  <rect x="460" y="540" width="72" height="34" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="496" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#E9D5FF">🔗</text>
+  <rect x="542" y="540" width="72" height="34" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="578" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#E9D5FF">✓</text>
+  <rect x="624" y="540" width="72" height="34" rx="8" fill="#6D28D9" fill-opacity="0.8" stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="660" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#E9D5FF">···</text>
+
+  <!-- Domain -->
+  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="white" filter="url(#glow-text)">www.techmind.click</text>
+</svg>
