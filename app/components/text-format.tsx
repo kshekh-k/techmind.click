@@ -11,6 +11,9 @@ import { LucideCaseLower, LucideCaseSensitive, LucideCaseUpper, Undo2 } from "lu
 import { TbAlignCenter, TbAlignLeft2, TbAlignRight2, TbLetterCase, TbHash } from "react-icons/tb";
 import { LiaListSolid } from "react-icons/lia";
 import { FaListOl, FaListUl } from "react-icons/fa";
+import { normalizeSpaces, removeLineBreaks } from "@/utils/text";
+import type { SpellcheckMatch } from "@/lib/spellcheck";
+
 type FormatAction =
     | "uppercase"
     | "lowercase"
@@ -31,18 +34,145 @@ type FormatAction =
     | "invert-case"
     | "alternating-case"
     | "remove-spaces"
+    | "remove-line-breaks"
     | "reverse-text"
     | "slug";
 
 type ListType = "bullet" | "number" | "circle" | "none";
 
+type SpellSegment = {
+    text: string;
+    isError: boolean;
+};
+
+type SuggestionLine = {
+    word: string;
+    suggestions: string[];
+};
+
+const buildSpellSegments = (inputText: string, matches: SpellcheckMatch[]): SpellSegment[] => {
+    if (!inputText || matches.length === 0) {
+        return [{ text: inputText, isError: false }];
+    }
+
+    const segments: SpellSegment[] = [];
+    const safeMatches = [...matches]
+        .filter((match) => match.length > 0 && match.offset >= 0 && match.offset < inputText.length)
+        .sort((a, b) => a.offset - b.offset);
+
+    let cursor = 0;
+    for (const match of safeMatches) {
+        const start = Math.max(match.offset, cursor);
+        const end = Math.min(match.offset + match.length, inputText.length);
+
+        if (start > cursor) {
+            segments.push({ text: inputText.slice(cursor, start), isError: false });
+        }
+
+        if (end > start) {
+            segments.push({ text: inputText.slice(start, end), isError: true });
+            cursor = end;
+        }
+    }
+
+    if (cursor < inputText.length) {
+        segments.push({ text: inputText.slice(cursor), isError: false });
+    }
+
+    return segments.length > 0 ? segments : [{ text: inputText, isError: false }];
+};
+
+const buildSuggestionLines = (inputText: string, matches: SpellcheckMatch[]): SuggestionLine[] => {
+    const grouped = new Map<string, { word: string; suggestions: Set<string> }>();
+
+    for (const match of matches) {
+        if (match.length <= 0 || match.offset < 0 || match.offset >= inputText.length) {
+            continue;
+        }
+
+        const end = Math.min(match.offset + match.length, inputText.length);
+        const word = inputText.slice(match.offset, end).trim();
+        if (!word) {
+            continue;
+        }
+
+        const key = word.toLowerCase();
+        if (!grouped.has(key)) {
+            grouped.set(key, { word, suggestions: new Set<string>() });
+        }
+
+        const entry = grouped.get(key);
+        if (!entry) {
+            continue;
+        }
+
+        for (const replacement of match.replacements) {
+            const suggestion = replacement.value.trim();
+            if (suggestion && suggestion.toLowerCase() !== key) {
+                entry.suggestions.add(suggestion);
+            }
+        }
+    }
+
+    return Array.from(grouped.values()).map((entry) => ({
+        word: entry.word,
+        suggestions: Array.from(entry.suggestions).slice(0, 8),
+    }));
+};
+
 export default function TextFormatter() {
     const [text, setText] = useState<string>("");
+    const [spellErrors, setSpellErrors] = useState<SpellcheckMatch[]>([]);
+    const [isSpellChecking, setIsSpellChecking] = useState<boolean>(false);
+    const [spellCheckMessage, setSpellCheckMessage] = useState<string>("");
     const [textAlign, setTextAlign] = useState<"left" | "center" | "right">("left");
     const [activeListType, setActiveListType] = useState<ListType>("none");
     const [history, setHistory] = useState<string[]>([]);
     const [historyIndex, setHistoryIndex] = useState<number>(-1);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    const spellSegments = buildSpellSegments(text, spellErrors);
+    const suggestionLines = buildSuggestionLines(text, spellErrors);
+
+    const handleSpellCheck = async (): Promise<void> => {
+        if (!text.trim()) {
+            setSpellErrors([]);
+            setSpellCheckMessage("Please enter text to check spelling.");
+            return;
+        }
+
+        setIsSpellChecking(true);
+        setSpellCheckMessage("");
+
+        try {
+            const response = await fetch("/api/spellcheck", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ text }),
+            });
+
+            const data = (await response.json()) as {
+                matches?: SpellcheckMatch[];
+                message?: string;
+            };
+
+            if (!response.ok) {
+                setSpellErrors([]);
+                setSpellCheckMessage(data.message ?? "Spell check failed. Please try again.");
+                return;
+            }
+
+            const matches = Array.isArray(data.matches) ? data.matches : [];
+            setSpellErrors(matches);
+            setSpellCheckMessage(matches.length === 0 ? "No spelling issues found." : "");
+        } catch {
+            setSpellErrors([]);
+            setSpellCheckMessage("Unable to check spelling right now.");
+        } finally {
+            setIsSpellChecking(false);
+        }
+    };
 
     // Save to history on text change
     useEffect(() => {
@@ -126,7 +256,10 @@ export default function TextFormatter() {
                     .join("");
                 break;
             case "remove-spaces":
-                result = text.replace(/\s+/g, "");
+                result = normalizeSpaces(text);
+                break;
+            case "remove-line-breaks":
+                result = removeLineBreaks(text);
                 break;
             case "reverse-text":
                 result = text.split("").reverse().join("");
@@ -137,6 +270,8 @@ export default function TextFormatter() {
             case "clear":
                 result = "";
                 newListType = "none";
+                setSpellErrors([]);
+                setSpellCheckMessage("");
                 break;
             case "copy":
                 navigator.clipboard.writeText(text);
@@ -198,6 +333,8 @@ export default function TextFormatter() {
 
     const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
         setText(e.target.value);
+        setSpellErrors([]);
+        setSpellCheckMessage("");
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
@@ -406,6 +543,7 @@ export default function TextFormatter() {
                                 <Button variant="outline" onClick={() => formatText("remove-spaces")}>
                                     Remove Spaces
                                 </Button>
+                               
                                 <Button variant="outline" onClick={() => formatText("reverse-text")}>
                                     Reverse Text
                                 </Button>
@@ -421,7 +559,7 @@ export default function TextFormatter() {
                             style={{ textAlign }}
                             placeholder="Enter your text here..."
                         />
-                        <div className="flex flex-wrap gap-5 pt-5">
+                         <div className="flex flex-wrap gap-5 pt-5">
 
 
                             <Button variant="outlineBlue" onClick={() => formatText("uppercase")} className="rounded !uppercase">
@@ -441,11 +579,55 @@ export default function TextFormatter() {
                                 Sentence case
                             </Button>
 
-                            <Button variant="outlineLime" onClick={() => formatText("slug")} className="rounded">
+                             <Button variant="outlineBlue" onClick={() => formatText("remove-line-breaks")}>
+                                    Remove Line Breaks
+                                </Button>
+                               
+
+                            <Button variant="outlineRose" onClick={() => formatText("slug")} className="rounded">
                                 Slugify
                             </Button>
 
+                             <Button variant="outlineLime" onClick={handleSpellCheck} disabled={isSpellChecking}>
+                                    {isSpellChecking ? "Checking..." : "Check Spelling"}
+                                </Button>
+
                         </div>
+                        {spellErrors.length > 0 && (
+                            <div className="mt-3 rounded border bg-muted/20 p-3">
+                                <p className="mb-2 text-xs text-muted-foreground">Spelling check:</p>
+                                <p className="whitespace-pre-wrap break-words text-sm leading-6">
+                                    {spellSegments.map((segment, index) => (
+                                        <span
+                                            key={`${segment.text}-${index}`}
+                                            className={segment.isError ? "decoration-red-500 underline decoration-wavy" : ""}
+                                        >
+                                            {segment.text}
+                                        </span>
+                                    ))}
+                                </p>
+                            </div>
+                        )}
+                        {(spellCheckMessage || spellErrors.length > 0) && (
+                            <div className="mt-4 space-y-2">
+                                {spellCheckMessage && (
+                                    <p className="text-sm text-muted-foreground">{spellCheckMessage}</p>
+                                )}
+                                {suggestionLines.length > 0 && (
+                                    <div className="rounded border p-3">
+                                        <p className="mb-2 text-sm font-medium text-foreground">Suggestions for misspelled words:</p>
+                                        <div className="space-y-1">
+                                            {suggestionLines.map((line) => (
+                                                <p key={line.word} className="text-xs text-green-700 font-medium">
+                                                    <span className="text-foreground">{line.word}</span>: {line.suggestions.length > 0 ? line.suggestions.join(", ") : "No suggestions"}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                       
                     </div>
                 </CardContent>
                 <CardFooter className="flex justify-end gap-3 border-t border-gray-200">
