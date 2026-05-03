@@ -44,6 +44,7 @@ export default function RootLayout({
         <meta name="author" content="TechMind" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={siteUrl} />
+        <meta name="p:domain_verify" content="1dc8540b6963e0d5e7f3b2c413ea7d18"/>
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={siteUrl} />
