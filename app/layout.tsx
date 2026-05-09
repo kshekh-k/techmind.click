@@ -92,14 +92,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
 
         {/* ── Google Analytics ────────────────────────────────────────────────
-            strategy="afterInteractive" defers both scripts until after
-            hydration so they never block FCP or LCP.
-            Placing them in <body> (not <head>) is the recommended pattern.   */}
+            strategy="lazyOnload" waits until the browser is idle, so GA never
+            competes with initial render, hydration, or LCP. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1LY4EXMSGY"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
