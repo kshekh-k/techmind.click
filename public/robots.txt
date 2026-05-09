@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://techmind.click/sitemap.xml
-Host: techmind.click
+Sitemap: https://www.techmind.click/sitemap.xml

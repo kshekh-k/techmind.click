@@ -1,88 +1,113 @@
 import "./globals.css";
 import Script from "next/script";
-const siteTitle = "Free Online Text Formatter Tool | TechMind Click";
-const siteDescription =
-  "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily.";
-const siteKeywords = [
-  "TechMind",
-  "text case converter",
-  "text formatter",
-  "slug converter",
-  "case converter online",
-  "uppercase to lowercase",
-  "lowercase to uppercase",
-  "sentence case converter",
-  "title case converter",
-  "toggle case tool",
-  "online text tools",
-  "seo slug generator",
-  "url slug converter",
-  "content formatting tool",
-  "writing productivity tools",
-  "tools for writers",
-  "tools for students",
-  "tools for developers",
-  "online text editor",
-  "clean text tool",
-].join(", ");
-const siteUrl = "https://www.techmind.click";
-const ogImage = `${siteUrl}/images/text-case-converter-and-formatter-techmind-click-otg.png`;
+import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// ─── Font ────────────────────────────────────────────────────────────────────
+// next/font downloads and self-hosts the font, eliminating render-blocking
+// Google Fonts requests and preventing FOIT/FOUT.
+// Only load the weights actually used on the site.
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",      // prevent FOIT; show fallback until font loads
+  preload: true,
+  variable: "--font-inter",
+});
+
+// ─── Site-wide defaults (can be overridden per page) ─────────────────────────
+const SITE_URL = "https://www.techmind.click";
+const OG_IMAGE = `${SITE_URL}/images/text-case-converter-and-formatter-techmind-click-otg.png`;
+
+export const metadata: Metadata = {
+  // metadataBase is required for relative OG image URLs to resolve correctly
+  metadataBase: new URL(SITE_URL),
+
+  title: {
+    default: "Free Online Text Formatter Tool | TechMind Click",
+    // Pages that export their own title inherit this template automatically
+    template: "%s | TechMind Click",
+  },
+  description:
+    "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily.",
+  keywords: [
+    "text case converter",
+    "text formatter",
+    "slug converter",
+    "case converter online",
+    "uppercase to lowercase",
+    "sentence case converter",
+    "title case converter",
+    "online text tools",
+    "seo slug generator",
+    "content formatting tool",
+  ],
+  authors: [{ name: "TechMind" }],
+  robots: { index: true, follow: true },
+
+  // Canonical for the root — child pages override via their own metadata
+  alternates: { canonical: "/" },
+
+  // Verification tags
+  other: {
+    "p:domain_verify": "1dc8540b6963e0d5e7f3b2c413ea7d18",
+    "saashub-verification": "9co7xpw6sv2e",
+  },
+
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "TechMind Click",
+    title: "Free Online Text Formatter Tool | TechMind Click",
+    description:
+      "Use our free online text formatter to convert case, clean, and edit text instantly.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "TechMind Click" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Online Text Formatter Tool | TechMind Click",
+    description:
+      "Use our free online text formatter to convert case, clean, and edit text instantly.",
+    images: [OG_IMAGE],
+  },
+
+  icons: {
+    icon: [
+      { url: "/techmind-favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
+};
+
+// ─── Root Layout ──────────────────────────────────────────────────────────────
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{siteTitle}</title>
-        <meta name="description" content={siteDescription} />
-        <meta name="keywords" content={siteKeywords} />
-        <meta name="author" content="TechMind" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={siteUrl} />
-        <meta name="p:domain_verify" content="1dc8540b6963e0d5e7f3b2c413ea7d18"/>
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={siteUrl} />
-        <meta property="og:title" content={siteTitle} />
-        <meta property="og:description" content={siteDescription} />
-        <meta property="og:image" content={ogImage} />
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={siteUrl} />
-        <meta name="twitter:title" content={siteTitle} />
-        <meta name="twitter:description" content={siteDescription} />
-        <meta name="twitter:image" content={ogImage} />
-        <link rel="icon" href="/techmind-favicon.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        {/* Google Analytics – Load Script */}
+    // Apply the font CSS variable; Tailwind picks it up via --font-inter
+    <html lang="en" className={inter.variable}>
+      <body className="flex flex-col min-h-screen font-sans">
+        {children}
+
+        {/* ── Google Analytics ────────────────────────────────────────────────
+            strategy="afterInteractive" defers both scripts until after
+            hydration so they never block FCP or LCP.
+            Placing them in <body> (not <head>) is the recommended pattern.   */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1LY4EXMSGY"
           strategy="afterInteractive"
         />
-
-        {/* Google Analytics – Config */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-1LY4EXMSGY', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', 'G-1LY4EXMSGY');
           `}
         </Script>
-      </head>
-      <body className="flex flex-col min-h-screen">{children}</body>
+      </body>
     </html>
   );
 }
