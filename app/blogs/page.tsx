@@ -17,15 +17,50 @@ export default function BlogsPage() {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
+  const schemaGraph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.techmind.click/" },
+          { "@type": "ListItem", position: 2, name: "Blogs", item: "https://www.techmind.click/blogs" },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        name: "TechMind Click Blog Articles",
+        itemListElement: sortedBlogs.map((blog, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: `https://www.techmind.click/blogs/${blog.slug}`,
+          name: blog.title,
+        })),
+      },
+    ],
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+      />
       <div className="max-w-7xl mx-auto p-3 md:p-4">
         <h1 className="text-4xl font-semibold">Blogs</h1>
+        <p className="mt-2 text-muted-foreground max-w-3xl">
+          Learn practical guides on text formatting, slug creation, content cleanup, and writing productivity.
+          Need a quick tool? Try the <Link href="/" className="underline underline-offset-4 text-purple-700">Text Formatter</Link> or 
+           <Link href="/image-to-pdf" className="underline underline-offset-4 ml-1 text-purple-700">Image to PDF converter</Link>.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {sortedBlogs.map((blog) => (
-            <article key={blog.id} className="bg-white p-4 rounded shadow">
+            <article key={blog.id} className="bg-white p-4 group rounded shadow ">
               {blog.cover && (
-                <Image
+                <Link
+                  href={`/blogs/${blog.slug}`}
+                  className="flex flex-col rounded overflow-hidden"
+                > <Image
                   src={blog.cover.url}
                   alt={blog.title}
                   width={blog.cover.width}
@@ -34,8 +69,8 @@ export default function BlogsPage() {
                   // for a ~400 px card slot, cutting image payload by ~60%.
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
-                  className="rounded w-full h-auto"
-                />
+                  className="w-full h-auto group-hover:scale-105 ease-in-out duration-300"
+                /></Link>
               )}
               <h2 className="text-xl font-semibold mt-4">
                 <Link
@@ -58,6 +93,7 @@ export default function BlogsPage() {
                 <span aria-label={`Author: ${blog.author}`}>{blog.author}</span>
               </p>
               <p className="text-gray-600 line-clamp-3">{blog.description}</p>
+              
             </article>
           ))}
         </div>

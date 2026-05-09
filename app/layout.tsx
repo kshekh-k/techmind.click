@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // Apply the font CSS variable; Tailwind picks it up via --font-inter
     <html lang="en" className={inter.variable}>
-      <body className="flex flex-col min-h-screen font-sans">
+      <body className="flex flex-col min-h-screen font-sans bg-gray-50">
         {children}
 
         {/* ── Google Analytics ────────────────────────────────────────────────

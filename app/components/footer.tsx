@@ -14,10 +14,13 @@ const Footer = () => {
                     </p>
                 </div>
                 <nav aria-label="Footer navigation">
-                    <ul className="flex flex-wrap gap-4 list-none p-0 m-0">
+                    <ul className="flex flex-wrap gap-4 list-none p-0 m-0 text-sm">
                         <li><Link href="/about-us" title="About us">About us</Link></li>
                         <li><Link href="/contact-us" title="Contact Us">Contact Us</Link></li>
                         <li><Link href="/blogs" title="Blogs">Blogs</Link></li>
+                        <li><Link href="/glossary" title="Glossary">Glossary</Link></li>
+                        <li><Link href="/authors" title="Authors">Authors</Link></li>
+                        <li><Link href="/editorial-policy" title="Editorial Policy">Editorial Policy</Link></li>
                         <li><Link href="/terms-conditions" title="Terms & Conditions">Terms &amp; Conditions</Link></li>
                         <li><Link href="/privacy-policy" title="Privacy Policy">Privacy Policy</Link></li>
                     </ul>
