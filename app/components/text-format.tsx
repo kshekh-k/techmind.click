@@ -40,7 +40,8 @@ type FormatAction =
   | "remove-spaces"
   | "remove-line-breaks"
   | "reverse-text"
-  | "slug";
+  | "slug"
+  | "snakecase";
 
 type ListType = "bullet" | "number" | "circle" | "none";
 type TextAlign = "left" | "center" | "right";
@@ -63,6 +64,18 @@ function slugify(input: string): string {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+function snakeify(input: string): string {
+  return input
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .replace(/[^a-z0-9\s_]/g, "")
+    .trim()
+    .replace(/\s+/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_+|_+$/g, "");
 }
 
 function formatList(text: string, newType: ListType, currentType: ListType): string {
@@ -354,6 +367,9 @@ export default function TextFormatter() {
         case "slug":
           nextText = slugify(text);
           break;
+        case "snakecase":
+          nextText = snakeify(text);
+          break;
         case "clear":
           nextText = "";
           nextListType = "none";
@@ -374,8 +390,8 @@ export default function TextFormatter() {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <Card className="shadow-lg">
+    
+      <Card className="shadow-sm !border-none">
         <CardHeader>
           <CardTitle as="h1" className="text-2xl font-bold text-center">
             Advanced Text Formatter
@@ -429,8 +445,11 @@ export default function TextFormatter() {
                   <Button variant="outline" onClick={() => formatText("sentencecase")} className="rounded-none border-r-0" aria-label="Convert to sentence case" title="Sentence Case">
                     <SpellCheck className="size-5" />
                   </Button>
-                  <Button variant="outline" onClick={() => formatText("slug")} className="rounded-l-none" aria-label="Convert text to slug" title="Slugify">
+                  <Button variant="outline" onClick={() => formatText("slug")} className="rounded-none border-r-0" aria-label="Convert text to slug" title="Slugify">
                     <Hash className="size-5" />
+                  </Button>
+                  <Button variant="outline" onClick={() => formatText("snakecase")} className="rounded-l-none" aria-label="Convert text to snake case" title="Snake Case">
+                    _
                   </Button>
                 </div>
 
@@ -507,7 +526,7 @@ export default function TextFormatter() {
               value={text}
               onChange={handleTextChange}
               onKeyDown={handleKeyDown}
-              className="min-h-[200px]"
+              className="min-h-[280px]"
               style={{ textAlign }}
               placeholder="Enter your text here..."
             />
@@ -516,9 +535,10 @@ export default function TextFormatter() {
               <Button variant="outlineBlue" onClick={() => formatText("uppercase")} className="rounded !uppercase">Uppercase</Button>
               <Button variant="outlinePurple" onClick={() => formatText("lowercase")} className="rounded lowercase">Lowercase</Button>
               <Button variant="outlineTeal" onClick={() => formatText("propercase")} className="capitalize">Proper Case</Button>
-              <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">Sentence Case</Button>
-              <Button variant="outlineBlue" onClick={() => formatText("remove-line-breaks")}>Remove Line Breaks</Button>
+              <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">Sentence Case</Button>              
               <Button variant="outlineRose" onClick={() => formatText("slug")} className="rounded">Slugify</Button>
+              <Button variant="outlineCyan" onClick={() => formatText("snakecase")} className="rounded">Snake Case</Button>
+              <Button variant="outlineBlue" onClick={() => formatText("remove-line-breaks")}>Remove Line Breaks</Button>
               <Button variant="outlineLime" onClick={handleSpellCheck} disabled={isSpellChecking}>
                 {isSpellChecking ? (
                   <span className="inline-flex items-center gap-2">
@@ -549,6 +569,6 @@ export default function TextFormatter() {
           </Button>
         </CardFooter>
       </Card>
-    </div>
+    
   );
 }

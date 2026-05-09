@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "admin",
+    "name": "TechMind Editorial Team",
+    "role": "Publisher and Content Team",
+    "bio": "TechMind Editorial Team creates and reviews practical tutorials on text formatting, case conversion, and productivity-focused content workflows.",
+    "expertise": [
+      "Text formatting",
+      "Content optimization",
+      "SEO-friendly writing",
+      "Productivity tools"
+    ],
+    "sameAs": [
+      "https://x.com/kamranshekh",
+      "https://www.linkedin.com/in/kshekh/"
+    ],
+    "updatedAt": "2026-05-10"
+  }
+]

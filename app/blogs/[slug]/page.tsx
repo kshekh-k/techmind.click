@@ -4,6 +4,7 @@ import { BlogType } from "@/app/lib/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 const SITE_URL = "https://www.techmind.click";
 const DEFAULT_OG_IMAGE =
@@ -85,28 +86,51 @@ export default async function BlogPage({ params }: PageProps) {
 
   // ── JSON-LD Article schema ─────────────────────────────────────────────────
   // Helps Google understand the article structure → rich results in SERPs.
+  const canonicalUrl = `${SITE_URL}/blogs/${blog.slug}`;
+  const imageUrl = blog.cover?.url
+    ? blog.cover.url.startsWith("http")
+      ? blog.cover.url
+      : `${SITE_URL}${blog.cover.url}`
+    : `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: blog.title,
-    description: blog.description,
-    author: { "@type": "Person", name: blog.author },
-    datePublished: blog.date,
-    dateModified: blog.date,
-    publisher: {
-      "@type": "Organization",
-      name: "TechMind Click",
-      url: SITE_URL,
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blogs/${blog.slug}` },
-    ...(blog.cover?.url && {
-      image: {
-        "@type": "ImageObject",
-        url: blog.cover.url.startsWith("http") ? blog.cover.url : `${SITE_URL}${blog.cover.url}`,
-        width: blog.cover.width,
-        height: blog.cover.height,
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Blogs", item: `${SITE_URL}/blogs` },
+          { "@type": "ListItem", position: 3, name: blog.title, item: canonicalUrl },
+        ],
       },
-    }),
+      {
+        "@type": "BlogPosting",
+        headline: blog.title,
+        description: blog.description,
+        author: { "@type": "Person", name: blog.author },
+        datePublished: blog.date,
+        dateModified: blog.date,
+        publisher: {
+          "@type": "Organization",
+          name: "TechMind Click",
+          url: SITE_URL,
+          logo: {
+            "@type": "ImageObject",
+            url: `${SITE_URL}/techmind-click-logo.svg`,
+          },
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+        image: {
+          "@type": "ImageObject",
+          url: imageUrl,
+          width: blog.cover?.width || 1200,
+          height: blog.cover?.height || 630,
+        },
+        articleSection: ["Text Formatting", "Productivity", "SEO"],
+        keywords: Array.isArray(blog.keywords) ? blog.keywords.join(", ") : blog.keywords,
+      },
+    ],
   };
 
   return (
@@ -136,9 +160,11 @@ export default async function BlogPage({ params }: PageProps) {
           </p>
 
           {blog.cover && (
+            <Link href="/" className="flex flex-col" aria-label={`Cover image for ${blog.title}`} title={blog.title}>
             <Image
               src={blog.cover.url}
               alt={blog.title}
+              title={blog.title}
               width={blog.cover.width}
               height={blog.cover.height}
               // priority + eager: this IS the LCP element for blog pages
@@ -147,11 +173,20 @@ export default async function BlogPage({ params }: PageProps) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
               className="rounded w-full h-auto"
             />
+            </Link>
           )}
 
           <div
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
+          <div className="mt-3">
+                <Link
+                  href="/"
+                  className="text-sm text-purple-700 italic underline underline-offset-4"
+                >
+                  Use Case Converter now
+                </Link>
+              </div>
         </article>
       </div>
     </Layout>
