@@ -1,63 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
   <url>
-    <loc>https://techmind.click/</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://www.techmind.click/</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://techmind.click/text-formatter</loc>
-    <lastmod>2025-12-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://techmind.click/text-format</loc>
-    <lastmod>2025-12-24</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.techmind.click/image-to-pdf</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://techmind.click/about-us</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://www.techmind.click/image-to-webp</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://techmind.click/blogs</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://www.techmind.click/blogs</loc>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/about-us</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/contact-us</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/privacy-policy</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/terms-conditions</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <!-- Blog posts -->
+  <url>
+    <loc>https://www.techmind.click/blogs/slug-converter-text-formatter</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://techmind.click/contact-us</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://www.techmind.click/blogs/techMind-helps-writers</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://techmind.click/image-to-pdf</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://www.techmind.click/blogs/text-case-converter</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://techmind.click/image-to-webp</loc>
-    <lastmod>2025-12-24</lastmod>
+    <loc>https://www.techmind.click/blogs/advanced-text-formatter-tool-free-online-case-converter-text-editor</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://techmind.click/privacy-policy</loc>
-    <lastmod>2025-12-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.techmind.click/blogs/how-to-convert-text-to-uppercase-online-fast-and-free</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://techmind.click/terms-conditions</loc>
-    <lastmod>2025-12-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.techmind.click/blogs/what-is-sentence-case-how-to-use-it-for-better-writing</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/blogs/how-to-remove-extra-spaces-from-text-online</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/blogs/title-case-vs-sentence-case-which-one-should-you-use</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.techmind.click/blogs/how-to-convert-image-to-pdf-free-no-app-needed</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

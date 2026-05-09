@@ -4,8 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 @theme {
-  /* Fonts */
-  --font-sans: var(--geist-sans), sans-serif;
+  /* Fonts — var(--font-inter) is injected by next/font in layout.tsx */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   /* Colors */
   --primary: "#3B82F6";
   --primary-dark: "#2563EB";
