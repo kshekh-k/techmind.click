@@ -436,7 +436,7 @@ export default function TextFormatter() {
 
                 <div className="flex" role="group" aria-label="Text alignment">
                   <Button
-                    variant={textAlign === "left" ? "default" : "outline"}
+                    variant={"outline"}
                     onClick={() => formatText("align-left")}
                     className="rounded-r-none border-r-0"
                     aria-pressed={textAlign === "left"}
@@ -445,7 +445,7 @@ export default function TextFormatter() {
                     <AlignLeft className="size-4" />
                   </Button>
                   <Button
-                    variant={textAlign === "center" ? "default" : "outline"}
+                    variant={"outline"}
                     onClick={() => formatText("align-center")}
                     className="rounded-none border-r-0"
                     aria-pressed={textAlign === "center"}
@@ -454,7 +454,7 @@ export default function TextFormatter() {
                     <AlignCenter className="size-4" />
                   </Button>
                   <Button
-                    variant={textAlign === "right" ? "default" : "outline"}
+                    variant={"outline"}
                     onClick={() => formatText("align-right")}
                     className="rounded-l-none"
                     aria-pressed={textAlign === "right"}
@@ -466,7 +466,7 @@ export default function TextFormatter() {
 
                 <div className="flex" role="group" aria-label="List formatting">
                   <Button
-                    variant={activeListType === "bullet" ? "default" : "outline"}
+                    variant={"outline"}
                     onClick={() => formatText("bullet-list")}
                     className="rounded-r-none border-r-0"
                     aria-pressed={activeListType === "bullet"}
@@ -475,7 +475,7 @@ export default function TextFormatter() {
                     <List className="size-4" />
                   </Button>
                   <Button
-                    variant={activeListType === "number" ? "default" : "outline"}
+                    variant={"outline"}
                     onClick={() => formatText("number-list")}
                     className="rounded-none border-r-0"
                     aria-pressed={activeListType === "number"}
@@ -484,7 +484,7 @@ export default function TextFormatter() {
                     <ListOrdered className="size-4" />
                   </Button>
                   <Button
-                    variant={activeListType === "circle" ? "default" : "outline"}
+                    variant={"outline"}
                     onClick={() => formatText("circle-list")}
                     className="rounded-l-none"
                     aria-pressed={activeListType === "circle"}
