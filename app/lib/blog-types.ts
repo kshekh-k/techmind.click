@@ -13,4 +13,5 @@ export type BlogType = {
   author: string;
   date: string;
   cover?: BlogCover;
+  relatedPosts?: string[];
 };
