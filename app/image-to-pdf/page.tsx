@@ -4,10 +4,32 @@ import Layout from "@/app/components/layout";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Image to PDF Converter Online | TechMind Click",
+  title: "Free Image to PDF Converter Online",
   description:
     "Convert JPG, PNG, and WebP images to a PDF file instantly — free, no watermark, no sign-up required.",
+  keywords: [
+    "image to pdf",
+    "jpg to pdf",
+    "png to pdf",
+    "webp to pdf",
+    "free image to pdf converter",
+    "online image to pdf tool",
+  ],
+  robots: { index: true, follow: true },
   alternates: { canonical: "/image-to-pdf" },
+  openGraph: {
+    type: "website",
+    title: "Free Image to PDF Converter Online",
+    description:
+      "Convert JPG, PNG, and WebP images to a PDF file instantly — free, no watermark, no sign-up required.",
+    url: "/image-to-pdf",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Image to PDF Converter Online",
+    description:
+      "Convert JPG, PNG, and WebP images to a PDF file instantly — free, no watermark, no sign-up required.",
+  },
 };
 
 // pdf-lib + react-dropzone are large; lazy-load so they don't inflate the

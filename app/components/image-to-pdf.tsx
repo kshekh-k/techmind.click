@@ -343,6 +343,38 @@ export default function ImageToPdf() {
             </Card>
           ))}
         </div>
+
+        <section className="space-y-4" aria-labelledby="image-to-pdf-about">
+          <h2 id="image-to-pdf-about" className="text-2xl font-semibold">
+            Why use this Image to PDF converter?
+          </h2>
+          <p className="text-muted-foreground leading-7">
+            This free online Image to PDF converter helps you combine multiple JPG, PNG, or WEBP files into a
+            single PDF in seconds. It is designed for students, office teams, and anyone who needs quick document
+            sharing without installing software. You can reorder images before conversion, sort by name or size,
+            and choose your output filename.
+          </p>
+          <p className="text-muted-foreground leading-7">
+            Typical use cases include assignment submission, receipt and invoice archiving, travel document sharing,
+            and creating printable photo sheets. The tool is simple, fast, and works directly in your browser.
+          </p>
+        </section>
+
+        <section className="space-y-4" aria-labelledby="image-to-pdf-faq">
+          <h2 id="image-to-pdf-faq" className="text-2xl font-semibold">
+            Image to PDF FAQ
+          </h2>
+          <div className="space-y-3">
+            <h3 className="text-lg font-medium">Which image formats are supported?</h3>
+            <p className="text-muted-foreground">You can upload JPG, JPEG, PNG, and WEBP files.</p>
+            <h3 className="text-lg font-medium">Can I merge multiple images into one PDF?</h3>
+            <p className="text-muted-foreground">
+              Yes. Upload multiple files, arrange them in your preferred order, and convert them into a single PDF.
+            </p>
+            <h3 className="text-lg font-medium">Does this converter add a watermark?</h3>
+            <p className="text-muted-foreground">No. The generated PDF is watermark-free.</p>
+          </div>
+        </section>
       </div>
     </div>
   );
