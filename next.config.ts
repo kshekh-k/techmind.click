@@ -40,8 +40,37 @@ const nextConfig: NextConfig = {
   // but keeping it ensures local `next start` also compresses responses)
   compress: true,
 
+  async redirects() {
+    return [
+      {
+        source: "/blogs/techMind-helps-writers",
+        destination: "/blogs/techmind-helps-writers",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
+      {
+        // Keep crawler-facing discovery files fresh and easy to revalidate.
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/robots.txt",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
       {
         // Static assets — long-lived cache
         source: "/_next/static/(.*)",
