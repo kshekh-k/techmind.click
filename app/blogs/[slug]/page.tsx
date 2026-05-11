@@ -1,4 +1,5 @@
 import Layout from "@/app/components/layout";
+import RelatedPosts from "@/app/components/related-posts";
 import blogs from "@/app/data/blog.json";
 import { BlogType } from "@/app/lib/types";
 import Image from "next/image";
@@ -187,7 +188,16 @@ export default async function BlogPage({ params }: PageProps) {
                   Use Case Converter now
                 </Link>
               </div>
+
+        
         </article>
+        
+          {blog.relatedPosts && blog.relatedPosts.length > 0 && (
+            <RelatedPosts
+              relatedPosts={blog.relatedPosts}
+              currentSlug={blog.slug}
+            />
+          )}
       </div>
     </Layout>
   );
