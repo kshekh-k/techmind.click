@@ -16,7 +16,7 @@ keywords: [
   "slug generator", 
   "content formatting tool"
   ]
-slug: techMind-helps-writers
+slug: techmind-helps-writers
 date: 2026-01-01
 author: Admin
 cover:
