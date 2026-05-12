@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/app/components/layout";
 import FAQAccordion from "@/app/components/faq-accordion";
+import TextFormatter from "../components/text-format";
 
 const SITE_URL = "https://www.techmind.click";
 const PAGE_PATH = "/how-to-convert-uppercase-to-lowercase-without-excel";
@@ -172,7 +173,8 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
 
-      <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-2 sm:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-7xl px-4 pb-16 pt-2 sm:px-6 lg:px-8 space-y-5 xl:space-y-10">
+        <TextFormatter />
         <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-2xl sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-indigo-300/20 blur-3xl" />
@@ -326,7 +328,12 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           </blockquote>
 
           <h2>Convert Uppercase to Lowercase Without Excel</h2>
-            <Image src={'/images/how-to-convert-uppercase-to-lowercase-without-excel.png'} alt="Convert Uppercase to Lowercase Without Excel" className="object-cover w-full h-auto" width={1280} height={600} />
+            <a
+                    href="#"
+                    className="flex flex-col items-center"
+                    aria-label="Back to top"
+                    title="Back to top"
+                  ><Image src={'/images/how-to-convert-uppercase-to-lowercase-without-excel.png'} alt="Convert Uppercase to Lowercase Without Excel" className="object-cover w-full h-auto" width={1280} height={600} /></a>
           <p>
             TechMind provides a free online case converter that instantly
             transforms UPPERCASE text into lowercase, sentence case, title case,
@@ -353,7 +360,13 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
 
           <h2>How to Convert Text in 3 Easy Steps</h2>
           <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
-<Image src={'/images/how-to-convert-uppercase-to-lowercase-without-excel-step-2.png'} alt="Convert Uppercase to Lowercase Without Excel" className="object-cover max-w-full lg:max-w-md h-auto" width={580} height={600} />
+            <a
+                    href="#"
+                    className="flex flex-col items-center"
+                    aria-label="Back to top"
+                    title="Back to top"
+                  >
+<Image src={'/images/how-to-convert-uppercase-to-lowercase-without-excel-step-2.png'} alt="Convert Uppercase to Lowercase Without Excel" className="object-cover max-w-full lg:max-w-md h-auto" width={580} height={600} /></a>
           <ol>
             <li>Paste your text into the input box</li>
             <li>Select "lowercase" conversion</li>
@@ -451,7 +464,12 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
                   <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
                   <span className="ml-2 text-xs text-slate-500">https://www.techmind.click</span>
                 </div>
- 
+                <a
+                    href="#"
+                    className="flex flex-col items-center"
+                    aria-label="Back to top"
+                    title="Back to top"
+                  >
                 <Image
                   src="/images/how-to-convert-uppercase-to-lowercase-without-excel-step-3.png"
                   alt="TechMind text case converter screenshot"
@@ -460,7 +478,10 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
                   sizes="(max-width: 1024px) 100vw, 1000px"
                   className="h-auto w-full rounded-lg"
                   priority={false}
+                  aria-hidden="true"
                 />
+                </a>
+                 
               </div>
             </div>
           </div>
