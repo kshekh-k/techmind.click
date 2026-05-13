@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/app/components/layout";
 import { getGlossaryTerms } from "@/app/lib/glossary";
+import TextFormatter from "../components/text-format";
 
 const SITE_URL = "https://www.techmind.click";
 
@@ -42,7 +43,8 @@ export default function GlossaryPage() {
   return (
     <Layout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }} />
-      <section className="max-w-6xl mx-auto px-4">
+      <section className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
+        <TextFormatter />
         <h1 className="text-3xl md:text-4xl font-bold">Text Formatting Glossary</h1>
         <p className="mt-3 text-muted-foreground max-w-3xl">
           This glossary defines core formatting concepts used in writing, SEO, and developer workflows.

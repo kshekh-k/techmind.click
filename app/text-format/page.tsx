@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 export default function TextFormat() {
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 xl:px-12 space-y-5">
-      <TextFormatter />
-      </div>
+      <section className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
+        <TextFormatter />
+      </section>
     </Layout>
   );
 }

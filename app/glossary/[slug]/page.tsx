@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/app/components/layout";
 import { getGlossaryTermBySlug, getGlossaryTerms } from "@/app/lib/glossary";
+import TextFormatter from "@/app/components/text-format";
 
 const SITE_URL = "https://www.techmind.click";
 
@@ -80,7 +81,9 @@ export default async function GlossaryTermPage({ params }: PageProps) {
   return (
     <Layout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }} />
-      <article className="max-w-4xl mx-auto px-4 rounded-lg border bg-white p-5">
+      <section className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
+      <TextFormatter />
+      <article className="rounded-lg border bg-white p-5">
         <header>
           <p className="text-xs uppercase tracking-wide text-muted-foreground">Glossary</p>
           <h1 className="text-3xl font-bold mt-1">{term.term}</h1>
@@ -143,6 +146,7 @@ export default async function GlossaryTermPage({ params }: PageProps) {
 
         <footer className="mt-6 text-xs text-muted-foreground">Last updated: {term.updatedAt}</footer>
       </article>
+      </section>
     </Layout>
   );
 }
