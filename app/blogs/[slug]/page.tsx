@@ -145,7 +145,7 @@ export default async function BlogPage({ params }: PageProps) {
 
 
 
-      <div className="max-w-7xl mx-auto p-3 md:p-4 space-y-5 xl:space-y-10">
+      <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
       <TextFormatter />
         
         <article className="prose prose-lg bg-white w-full max-w-full border rounded p-5 shadow-sm">

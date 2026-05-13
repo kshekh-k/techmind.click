@@ -4,6 +4,7 @@ import blogs from "@/app/data/blog.json";
 import { BlogType } from "@/app/lib/types";
 import Layout from "@/app/components/layout";
 import type { Metadata } from "next";
+import TextFormatter from "../components/text-format";
 
 export const metadata: Metadata = {
   title: "Blogs – Text Formatting Tips & Writing Productivity | TechMind Click",
@@ -46,7 +47,8 @@ export default function BlogsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
-      <div className="max-w-7xl mx-auto p-3 md:p-4">
+      <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
+        <TextFormatter />
         <h1 className="text-4xl font-semibold">Blogs</h1>
         <p className="mt-2 text-muted-foreground max-w-3xl">
           Learn practical guides on text formatting, slug creation, content cleanup, and writing productivity.
