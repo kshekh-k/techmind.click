@@ -8,6 +8,17 @@ const LINKS = [
   { href: "/blogs", label: "Blogs" },
 ];
 
+const MORE_LINKS = [
+  {
+    href: "/change-caps-lock-text-to-sentence-case-online-free",
+    label: "Caps Lock to Sentence",
+  },
+  {
+    href: "/how-to-convert-uppercase-to-lowercase-without-excel",
+    label: "Uppercase to Lowercase",
+  },
+];
+
 // ─── Header (Server Component wrapper) ───────────────────────────────────────
 // The outer shell is a Server Component so it has zero JS cost.
 // Only the mobile toggle subtree is hydrated.
@@ -36,7 +47,7 @@ const Header = () => {
             />
           </Link>
 
-          <MobileNav links={LINKS} />
+          <MobileNav links={LINKS} moreLinks={MORE_LINKS} />
         </nav>
       </div>
     </header>

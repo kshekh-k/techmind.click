@@ -424,6 +424,11 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
 
           <ul>
             <li>
+              <Link href="/change-caps-lock-text-to-sentence-case-online-free">
+                Change CAPS LOCK text to sentence case online free
+              </Link>
+            </li>
+            <li>
               <Link href="/blogs/what-is-sentence-case">Sentence Case guides</Link>
             </li>
             <li>
@@ -439,6 +444,25 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
             </li>
             <li>Slug Generator</li>
             <li>Uppercase Converter</li>
+          </ul>
+
+          <h3>Related Long-Tail Guides</h3>
+          <ul>
+            <li>
+              <Link href="/change-caps-lock-text-to-sentence-case-online-free">
+                Fix caps lock text and convert uppercase to sentence case online
+              </Link>
+            </li>
+            <li>
+              <Link href="/blogs/what-is-sentence-case">
+                What is sentence case and when should you use it?
+              </Link>
+            </li>
+            <li>
+              <Link href="/blogs/title-case-vs-sentence-case">
+                Title case vs sentence case: complete comparison
+              </Link>
+            </li>
           </ul>
 
 
