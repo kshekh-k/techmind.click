@@ -173,7 +173,7 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
 
-      <main className="mx-auto w-full max-w-7xl px-4 pb-16 pt-2 sm:px-6 lg:px-8 space-y-5 xl:space-y-10">
+      <main className="mx-auto w-full max-w-7xl px-3 md:px-4 space-y-5 xl:space-y-10">
         <TextFormatter />
         <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-2xl sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/20 blur-3xl" />
