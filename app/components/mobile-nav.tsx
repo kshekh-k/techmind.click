@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 type NavLink = {
   href: string;
@@ -11,10 +11,12 @@ type NavLink = {
 
 type MobileNavProps = {
   links: NavLink[];
+  moreLinks: NavLink[];
 };
 
-export default function MobileNav({ links }: MobileNavProps) {
+export default function MobileNav({ links, moreLinks }: MobileNavProps) {
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   return (
     <>
@@ -42,12 +44,58 @@ export default function MobileNav({ links }: MobileNavProps) {
             <Link
               href={link.href}
               className="block px-4 py-2 hover:bg-accent hover:text-accent-foreground transition"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                setMoreOpen(false);
+              }}
             >
               {link.label}
             </Link>
           </li>
         ))}
+
+        <li className="relative sm:ml-1">
+          <button
+            type="button"
+            className="flex w-full items-center justify-between px-4 py-2 text-left hover:bg-accent hover:text-accent-foreground transition  "
+            aria-haspopup="menu"
+            aria-expanded={moreOpen}
+            aria-controls="more-nav-links"
+            onClick={() => setMoreOpen((prev) => !prev)}
+          >
+            <span>More</span>
+            <span aria-hidden="true" className={`text-xs transition ${moreOpen ? "rotate-180" : "rotate-0"}`}>
+                  <ChevronDown size={16} />
+
+            </span>
+          </button>
+
+          <ul
+            id="more-nav-links"
+            role="menu"
+            className={`
+              ${moreOpen ? "block" : "hidden"}
+              sm:absolute sm:right-0 sm:top-full sm:mt-1 sm:w-64
+              sm:rounded-md sm:border sm:bg-white sm:shadow-md
+            `}
+          >
+            {moreLinks.map((link) => (
+              <li key={link.href} role="none">
+                <Link
+                  href={link.href}
+                  role="menuitem"
+                  className="block px-4 py-2 hover:bg-accent hover:text-accent-foreground transition"
+                  onClick={() => {
+                    setOpen(false);
+                    setMoreOpen(false);
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
       </ul>
     </>
   );

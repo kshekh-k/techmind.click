@@ -50,6 +50,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
       lastModified: toDate(),
     },
+    {
+      url: `${SITE_URL}/change-caps-lock-text-to-sentence-case-online-free`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: toDate(),
+    },
     { url: `${SITE_URL}/about-us`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },
     { url: `${SITE_URL}/contact-us`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },
     { url: `${SITE_URL}/authors`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },

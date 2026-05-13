@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row">
                 <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
                     <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-                        &copy; {YEAR} TechMind. All rights reserved.
+                        &copy; {YEAR} TechMind. All rights reserved. | Developed by <Link href="https://kshekh.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:underline">kshekh.com</Link>
                     </p>
                 </div>
                 <nav aria-label="Footer navigation">
