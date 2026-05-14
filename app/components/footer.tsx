@@ -3,7 +3,8 @@ import Link from "next/link";
 // Hardcode the current year so the server and client HTML always match,
 // eliminating the hydration mismatch that new Date() causes in Server Components.
 const YEAR = new Date().getFullYear();
-
+ 
+ 
 const Footer = () => {
     return (
         <footer className="border-t p-3 bg-white">

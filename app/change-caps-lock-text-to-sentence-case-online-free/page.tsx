@@ -427,7 +427,7 @@ export default function ChangeCapsLockToSentenceCasePage() {
           <p>
             Need related help? Try the <Link href="/text-format">TechMind text case converter</Link>,
             learn the basics in <Link href="/blogs/what-is-sentence-case">what is sentence case</Link>,
-            compare styles with <Link href="/blogs/title-case-vs-sentence-case">title case vs sentence case</Link>,
+            compare styles with <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">title case vs sentence case</Link>,
             or follow this tutorial:
             <Link href="/how-to-convert-uppercase-to-lowercase-without-excel">
               how to convert uppercase to lowercase without excel
