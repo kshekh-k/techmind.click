@@ -429,10 +429,10 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blogs/what-is-sentence-case">Sentence Case guides</Link>
+              <Link href="/blogs/what-is-sentence-case-how-to-use-it-for-better-writing">Sentence Case guides</Link>
             </li>
             <li>
-              <Link href="/blogs/title-case-vs-sentence-case">Title Case comparisons</Link>
+              <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">Title Case comparisons</Link>
             </li>
             <li>
               <Link href="/text-format">Text formatter and case converter</Link>
@@ -454,16 +454,22 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blogs/what-is-sentence-case">
+              <Link href="/blogs/what-is-sentence-case-how-to-use-it-for-better-writing">
                 What is sentence case and when should you use it?
               </Link>
             </li>
             <li>
-              <Link href="/blogs/title-case-vs-sentence-case">
+              <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">
                 Title case vs sentence case: complete comparison
               </Link>
             </li>
           </ul>
+
+
+          
+
+
+
 
 
 
