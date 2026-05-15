@@ -17,6 +17,34 @@ const MORE_LINKS = [
     href: "/how-to-convert-uppercase-to-lowercase-without-excel",
     label: "Uppercase to Lowercase",
   },
+  {
+    href: "/convert-image-to-pdf-for-government-form",
+    label: "Image to PDF for Govt Form",
+  },
+  {
+    href: "/does-techmind-store-uploaded-files",
+    label: "Does TechMind Store Files?",
+  },
+  {
+    href: "/fix-whatsapp-text-formatting-online",
+    label: "Fix WhatsApp Formatting",
+  },
+  {
+    href: "/convert-jpg-to-pdf-on-mobile-without-app",
+    label: "JPG to PDF on Mobile",
+  },
+  {
+    href: "/merge-pdf-files-for-job-application",
+    label: "Merge PDF for Job Application",
+  },
+  {
+    href: "/is-online-text-converter-safe",
+    label: "Is Text Converter Safe?",
+  },
+  {
+    href: "/how-techmind-protects-user-privacy",
+    label: "How TechMind Protects Privacy",
+  },
 ];
 
 // ─── Header (Server Component wrapper) ───────────────────────────────────────

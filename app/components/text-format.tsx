@@ -393,8 +393,8 @@ export default function TextFormatter() {
     
       <Card className="shadow-sm !border-none">
         <CardHeader>
-          <CardTitle as="h1" className="text-2xl font-bold text-center">
-            Advanced Text Formatter
+          <CardTitle as="p" className="text-2xl font-bold text-center">
+            Advanced Case Converter
           </CardTitle>
         </CardHeader>
 

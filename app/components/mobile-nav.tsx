@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
@@ -17,6 +17,24 @@ type MobileNavProps = {
 export default function MobileNav({ links, moreLinks }: MobileNavProps) {
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const moreMenuRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    function closeOnOutsideInteraction(event: MouseEvent | PointerEvent) {
+      const target = event.target as Node;
+      if (moreMenuRef.current && !moreMenuRef.current.contains(target)) {
+        setMoreOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsideInteraction, true);
+    document.addEventListener("click", closeOnOutsideInteraction, true);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideInteraction, true);
+      document.removeEventListener("click", closeOnOutsideInteraction, true);
+    };
+  }, []);
 
   return (
     <>
@@ -36,6 +54,7 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
         className={`
           sm:flex sm:gap-4 sm:static
           absolute right-0 w-56 sm:w-auto
+          max-h-[calc(100vh-3.5rem)] overflow-y-auto sm:max-h-none sm:overflow-visible
           ${open ? "block bg-white rounded-b-sm shadow-md top-full" : "hidden"}
         `}
       >
@@ -54,10 +73,19 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
           </li>
         ))}
 
-        <li className="relative sm:ml-1">
+        <li ref={moreMenuRef} className="relative z-20 sm:ml-1">
+          {moreOpen ? (
+            <button
+              type="button"
+              aria-label="Close more menu"
+              className="fixed inset-0 z-10"
+              onClick={() => setMoreOpen(false)}
+            />
+          ) : null}
+
           <button
             type="button"
-            className="flex w-full items-center justify-between px-4 py-2 text-left hover:bg-accent hover:text-accent-foreground transition  "
+            className="relative z-20 flex w-full items-center justify-between px-4 py-2 text-left transition hover:bg-accent hover:text-accent-foreground"
             aria-haspopup="menu"
             aria-expanded={moreOpen}
             aria-controls="more-nav-links"
@@ -75,8 +103,9 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
             role="menu"
             className={`
               ${moreOpen ? "block" : "hidden"}
-              sm:absolute sm:right-0 sm:top-full sm:mt-1 sm:w-64
+              relative z-20 sm:absolute sm:right-0 sm:top-full sm:mt-1 sm:w-64
               sm:rounded-md sm:border sm:bg-white sm:shadow-md
+              sm:max-h-80 sm:overflow-y-auto
             `}
           >
             {moreLinks.map((link) => (

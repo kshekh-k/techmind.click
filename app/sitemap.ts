@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import blogs from "@/app/data/blog.json";
 import glossary from "@/app/data/glossary.json";
 import authors from "@/app/data/authors.json";
+import { getAllLongTailSlugs } from "@/app/content/long-tail-pages";
 
 type Blog = {
   slug: string;
@@ -85,8 +86,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: toDate(author.updatedAt),
   }));
 
+  const longTailRoutes: MetadataRoute.Sitemap = getAllLongTailSlugs().map((slug) => ({
+    url: `${SITE_URL}/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+    lastModified: toDate("2026-05-15T00:00:00.000Z"),
+  }));
+
   const uniqueEntries = new Map<string, MetadataRoute.Sitemap[number]>();
-  for (const entry of [...staticRoutes, ...glossaryRoutes, ...authorRoutes, ...blogRoutes]) {
+  for (const entry of [
+    ...staticRoutes,
+    ...glossaryRoutes,
+    ...authorRoutes,
+    ...blogRoutes,
+    ...longTailRoutes,
+  ]) {
     uniqueEntries.set(entry.url, entry);
   }
 
