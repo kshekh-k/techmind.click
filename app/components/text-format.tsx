@@ -21,7 +21,7 @@ import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Label } from "@/app/components/ui/label";
 import { Textarea } from "@/app/components/ui/textarea";
-import { normalizeSpaces, removeLineBreaks } from "@/utils/text";
+import { normalizeSpaces, removeLineBreaks, slugSnakeToText } from "@/utils/text";
 import type { SpellcheckMatch } from "@/lib/spellcheck";
 
 type FormatAction =
@@ -41,7 +41,8 @@ type FormatAction =
   | "remove-line-breaks"
   | "reverse-text"
   | "slug"
-  | "snakecase";
+  | "snakecase"
+  | "slug-snake-to-text";
 
 type ListType = "bullet" | "number" | "circle" | "none";
 type TextAlign = "left" | "center" | "right";
@@ -356,7 +357,7 @@ export default function TextFormatter() {
           setTextAlign("right");
           return;
         case "remove-spaces":
-          nextText = normalizeSpaces(text);
+          nextText = slugSnakeToText(normalizeSpaces(text));
           break;
         case "remove-line-breaks":
           nextText = removeLineBreaks(text);
@@ -369,6 +370,9 @@ export default function TextFormatter() {
           break;
         case "snakecase":
           nextText = snakeify(text);
+          break;
+        case "slug-snake-to-text":
+          nextText = slugSnakeToText(text);
           break;
         case "clear":
           nextText = "";
@@ -448,8 +452,11 @@ export default function TextFormatter() {
                   <Button variant="outline" onClick={() => formatText("slug")} className="rounded-none border-r-0" aria-label="Convert text to slug" title="Slugify">
                     <Hash className="size-5" />
                   </Button>
-                  <Button variant="outline" onClick={() => formatText("snakecase")} className="rounded-l-none" aria-label="Convert text to snake case" title="Snake Case">
+                  <Button variant="outline" onClick={() => formatText("snakecase")} className="rounded-none border-r-0" aria-label="Convert text to snake case" title="Snake Case">
                     _
+                  </Button>
+                  <Button variant="outline" onClick={() => formatText("slug-snake-to-text")} className="rounded-l-none" aria-label="Convert slug or snake case to readable text" title="Slug/Snake to Text">
+                    T
                   </Button>
                 </div>
 
@@ -531,14 +538,15 @@ export default function TextFormatter() {
               placeholder="Enter your text here..."
             />
 
-            <div className="flex flex-wrap gap-5 pt-5">
+            <div className="flex flex-wrap gap-3 pt-5">
               <Button variant="outlineBlue" onClick={() => formatText("uppercase")} className="rounded !uppercase">Uppercase</Button>
               <Button variant="outlinePurple" onClick={() => formatText("lowercase")} className="rounded lowercase">Lowercase</Button>
               <Button variant="outlineTeal" onClick={() => formatText("propercase")} className="capitalize">Proper Case</Button>
               <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">Sentence Case</Button>              
               <Button variant="outlineRose" onClick={() => formatText("slug")} className="rounded">Slugify</Button>
               <Button variant="outlineCyan" onClick={() => formatText("snakecase")} className="rounded">Snake Case</Button>
-              <Button variant="outlineBlue" onClick={() => formatText("remove-line-breaks")}>Remove Line Breaks</Button>
+              <Button variant="outlinePurple" onClick={() => formatText("slug-snake-to-text")} className="rounded">Slug/Snake Clean</Button>
+              <Button variant="outlineBlue" onClick={() => formatText("remove-line-breaks")} className="rounded">Line Breaks</Button>
               <Button variant="outlineLime" onClick={handleSpellCheck} disabled={isSpellChecking}>
                 {isSpellChecking ? (
                   <span className="inline-flex items-center gap-2">
