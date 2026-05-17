@@ -2,6 +2,13 @@ export const normalizeSpaces = (text: string): string => {
     return text.replace(/\s+/g, " ").trim();
 };
 
+export const slugSnakeToText = (text: string): string => {
+    return text
+        .replace(/[-_]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+};
+
 export const removeLineBreaks = (text: string): string => {
     return text
     .replace(/([.!?,])(?:\r\n|\n|\r)+\s*/g, (_, punctuation: string) => `${punctuation} `)
