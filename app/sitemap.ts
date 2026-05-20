@@ -4,6 +4,8 @@ import glossary from "@/app/data/glossary.json";
 import authors from "@/app/data/authors.json";
 import { getAllLongTailSlugs } from "@/app/content/long-tail-pages";
 
+export const dynamic = "force-dynamic";
+
 type Blog = {
   slug: string;
   date?: string;
@@ -20,8 +22,6 @@ type Author = {
 };
 
 const SITE_URL = "https://www.techmind.click";
-
-export const revalidate = 3600;
 
 function toDate(value?: string): Date {
   const fallback = new Date("2026-05-11T00:00:00.000Z");
