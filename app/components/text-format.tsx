@@ -443,7 +443,7 @@ export default function TextFormatter() {
                   <Button variant="outline" onClick={() => formatText("lowercase")} className="rounded-none border-r-0" aria-label="Convert to lowercase" title="Lowercase">
                     <CaseLower className="size-5" />
                   </Button>
-                  <Button variant="outline" onClick={() => formatText("propercase")} className="rounded-none border-r-0" aria-label="Convert to proper case" title="Proper Case">
+                  <Button variant="outline" onClick={() => formatText("propercase")} className="rounded-none border-r-0" aria-label="Convert to camel case" title="Camel Case">
                     <CaseSensitive className="size-5" />
                   </Button>
                   <Button variant="outline" onClick={() => formatText("sentencecase")} className="rounded-none border-r-0" aria-label="Convert to sentence case" title="Sentence Case">
@@ -541,7 +541,7 @@ export default function TextFormatter() {
             <div className="flex flex-wrap gap-3 pt-5">
               <Button variant="outlineBlue" onClick={() => formatText("uppercase")} className="rounded !uppercase">Uppercase</Button>
               <Button variant="outlinePurple" onClick={() => formatText("lowercase")} className="rounded lowercase">Lowercase</Button>
-              <Button variant="outlineTeal" onClick={() => formatText("propercase")} className="capitalize">Proper Case</Button>
+              <Button variant="outlineTeal" onClick={() => formatText("propercase")} className="capitalize">Camel Case</Button>
               <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">Sentence Case</Button>              
               <Button variant="outlineRose" onClick={() => formatText("slug")} className="rounded">Slugify</Button>
               <Button variant="outlineCyan" onClick={() => formatText("snakecase")} className="rounded">Snake Case</Button>
