@@ -315,10 +315,8 @@ export default function TextFormatter() {
       if (!text && action !== "clear") {
         return;
       }
-
       let nextText = text;
       let nextListType = activeListType;
-
       switch (action) {
         case "uppercase":
           nextText = text.toUpperCase();
@@ -393,8 +391,7 @@ export default function TextFormatter() {
     [activeListType, applyText, resetSpellState, text]
   );
 
-  return (
-    
+  return (    
       <Card className="shadow-sm !border-none">
         <CardHeader>
           <CardTitle as="p" className="text-2xl font-bold text-center">
@@ -576,7 +573,6 @@ export default function TextFormatter() {
             Copy Text
           </Button>
         </CardFooter>
-      </Card>
-    
+      </Card>    
   );
 }
