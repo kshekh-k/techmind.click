@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Free Online Text Formatter & Case Converter | TechMind",
 
   description:
-    "Format text instantly with TechMind. Convert uppercase, lowercase, sentence case, title case, and generate SEO-friendly slugs online for free.",
+    "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
 
   keywords: [
     "text formatter",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Free Online Text Formatter & Case Converter | TechMind",
 
     description:
-      "Convert uppercase, lowercase, sentence case, title case, and SEO-friendly slugs instantly with TechMind’s free online text formatter.",
+      "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
 
     url: "https://www.techmind.click",
 
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Free Online Text Formatter & Case Converter | TechMind",
 
     description:
-      "Convert text case, clean formatting, and generate SEO-friendly slugs instantly using TechMind.",
+      "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
 
     images: [
       "/images/text-case-converter-and-formatter-techmind-click-otg.png",
@@ -238,7 +238,7 @@ const schemaGraph = {
       ],
 
       description:
-        "Free online text formatter and case converter with sentence case conversion, slug generation, and whitespace cleanup.",
+        "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
     },
 
     /* ---------------------------------------
@@ -301,7 +301,7 @@ const schemaGraph = {
       name: "How to format text online with TechMind",
 
       description:
-        "Quickly convert text into uppercase, lowercase, sentence case, title case, or SEO-friendly slugs.",
+        "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
 
       totalTime: "PT1M",
 
@@ -380,107 +380,120 @@ export default function Home() {
         }
       >
         <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
-        <TextFormatter />
-      
+          <TextFormatter />
 
-     <Card className="shadow-sm !border-none">
-  <CardHeader>
-    <CardTitle
-      as="h1"
-      className="text-3xl md:text-4xl font-extrabold tracking-tight text-left leading-tight"
-    >
-      Free Text Conversion, Slug Generator & Formatting Tools for Developers, SEO & Content Cleanup
-    </CardTitle>
 
-    <p className="text-base md:text-lg text-muted-foreground mt-3 max-w-4xl">
-      Use powerful online tools to convert text case, generate SEO-friendly URL slugs, remove extra spaces,
-      clean line breaks, format content, and optimize text structure for websites, coding projects,
-      documents, and AI-readable content.
-    </p>
-  </CardHeader>
+          <Card className="shadow-sm !border-none">
+            <CardHeader>
+              <CardTitle
+                as="h1"
+                className="text-3xl md:text-4xl font-extrabold tracking-tight text-left leading-tight"
+              >
+                Free Case Converter, Slug Generator & Text Formatting Tools
+              </CardTitle>
 
-  <CardContent>
-    <div className="space-y-4 text-muted-foreground leading-7">
-      <p>
-        Our platform provides simple and fast text formatting utilities designed for developers, SEO professionals,
-        students, bloggers, marketers, and everyday users. Easily transform uppercase text to lowercase,
-        generate clean URL slugs, convert snake_case, remove duplicate spaces, clean unwanted line breaks,
-        and format text instantly without installing any software.
-      </p>
+              <p className="text-base md:text-lg text-muted-foreground mt-3 max-w-4xl">
+                Convert text case, generate clean URL slugs, remove extra spaces, clean line breaks, and format content instantly with simple online text utilities designed for modern writing and content workflows.
+              </p>
+            </CardHeader>
 
-      <p>
-        These tools help improve readability, text consistency, website formatting, SEO optimization,
-        coding workflows, and structured content organization. Whether you are preparing website content,
-        cleaning copied text, formatting database values, or generating search-friendly URLs,
-        our utilities make the process faster and easier.
-      </p>
+            <CardContent>
+              <div className="space-y-4 text-muted-foreground leading-7 prose max-w-none">
+                <p>
+                  Our tools help writers, developers, students, bloggers, and content creators organize and format text more efficiently without installing any software.
+                </p>
 
-      <p>
-        Explore free online text conversion tools including case converters, whitespace removers,
-        slug generators, snake case converters, camel case tools, line break removers,
-        text cleanup utilities, and other formatting solutions built for modern web usage.
-      </p>
-    </div>
+                <h3>
+                  Case Converter Tools
+                </h3>
+                <p>Quickly convert text into:</p>
 
-    <div className="mt-6 flex flex-wrap gap-4 text-sm md:text-base">
-      <Link
-        href="/glossary"
-        className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
-      >
-        Glossary Definitions
-      </Link>
+                <ul>
+                  <li>UPPERCASE</li>
+                  <li>Lowercase</li>
+                  <li>Sentence case</li>
+                  <li>Title case</li>
+                  <li>Toggle case</li>
+                  <li>Inverse case</li>
+                </ul>
+                <h3>Slug Generator & Text Cleanup</h3>
+                <p>
+                  Generate clean and readable URL slugs from any text instantly. Remove unwanted characters, extra spaces, duplicate line breaks, and messy formatting with one click.
+                </p>
+                <p>Useful for:</p>
+                <ul>
+                  <li>blog titles</li>
+                  <li>content writing</li>
+                  <li>document cleanup</li>
+                  <li>project organization</li>
+                  <li>readable text formatting</li>
+                </ul>
+                <h3>Simple Tools for Everyday Writing</h3>
+                <p>
+                  Whether you are formatting articles, preparing assignments, organizing notes, cleaning copied text, or structuring content for websites and apps, these utilities help make text cleaner, more readable, and easier to manage.
+                </p>
+                <p>Explore free online text formatting tools built for fast, simple, and distraction-free usage.</p>
+              </div>
 
-      <Link
-        href="/blogs"
-        className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
-      >
-        Blog Knowledge Hub
-      </Link>
+              <div className="mt-6 flex flex-wrap gap-4 text-sm md:text-base">
+                <Link
+                  href="/glossary"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Glossary Definitions
+                </Link>
 
-      <Link
-        href="/authors"
-        className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
-      >
-        Authors and Contributors
-      </Link>
+                <Link
+                  href="/blogs"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Blog Knowledge Hub
+                </Link>
 
-      <Link
-        href="/editorial-policy"
-        className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
-      >
-        Editorial Policy
-      </Link>
-    </div>
+                <Link
+                  href="/authors"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Authors and Contributors
+                </Link>
 
-    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="rounded-xl border p-4 bg-muted/30">
-        <h2 className="font-semibold text-lg mb-2">
-          Popular Text Formatting Tools
-        </h2>
+                <Link
+                  href="/editorial-policy"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Editorial Policy
+                </Link>
+              </div>
 
-        <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-          <li>Uppercase & lowercase converter</li>
-          <li>Slug generator for SEO-friendly URLs</li>
-          <li>Snake case & camel case converter</li>
-          <li>Whitespace & duplicate space remover</li>
-          <li>Line break and text cleanup tools</li>
-        </ul>
-      </div>
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-xl border p-4 bg-muted/30">
+                  <h2 className="font-semibold text-lg mb-2">
+                    Popular Text Formatting Tools
+                  </h2>
 
-      <div className="rounded-xl border p-4 bg-muted/30">
-        <h2 className="font-semibold text-lg mb-2">
-          Built for SEO, Developers & Daily Productivity
-        </h2>
+                  <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+                    <li>Uppercase & lowercase converter</li>
+                    <li>Slug generator for SEO-friendly URLs</li>
+                    <li>Snake case & camel case converter</li>
+                    <li>Whitespace & duplicate space remover</li>
+                    <li>Line break and text cleanup tools</li>
+                  </ul>
+                </div>
 
-        <p className="text-sm text-muted-foreground">
-          Improve text formatting, content consistency, coding workflows, and URL structure using
-          lightweight online utilities optimized for speed, accessibility, and modern web standards.
-        </p>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-      </div>
+                <div className="rounded-xl border p-4 bg-muted/30">
+                  <h2 className="font-semibold text-lg mb-2">
+                    Built for SEO, Developers & Daily Productivity
+                  </h2>
+
+                  <p className="text-sm text-muted-foreground">
+                    Improve text formatting, content consistency, coding workflows, and URL structure using
+                    lightweight online utilities optimized for speed, accessibility, and modern web standards.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </Suspense>
     </Layout>
   );
