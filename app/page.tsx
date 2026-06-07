@@ -99,10 +99,10 @@ const TextFormatter = dynamic(() => import("./components/text-format"), {
  * ------------------------------------- */
 
 const SITE_URL = "https://www.techmind.click";
-
 const ORG_ID = `${SITE_URL}#organization`;
 const WEBSITE_ID = `${SITE_URL}#website`;
 const APP_ID = `${SITE_URL}#text-formatter-app`;
+const SEO_DESCRIPTION =  "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents.";
 
 /* ---------------------------------------
  * Schema Graph
@@ -110,21 +110,14 @@ const APP_ID = `${SITE_URL}#text-formatter-app`;
 
 const schemaGraph = {
   "@context": "https://schema.org",
-
   "@graph": [
-    /* ---------------------------------------
-     * Organization
-     * ------------------------------------- */
-
+    // Organization
     {
       "@type": "Organization",
-
       "@id": ORG_ID,
 
       name: "TechMind",
-
       url: SITE_URL,
-
       logo: `${SITE_URL}/techmind-click-logo.svg`,
 
       sameAs: [
@@ -136,25 +129,18 @@ const schemaGraph = {
       contactPoint: [
         {
           "@type": "ContactPoint",
-
           contactType: "customer support",
-
           url: `${SITE_URL}/contact-us`,
         },
       ],
     },
 
-    /* ---------------------------------------
-     * Website
-     * ------------------------------------- */
-
+    // Website
     {
       "@type": "WebSite",
-
       "@id": WEBSITE_ID,
 
       url: SITE_URL,
-
       name: "TechMind",
 
       publisher: {
@@ -165,17 +151,45 @@ const schemaGraph = {
 
       potentialAction: {
         "@type": "SearchAction",
-
-        target: `${SITE_URL}/blogs?query={search_term_string}`,
-
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate:
+            `${SITE_URL}/blogs?query={search_term_string}`,
+        },
         "query-input": "required name=search_term_string",
       },
     },
 
-    /* ---------------------------------------
-     * Web Application
-     * ------------------------------------- */
+    // Homepage
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}#homepage`,
 
+      url: SITE_URL,
+
+      name: "Free Online Text Formatter & Case Converter | TechMind",
+
+      isPartOf: {
+        "@id": WEBSITE_ID,
+      },
+
+      about: {
+        "@id": APP_ID,
+      },
+
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/text-case-converter-and-formatter-techmind-click-otg.png`,
+      },
+
+      breadcrumb: {
+        "@id": `${SITE_URL}#breadcrumb`,
+      },
+
+      inLanguage: "en",
+    },
+
+    // Main Tool
     {
       "@type": ["WebApplication", "SoftwareApplication"],
 
@@ -192,11 +206,52 @@ const schemaGraph = {
 
       isAccessibleForFree: true,
 
+      url: SITE_URL,
+
+      publisher: {
+        "@id": ORG_ID,
+      },
+
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
       },
+
+      featureList: [
+        "Uppercase converter",
+        "Lowercase converter",
+        "Sentence case converter",
+        "Title case formatter",
+        "Toggle case converter",
+        "Inverse case converter",
+        "Slug generator",
+        "Whitespace cleanup",
+        "Line break cleanup",
+        "Text formatting",
+      ],
+
+      keywords: [
+        "text formatter",
+        "case converter",
+        "sentence case converter",
+        "slug generator",
+      ],
+
+      description: SEO_DESCRIPTION,
+    },
+
+    // Platform Schema (AEO)
+    {
+      "@type": "SoftwareApplication",
+
+      "@id": `${SITE_URL}#platform`,
+
+      name: "TechMind.click",
+
+      applicationCategory: "UtilitiesApplication",
+
+      operatingSystem: "Web Browser",
 
       url: SITE_URL,
 
@@ -204,47 +259,27 @@ const schemaGraph = {
         "@id": ORG_ID,
       },
 
-      keywords: [
-        "text formatter",
-        "case converter",
-        "sentence case converter",
-        "slug generator",
-        "uppercase converter",
-      ],
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
 
       featureList: [
-        "Uppercase converter",
-        "Lowercase converter",
-        "Sentence case converter",
-        "Title case formatter",
-        "Slug generator",
-        "Whitespace cleanup",
-        "Text formatting",
-      ],
-
-      about: [
-        {
-          "@type": "Thing",
-          name: "Text Formatting",
-        },
-        {
-          "@type": "Thing",
-          name: "Case Conversion",
-        },
-        {
-          "@type": "Thing",
-          name: "SEO Slug Generation",
-        },
+        "Text Formatter",
+        "Case Converter",
+        "Slug Generator",
+        "Bold Text Generator",
+        "Italic Text Generator",
+        "Unicode Text Generator",
+        "Image to PDF Converter",
       ],
 
       description:
-        "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
+        "Free browser-based productivity tools for text formatting and document conversion.",
     },
 
-    /* ---------------------------------------
-     * FAQ Schema
-     * ------------------------------------- */
-
+    // FAQ
     {
       "@type": "FAQPage",
 
@@ -253,55 +288,38 @@ const schemaGraph = {
       mainEntity: [
         {
           "@type": "Question",
-
           name: "What is a text formatter tool?",
-
           acceptedAnswer: {
             "@type": "Answer",
-
-            text: "A text formatter helps you quickly convert and clean text using uppercase, lowercase, sentence case, title case, and formatting tools.",
+            text: "A text formatter helps convert and clean text using uppercase, lowercase, sentence case, title case and other formatting tools.",
           },
         },
-
         {
           "@type": "Question",
-
-          name: "Is TechMind text formatter free to use?",
-
+          name: "Is TechMind text formatter free?",
           acceptedAnswer: {
             "@type": "Answer",
-
-            text: "Yes, TechMind’s online text formatter is completely free to use with no sign-up required.",
+            text: "Yes, TechMind text formatter is completely free to use.",
           },
         },
-
         {
           "@type": "Question",
-
-          name: "Can I generate SEO-friendly slugs from text?",
-
+          name: "Can I generate SEO-friendly URL slugs?",
           acceptedAnswer: {
             "@type": "Answer",
-
-            text: "Yes, you can instantly convert plain text into clean and SEO-friendly URL slugs.",
+            text: "Yes, you can instantly generate clean SEO-friendly URL slugs.",
           },
         },
       ],
     },
 
-    /* ---------------------------------------
-     * HowTo Schema
-     * ------------------------------------- */
-
+    // HowTo
     {
       "@type": "HowTo",
 
-      "@id": `${SITE_URL}#howto-use-text-formatter`,
+      "@id": `${SITE_URL}#howto`,
 
-      name: "How to format text online with TechMind",
-
-      description:
-        "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
+      name: "How to use TechMind Text Formatter",
 
       totalTime: "PT1M",
 
@@ -315,34 +333,23 @@ const schemaGraph = {
       step: [
         {
           "@type": "HowToStep",
-
           name: "Paste text",
-
-          text: "Paste your text into the editor.",
+          text: "Paste your content into the editor.",
         },
-
         {
           "@type": "HowToStep",
-
-          name: "Choose formatting option",
-
-          text: "Select uppercase, lowercase, sentence case, title case, or slug generator.",
+          name: "Choose a formatting option",
+          text: "Select uppercase, lowercase, title case, sentence case or slug generator.",
         },
-
         {
           "@type": "HowToStep",
-
-          name: "Copy formatted text",
-
-          text: "Review and copy the converted result instantly.",
+          name: "Copy the result",
+          text: "Copy the formatted text instantly.",
         },
       ],
     },
 
-    /* ---------------------------------------
-     * Breadcrumb Schema
-     * ------------------------------------- */
-
+    // Breadcrumb
     {
       "@type": "BreadcrumbList",
 
@@ -351,11 +358,8 @@ const schemaGraph = {
       itemListElement: [
         {
           "@type": "ListItem",
-
           position: 1,
-
           name: "Home",
-
           item: SITE_URL,
         },
       ],
@@ -382,7 +386,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
           <TextFormatter />
 
-
           <Card className="shadow-sm !border-none">
             <CardHeader>
               <CardTitle
@@ -393,19 +396,22 @@ export default function Home() {
               </CardTitle>
 
               <p className="text-base md:text-lg text-muted-foreground mt-3 max-w-4xl">
-                Convert text case, generate clean URL slugs, remove extra spaces, clean line breaks, and format content instantly with simple online text utilities designed for modern writing and content workflows.
+                Convert text case, generate clean URL slugs, remove extra
+                spaces, clean line breaks, and format content instantly with
+                simple online text utilities designed for modern writing and
+                content workflows.
               </p>
             </CardHeader>
 
             <CardContent>
               <div className="space-y-4 text-muted-foreground leading-7 prose max-w-none">
                 <p>
-                  Our tools help writers, developers, students, bloggers, and content creators organize and format text more efficiently without installing any software.
+                  Our tools help writers, developers, students, bloggers, and
+                  content creators organize and format text more efficiently
+                  without installing any software.
                 </p>
 
-                <h3>
-                  Case Converter Tools
-                </h3>
+                <h3>Case Converter Tools</h3>
                 <p>Quickly convert text into:</p>
 
                 <ul>
@@ -418,7 +424,9 @@ export default function Home() {
                 </ul>
                 <h3>Slug Generator & Text Cleanup</h3>
                 <p>
-                  Generate clean and readable URL slugs from any text instantly. Remove unwanted characters, extra spaces, duplicate line breaks, and messy formatting with one click.
+                  Generate clean and readable URL slugs from any text instantly.
+                  Remove unwanted characters, extra spaces, duplicate line
+                  breaks, and messy formatting with one click.
                 </p>
                 <p>Useful for:</p>
                 <ul>
@@ -430,9 +438,15 @@ export default function Home() {
                 </ul>
                 <h3>Simple Tools for Everyday Writing</h3>
                 <p>
-                  Whether you are formatting articles, preparing assignments, organizing notes, cleaning copied text, or structuring content for websites and apps, these utilities help make text cleaner, more readable, and easier to manage.
+                  Whether you are formatting articles, preparing assignments,
+                  organizing notes, cleaning copied text, or structuring content
+                  for websites and apps, these utilities help make text cleaner,
+                  more readable, and easier to manage.
                 </p>
-                <p>Explore free online text formatting tools built for fast, simple, and distraction-free usage.</p>
+                <p>
+                  Explore free online text formatting tools built for fast,
+                  simple, and distraction-free usage.
+                </p>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-4 text-sm md:text-base">
@@ -486,8 +500,10 @@ export default function Home() {
                   </h2>
 
                   <p className="text-sm text-muted-foreground">
-                    Improve text formatting, content consistency, coding workflows, and URL structure using
-                    lightweight online utilities optimized for speed, accessibility, and modern web standards.
+                    Improve text formatting, content consistency, coding
+                    workflows, and URL structure using lightweight online
+                    utilities optimized for speed, accessibility, and modern web
+                    standards.
                   </p>
                 </div>
               </div>

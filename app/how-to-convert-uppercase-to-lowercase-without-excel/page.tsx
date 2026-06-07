@@ -133,6 +133,7 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           },
         ],
       },
+       
       {
         "@type": "FAQPage",
         mainEntity: faqs.map((faq) => ({
@@ -163,6 +164,7 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           "Remove extra spaces",
         ],
       },
+      
     ],
   };
 

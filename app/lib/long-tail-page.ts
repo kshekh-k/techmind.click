@@ -127,6 +127,17 @@ export function buildLongTailSchemaGraph(page: LongTailPage) {
           "No signup start",
         ],
       },
+      {
+        "@type": "HowTo",
+        name: "How to Convert Text to Uppercase Online",
+        tool: "TechMind.click",
+        step: [
+          { "@type": "HowToStep", text: "Go to TechMind.click" },
+          { "@type": "HowToStep", text: "Paste your text into the input box" },
+          { "@type": "HowToStep", text: "Click the Uppercase button" },
+          { "@type": "HowToStep", text: "Click Copy Text to copy the result" },
+        ],
+      }
     ],
   };
 }
