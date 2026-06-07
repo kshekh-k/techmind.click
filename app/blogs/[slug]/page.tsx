@@ -29,10 +29,12 @@ export function generateStaticParams() {
 }
 
 /* ---------- SEO / Metadata (CORRECT) ---------- */
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const blog = (blogs as BlogType[]).find(
-    (b) => b.slug === resolvedParams.slug
+    (b) => b.slug === resolvedParams.slug,
   );
 
   if (!blog) return {};
@@ -47,7 +49,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     metadataBase: new URL(SITE_URL),
     title: `${blog.title} | TechMind`,
     description: blog.description,
-    keywords: Array.isArray(blog.keywords) ? blog.keywords.join(', ') : blog.keywords,
+    keywords: Array.isArray(blog.keywords)
+      ? blog.keywords.join(", ")
+      : blog.keywords,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -81,7 +85,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPage({ params }: PageProps) {
   const resolvedParams = await params;
   const blog = (blogs as BlogType[]).find(
-    (b) => b.slug === resolvedParams.slug
+    (b) => b.slug === resolvedParams.slug,
   );
 
   if (!blog) notFound();
@@ -102,8 +106,18 @@ export default async function BlogPage({ params }: PageProps) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: "Blogs", item: `${SITE_URL}/blogs` },
-          { "@type": "ListItem", position: 3, name: blog.title, item: canonicalUrl },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blogs",
+            item: `${SITE_URL}/blogs`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: blog.title,
+            item: canonicalUrl,
+          },
         ],
       },
       {
@@ -130,7 +144,22 @@ export default async function BlogPage({ params }: PageProps) {
           height: blog.cover?.height || 630,
         },
         articleSection: ["Text Formatting", "Productivity", "SEO"],
-        keywords: Array.isArray(blog.keywords) ? blog.keywords.join(", ") : blog.keywords,
+        keywords: Array.isArray(blog.keywords)
+          ? blog.keywords.join(", ")
+          : blog.keywords,
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How do I convert text to lowercase online?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Go to TechMind.click, paste your text, and click lowercase. The conversion is instant, free, and requires no sign-up. All processing happens in your browser.",
+            },
+          },
+        ],
       },
     ],
   };
@@ -143,11 +172,9 @@ export default async function BlogPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-
-
       <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
-      <TextFormatter />
-        
+        <TextFormatter />
+
         <article className="prose prose-lg bg-white w-full max-w-full border rounded p-5 shadow-sm">
           <h1 className="leading-tight mb-0 pb-2 font-bold">{blog.title}</h1>
 
@@ -166,43 +193,44 @@ export default async function BlogPage({ params }: PageProps) {
           </p>
 
           {blog.cover && (
-            <Link href="/" className="flex flex-col" aria-label={`Cover image for ${blog.title}`} title={blog.title}>
-            <Image
-              src={blog.cover.url}
-              alt={blog.title}
+            <Link
+              href="/"
+              className="flex flex-col"
+              aria-label={`Cover image for ${blog.title}`}
               title={blog.title}
-              width={blog.cover.width}
-              height={blog.cover.height}
-              // priority + eager: this IS the LCP element for blog pages
-              priority
-              loading="eager"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
-              className="rounded w-full h-auto"
-            />
+            >
+              <Image
+                src={blog.cover.url}
+                alt={blog.title}
+                title={blog.title}
+                width={blog.cover.width}
+                height={blog.cover.height}
+                // priority + eager: this IS the LCP element for blog pages
+                priority
+                loading="eager"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
+                className="rounded w-full h-auto"
+              />
             </Link>
           )}
 
-          <div
-            dangerouslySetInnerHTML={{ __html: blog.content }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
           <div className="mt-3">
-                <Link
-                  href="/"
-                  className="text-sm text-purple-700 italic underline underline-offset-4"
-                >
-                  Use Case Converter now
-                </Link>
-              </div>
-
-        
+            <Link
+              href="/"
+              className="text-sm text-purple-700 italic underline underline-offset-4"
+            >
+              Use Case Converter now
+            </Link>
+          </div>
         </article>
-        
-          {blog.relatedPosts && blog.relatedPosts.length > 0 && (
-            <RelatedPosts
-              relatedPosts={blog.relatedPosts}
-              currentSlug={blog.slug}
-            />
-          )}
+
+        {blog.relatedPosts && blog.relatedPosts.length > 0 && (
+          <RelatedPosts
+            relatedPosts={blog.relatedPosts}
+            currentSlug={blog.slug}
+          />
+        )}
       </div>
     </Layout>
   );
