@@ -99,6 +99,21 @@ export default async function BlogPage({ params }: PageProps) {
       : `${SITE_URL}${blog.cover.url}`
     : `${SITE_URL}${DEFAULT_OG_IMAGE}`;
 
+  // Extract FAQ Q&A pairs from HTML content: <p><strong>Q?</strong></p><p>A</p>
+  const faqMatches = [
+    ...blog.content.matchAll(
+      /<p>\s*<strong>([\s\S]*?\?)<\/strong>\s*<\/p>\s*<p>([\s\S]*?)<\/p>/g
+    ),
+  ];
+  const faqEntities = faqMatches.map((m) => ({
+    "@type": "Question",
+    name: m[1].replace(/<[^>]+>/g, "").trim(),
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: m[2].replace(/<[^>]+>/g, "").trim(),
+    },
+  }));
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -126,7 +141,7 @@ export default async function BlogPage({ params }: PageProps) {
         description: blog.description,
         author: { "@type": "Person", name: blog.author },
         datePublished: blog.date,
-        dateModified: blog.date,
+        dateModified: blog.lastModified ?? blog.date,
         publisher: {
           "@type": "Organization",
           name: "TechMind Click",
@@ -148,19 +163,9 @@ export default async function BlogPage({ params }: PageProps) {
           ? blog.keywords.join(", ")
           : blog.keywords,
       },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "How do I convert text to lowercase online?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Go to TechMind.click, paste your text, and click lowercase. The conversion is instant, free, and requires no sign-up. All processing happens in your browser.",
-            },
-          },
-        ],
-      },
+      ...(faqEntities.length > 0
+        ? [{ "@type": "FAQPage", mainEntity: faqEntities }]
+        : []),
     ],
   };
 

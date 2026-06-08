@@ -5,8 +5,15 @@
     "shortDefinition": "A capitalization style where the first letter of a sentence is uppercase and the rest are mostly lowercase.",
     "definition": "Sentence case is a writing format in which each sentence starts with an uppercase letter while most other letters remain lowercase, improving readability for paragraphs and long-form content.",
     "category": "Case Conversion",
-    "aliases": ["sentencecase", "normal sentence capitalization"],
-    "related": ["title-case", "proper-case", "lowercase"],
+    "aliases": [
+      "sentencecase",
+      "normal sentence capitalization"
+    ],
+    "related": [
+      "title-case",
+      "proper-case",
+      "lowercase"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/what-is-sentence-case-how-to-use-it-for-better-writing",
@@ -40,8 +47,14 @@
     "shortDefinition": "A capitalization style where major words are capitalized, often used in headings and titles.",
     "definition": "Title case capitalizes principal words in a heading, making titles visually distinct and easier to scan in listings, blog cards, and navigation labels.",
     "category": "Case Conversion",
-    "aliases": ["headline case"],
-    "related": ["sentence-case", "proper-case", "slug"],
+    "aliases": [
+      "headline case"
+    ],
+    "related": [
+      "sentence-case",
+      "proper-case",
+      "slug"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/title-case-vs-sentence-case-which-one-should-you-use"
@@ -70,8 +83,15 @@
     "shortDefinition": "The URL-friendly part of a web address that identifies a page using readable keywords.",
     "definition": "A slug is a clean URL segment made from meaningful words, typically lowercase and hyphen-separated, helping both users and search systems understand page context.",
     "category": "SEO Formatting",
-    "aliases": ["url slug", "permalink segment"],
-    "related": ["kebab-case", "title-case", "text-formatting"],
+    "aliases": [
+      "url slug",
+      "permalink segment"
+    ],
+    "related": [
+      "kebab-case",
+      "title-case",
+      "text-formatting"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/slug-converter-text-formatter"
@@ -100,8 +120,14 @@
     "shortDefinition": "A format where words are joined without spaces and each word after the first begins with an uppercase letter.",
     "definition": "Camel case is commonly used for variable and function names in programming. The first word starts lowercase and subsequent words begin with uppercase letters.",
     "category": "Developer Formatting",
-    "aliases": ["lower camel case"],
-    "related": ["pascal-case", "snake-case", "kebab-case"],
+    "aliases": [
+      "lower camel case"
+    ],
+    "related": [
+      "pascal-case",
+      "snake-case",
+      "kebab-case"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/text-case-converter"
@@ -126,8 +152,14 @@
     "shortDefinition": "A format where words are joined and every word begins with an uppercase letter.",
     "definition": "Pascal case is a naming convention often used for class names and components in codebases, with each concatenated word capitalized.",
     "category": "Developer Formatting",
-    "aliases": ["upper camel case"],
-    "related": ["camel-case", "snake-case", "title-case"],
+    "aliases": [
+      "upper camel case"
+    ],
+    "related": [
+      "camel-case",
+      "snake-case",
+      "title-case"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/text-case-converter"
@@ -152,8 +184,14 @@
     "shortDefinition": "A lowercase, hyphen-separated format used for URLs, file names, and semantic identifiers.",
     "definition": "Kebab case writes words in lowercase separated by hyphens. It is highly readable and commonly used in URLs, slugs, and CSS class naming.",
     "category": "SEO Formatting",
-    "aliases": ["hyphen-case"],
-    "related": ["slug", "snake-case", "camel-case"],
+    "aliases": [
+      "hyphen-case"
+    ],
+    "related": [
+      "slug",
+      "snake-case",
+      "camel-case"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/slug-converter-text-formatter"
@@ -178,8 +216,14 @@
     "shortDefinition": "A lowercase format where words are separated with underscores.",
     "definition": "Snake case joins words with underscores and is common in database fields, configuration keys, and some programming ecosystems.",
     "category": "Developer Formatting",
-    "aliases": ["underscore_case"],
-    "related": ["camel-case", "pascal-case", "kebab-case"],
+    "aliases": [
+      "underscore_case"
+    ],
+    "related": [
+      "camel-case",
+      "pascal-case",
+      "kebab-case"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/text-case-converter"
@@ -204,8 +248,15 @@
     "shortDefinition": "The process of transforming raw text into clearer, standardized, and purpose-fit output.",
     "definition": "Text formatting includes capitalization, spacing cleanup, punctuation normalization, and structure changes to improve readability, consistency, and publication quality.",
     "category": "Content Quality",
-    "aliases": ["content formatting", "text cleanup"],
-    "related": ["sentence-case", "slug", "remove-extra-spaces"],
+    "aliases": [
+      "content formatting",
+      "text cleanup"
+    ],
+    "related": [
+      "sentence-case",
+      "slug",
+      "remove-extra-spaces"
+    ],
     "toolHref": "/",
     "blogHrefs": [
       "/blogs/advanced-text-formatter-tool-free-online-case-converter-text-editor",
@@ -224,5 +275,256 @@
       }
     ],
     "updatedAt": "2026-05-10"
+  },
+  {
+    "slug": "proper-case",
+    "term": "Proper Case",
+    "shortDefinition": "A capitalization style where every word begins with an uppercase letter.",
+    "definition": "Proper case (also called title case in some contexts) capitalizes the first letter of every word regardless of its grammatical role. It is commonly used for names, headings, and labels where visual emphasis across all words is needed.",
+    "category": "Case Conversion",
+    "aliases": [
+      "all words capitalized",
+      "every word uppercase"
+    ],
+    "related": [
+      "title-case",
+      "sentence-case",
+      "pascal-case"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/text-case-converter",
+      "/blogs/title-case-vs-sentence-case-which-one-should-you-use"
+    ],
+    "faqs": [
+      {
+        "q": "Is proper case the same as title case?",
+        "a": "They are similar, but proper case capitalizes every word without exception, while title case typically skips short prepositions and conjunctions."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Input",
+        "value": "the quick brown fox"
+      },
+      {
+        "label": "Output",
+        "value": "The Quick Brown Fox"
+      }
+    ],
+    "updatedAt": "2026-06-08"
+  },
+  {
+    "slug": "slugify",
+    "term": "Slugify",
+    "shortDefinition": "The process of converting arbitrary text into a URL-safe, hyphen-separated lowercase slug.",
+    "definition": "Slugifying text means transforming it into a clean URL segment by converting it to lowercase, replacing spaces with hyphens, and removing special characters. The result is a human-readable string safe for use in URLs and file names.",
+    "category": "SEO Formatting",
+    "aliases": [
+      "slugification",
+      "url-safe conversion"
+    ],
+    "related": [
+      "slug",
+      "kebab-case",
+      "text-formatting"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/slug-converter-text-formatter",
+      "/blogs/what-is-a-url-slug-how-to-create-seo-friendly-slugs"
+    ],
+    "faqs": [
+      {
+        "q": "What characters does slugify remove?",
+        "a": "Slugify removes special characters such as punctuation, symbols, and accented letters, then replaces spaces with hyphens and converts everything to lowercase."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Input",
+        "value": "Advanced Text Formatter & Tool!"
+      },
+      {
+        "label": "Output",
+        "value": "advanced-text-formatter-tool"
+      }
+    ],
+    "updatedAt": "2026-06-08"
+  },
+  {
+    "slug": "unicode",
+    "term": "Unicode",
+    "shortDefinition": "A universal character encoding standard that assigns a unique code point to every character across all writing systems.",
+    "definition": "Unicode is the global standard for encoding, representing, and handling text in most of the world's writing systems. It allows text tools and platforms to display and process characters from any language or symbol set consistently.",
+    "category": "Text Encoding",
+    "aliases": [
+      "universal character set",
+      "UTF-8"
+    ],
+    "related": [
+      "unicode-bold-text",
+      "text-formatting"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/bold-text-generator-online-copy-paste"
+    ],
+    "faqs": [
+      {
+        "q": "Why does Unicode matter for text formatting?",
+        "a": "Unicode enables text tools to handle every language and symbol correctly. It also allows special styling like bold or italic through mathematical character ranges that display across platforms."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Note",
+        "value": "UTF-8 is the most common Unicode encoding on the web"
+      }
+    ],
+    "updatedAt": "2026-06-08"
+  },
+  {
+    "slug": "unicode-bold-text",
+    "term": "Unicode Bold Text",
+    "shortDefinition": "Bold-styled text created using Unicode mathematical alphanumeric characters, copyable across any platform.",
+    "definition": "Unicode bold text uses special mathematical bold characters from the Unicode standard to produce bold-looking text that can be copied and pasted into any platform — social media, emails, or chat — without relying on HTML or markdown formatting.",
+    "category": "Text Encoding",
+    "aliases": [
+      "fancy bold text",
+      "copy-paste bold"
+    ],
+    "related": [
+      "unicode",
+      "text-formatting"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/bold-text-generator-online-copy-paste"
+    ],
+    "faqs": [
+      {
+        "q": "Why use Unicode bold instead of HTML bold tags?",
+        "a": "Unicode bold characters are plain text that renders visually bold on any platform without needing HTML rendering support, making them ideal for social media bios, tweets, and messaging apps."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Output",
+        "value": "𝗛𝗲𝗹𝗹𝗼 𝗪𝗼𝗿𝗹𝗱"
+      }
+    ],
+    "updatedAt": "2026-06-08"
+  },
+  {
+    "slug": "text-normalisation",
+    "term": "Text Normalisation",
+    "shortDefinition": "The process of transforming text into a consistent, standardized form for comparison, storage, or display.",
+    "definition": "Text normalisation covers a range of operations including case standardization, whitespace cleanup, accent removal, punctuation stripping, and encoding unification. It ensures that text from different sources can be compared, stored, or displayed in a predictable way.",
+    "category": "Content Quality",
+    "aliases": [
+      "text normalization",
+      "text standardization"
+    ],
+    "related": [
+      "text-formatting",
+      "sentence-case",
+      "slug"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/how-to-remove-extra-spaces-from-text-online",
+      "/blogs/advanced-text-formatter-tool-free-online-case-converter-text-editor"
+    ],
+    "faqs": [
+      {
+        "q": "What is the difference between text formatting and text normalisation?",
+        "a": "Text formatting usually refers to visual changes like capitalization. Text normalisation is broader and includes encoding, whitespace, and structural changes to make text machine-comparable and consistent."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Use cases",
+        "value": "Database deduplication, search indexing, content migration"
+      }
+    ],
+    "updatedAt": "2026-06-08"
+  },
+  {
+    "slug": "uppercase",
+    "term": "UPPERCASE",
+    "shortDefinition": "A text format where every letter is written as a capital letter.",
+    "definition": "Uppercase text converts all letters to their capital form. It is commonly used for headings, constants in code, abbreviations, labels requiring strong visual emphasis, and calls to action in marketing content.",
+    "category": "Case Conversion",
+    "aliases": [
+      "all caps",
+      "capital letters",
+      "caps lock text"
+    ],
+    "related": [
+      "lowercase",
+      "sentence-case",
+      "title-case"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/how-to-convert-text-to-uppercase-online-fast-and-free",
+      "/blogs/text-case-converter"
+    ],
+    "faqs": [
+      {
+        "q": "When should I use UPPERCASE text?",
+        "a": "Use uppercase for short emphasis, abbreviations, constants in code, and calls to action. Avoid using it for long paragraphs as it reduces readability."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Input",
+        "value": "hello world"
+      },
+      {
+        "label": "Output",
+        "value": "HELLO WORLD"
+      }
+    ],
+    "updatedAt": "2026-06-08"
+  },
+  {
+    "slug": "lowercase",
+    "term": "lowercase",
+    "shortDefinition": "A text format where every letter is written in its small form.",
+    "definition": "Lowercase text converts all letters to their small form. It is used in URLs, code variables, casual writing styles, and anywhere a deliberately understated visual tone is desired.",
+    "category": "Case Conversion",
+    "aliases": [
+      "small letters",
+      "all lowercase"
+    ],
+    "related": [
+      "uppercase",
+      "sentence-case",
+      "kebab-case"
+    ],
+    "toolHref": "/",
+    "blogHrefs": [
+      "/blogs/how-to-convert-text-to-lowercase-online-free",
+      "/blogs/text-case-converter"
+    ],
+    "faqs": [
+      {
+        "q": "When is lowercase the right choice?",
+        "a": "Use lowercase for URLs, database keys, code variables, email addresses, and any context where uniformity and machine readability matter more than visual hierarchy."
+      }
+    ],
+    "examples": [
+      {
+        "label": "Input",
+        "value": "HELLO WORLD"
+      },
+      {
+        "label": "Output",
+        "value": "hello world"
+      }
+    ],
+    "updatedAt": "2026-06-08"
   }
 ]

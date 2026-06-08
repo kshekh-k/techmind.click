@@ -83,12 +83,57 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+// ─── Site-wide JSON-LD schemas ────────────────────────────────────────────────
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TechMind.click",
+  url: "https://www.techmind.click",
+  description:
+    "Free browser-based text formatter with 18 tools including case converter, URL slug generator, Unicode bold and italic text, remove spaces, reverse text, and image to PDF. No sign-up. No character limit.",
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Any modern web browser",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  featureList: [
+    "UPPERCASE converter",
+    "lowercase converter",
+    "Title Case converter",
+    "Sentence case converter",
+    "URL slug generator",
+    "Remove extra spaces",
+    "Bold text generator",
+    "Italic text generator",
+    "Image to PDF converter",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "TechMind.click",
+  url: "https://www.techmind.click",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://www.techmind.click/blogs?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 // ─── Root Layout ──────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // Apply the font CSS variable; Tailwind picks it up via --font-inter
     <html lang="en" className={inter.variable}>
       <body className="flex flex-col min-h-screen font-sans bg-gray-50">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+
         {children}
 
         {/* ── Google Analytics ────────────────────────────────────────────────

@@ -13,6 +13,7 @@ export type BlogType = {
   content: string; // HTML string
   author: string;
   date: string;
+  lastModified?: string;
   cover?: BlogCover;
   relatedPosts?: string[];
 };
