@@ -22,7 +22,7 @@ type Author = {
   updatedAt?: string;
 };
 
-const SITE_URL = "https://techmind.click";
+const SITE_URL = "https://www.techmind.click";
 
 function toDate(value?: string): Date {
   const fallback = new Date("2026-05-11T00:00:00.000Z");

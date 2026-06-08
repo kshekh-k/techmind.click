@@ -269,9 +269,10 @@ const schemaGraph = {
         "Text Formatter",
         "Case Converter",
         "Slug Generator",
-        "Bold Text Generator",
-        "Italic Text Generator",
-        "Unicode Text Generator",
+        "Camel Case Converter",
+        "Snake Case Converter",
+        "Slug/Snake Case Remover",
+        "Line Break Remover",
         "Image to PDF Converter",
       ],
 
@@ -385,6 +386,16 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
           <TextFormatter />
+
+          {/* Privacy trust badge */}
+          <div className="flex items-start gap-3 rounded-xl border border-purple-200 bg-purple-50 px-4 py-3 text-sm text-purple-900">
+            <span className="mt-0.5 text-base leading-none">🔒</span>
+            <div>
+              <span className="font-semibold">Privacy First</span>
+              {" — "}All text is processed locally in your browser. Nothing you
+              type is ever sent to any server. Your content stays private.
+            </div>
+          </div>
 
           <Card className="shadow-sm !border-none">
             <CardHeader>
