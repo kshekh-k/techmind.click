@@ -539,7 +539,7 @@ export default function TextFormatter() {
               <Button variant="outlineBlue" onClick={() => formatText("uppercase")} className="rounded !uppercase">Uppercase</Button>
               <Button variant="outlinePurple" onClick={() => formatText("lowercase")} className="rounded lowercase">Lowercase</Button>
               <Button variant="outlineTeal" onClick={() => formatText("propercase")} className="capitalize">Camel Case</Button>
-              <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">Sentence Case</Button>              
+              <Button variant="outlineOrange" onClick={() => formatText("sentencecase")} className="rounded">Sentence case</Button>              
               <Button variant="outlineRose" onClick={() => formatText("slug")} className="rounded">Slugify</Button>
               <Button variant="outlineCyan" onClick={() => formatText("snakecase")} className="rounded">Snake Case</Button>
               <Button variant="outlinePurple" onClick={() => formatText("slug-snake-to-text")} className="rounded">Slug/Snake Clean</Button>
