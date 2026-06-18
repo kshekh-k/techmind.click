@@ -3,6 +3,7 @@ import blogs from "@/app/data/blog.json";
 import glossary from "@/app/data/glossary.json";
 import authors from "@/app/data/authors.json";
 import { getAllLongTailSlugs } from "@/app/content/long-tail-pages";
+import { STATIC_ROUTES } from "@/app/lib/static-routes";
 
 export const dynamic = "force-static";
 export const revalidate = 86400;
@@ -39,32 +40,12 @@ function normalizeSlug(slug: string): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, changeFrequency: "weekly", priority: 1.0, lastModified: toDate() },
-    { url: `${SITE_URL}/text-format`, changeFrequency: "weekly", priority: 0.9, lastModified: toDate() },
-    { url: `${SITE_URL}/image-to-pdf`, changeFrequency: "monthly", priority: 0.8, lastModified: toDate() },
-    { url: `${SITE_URL}/image-to-webp`, changeFrequency: "monthly", priority: 0.7, lastModified: toDate() },
-    { url: `${SITE_URL}/blogs`, changeFrequency: "weekly", priority: 0.7, lastModified: toDate() },
-    { url: `${SITE_URL}/glossary`, changeFrequency: "weekly", priority: 0.7, lastModified: toDate() },
-    {
-      url: `${SITE_URL}/how-to-convert-uppercase-to-lowercase-without-excel`,
-      changeFrequency: "monthly",
-      priority: 0.6,
-      lastModified: toDate(),
-    },
-    {
-      url: `${SITE_URL}/change-caps-lock-text-to-sentence-case-online-free`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      lastModified: toDate(),
-    },
-    { url: `${SITE_URL}/about-us`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },
-    { url: `${SITE_URL}/contact-us`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },
-    { url: `${SITE_URL}/authors`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },
-    { url: `${SITE_URL}/editorial-policy`, changeFrequency: "monthly", priority: 0.5, lastModified: toDate() },
-    { url: `${SITE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.3, lastModified: toDate() },
-    { url: `${SITE_URL}/terms-conditions`, changeFrequency: "yearly", priority: 0.3, lastModified: toDate() },
-  ];
+  const staticRoutes: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
+    url: `${SITE_URL}${r.path}`,
+    changeFrequency: r.changeFrequency,
+    priority: r.priority,
+    lastModified: toDate(),
+  }));
 
   const blogRoutes: MetadataRoute.Sitemap = (blogs as Blog[]).map((blog) => ({
     url: `${SITE_URL}/blogs/${normalizeSlug(blog.slug)}`,
