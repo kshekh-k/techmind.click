@@ -470,7 +470,7 @@ export default function Home() {
 
                 <Link
                   href="/blogs"
-                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                  className="underline underline-offset-4 font-medium text-purple-700 hover:text-purple-900 transition-colors"
                 >
                   Blog Knowledge Hub
                 </Link>
