@@ -46,7 +46,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 
   // Canonical for the root — child pages override via their own metadata
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": `${SITE_URL}/feed.xml` },
+  },
 
   // Verification tags
   other: {

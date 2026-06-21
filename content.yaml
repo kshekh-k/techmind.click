@@ -1,0 +1,251 @@
+website:
+  metadata:
+    name: "Free Online Text Formatter & Case Converter | TechMind"
+    canonical_url: "https://www.techmind.click/"
+    url: "https://www.techmind.click/"
+    logo: "https://www.techmind.click/techmind-click-logo.svg"
+    favicon: "https://www.techmind.click/techmind-favicon.svg"
+    lang: "en"
+    core_info: "Free online text formatter, case converter, slug generator, and text cleanup tools — no sign-up, no character limit, browser-based and private."
+
+  seo:
+    title: "Free Online Text Formatter & Case Converter | TechMind"
+    description: "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily."
+    keywords:
+      - "text formatter"
+      - "case converter"
+      - "uppercase converter"
+      - "lowercase converter"
+      - "sentence case converter"
+      - "title case converter"
+      - "slug generator"
+      - "text formatting tool"
+      - "online text converter"
+      - "free text formatter"
+      - "text case converter"
+      - "case converter online"
+      - "uppercase to lowercase"
+      - "seo slug generator"
+      - "content formatting tool"
+    robots: "index, follow"
+    canonical: "https://www.techmind.click/"
+
+    open_graph:
+      type: "website"
+      title: "Free Online Text Formatter & Case Converter | TechMind"
+      description: "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily."
+      url: "https://www.techmind.click/"
+      site_name: "TechMind Click"
+      image:
+        url: "https://www.techmind.click/images/text-case-converter-and-formatter-techmind-click-otg.png"
+        width: 1200
+        height: 630
+        alt: "TechMind Click — Free Text Formatter & Case Converter"
+
+    twitter_card:
+      card: "summary_large_image"
+      title: "Free Online Text Formatter & Case Converter | TechMind"
+      description: "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily."
+      image: "https://www.techmind.click/images/text-case-converter-and-formatter-techmind-click-otg.png"
+
+    structured_data:
+      - type: "SoftwareApplication"
+        name: "TechMind.click"
+        url: "https://www.techmind.click"
+        description: "Free browser-based text formatter with 18 tools including case converter, URL slug generator, Unicode bold and italic text, remove spaces, reverse text, and image to PDF. No sign-up. No character limit."
+        application_category: "UtilitiesApplication"
+        operating_system: "Any modern web browser"
+        price: "0"
+        price_currency: "USD"
+        features:
+          - "UPPERCASE converter"
+          - "lowercase converter"
+          - "Title Case converter"
+          - "Sentence case converter"
+          - "URL slug generator"
+          - "Remove extra spaces"
+          - "Bold text generator"
+          - "Italic text generator"
+          - "Image to PDF converter"
+
+      - type: "WebSite"
+        name: "TechMind.click"
+        url: "https://www.techmind.click"
+        search_action:
+          type: "SearchAction"
+          target: "https://www.techmind.click/blogs?q={search_term_string}"
+          query_input: "required name=search_term_string"
+
+  header:
+    primary_elements:
+      - logo:
+          image: "https://www.techmind.click/techmind-click-logo.svg"
+          alt: "TechMind.click logo"
+          link: "https://www.techmind.click/"
+          title: "TechMind.click"
+    navigation:
+      - label: "Case Converter"
+        url: "https://www.techmind.click/"
+      - label: "Image to PDF"
+        url: "https://www.techmind.click/image-to-pdf"
+      - label: "Blogs"
+        url: "https://www.techmind.click/blogs"
+      - label: "More"
+        dropdown:
+          - url: "https://www.techmind.click/change-caps-lock-text-to-sentence-case-online-free"
+            title: "Caps Lock to Sentence"
+          - url: "https://www.techmind.click/how-to-convert-uppercase-to-lowercase-without-excel"
+            title: "Uppercase to Lowercase"
+          - url: "https://www.techmind.click/convert-image-to-pdf-for-government-form"
+            title: "Image to PDF for Govt Form"
+          - url: "https://www.techmind.click/does-techmind-store-uploaded-files"
+            title: "Does TechMind Store Files?"
+          - url: "https://www.techmind.click/fix-whatsapp-text-formatting-online"
+            title: "Fix WhatsApp Formatting"
+          - url: "https://www.techmind.click/convert-jpg-to-pdf-on-mobile-without-app"
+            title: "JPG to PDF on Mobile"
+          - url: "https://www.techmind.click/merge-pdf-files-for-job-application"
+            title: "Merge PDF for Job Application"
+          - url: "https://www.techmind.click/is-online-text-converter-safe"
+            title: "Is Text Converter Safe?"
+          - url: "https://www.techmind.click/how-techmind-protects-user-privacy"
+            title: "How TechMind Protects Privacy"
+    actions:
+      - loading_indicator: "Loading…"
+
+  content:
+    - section:
+        id: "privacy-badge"
+        heading_level: null
+        title: "Privacy First"
+        description: "All text is processed locally in your browser. Nothing you type is ever sent to any server. Your content stays private."
+        elements:
+          - icon: "🔒"
+
+    - section:
+        id: "hero"
+        heading_level: "h1"
+        title: "Free Case Converter, Slug Generator & Text Formatting Tools"
+        description: "Convert text case, generate clean URL slugs, remove extra spaces, clean line breaks, and format content instantly with simple online text utilities designed for modern writing and content workflows."
+        elements:
+          - type: "paragraph"
+            text: "Our tools help writers, developers, students, bloggers, and content creators organize and format text more efficiently without installing any software."
+          - type: "sub_section"
+            heading_level: "h2"
+            title: "Case Converter Tools"
+            description: "Quickly convert text into:"
+            list:
+              - "UPPERCASE"
+              - "Lowercase"
+              - "Sentence case"
+              - "Title case"
+              - "Toggle case"
+              - "Inverse case"
+          - type: "sub_section"
+            heading_level: "h2"
+            title: "Slug Generator & Text Cleanup"
+            description: "Generate clean and readable URL slugs from any text instantly. Remove unwanted characters, extra spaces, duplicate line breaks, and messy formatting with one click."
+            list:
+              - "blog titles"
+              - "content writing"
+              - "document cleanup"
+              - "project organization"
+              - "readable text formatting"
+          - type: "sub_section"
+            heading_level: "h2"
+            title: "Simple Tools for Everyday Writing"
+            description: "Whether you are formatting articles, preparing assignments, organizing notes, cleaning copied text, or structuring content for websites and apps, these utilities help make text cleaner, more readable, and easier to manage. Explore free online text formatting tools built for fast, simple, and distraction-free usage."
+
+    - section:
+        id: "links"
+        heading_level: "h2"
+        title: "Links"
+        elements:
+          - type: "link"
+            text: "Glossary Definitions"
+            url: "https://www.techmind.click/glossary"
+          - type: "link"
+            text: "Blog Knowledge Hub"
+            url: "https://www.techmind.click/blogs"
+          - type: "link"
+            text: "Authors and Contributors"
+            url: "https://www.techmind.click/authors"
+          - type: "link"
+            text: "Editorial Policy"
+            url: "https://www.techmind.click/editorial-policy"
+
+    - section:
+        id: "popular-tools"
+        heading_level: "h2"
+        title: "Popular Text Formatting Tools"
+        list:
+          - "Uppercase & lowercase converter"
+          - "Slug generator for SEO-friendly URLs"
+          - "Snake case & camel case converter"
+          - "Whitespace & duplicate space remover"
+          - "Line break and text cleanup tools"
+
+    - section:
+        id: "seo-value-prop"
+        heading_level: "h2"
+        title: "Built for SEO, Developers & Daily Productivity"
+        description: "Improve text formatting, content consistency, coding workflows, and URL structure using lightweight online utilities optimized for speed, accessibility, and modern web standards."
+
+    - section:
+        id: "tool"
+        heading_level: "h2"
+        title: "Advanced Case Converter"
+        elements:
+          - type: "textarea"
+            label: "Edit your text below: 0 chars • 0 words"
+          - type: "buttons"
+            actions:
+              - "Remove Spaces"
+              - "Reverse Text"
+              - "Uppercase"
+              - "Lowercase"
+              - "Camel Case"
+              - "Sentence case"
+              - "Slugify"
+              - "Snake Case"
+              - "Slug/Snake"
+              - "Clean Line Breaks"
+              - "Check Spelling"
+              - "Clear All"
+              - "Copy Text"
+          - type: "note"
+            text: "Unicode formatting (Bold / Italic) works separately from Case Converter tools. For best results, apply case conversion first, then use Unicode formatting."
+        actions:
+          - loading: "Loading..."
+
+  footer:
+    links:
+      - url: "https://www.techmind.click/about-us"
+        title: "About Us"
+      - url: "https://www.techmind.click/contact-us"
+        title: "Contact Us"
+      - url: "https://www.techmind.click/blogs"
+        title: "Blogs"
+      - url: "https://www.techmind.click/glossary"
+        title: "Glossary"
+      - url: "https://www.techmind.click/authors"
+        title: "Authors"
+      - url: "https://www.techmind.click/sitemap.html"
+        title: "Sitemap"
+      - url: "https://www.techmind.click/editorial-policy"
+        title: "Editorial Policy"
+      - url: "https://www.techmind.click/terms-conditions"
+        title: "Terms & Conditions"
+      - url: "https://www.techmind.click/privacy-policy"
+        title: "Privacy Policy"
+    social:
+      - platform: "Product Hunt"
+        image: "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1147785&theme=neutral&t=1779271745322"
+        url: "https://www.producthunt.com/products/techmind-click?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-techmind-click-2"
+      - platform: "Fazier"
+        image: "https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral"
+        url: "https://fazier.com/launches/www.techmind.click"
+    info:
+      copyright: "© 2026 TechMind. All rights reserved."
+      developer: "Developed by kshekh.com"
+      developer_url: "https://kshekh.com/"
