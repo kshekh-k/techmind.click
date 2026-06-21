@@ -127,6 +127,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // Apply the font CSS variable; Tailwind picks it up via --font-inter
     <html lang="en" className={inter.variable}>
+      <head>
+        {/* AI/LLM Resources — Geordy (2026-06-21) */}
+        <link rel="alternate" type="application/yaml" href="https://files.geordy.ai/techmind.click/index.yaml" title="YAML" data-ai="true" data-purpose="configuration" data-format="yaml" data-frequency="daily" data-version="2026-06-21" />
+        <link rel="alternate" type="text/markdown" href="https://files.geordy.ai/techmind.click/index.md" title="Markdown" data-ai="true" data-purpose="documentation" data-format="markdown" data-frequency="daily" data-version="2026-06-21" />
+        <link rel="llms" href="https://files.geordy.ai/techmind.click/llms.txt" title="LLMs.txt" data-ai="true" data-purpose="llm-policy" data-format="plain" data-frequency="daily" data-version="2026-06-21" />
+        <link rel="alternate" type="application/ld+json" href="https://files.geordy.ai/techmind.click/index.schema.json" title="Schema JSON-LD" data-ai="true" data-purpose="structured-data" data-format="jsonld" data-frequency="daily" data-version="2026-06-21" />
+        <link rel="alternate" type="application/rss+xml" href="https://files.geordy.ai/techmind.click/index.xml" title="RSS Feed" data-ai="true" data-purpose="syndication" data-format="rss" data-frequency="weekly" data-version="2026-06-21" />
+        <link rel="alternate" type="application/json" href="https://files.geordy.ai/techmind.click/index.manifest.json" title="Manifest" data-ai="true" data-purpose="app-manifest" data-format="json" data-frequency="monthly" data-version="2026-06-21" />
+        <link rel="alternate" type="text/plain" href="https://files.geordy.ai/techmind.click/humans.txt" title="Humans.txt" data-ai="true" data-purpose="credits" data-format="plain" data-frequency="monthly" data-version="2026-06-21" />
+        <link rel="alternate" type="application/json" href="https://files.geordy.ai/techmind.click/index.og.json" title="Open Graph" data-ai="true" data-purpose="open-graph" data-format="json" data-frequency="weekly" data-version="2026-06-21" />
+      </head>
       <body className="flex flex-col min-h-screen font-sans bg-gray-50">
         <script
           type="application/ld+json"
