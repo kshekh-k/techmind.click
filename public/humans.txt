@@ -1,0 +1,18 @@
+TEAM
+Developer: Kshekh
+Founder: TechMind Team
+Contact: https://www.techmind.click/contact-us
+
+SITE
+Language: English
+Code: TypeScript, HTML, CSS
+Framework: Next.js (App Router)
+Platform: Web
+Hosting: Vercel
+Analytics: Google Analytics (GA4)
+Features: Privacy-first, local browser processing, no sign-up required
+
+THANKS
+Product Hunt: Featured product
+Fazier: Launch partner
+Users: Writers, developers, students, bloggers, content creators
