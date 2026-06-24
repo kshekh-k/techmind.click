@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${author.name} | Author Profile`,
+    title: `${author.name} - Author Profile`,
     description: author.bio,
     alternates: { canonical: `/authors/${author.slug}` },
   };

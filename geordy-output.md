@@ -1,9 +1,9 @@
-Title: Free Online Text Formatter & Case Converter | TechMind
+Title: Free Online Text Formatter & Case Converter - TechMind
 
 URL Source: https://techmind.click/
 
 Markdown Content:
-# Free Online Text Formatter & Case Converter | TechMind
+# Free Online Text Formatter & Case Converter - TechMind
 
 [![Image 1: Techmind.click logo](https://techmind.click/techmind-click-logo.svg)](https://techmind.click/ "Techmind.click")
 *   [Case Converter](https://techmind.click/)
@@ -29,9 +29,9 @@ Loading…
 *   [Authors](https://techmind.click/authors "Authors")
 *   [Sitemap](https://techmind.click/sitemap.html "Sitemap")
 
-[![Image 2: TechMind.click - Free Text Conversion, Slug Generator | Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1147785&theme=neutral&t=1779271745322)](https://www.producthunt.com/products/techmind-click?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-techmind-click-2)[![Image 3: Fazier badge](https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral)](https://fazier.com/launches/www.techmind.click)
+[![Image 2: TechMind.click - Free Text Conversion, Slug Generator - Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1147785&theme=neutral&t=1779271745322)](https://www.producthunt.com/products/techmind-click?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-techmind-click-2)[![Image 3: Fazier badge](https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral)](https://fazier.com/launches/www.techmind.click)
 
-© 2026 TechMind. All rights reserved. | Developed by [kshekh.com](https://kshekh.com/)
+© 2026 TechMind. All rights reserved. - Developed by [kshekh.com](https://kshekh.com/)
 
 *   [Editorial Policy](https://techmind.click/editorial-policy "Editorial Policy")
 *   [Terms & Conditions](https://techmind.click/terms-conditions "Terms & Conditions")

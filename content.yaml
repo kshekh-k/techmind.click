@@ -1,6 +1,6 @@
 website:
   metadata:
-    name: "Free Online Text Formatter & Case Converter | TechMind"
+    name: "Free Online Text Formatter & Case Converter - TechMind"
     canonical_url: "https://www.techmind.click/"
     url: "https://www.techmind.click/"
     logo: "https://www.techmind.click/techmind-click-logo.svg"
@@ -9,7 +9,7 @@ website:
     core_info: "Free online text formatter, case converter, slug generator, and text cleanup tools — no sign-up, no character limit, browser-based and private."
 
   seo:
-    title: "Free Online Text Formatter & Case Converter | TechMind"
+    title: "Free Online Text Formatter & Case Converter - TechMind"
     description: "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily."
     keywords:
       - "text formatter"
@@ -32,7 +32,7 @@ website:
 
     open_graph:
       type: "website"
-      title: "Free Online Text Formatter & Case Converter | TechMind"
+      title: "Free Online Text Formatter & Case Converter - TechMind"
       description: "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily."
       url: "https://www.techmind.click/"
       site_name: "TechMind Click"
@@ -44,7 +44,7 @@ website:
 
     twitter_card:
       card: "summary_large_image"
-      title: "Free Online Text Formatter & Case Converter | TechMind"
+      title: "Free Online Text Formatter & Case Converter - TechMind"
       description: "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily."
       image: "https://www.techmind.click/images/text-case-converter-and-formatter-techmind-click-otg.png"
 

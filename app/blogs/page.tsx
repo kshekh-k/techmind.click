@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import TextFormatter from "../components/text-format";
 
 export const metadata: Metadata = {
-  title: "Blogs – Text Formatting Tips & Writing Productivity | TechMind Click",
+  title: "Blogs – Text Formatting Tips & Writing Productivity - TechMind Click",
   description:
     "Read articles on text formatting, writing productivity, SEO slug generators, and free online tools from the TechMind Click team.",
   alternates: { canonical: "/blogs" },

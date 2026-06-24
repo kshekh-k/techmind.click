@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Free Online Text Formatter Tool | TechMind Click",
+    default: "Free Online Text Formatter Tool - TechMind Click",
     // Pages that export their own title inherit this template automatically
-    template: "%s | TechMind Click",
+    template: "%s - TechMind Click",
   },
   description:
     "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily.",
@@ -61,14 +61,14 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "TechMind Click",
-    title: "Free Online Text Formatter Tool | TechMind Click",
+    title: "Free Online Text Formatter Tool - TechMind Click",
     description:
       "Use our free online text formatter to convert case, clean, and edit text instantly.",
     images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "TechMind Click" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Text Formatter Tool | TechMind Click",
+    title: "Free Online Text Formatter Tool - TechMind Click",
     description:
       "Use our free online text formatter to convert case, clean, and edit text instantly.",
     images: [OG_IMAGE],
