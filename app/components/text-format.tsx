@@ -49,7 +49,8 @@ type FormatAction =
   | "reverse-text"
   | "slug"
   | "snakecase"
-  | "slug-snake-to-text";
+  | "slug-snake-to-text"
+  | "camelcase";
 
 type ListType = "bullet" | "number" | "circle" | "none";
 //type TextAlign = "left" | "center" | "right";
@@ -72,6 +73,29 @@ function slugify(input: string): string {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+function toggleCamelCase(input: string): string {
+  const trimmed = input.trim();
+  // Has spaces → plain text, convert to camelCase
+  if (/\s/.test(trimmed)) {
+    return trimmed
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((word, i) =>
+        i === 0
+          ? word.charAt(0).toLowerCase() + word.slice(1)
+          : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+      )
+      .join("");
+  }
+  // No spaces → assume camelCase, split back to words
+  return trimmed
+    .replace(/([A-Z])/g, " $1")
+    .trim()
+    .split(/\s+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 function snakeify(input: string): string {
@@ -563,6 +587,9 @@ export default function TextFormatter() {
         case "slug-snake-to-text":
           nextText = slugSnakeToText(text);
           break;
+        case "camelcase":
+          nextText = toggleCamelCase(text);
+          break;
 
         case "clear":
           nextText = "";
@@ -619,7 +646,7 @@ export default function TextFormatter() {
           <div className="flex justify-between flex-wrap gap-2 pb-2">
             <div className="flex flex-wrap gap-2">
               <div className="flex">
-                <Button
+                <Button 
                   variant="outline"
                   onClick={undo}
                   disabled={!canUndo}
@@ -664,8 +691,8 @@ export default function TextFormatter() {
                   variant="outline"
                   onClick={() => formatText("propercase")}
                   className="rounded-none border-r-0"
-                  aria-label="Convert to camel case"
-                  title="Camel Case"
+                  aria-label="Convert to proper case"
+                  title="Proper Case"
                 >
                   <CaseSensitive className="size-5" />
                 </Button>
@@ -695,6 +722,15 @@ export default function TextFormatter() {
                   title="Snake Case"
                 >
                   _
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => formatText("camelcase")}
+                  className="rounded-none border-r-0"
+                  aria-label="Toggle camelCase"
+                  title="camelCase toggle — words→camelCase or camelCase→words"
+                >
+                  <span className="font-mono text-xs leading-none">aB</span>
                 </Button>
                 <Button
                   variant="outline"
@@ -788,63 +824,70 @@ export default function TextFormatter() {
           />
 
           <div className="flex flex-wrap gap-3 pt-5">
-            <Button
+            <Button size={'sm'}
               variant="outlineBlue"
               onClick={() => formatText("uppercase")}
               className="rounded !uppercase"
             >
               Uppercase
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlinePurple"
               onClick={() => formatText("lowercase")}
               className="rounded lowercase"
             >
               Lowercase
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlineTeal"
               onClick={() => formatText("propercase")}
               className="capitalize"
             >
-              Camel Case
+              Proper Case
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlineOrange"
               onClick={() => formatText("sentencecase")}
               className="rounded"
             >
               Sentence case
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlineRose"
               onClick={() => formatText("slug")}
               className="rounded"
             >
               Slugify
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlineCyan"
               onClick={() => formatText("snakecase")}
               className="rounded"
             >
               Snake Case
             </Button>
-            <Button
+            <Button size={'sm'}
+              variant="outlineTeal"
+              onClick={() => formatText("camelcase")}
+              className="rounded"
+            >
+              camelCase
+            </Button>
+            <Button size={'sm'}
               variant="outlinePurple"
               onClick={() => formatText("slug-snake-to-text")}
               className="rounded"
             >
-              Slug/Snake Clean
+              No Slug/Snake
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlineBlue"
               onClick={() => formatText("remove-line-breaks")}
               className="rounded"
             >
               Line Breaks
             </Button>
-            <Button
+            <Button size={'sm'}
               variant="outlineLime"
               onClick={handleSpellCheck}
               disabled={isSpellChecking}
