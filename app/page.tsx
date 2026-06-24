@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
  * ------------------------------------- */
 
 export const metadata: Metadata = {
-  title: "Free Online Text Formatter & Case Converter | TechMind",
+  title: "Free Online Text Formatter & Case Converter - TechMind",
 
   description:
     "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Free Online Text Formatter & Case Converter | TechMind",
+    title: "Free Online Text Formatter & Case Converter - TechMind",
 
     description:
       "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Free Online Text Formatter & Case Converter | TechMind",
+    title: "Free Online Text Formatter & Case Converter - TechMind",
 
     description:
       "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
@@ -167,7 +167,7 @@ const schemaGraph = {
 
       url: SITE_URL,
 
-      name: "Free Online Text Formatter & Case Converter | TechMind",
+      name: "Free Online Text Formatter & Case Converter - TechMind",
 
       isPartOf: {
         "@id": WEBSITE_ID,

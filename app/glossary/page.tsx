@@ -7,7 +7,7 @@ import TextFormatter from "../components/text-format";
 const SITE_URL = "https://www.techmind.click";
 
 export const metadata: Metadata = {
-  title: "Glossary | Text Formatting Definitions and Concepts",
+  title: "Glossary - Text Formatting Definitions and Concepts",
   description:
     "Explore clear definitions for text formatting terms like sentence case, title case, slug, camel case, and more.",
   alternates: { canonical: "/glossary" },

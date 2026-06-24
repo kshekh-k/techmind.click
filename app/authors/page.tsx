@@ -6,7 +6,7 @@ import { getAuthors } from "@/app/lib/authors";
 const SITE_URL = "https://www.techmind.click";
 
 export const metadata: Metadata = {
-  title: "Authors | TechMind Click",
+  title: "Authors - TechMind Click",
   description: "Meet the contributors and editorial team behind TechMind Click content.",
   alternates: { canonical: "/authors" },
 };

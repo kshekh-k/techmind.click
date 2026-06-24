@@ -8,7 +8,7 @@ import { STATIC_ROUTES } from "@/app/lib/static-routes";
 import Layout from "@/app/components/layout";
 
 export const metadata: Metadata = {
-  title: "Sitemap | TechMind Click",
+  title: "Sitemap - TechMind Click",
   description: "Browse all pages on TechMind Click — tools, blogs, glossary, and author profiles.",
   alternates: { canonical: "/sitemap.html" },
   robots: { index: true, follow: true },

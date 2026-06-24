@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${term.term} Meaning and Examples | Glossary`,
+    title: `${term.term} Meaning and Examples - Glossary`,
     description: term.shortDefinition,
     alternates: { canonical: `/glossary/${term.slug}` },
   };

@@ -4,7 +4,7 @@ import Layout from "@/app/components/layout";
 const SITE_URL = "https://www.techmind.click";
 
 export const metadata: Metadata = {
-  title: "Editorial Policy | TechMind Click",
+  title: "Editorial Policy - TechMind Click",
   description: "Learn how TechMind Click creates, reviews, and updates content for accuracy and usability.",
   alternates: { canonical: "/editorial-policy" },
 };
