@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     "qr code png svg pdf",
   ],
   robots: { index: true, follow: true },
-  alternates: { canonical: "/tools/qr-code-generator" },
+  alternates: { canonical: "/qr-code-generator" },
   openGraph: {
     type: "website",
     title: "Free QR Code Generator Online | TechMind",
     description:
       "Generate custom QR codes online for free. Download QR codes in PNG, SVG, or PDF format with logo, colors, and style customization.",
-    url: "/tools/qr-code-generator",
+    url: "/qr-code-generator",
   },
   twitter: {
     card: "summary_large_image",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function QRCodeGeneratorPage() {
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 ">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Free QR Code Generator

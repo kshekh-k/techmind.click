@@ -98,10 +98,10 @@ export default function QRPreview({
         </div>
 
         {/* ── Download ────────────────────────────────────────── */}
-        <div className="flex flex-col gap-2 pt-1">
+        <div className="flex flex-col md:flex-row gap-2 pt-1">
           <Button
             variant="outlineBlue"
-            className="w-full gap-2"
+            className="flex-1 gap-2"
             onClick={() => onDownload("png")}
             disabled={isExporting}
           >
@@ -110,7 +110,7 @@ export default function QRPreview({
           </Button>
           <Button
             variant="outlinePurple"
-            className="w-full gap-2"
+            className="flex-1 gap-2"
             onClick={() => onDownload("svg")}
             disabled={isExporting}
           >
@@ -118,8 +118,8 @@ export default function QRPreview({
             Download SVG
           </Button>
           <Button
-            variant="outlineRose"
-            className="w-full gap-2"
+            variant="outlineRose" 
+            className="flex-1 gap-2"
             onClick={() => onDownload("pdf")}
             disabled={isExporting}
           >
