@@ -5,10 +5,20 @@ import QRCodeStyling from "qr-code-styling";
 import type { Options as QROptions, DotType, CornerSquareType } from "qr-code-styling";
 import QRControls from "./QRControls";
 import QRPreview from "./QRPreview";
-import { DEFAULT_QR_SETTINGS, type QRFormat, type QRSettings } from "@/app/types/qr";
+import {
+  DEFAULT_QR_SETTINGS,
+  type QRFormat,
+  type QRSettings,
+  type QRInputType,
+} from "@/app/types/qr";
 import { buildQRData } from "@/utils/qr/generateQR";
 import { downloadQR } from "@/utils/qr/downloadQR";
 import { exportQRToPDF } from "@/utils/qr/exportPDF";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
+import { Input } from "@/app/components/ui/input";
+import { Textarea } from "@/app/components/ui/textarea";
+import { Label } from "@/app/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 
 export default function QRCodeGenerator() {
   const [settings, setSettings] = useState<QRSettings>(DEFAULT_QR_SETTINGS);
@@ -19,42 +29,40 @@ export default function QRCodeGenerator() {
   const prevLogoRef = useRef<string | null>(null);
   const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // True once the user has typed any content — controls visibility of the
+  // settings + QR grid. The grid itself stays in the DOM (display:none) so
+  // qrContainerRef is always attached and the QR never needs re-initializing.
+  const hasContent = useMemo(() => {
+    switch (settings.inputType) {
+      case "url":    return settings.url.trim().length > 0;
+      case "text":   return settings.text.trim().length > 0;
+      case "email":  return settings.email.trim().length > 0;
+      case "phone":  return settings.phone.trim().length > 0;
+      case "wifi":   return settings.wifi.ssid.trim().length > 0;
+      default:       return false;
+    }
+  }, [settings.inputType, settings.url, settings.text, settings.email, settings.phone, settings.wifi.ssid]);
+
   const qrData = useMemo(() => buildQRData(settings), [settings]);
 
   const buildOptions = useCallback(
     (): QROptions => ({
       width: settings.size,
       height: settings.size,
-      // svg mode is non-blocking — QR paths are SVG elements drawn async.
-      // canvas mode draws every dot synchronously inside append(), which blocks
-      // the main thread for several seconds when a logo is involved.
       type: "svg",
       data: qrData || " ",
       image: settings.logo ?? undefined,
       margin: settings.margin,
       qrOptions: { errorCorrectionLevel: settings.logo ? "H" : "M" },
-      dotsOptions: {
-        color: settings.fgColor,
-        type: settings.dotType as DotType,
-      },
+      dotsOptions: { color: settings.fgColor, type: settings.dotType as DotType },
       backgroundOptions: { color: settings.bgColor },
-      cornersSquareOptions: {
-        color: settings.fgColor,
-        type: settings.cornerType as CornerSquareType,
-      },
+      cornersSquareOptions: { color: settings.fgColor, type: settings.cornerType as CornerSquareType },
       cornersDotOptions: { color: settings.fgColor },
-      imageOptions: {
-        // crossOrigin omitted — data: URLs have no CORS headers; setting it
-        // causes browsers to silently drop the image
-        margin: 5,
-        hideBackgroundDots: true,
-        imageSize: settings.logoSize,
-      },
+      imageOptions: { margin: 5, hideBackgroundDots: true, imageSize: settings.logoSize },
     }),
     [settings, qrData],
   );
 
-  // Unmount-only cleanup so the container isn't cleared on every dep change.
   useEffect(() => {
     return () => {
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
@@ -67,14 +75,11 @@ export default function QRCodeGenerator() {
     if (!qrContainerRef.current) return;
 
     const logoChanged = prevLogoRef.current !== settings.logo;
-    // Capture options now so the debounced callback uses the options from
-    // this render, not whatever buildOptions returns later.
     const opts = buildOptions();
 
     const apply = () => {
       if (!qrContainerRef.current) return;
       prevLogoRef.current = settings.logo;
-
       if (!qrInstanceRef.current || logoChanged) {
         qrContainerRef.current.innerHTML = "";
         const qr = new QRCodeStyling(opts);
@@ -86,18 +91,12 @@ export default function QRCodeGenerator() {
     };
 
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-
     if (logoChanged) {
-      // Logo changes are applied immediately so the preview feels responsive.
       apply();
     } else {
-      // Debounce rapid changes (typing URL, dragging sliders) to avoid
-      // flooding qr-code-styling on every keystroke.
       debounceTimerRef.current = setTimeout(apply, 200);
     }
 
-    // Only cancel the pending timer — do NOT clear the container here, or
-    // the QR preview will flash blank on every keystroke while debouncing.
     return () => {
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
     };
@@ -133,30 +132,155 @@ export default function QRCodeGenerator() {
     [settings.fileName, settings.size, settings.label, settings.fgColor, settings.bgColor],
   );
 
-  const handleReset = useCallback(() => {
-    setSettings(DEFAULT_QR_SETTINGS);
-  }, []);
+  const handleReset = useCallback(() => setSettings(DEFAULT_QR_SETTINGS), []);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6">
-      <div className="w-full lg:w-2/5">
-        <QRControls
-          settings={settings}
-          onSettingsChange={updateSettings}
-          onReset={handleReset}
-        />
-      </div>
-      <div className="w-full lg:w-3/5">
-        <QRPreview
-          qrContainerRef={qrContainerRef}
-          label={settings.label}
-          labelColor={settings.fgColor}
-          bgColor={settings.bgColor}
-          fileName={settings.fileName}
-          onFileNameChange={(name) => updateSettings({ fileName: name })}
-          onDownload={handleDownload}
-          isExporting={isExporting}
-        />
+    <div className="space-y-6">
+
+      {/* ── Step 1: Content input ─────────────────────────────────── */}
+      <Card className="shadow-sm !border-gray-100">
+        <CardHeader className="pb-3">
+          <CardTitle as="h2" className="text-base font-medium text-gray-600">
+            What should your QR code point to?
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Tabs
+            value={settings.inputType}
+            onValueChange={(v) => updateSettings({ inputType: v as QRInputType })}
+          >
+            <TabsList className="w-full grid grid-cols-5 mb-4">
+              {(["url", "text", "email", "phone", "wifi"] as const).map((t) => (
+                <TabsTrigger key={t} value={t} className="text-xs capitalize">
+                  {t === "url" ? "URL" : t.charAt(0).toUpperCase() + t.slice(1)}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            <TabsContent value="url">
+              <Input
+                placeholder="https://www.techmind.click"
+                value={settings.url}
+                onChange={(e) => updateSettings({ url: e.target.value })}
+                type="url"
+                autoFocus
+              />
+            </TabsContent>
+
+            <TabsContent value="text">
+              <Textarea
+                placeholder="Enter your text…"
+                value={settings.text}
+                onChange={(e) => updateSettings({ text: e.target.value })}
+                className="min-h-[90px] resize-none"
+              />
+            </TabsContent>
+
+            <TabsContent value="email">
+              <Input
+                placeholder="hello@example.com"
+                value={settings.email}
+                onChange={(e) => updateSettings({ email: e.target.value })}
+                type="email"
+              />
+            </TabsContent>
+
+            <TabsContent value="phone">
+              <Input
+                placeholder="+1 555 000 0000"
+                value={settings.phone}
+                onChange={(e) => updateSettings({ phone: e.target.value })}
+                type="tel"
+              />
+            </TabsContent>
+
+            <TabsContent value="wifi" className="space-y-3">
+              <Input
+                placeholder="Network name (SSID)"
+                value={settings.wifi.ssid}
+                onChange={(e) =>
+                  updateSettings({ wifi: { ...settings.wifi, ssid: e.target.value } })
+                }
+              />
+              <Input
+                placeholder="Password"
+                value={settings.wifi.password}
+                onChange={(e) =>
+                  updateSettings({ wifi: { ...settings.wifi, password: e.target.value } })
+                }
+                type="password"
+              />
+              <div className="flex items-center gap-4">
+                <div className="flex-1">
+                  <Label className="text-xs text-muted-foreground mb-1 block">Encryption</Label>
+                  <select
+                    value={settings.wifi.encryption}
+                    onChange={(e) =>
+                      updateSettings({
+                        wifi: {
+                          ...settings.wifi,
+                          encryption: e.target.value as "WPA" | "WEP" | "nopass",
+                        },
+                      })
+                    }
+                    className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-xs focus:outline-none focus:ring-[3px] focus:ring-ring/50"
+                  >
+                    <option value="WPA">WPA / WPA2</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">No password</option>
+                  </select>
+                </div>
+                <div className="flex items-center gap-2 pt-5">
+                  <input
+                    type="checkbox"
+                    id="wifi-hidden"
+                    checked={settings.wifi.hidden}
+                    onChange={(e) =>
+                      updateSettings({ wifi: { ...settings.wifi, hidden: e.target.checked } })
+                    }
+                    className="size-4 rounded accent-black"
+                  />
+                  <Label htmlFor="wifi-hidden" className="text-xs cursor-pointer">
+                    Hidden
+                  </Label>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </CardContent>
+      </Card>
+
+      {/* ── Step 2: Style options + QR preview ───────────────────────
+           Always in the DOM (display:none when no content) so the
+           qrContainerRef stays attached and the QR doesn't need
+           re-mounting every time the user starts typing.          */}
+      <div
+        className="grid grid-cols-1 lg:grid-cols-6 gap-6"
+        style={{ display: hasContent ? undefined : "none" }}
+      >
+        {/* Style panel – 2 cols */}
+        <div className="lg:col-span-2">
+          <QRControls
+            settings={settings}
+            onSettingsChange={updateSettings}
+            onReset={handleReset}
+          />
+        </div>
+
+        {/* QR + label + file name + download – 4 cols */}
+        <div className="lg:col-span-4">
+          <QRPreview
+            qrContainerRef={qrContainerRef}
+            label={settings.label}
+            labelColor={settings.fgColor}
+            bgColor={settings.bgColor}
+            fileName={settings.fileName}
+            onLabelChange={(label) => updateSettings({ label })}
+            onFileNameChange={(name) => updateSettings({ fileName: name })}
+            onDownload={handleDownload}
+            isExporting={isExporting}
+          />
+        </div>
       </div>
     </div>
   );

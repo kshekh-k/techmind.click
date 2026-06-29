@@ -3,10 +3,7 @@
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
-import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
-import { Textarea } from "@/app/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import LogoUploader from "./LogoUploader";
 import {
@@ -14,7 +11,6 @@ import {
   CORNER_TYPE_OPTIONS,
   SIZE_OPTIONS,
   type QRSettings,
-  type QRInputType,
 } from "@/app/types/qr";
 
 type QRControlsProps = {
@@ -28,116 +24,11 @@ export default function QRControls({ settings, onSettingsChange, onReset }: QRCo
     <Card className="shadow-sm !border-gray-100">
       <CardHeader className="pb-4">
         <CardTitle as="h2" className="text-lg font-semibold">
-          QR Settings
+          Style Options
         </CardTitle>
       </CardHeader>
 
       <CardContent className="space-y-6">
-        {/* ── Content Type ──────────────────────────────────────── */}
-        <div className="space-y-3">
-          <Label className="text-sm font-medium">Content Type</Label>
-          <Tabs
-            value={settings.inputType}
-            onValueChange={(v) => onSettingsChange({ inputType: v as QRInputType })}
-          >
-            <TabsList className="w-full grid grid-cols-5">
-              {(["url", "text", "email", "phone", "wifi"] as const).map((t) => (
-                <TabsTrigger key={t} value={t} className="text-xs capitalize">
-                  {t === "url" ? "URL" : t.charAt(0).toUpperCase() + t.slice(1)}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            <TabsContent value="url" className="mt-3">
-              <Input
-                placeholder="https://www.techmind.click"
-                value={settings.url}
-                onChange={(e) => onSettingsChange({ url: e.target.value })}
-                type="url"
-              />
-            </TabsContent>
-
-            <TabsContent value="text" className="mt-3">
-              <Textarea
-                placeholder="Enter your text…"
-                value={settings.text}
-                onChange={(e) => onSettingsChange({ text: e.target.value })}
-                className="min-h-[90px] resize-none"
-              />
-            </TabsContent>
-
-            <TabsContent value="email" className="mt-3">
-              <Input
-                placeholder="hello@example.com"
-                value={settings.email}
-                onChange={(e) => onSettingsChange({ email: e.target.value })}
-                type="email"
-              />
-            </TabsContent>
-
-            <TabsContent value="phone" className="mt-3">
-              <Input
-                placeholder="+1 555 000 0000"
-                value={settings.phone}
-                onChange={(e) => onSettingsChange({ phone: e.target.value })}
-                type="tel"
-              />
-            </TabsContent>
-
-            <TabsContent value="wifi" className="mt-3 space-y-3">
-              <Input
-                placeholder="Network name (SSID)"
-                value={settings.wifi.ssid}
-                onChange={(e) =>
-                  onSettingsChange({ wifi: { ...settings.wifi, ssid: e.target.value } })
-                }
-              />
-              <Input
-                placeholder="Password"
-                value={settings.wifi.password}
-                onChange={(e) =>
-                  onSettingsChange({ wifi: { ...settings.wifi, password: e.target.value } })
-                }
-                type="password"
-              />
-              <div className="flex items-center gap-4">
-                <div className="flex-1">
-                  <Label className="text-xs text-muted-foreground mb-1 block">Encryption</Label>
-                  <select
-                    value={settings.wifi.encryption}
-                    onChange={(e) =>
-                      onSettingsChange({
-                        wifi: {
-                          ...settings.wifi,
-                          encryption: e.target.value as "WPA" | "WEP" | "nopass",
-                        },
-                      })
-                    }
-                    className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-xs focus:outline-none focus:ring-[3px] focus:ring-ring/50"
-                  >
-                    <option value="WPA">WPA / WPA2</option>
-                    <option value="WEP">WEP</option>
-                    <option value="nopass">No password</option>
-                  </select>
-                </div>
-                <div className="flex items-center gap-2 pt-5">
-                  <input
-                    type="checkbox"
-                    id="wifi-hidden"
-                    checked={settings.wifi.hidden}
-                    onChange={(e) =>
-                      onSettingsChange({ wifi: { ...settings.wifi, hidden: e.target.checked } })
-                    }
-                    className="size-4 rounded accent-black"
-                  />
-                  <Label htmlFor="wifi-hidden" className="text-xs cursor-pointer">
-                    Hidden
-                  </Label>
-                </div>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
 
         {/* ── Colors ────────────────────────────────────────────── */}
         <div className="space-y-3">
@@ -269,26 +160,8 @@ export default function QRControls({ settings, onSettingsChange, onReset }: QRCo
           onLogoSizeChange={(logoSize) => onSettingsChange({ logoSize })}
         />
 
-        {/* ── Label ─────────────────────────────────────────────── */}
-        <div className="space-y-2">
-          <Label className="text-sm font-medium">Label</Label>
-          <Input
-            placeholder="e.g. Scan to visit"
-            value={settings.label}
-            onChange={(e) => onSettingsChange({ label: e.target.value })}
-            maxLength={60}
-          />
-          <p className="text-xs text-muted-foreground">
-            Shown below the QR code. Color follows the foreground color.
-          </p>
-        </div>
-
         {/* ── Reset ─────────────────────────────────────────────── */}
-        <Button
-          variant="outlineRed"
-          className="w-full gap-2"
-          onClick={onReset}
-        >
+        <Button variant="outlineRed" className="w-full gap-2" onClick={onReset}>
           <RotateCcw className="size-3.5" />
           Reset to Defaults
         </Button>
