@@ -42,7 +42,7 @@ export type QRSettings = {
 
 export const DEFAULT_QR_SETTINGS: QRSettings = {
   inputType: "url",
-  url: "https://www.techmind.click",
+  url: "",
   text: "",
   email: "",
   phone: "",

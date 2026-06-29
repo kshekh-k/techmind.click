@@ -50,7 +50,7 @@ export default function QRControls({ settings, onSettingsChange, onReset }: QRCo
 
             <TabsContent value="url" className="mt-3">
               <Input
-                placeholder="https://example.com"
+                placeholder="https://www.techmind.click"
                 value={settings.url}
                 onChange={(e) => onSettingsChange({ url: e.target.value })}
                 type="url"
