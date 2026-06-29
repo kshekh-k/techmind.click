@@ -16,6 +16,9 @@ export default function QRCodeGenerator() {
 
   const qrContainerRef = useRef<HTMLDivElement>(null);
   const qrInstanceRef = useRef<QRCodeStyling | null>(null);
+  // Track previous logo so we only recreate the QR instance when the logo
+  // actually changes — update() is used for all other settings
+  const prevLogoRef = useRef<string | null>(null);
 
   const qrData = useMemo(() => buildQRData(settings), [settings]);
 
@@ -51,16 +54,26 @@ export default function QRCodeGenerator() {
     [settings, qrData],
   );
 
-  // Recreate the QR instance on every options change.
-  // update() does not reliably re-render when the image prop changes
-  // (null → data URL), so a fresh instance is the safest approach.
   useEffect(() => {
     if (!qrContainerRef.current) return;
 
-    qrContainerRef.current.innerHTML = "";
-    const qr = new QRCodeStyling(buildOptions());
-    qr.append(qrContainerRef.current);
-    qrInstanceRef.current = qr;
+    const logoChanged = prevLogoRef.current !== settings.logo;
+    prevLogoRef.current = settings.logo;
+
+    if (!qrInstanceRef.current || logoChanged) {
+      // Full recreation when the logo is added, removed, or swapped.
+      // update() can miss this transition because qr-code-styling loads
+      // the image asynchronously — clearing the container and recreating
+      // ensures the new image is always drawn correctly.
+      qrContainerRef.current.innerHTML = "";
+      const qr = new QRCodeStyling(buildOptions());
+      qr.append(qrContainerRef.current);
+      qrInstanceRef.current = qr;
+    } else {
+      // Fast path for color, size, data, margin, style changes —
+      // update() keeps the canvas alive so the image never flickers out
+      qrInstanceRef.current.update(buildOptions());
+    }
 
     return () => {
       if (qrContainerRef.current) qrContainerRef.current.innerHTML = "";

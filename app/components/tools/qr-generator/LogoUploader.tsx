@@ -23,10 +23,33 @@ export default function LogoUploader({
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-    const reader = new FileReader();
-    reader.onloadend = () => onLogoChange(reader.result as string);
-    reader.readAsDataURL(file);
     e.target.value = "";
+
+    const objectUrl = URL.createObjectURL(file);
+    const img = new Image();
+
+    img.onload = () => {
+      // Downscale to ≤200 px — keeps the base64 string tiny (~20–40 KB)
+      // and prevents the hang caused by multi-MB data URLs in React state
+      const MAX = 200;
+      const scale = Math.min(1, MAX / Math.max(img.width, img.height));
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext("2d")?.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(objectUrl);
+      onLogoChange(canvas.toDataURL("image/png", 0.85));
+    };
+
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      // Fallback: raw FileReader (won't be compressed but at least won't silently fail)
+      const reader = new FileReader();
+      reader.onloadend = () => onLogoChange(reader.result as string);
+      reader.readAsDataURL(file);
+    };
+
+    img.src = objectUrl;
   }
 
   return (
