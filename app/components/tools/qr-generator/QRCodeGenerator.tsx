@@ -23,7 +23,9 @@ export default function QRCodeGenerator() {
     (): QROptions => ({
       width: settings.size,
       height: settings.size,
-      type: "svg",
+      // canvas handles base64 data: URL logos reliably; svg mode + crossOrigin
+      // silently blocks image load on data URLs (no CORS headers on data: scheme)
+      type: "canvas",
       data: qrData || " ",
       image: settings.logo ?? undefined,
       margin: settings.margin,
@@ -39,7 +41,8 @@ export default function QRCodeGenerator() {
       },
       cornersDotOptions: { color: settings.fgColor },
       imageOptions: {
-        crossOrigin: "anonymous",
+        // crossOrigin omitted — data: URLs have no CORS headers; setting it
+        // causes browsers to silently drop the image
         margin: 5,
         hideBackgroundDots: true,
         imageSize: settings.logoSize,
@@ -48,10 +51,13 @@ export default function QRCodeGenerator() {
     [settings, qrData],
   );
 
-  // Create QR instance once on mount
+  // Recreate the QR instance on every options change.
+  // update() does not reliably re-render when the image prop changes
+  // (null → data URL), so a fresh instance is the safest approach.
   useEffect(() => {
     if (!qrContainerRef.current) return;
 
+    qrContainerRef.current.innerHTML = "";
     const qr = new QRCodeStyling(buildOptions());
     qr.append(qrContainerRef.current);
     qrInstanceRef.current = qr;
@@ -60,12 +66,6 @@ export default function QRCodeGenerator() {
       if (qrContainerRef.current) qrContainerRef.current.innerHTML = "";
       qrInstanceRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Update QR whenever settings change
-  useEffect(() => {
-    qrInstanceRef.current?.update(buildOptions());
   }, [buildOptions]);
 
   const updateSettings = useCallback((partial: Partial<QRSettings>) => {
