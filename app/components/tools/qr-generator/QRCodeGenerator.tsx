@@ -192,6 +192,14 @@ export default function QRCodeGenerator() {
                   updateSettings({ wifi: { ...settings.wifi, ssid: e.target.value } })
                 }
               />
+              <Input
+                placeholder="Password"
+                value={settings.wifi.password}
+                onChange={(e) =>
+                  updateSettings({ wifi: { ...settings.wifi, password: e.target.value } })
+                }
+                type="password"
+              />
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <Label className="text-xs text-muted-foreground mb-1 block">Encryption</Label>

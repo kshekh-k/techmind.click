@@ -16,6 +16,7 @@ export type WifiEncryption = "WPA" | "WEP" | "nopass";
 
 export type WifiConfig = {
   ssid: string;
+  password: string;
   hidden: boolean;
   encryption: WifiEncryption;
 };
@@ -43,7 +44,7 @@ export const DEFAULT_QR_SETTINGS: QRSettings = {
   url: "",
   text: "",
   phone: "",
-  wifi: { ssid: "", hidden: false, encryption: "WPA" },
+  wifi: { ssid: "", password: "", hidden: false, encryption: "WPA" },
   fgColor: "#000000",
   bgColor: "#ffffff",
   size: 300,
