@@ -112,12 +112,17 @@ export default function QRCodeGenerator() {
       const qr = qrInstanceRef.current;
       if (!qr) return;
 
+      const label = settings.label.trim();
+      const svgEl = label
+        ? (qrContainerRef.current?.querySelector("svg") as SVGSVGElement | null)
+        : null;
+
       try {
+        setIsExporting(true);
         if (format === "pdf") {
-          setIsExporting(true);
-          await exportQRToPDF(qr, settings.fileName, settings.size);
+          await exportQRToPDF(qr, settings.fileName, settings.size, label, settings.fgColor, settings.bgColor);
         } else {
-          await downloadQR(qr, format, settings.fileName);
+          await downloadQR(qr, format, settings.fileName, label, settings.fgColor, settings.bgColor, settings.size, svgEl);
         }
       } catch (err) {
         console.error("QR download failed:", err);
@@ -125,7 +130,7 @@ export default function QRCodeGenerator() {
         setIsExporting(false);
       }
     },
-    [settings.fileName, settings.size],
+    [settings.fileName, settings.size, settings.label, settings.fgColor, settings.bgColor],
   );
 
   const handleReset = useCallback(() => {
@@ -144,6 +149,8 @@ export default function QRCodeGenerator() {
       <div className="w-full lg:w-3/5">
         <QRPreview
           qrContainerRef={qrContainerRef}
+          label={settings.label}
+          labelColor={settings.fgColor}
           fileName={settings.fileName}
           onFileNameChange={(name) => updateSettings({ fileName: name })}
           onDownload={handleDownload}

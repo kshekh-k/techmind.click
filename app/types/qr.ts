@@ -36,6 +36,7 @@ export type QRSettings = {
   margin: number;
   logo: string | null;
   logoSize: number;
+  label: string;
   fileName: string;
 };
 
@@ -54,6 +55,7 @@ export const DEFAULT_QR_SETTINGS: QRSettings = {
   margin: 10,
   logo: null,
   logoSize: 0.4,
+  label: "",
   fileName: "qr-code",
 };
 

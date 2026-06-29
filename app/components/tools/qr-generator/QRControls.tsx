@@ -269,6 +269,20 @@ export default function QRControls({ settings, onSettingsChange, onReset }: QRCo
           onLogoSizeChange={(logoSize) => onSettingsChange({ logoSize })}
         />
 
+        {/* ── Label ─────────────────────────────────────────────── */}
+        <div className="space-y-2">
+          <Label className="text-sm font-medium">Label</Label>
+          <Input
+            placeholder="e.g. Scan to visit"
+            value={settings.label}
+            onChange={(e) => onSettingsChange({ label: e.target.value })}
+            maxLength={60}
+          />
+          <p className="text-xs text-muted-foreground">
+            Shown below the QR code. Color follows the foreground color.
+          </p>
+        </div>
+
         {/* ── Reset ─────────────────────────────────────────────── */}
         <Button
           variant="outlineRed"

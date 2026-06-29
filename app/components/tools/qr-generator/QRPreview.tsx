@@ -7,6 +7,8 @@ import type { QRFormat } from "@/app/types/qr";
 
 type QRPreviewProps = {
   qrContainerRef: React.RefObject<HTMLDivElement | null>;
+  label: string;
+  labelColor: string;
   fileName: string;
   onFileNameChange: (name: string) => void;
   onDownload: (format: QRFormat) => void;
@@ -15,6 +17,8 @@ type QRPreviewProps = {
 
 export default function QRPreview({
   qrContainerRef,
+  label,
+  labelColor,
   fileName,
   onFileNameChange,
   onDownload,
@@ -29,9 +33,19 @@ export default function QRPreview({
       </CardHeader>
 
       <CardContent className="space-y-6">
-        {/* QR Code canvas area */}
+        {/* QR Code + label area */}
         <div className="flex items-center justify-center rounded-xl border border-gray-100 bg-gray-50 p-6 min-h-[320px]">
-          <div ref={qrContainerRef} className="[&>svg]:rounded-md [&>canvas]:rounded-md" />
+          <div className="flex flex-col items-center gap-2">
+            <div ref={qrContainerRef} className="[&>svg]:rounded-md [&>canvas]:rounded-md" />
+            {label && (
+              <p
+                className="text-sm font-semibold tracking-wide text-center max-w-[280px] break-words leading-snug"
+                style={{ color: labelColor }}
+              >
+                {label}
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Download section */}
