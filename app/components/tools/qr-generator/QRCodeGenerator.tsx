@@ -16,9 +16,8 @@ export default function QRCodeGenerator() {
 
   const qrContainerRef = useRef<HTMLDivElement>(null);
   const qrInstanceRef = useRef<QRCodeStyling | null>(null);
-  // Track previous logo so we only recreate the QR instance when the logo
-  // actually changes — update() is used for all other settings
   const prevLogoRef = useRef<string | null>(null);
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const qrData = useMemo(() => buildQRData(settings), [settings]);
 
@@ -26,9 +25,10 @@ export default function QRCodeGenerator() {
     (): QROptions => ({
       width: settings.size,
       height: settings.size,
-      // canvas handles base64 data: URL logos reliably; svg mode + crossOrigin
-      // silently blocks image load on data URLs (no CORS headers on data: scheme)
-      type: "canvas",
+      // svg mode is non-blocking — QR paths are SVG elements drawn async.
+      // canvas mode draws every dot synchronously inside append(), which blocks
+      // the main thread for several seconds when a logo is involved.
+      type: "svg",
       data: qrData || " ",
       image: settings.logo ?? undefined,
       margin: settings.margin,
@@ -54,32 +54,54 @@ export default function QRCodeGenerator() {
     [settings, qrData],
   );
 
+  // Unmount-only cleanup so the container isn't cleared on every dep change.
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+      if (qrContainerRef.current) qrContainerRef.current.innerHTML = "";
+      qrInstanceRef.current = null;
+    };
+  }, []);
+
   useEffect(() => {
     if (!qrContainerRef.current) return;
 
     const logoChanged = prevLogoRef.current !== settings.logo;
-    prevLogoRef.current = settings.logo;
+    // Capture options now so the debounced callback uses the options from
+    // this render, not whatever buildOptions returns later.
+    const opts = buildOptions();
 
-    if (!qrInstanceRef.current || logoChanged) {
-      // Full recreation when the logo is added, removed, or swapped.
-      // update() can miss this transition because qr-code-styling loads
-      // the image asynchronously — clearing the container and recreating
-      // ensures the new image is always drawn correctly.
-      qrContainerRef.current.innerHTML = "";
-      const qr = new QRCodeStyling(buildOptions());
-      qr.append(qrContainerRef.current);
-      qrInstanceRef.current = qr;
+    const apply = () => {
+      if (!qrContainerRef.current) return;
+      prevLogoRef.current = settings.logo;
+
+      if (!qrInstanceRef.current || logoChanged) {
+        qrContainerRef.current.innerHTML = "";
+        const qr = new QRCodeStyling(opts);
+        qr.append(qrContainerRef.current);
+        qrInstanceRef.current = qr;
+      } else {
+        qrInstanceRef.current.update(opts);
+      }
+    };
+
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+
+    if (logoChanged) {
+      // Logo changes are applied immediately so the preview feels responsive.
+      apply();
     } else {
-      // Fast path for color, size, data, margin, style changes —
-      // update() keeps the canvas alive so the image never flickers out
-      qrInstanceRef.current.update(buildOptions());
+      // Debounce rapid changes (typing URL, dragging sliders) to avoid
+      // flooding qr-code-styling on every keystroke.
+      debounceTimerRef.current = setTimeout(apply, 200);
     }
 
+    // Only cancel the pending timer — do NOT clear the container here, or
+    // the QR preview will flash blank on every keystroke while debouncing.
     return () => {
-      if (qrContainerRef.current) qrContainerRef.current.innerHTML = "";
-      qrInstanceRef.current = null;
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
     };
-  }, [buildOptions]);
+  }, [buildOptions, settings.logo]);
 
   const updateSettings = useCallback((partial: Partial<QRSettings>) => {
     setSettings((prev) => ({ ...prev, ...partial }));
