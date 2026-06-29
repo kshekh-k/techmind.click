@@ -34,14 +34,13 @@ export default function QRCodeGenerator() {
   // qrContainerRef is always attached and the QR never needs re-initializing.
   const hasContent = useMemo(() => {
     switch (settings.inputType) {
-      case "url":    return settings.url.trim().length > 0;
-      case "text":   return settings.text.trim().length > 0;
-      case "email":  return settings.email.trim().length > 0;
-      case "phone":  return settings.phone.trim().length > 0;
-      case "wifi":   return settings.wifi.ssid.trim().length > 0;
-      default:       return false;
+      case "url":   return settings.url.trim().length > 0;
+      case "text":  return settings.text.trim().length > 0;
+      case "phone": return settings.phone.trim().length > 0;
+      case "wifi":  return settings.wifi.ssid.trim().length > 0;
+      default:      return false;
     }
-  }, [settings.inputType, settings.url, settings.text, settings.email, settings.phone, settings.wifi.ssid]);
+  }, [settings.inputType, settings.url, settings.text, settings.phone, settings.wifi.ssid]);
 
   const qrData = useMemo(() => buildQRData(settings), [settings]);
 
@@ -149,8 +148,8 @@ export default function QRCodeGenerator() {
             value={settings.inputType}
             onValueChange={(v) => updateSettings({ inputType: v as QRInputType })}
           >
-            <TabsList className="w-full grid grid-cols-5 mb-4">
-              {(["url", "text", "email", "phone", "wifi"] as const).map((t) => (
+            <TabsList className="w-full grid grid-cols-4 mb-4">
+              {(["url", "text", "phone", "wifi"] as const).map((t) => (
                 <TabsTrigger key={t} value={t} className="text-xs capitalize">
                   {t === "url" ? "URL" : t.charAt(0).toUpperCase() + t.slice(1)}
                 </TabsTrigger>
@@ -176,15 +175,6 @@ export default function QRCodeGenerator() {
               />
             </TabsContent>
 
-            <TabsContent value="email">
-              <Input
-                placeholder="hello@example.com"
-                value={settings.email}
-                onChange={(e) => updateSettings({ email: e.target.value })}
-                type="email"
-              />
-            </TabsContent>
-
             <TabsContent value="phone">
               <Input
                 placeholder="+1 555 000 0000"
@@ -201,14 +191,6 @@ export default function QRCodeGenerator() {
                 onChange={(e) =>
                   updateSettings({ wifi: { ...settings.wifi, ssid: e.target.value } })
                 }
-              />
-              <Input
-                placeholder="Password"
-                value={settings.wifi.password}
-                onChange={(e) =>
-                  updateSettings({ wifi: { ...settings.wifi, password: e.target.value } })
-                }
-                type="password"
               />
               <div className="flex items-center gap-4">
                 <div className="flex-1">
@@ -255,11 +237,11 @@ export default function QRCodeGenerator() {
            qrContainerRef stays attached and the QR doesn't need
            re-mounting every time the user starts typing.          */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-6 gap-6"
+        className="flex flex-col md:grid md:grid-cols-12 gap-6"
         style={{ display: hasContent ? undefined : "none" }}
       >
         {/* Style panel – 2 cols */}
-        <div className="lg:col-span-2">
+        <div className="md:col-span-3 lg:col-span-4">
           <QRControls
             settings={settings}
             onSettingsChange={updateSettings}
@@ -268,7 +250,7 @@ export default function QRCodeGenerator() {
         </div>
 
         {/* QR + label + file name + download – 4 cols */}
-        <div className="lg:col-span-4">
+        <div className="md:col-span-9 lg:col-span-8">
           <QRPreview
             qrContainerRef={qrContainerRef}
             label={settings.label}
