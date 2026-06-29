@@ -11,6 +11,7 @@ import {
   type QRSettings,
   type QRInputType,
 } from "@/app/types/qr";
+import { useAuth } from "@/app/components/auth/AuthProvider";
 import { buildQRData } from "@/utils/qr/generateQR";
 import { downloadQR } from "@/utils/qr/downloadQR";
 import { exportQRToPDF } from "@/utils/qr/exportPDF";
@@ -21,8 +22,11 @@ import { Label } from "@/app/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 
 export default function QRCodeGenerator() {
+  const { user } = useAuth();
   const [settings, setSettings] = useState<QRSettings>(DEFAULT_QR_SETTINGS);
   const [isExporting, setIsExporting] = useState(false);
+  const [savedId, setSavedId] = useState<string | undefined>(undefined);
+  const [savedName, setSavedName] = useState("");
 
   const qrContainerRef = useRef<HTMLDivElement>(null);
   const qrInstanceRef = useRef<QRCodeStyling | null>(null);
@@ -61,6 +65,25 @@ export default function QRCodeGenerator() {
     }),
     [settings, qrData],
   );
+
+  // Load preloaded QR from localStorage (set by profile page "Load in Editor")
+  useEffect(() => {
+    const raw = localStorage.getItem("qr-preload");
+    if (!raw) return;
+    try {
+      const { settings: preloadSettings, id, name } = JSON.parse(raw) as {
+        settings: QRSettings;
+        id?: string;
+        name?: string;
+      };
+      setSettings(preloadSettings);
+      if (id) setSavedId(id);
+      if (name) setSavedName(name);
+    } catch {
+      // ignore malformed data
+    }
+    localStorage.removeItem("qr-preload");
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -137,8 +160,8 @@ export default function QRCodeGenerator() {
     <div className="space-y-6">
 
       {/* ── Step 1: Content input ─────────────────────────────────── */}
-      <Card className="shadow-sm !border-gray-100">
-        <CardHeader className="pb-3">
+      <Card className="shadow-sm !border-gray-100 gap-3!">
+        <CardHeader >
           <CardTitle as="h2" className="text-base font-medium text-gray-600">
             What should your QR code point to?
           </CardTitle>
@@ -158,8 +181,8 @@ export default function QRCodeGenerator() {
 
             <TabsContent value="url">
               <Input
-                placeholder="https://www.techmind.click"
-                value={settings.url}
+                placeholder="Enter URL e.g. https://www.techmind.click"
+                value={settings.url} className="py-5! border-neutral-500 bg-gray-50"
                 onChange={(e) => updateSettings({ url: e.target.value })}
                 type="url"
                 autoFocus
@@ -269,6 +292,10 @@ export default function QRCodeGenerator() {
             onFileNameChange={(name) => updateSettings({ fileName: name })}
             onDownload={handleDownload}
             isExporting={isExporting}
+            user={user}
+            settings={settings}
+            savedId={savedId}
+            onSaved={(id, name) => { setSavedId(id); setSavedName(name); }}
           />
         </div>
       </div>
