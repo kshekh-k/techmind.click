@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Layout from "@/app/components/layout";
 import type { Metadata } from "next";
+import QRCodeGeneratorLoader from "@/app/components/tools/qr-generator/QRCodeGeneratorLoader";
 
 export const metadata: Metadata = {
   title: "Free QR Code Generator Online | TechMind",
@@ -33,23 +33,6 @@ export const metadata: Metadata = {
   },
 };
 
-// qr-code-styling uses browser Canvas/SVG APIs — load client-only
-const QRCodeGenerator = dynamic(
-  () => import("@/app/components/tools/qr-generator/QRCodeGenerator"),
-  {
-    ssr: false,
-    loading: () => (
-      <div
-        className="min-h-[500px] flex items-center justify-center text-muted-foreground"
-        aria-busy="true"
-        aria-label="Loading QR Code Generator…"
-      >
-        Loading…
-      </div>
-    ),
-  },
-);
-
 export default function QRCodeGeneratorPage() {
   return (
     <Layout>
@@ -65,7 +48,7 @@ export default function QRCodeGeneratorPage() {
         </div>
 
         <Suspense>
-          <QRCodeGenerator />
+          <QRCodeGeneratorLoader />
         </Suspense>
       </div>
     </Layout>
