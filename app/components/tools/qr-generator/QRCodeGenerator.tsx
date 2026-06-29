@@ -151,6 +151,7 @@ export default function QRCodeGenerator() {
           qrContainerRef={qrContainerRef}
           label={settings.label}
           labelColor={settings.fgColor}
+          bgColor={settings.bgColor}
           fileName={settings.fileName}
           onFileNameChange={(name) => updateSettings({ fileName: name })}
           onDownload={handleDownload}
