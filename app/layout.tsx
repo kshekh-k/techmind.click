@@ -2,6 +2,7 @@ import "./globals.css";
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+import { AuthProvider } from "@/app/components/auth/AuthProvider";
 
 // ─── Font ────────────────────────────────────────────────────────────────────
 // next/font downloads and self-hosts the font, eliminating render-blocking
@@ -148,7 +149,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
 
-        {children}
+        <AuthProvider>{children}</AuthProvider>
 
         {/* ── Google Analytics ────────────────────────────────────────────────
             strategy="lazyOnload" waits until the browser is idle, so GA never

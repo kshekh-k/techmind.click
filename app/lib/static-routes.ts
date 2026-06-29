@@ -14,6 +14,7 @@ export type StaticRoute = {
 export const STATIC_ROUTES: StaticRoute[] = [
   { label: "Home",                                                path: "/",                                                          changeFrequency: "weekly",  priority: 1.0 },
   { label: "Text Format",                                         path: "/text-format",                                               changeFrequency: "weekly",  priority: 0.9 },
+  { label: "QR Code Generator",                                    path: "/qr-code-generator",                                         changeFrequency: "monthly", priority: 0.9 },
   { label: "Image to PDF",                                        path: "/image-to-pdf",                                              changeFrequency: "monthly", priority: 0.8 },
   { label: "Image to WebP",                                       path: "/image-to-webp",                                             changeFrequency: "monthly", priority: 0.7 },
   { label: "Blogs",                                               path: "/blogs",                                                     changeFrequency: "weekly",  priority: 0.7 },

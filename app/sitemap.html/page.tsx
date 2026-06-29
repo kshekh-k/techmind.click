@@ -32,10 +32,13 @@ function buildSections(): SitemapSection[] {
     href: r.path,
   }));
 
-  const blogEntries: SitemapEntry[] = (blogs as { slug: string; title?: string }[]).map((b) => ({
-    label: b.title ?? b.slug,
-    href: `/blogs/${b.slug.trim().toLowerCase()}`,
-  }));
+  const blogEntries: SitemapEntry[] = (blogs as { slug: string; title?: string; date?: string }[])
+    .slice()
+    .sort((a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime())
+    .map((b) => ({
+      label: b.title ?? b.slug,
+      href: `/blogs/${b.slug.trim().toLowerCase()}`,
+    }));
 
   const glossaryEntries: SitemapEntry[] = (glossary as { slug: string; term?: string }[]).map((g) => ({
     label: g.term ?? g.slug,

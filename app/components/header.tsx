@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "@/app/components/mobile-nav";
+import AuthButton from "@/app/components/auth/AuthButton";
 
 const LINKS = [
   { href: "/", label: "Case Converter" },
+  { href: "/qr-code-generator", label: "QR Code Generator" },
   { href: "/image-to-pdf", label: "Image to PDF" },
   { href: "/blogs", label: "Blogs" },
 ];
@@ -75,7 +77,10 @@ const Header = () => {
             />
           </Link>
 
-          <MobileNav links={LINKS} moreLinks={MORE_LINKS} />
+          <div className="flex items-center gap-3">
+            <MobileNav links={LINKS} moreLinks={MORE_LINKS} />
+            <AuthButton />
+          </div>
         </nav>
       </div>
     </header>

@@ -6,7 +6,10 @@ import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
-import type { QRFormat } from "@/app/types/qr";
+import type { QRFormat, QRSettings } from "@/app/types/qr";
+import type { User } from "@supabase/supabase-js";
+import SaveQRButton from "@/app/components/tools/qr-generator/SaveQRButton";
+import SaveQRPrompt from "@/app/components/tools/qr-generator/SaveQRPrompt";
 
 type QRPreviewProps = {
   qrContainerRef: React.RefObject<HTMLDivElement | null>;
@@ -18,6 +21,10 @@ type QRPreviewProps = {
   onFileNameChange: (name: string) => void;
   onDownload: (format: QRFormat) => void;
   isExporting: boolean;
+  user: User | null;
+  settings: QRSettings;
+  savedId?: string;
+  onSaved: (id: string, name: string) => void;
 };
 
 export default function QRPreview({
@@ -30,6 +37,10 @@ export default function QRPreview({
   onFileNameChange,
   onDownload,
   isExporting,
+  user,
+  settings,
+  savedId,
+  onSaved,
 }: QRPreviewProps) {
   return (
     <Card className="shadow-sm !border-gray-100">
@@ -118,7 +129,7 @@ export default function QRPreview({
             Download SVG
           </Button>
           <Button
-            variant="outlineRose" 
+            variant="outlineRose"
             className="flex-1 gap-2"
             onClick={() => onDownload("pdf")}
             disabled={isExporting}
@@ -136,6 +147,13 @@ export default function QRPreview({
             )}
           </Button>
         </div>
+
+        {/* ── Save ────────────────────────────────────────────── */}
+        {user ? (
+          <SaveQRButton settings={settings} savedId={savedId} onSaved={onSaved} />
+        ) : (
+          <SaveQRPrompt />
+        )}
       </CardContent>
     </Card>
   );

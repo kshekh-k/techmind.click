@@ -13,6 +13,7 @@ const Footer = () => {
                 
                 <nav aria-label="Footer navigation">
                     <ul className="flex flex-wrap gap-4 justify-center list-none p-0 m-0 text-sm">
+                        <li><Link href="/qr-code-generator" title="QR Code Generator" className="hover:text-purple-700 transition">QR Code Generator</Link></li>
                         <li><Link href="/about-us" title="About us" className="transition hover:text-purple-700! ">About us</Link></li>
                         <li><Link href="/contact-us" title="Contact Us" className="hover:text-purple-700 transition">Contact Us</Link></li>
                         <li><Link href="/blogs" title="Blogs" className="hover:text-purple-700 transition">Blogs</Link></li>
