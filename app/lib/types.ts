@@ -4,6 +4,8 @@ export type BlogCover = {
   height: number;
 };
 
+export type BlogTool = "text-formatter" | "qr-code-generator";
+
 export type BlogType = {
   id: number;
   slug: string;
@@ -16,4 +18,5 @@ export type BlogType = {
   lastModified?: string;
   cover?: BlogCover;
   relatedPosts?: string[];
+  tool?: BlogTool;
 };
