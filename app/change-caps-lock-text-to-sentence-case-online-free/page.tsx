@@ -214,7 +214,7 @@ export default function ChangeCapsLockToSentenceCasePage() {
         </section>
         
         
-        <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-2xl sm:p-8 lg:p-10">
+        <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-fuchsia-200/20 blur-3xl" />
 
@@ -481,7 +481,7 @@ export default function ChangeCapsLockToSentenceCasePage() {
               show exactly how quickly you can fix uppercase email text online.
             </p>
 
-            <div className="overflow-hidden rounded-2xl border border-purple-200/70 bg-slate-950 p-2 shadow-2xl">
+            <div className="overflow-hidden rounded-2xl border border-purple-200/70 bg-slate-950 p-2 shadow-sm">
               <div className="mb-2 flex items-center gap-2 px-2 pt-1">
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />

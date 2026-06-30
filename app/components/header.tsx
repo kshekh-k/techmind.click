@@ -5,12 +5,16 @@ import AuthButton from "@/app/components/auth/AuthButton";
 
 const LINKS = [
   { href: "/", label: "Case Converter" },
-  { href: "/qr-code-generator", label: "QR Code Generator" },
+  { href: "/qr-code-generator", label: "QR Code Generator", badge: "New" },
   { href: "/image-to-pdf", label: "Image to PDF" },
   { href: "/blogs", label: "Blogs" },
 ];
 
 const MORE_LINKS = [
+  { href: "/qr-code-generator-for-business", label: "QR Code for Business" },
+  { href: "/create-wifi-qr-code-free", label: "WiFi QR Code Free" },
+  { href: "/create-qr-code-with-logo-free", label: "QR Code with Logo" },
+  { href: "/download-qr-code-png-svg-pdf", label: "Download QR Code PNG SVG PDF" },
   {
     href: "/change-caps-lock-text-to-sentence-case-online-free",
     label: "Caps Lock to Sentence",

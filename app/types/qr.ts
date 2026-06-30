@@ -1,4 +1,4 @@
-export type QRInputType = "url" | "text" | "phone" | "wifi";
+export type QRInputType = "url" | "text" | "phone" | "email" | "wifi";
 
 export type QRDotType =
   | "square"
@@ -26,6 +26,7 @@ export type QRSettings = {
   url: string;
   text: string;
   phone: string;
+  email: string;
   wifi: WifiConfig;
   fgColor: string;
   bgColor: string;
@@ -44,6 +45,7 @@ export const DEFAULT_QR_SETTINGS: QRSettings = {
   url: "",
   text: "",
   phone: "",
+  email: "",
   wifi: { ssid: "", password: "", hidden: false, encryption: "WPA" },
   fgColor: "#000000",
   bgColor: "#ffffff",

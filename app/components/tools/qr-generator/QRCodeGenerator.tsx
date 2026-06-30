@@ -36,15 +36,31 @@ export default function QRCodeGenerator() {
   // True once the user has typed any content — controls visibility of the
   // settings + QR grid. The grid itself stays in the DOM (display:none) so
   // qrContainerRef is always attached and the QR never needs re-initializing.
+  const isValidUrl = (url: string) => /^[^\s.]+(\.[^\s]+)+$/.test(url.trim());
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
   const hasContent = useMemo(() => {
     switch (settings.inputType) {
-      case "url":   return settings.url.trim().length > 0;
+      case "url":   return isValidUrl(settings.url);
       case "text":  return settings.text.trim().length > 0;
       case "phone": return settings.phone.trim().length > 0;
+      case "email": return settings.email.trim().length > 0 && isValidEmail(settings.email);
       case "wifi":  return settings.wifi.ssid.trim().length > 0;
       default:      return false;
     }
-  }, [settings.inputType, settings.url, settings.text, settings.phone, settings.wifi.ssid]);
+  }, [settings.inputType, settings.url, settings.text, settings.phone, settings.email, settings.wifi.ssid]);
+
+  const urlError = useMemo(() => {
+    if (!settings.url.trim()) return null;
+    return isValidUrl(settings.url) ? null : "Enter a valid domain e.g. domain.com or www.example.com";
+  }, [settings.url]);
+
+  const emailError = useMemo(() => {
+    if (!settings.email.trim()) return null;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(settings.email)
+      ? null
+      : "Enter a valid email address (e.g. hello@example.com)";
+  }, [settings.email]);
 
   const qrData = useMemo(() => buildQRData(settings), [settings]);
 
@@ -171,22 +187,28 @@ export default function QRCodeGenerator() {
             value={settings.inputType}
             onValueChange={(v) => updateSettings({ inputType: v as QRInputType })}
           >
-            <TabsList className="w-full grid grid-cols-4 mb-4">
-              {(["url", "text", "phone", "wifi"] as const).map((t) => (
+            <TabsList className="w-full grid grid-cols-5 mb-4">
+              {(["url", "text", "phone", "email", "wifi"] as const).map((t) => (
                 <TabsTrigger key={t} value={t} className="text-xs capitalize">
                   {t === "url" ? "URL" : t.charAt(0).toUpperCase() + t.slice(1)}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            <TabsContent value="url">
+            <TabsContent value="url" className="space-y-1.5">
               <Input
                 placeholder="Enter URL e.g. https://www.techmind.click"
-                value={settings.url} className="py-5! border-neutral-500 bg-gray-50"
+                value={settings.url}
+                className={`py-5! bg-gray-50 ${urlError ? "!border-red-400 focus-visible:!ring-red-200" : "border-neutral-500"}`}
                 onChange={(e) => updateSettings({ url: e.target.value })}
-                type="url"
+                type="text"
                 autoFocus
               />
+              {urlError && (
+                <p className="flex items-center gap-1.5 text-xs text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+                  <span>⚠</span> {urlError}
+                </p>
+              )}
             </TabsContent>
 
             <TabsContent value="text">
@@ -205,6 +227,21 @@ export default function QRCodeGenerator() {
                 onChange={(e) => updateSettings({ phone: e.target.value })}
                 type="tel"
               />
+            </TabsContent>
+
+            <TabsContent value="email" className="space-y-1.5">
+              <Input
+                placeholder="e.g. hello@example.com"
+                value={settings.email}
+                className={emailError ? "!border-red-400 focus-visible:!ring-red-200" : ""}
+                onChange={(e) => updateSettings({ email: e.target.value })}
+                type="text"
+              />
+              {emailError && (
+                <p className="flex items-center gap-1.5 text-xs text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
+                  <span>⚠</span> {emailError}
+                </p>
+              )}
             </TabsContent>
 
             <TabsContent value="wifi" className="space-y-3">

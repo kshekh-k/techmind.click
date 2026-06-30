@@ -51,7 +51,7 @@ export default function SolutionPageTemplate({ page }: SolutionPageTemplateProps
         <TextFormatter />
       </section>
 
-      <section className="relative overflow-hidden rounded-3xl border border-purple-200/50 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-2xl sm:p-8 lg:p-10">
+      <section className="relative overflow-hidden rounded-3xl border border-purple-200/50 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
         <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-16 -left-16 h-72 w-72 rounded-full bg-fuchsia-200/20 blur-3xl" />
 
@@ -244,7 +244,7 @@ export default function SolutionPageTemplate({ page }: SolutionPageTemplateProps
         </ul>
       </section>
 
-      <section className="rounded-3xl border border-purple-200/60 bg-gradient-to-br from-purple-800 via-violet-700 to-fuchsia-700 p-8 text-white shadow-2xl">
+      <section className="rounded-3xl border border-purple-200/60 bg-gradient-to-br from-purple-800 via-violet-700 to-fuchsia-700 p-8 text-white shadow-sm">
         <h2 className="text-2xl font-extrabold tracking-tight">Ready to Solve This in Under 2 Minutes?</h2>
         <p className="mt-3 max-w-2xl text-sm text-purple-100">
           Use TechMind&apos;s solution workflow to complete this task faster with clean output, better readability,

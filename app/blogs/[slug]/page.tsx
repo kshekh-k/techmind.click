@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import TextFormatter from "@/app/components/text-format";
+import QRCodeGeneratorLoader from "@/app/components/tools/qr-generator/QRCodeGeneratorLoader";
 
 const SITE_URL = "https://www.techmind.click";
 const DEFAULT_OG_IMAGE =
@@ -178,7 +179,12 @@ export default async function BlogPage({ params }: PageProps) {
       />
 
       <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
-        <TextFormatter />
+        
+        {blog.tool === "qr-code-generator" ? (
+          <QRCodeGeneratorLoader />
+        ) : (
+          <TextFormatter />
+        )}
 
         <article className="prose prose-lg bg-white w-full max-w-full border rounded p-5 shadow-sm">
           <h1 className="leading-tight mb-0 pb-2 font-bold">{blog.title}</h1>
