@@ -1,5 +1,6 @@
 import type QRCodeStyling from "qr-code-styling";
-import { buildCompositeCanvasForPDF, LABEL_HEIGHT } from "./compositeLabel";
+import type { LabelStyle } from "@/app/types/qr";
+import { buildCompositeCanvasForPDF, getLabelHeight } from "./compositeLabel";
 
 function blobToBase64(blob: Blob): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,7 @@ export async function exportQRToPDF(
   fileName: string,
   size: number,
   label?: string,
-  labelColor?: string,
+  labelStyle?: LabelStyle,
   bgColor?: string,
 ): Promise<void> {
   const { jsPDF } = await import("jspdf");
@@ -24,18 +25,18 @@ export async function exportQRToPDF(
   const trimmedLabel = label?.trim() ?? "";
 
   if (trimmedLabel) {
+    const style: LabelStyle = labelStyle ?? { color: "#000000", fontSize: 14, bold: false, italic: false };
     const canvas = await buildCompositeCanvasForPDF(
       qrInstance,
       trimmedLabel,
-      labelColor || "#000000",
+      style,
       bgColor || "#ffffff",
       size,
     );
     const base64 = canvas.toDataURL("image/png", 0.95);
 
-    // The composite canvas is size × (size + LABEL_HEIGHT) pixels.
-    // Scale the width to fit A4 (max 160mm) and derive height from aspect ratio.
-    const totalPx = size + LABEL_HEIGHT;
+    const labelHeight = getLabelHeight(style.fontSize);
+    const totalPx = size + labelHeight;
     const widthMM = Math.min(160, size * 0.2646);
     const heightMM = widthMM * (totalPx / size);
     const x = (210 - widthMM) / 2;

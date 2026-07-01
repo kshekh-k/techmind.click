@@ -14,7 +14,6 @@ import SaveQRPrompt from "@/app/components/tools/qr-generator/SaveQRPrompt";
 type QRPreviewProps = {
   qrContainerRef: React.RefObject<HTMLDivElement | null>;
   label: string;
-  labelColor: string;
   bgColor: string;
   fileName: string;
   onLabelChange: (label: string) => void;
@@ -30,7 +29,6 @@ type QRPreviewProps = {
 export default function QRPreview({
   qrContainerRef,
   label,
-  labelColor,
   bgColor,
   fileName,
   onLabelChange,
@@ -64,13 +62,18 @@ export default function QRPreview({
             <div className="mt-2 flex min-h-[26px] w-full items-center justify-center px-2">
               {label ? (
                 <p
-                  className="text-sm font-semibold tracking-wide text-center break-words leading-snug max-w-full"
-                  style={{ color: labelColor }}
+                  className="tracking-wide text-center break-words leading-snug max-w-full"
+                  style={{
+                    color: settings.labelColor,
+                    fontSize: `${settings.labelFontSize}px`,
+                    fontWeight: settings.labelBold ? 700 : 400,
+                    fontStyle: settings.labelItalic ? "italic" : "normal",
+                  }}
                 >
                   {label}
                 </p>
               ) : (
-                <p className="text-xs italic" style={{ color: labelColor, opacity: 0.3 }}>
+                <p className="text-xs italic" style={{ color: settings.labelColor, opacity: 0.3 }}>
                   label text
                 </p>
               )}
@@ -152,7 +155,7 @@ export default function QRPreview({
         {user ? (
           <SaveQRButton settings={settings} savedId={savedId} onSaved={onSaved} />
         ) : (
-          <SaveQRPrompt />
+          <SaveQRPrompt settings={settings} />
         )}
       </CardContent>
     </Card>

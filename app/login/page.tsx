@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export default function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+  const { next } = await searchParams
+  const redirectTo = next || "/"
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gray-50">
       <div className="w-full max-w-sm">
@@ -29,7 +32,7 @@ export default function LoginPage() {
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
-          <AuthForm mode="login" />
+          <AuthForm mode="login" redirectTo={redirectTo} />
         </div>
       </div>
     </div>

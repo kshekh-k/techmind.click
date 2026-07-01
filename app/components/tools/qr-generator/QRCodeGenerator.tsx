@@ -5,6 +5,7 @@ import QRCodeStyling from "qr-code-styling";
 import type { Options as QROptions, DotType, CornerSquareType } from "qr-code-styling";
 import QRControls from "./QRControls";
 import QRPreview from "./QRPreview";
+import PendingQRBanner from "./PendingQRBanner";
 import {
   DEFAULT_QR_SETTINGS,
   type QRFormat,
@@ -15,6 +16,7 @@ import { useAuth } from "@/app/components/auth/AuthProvider";
 import { buildQRData } from "@/utils/qr/generateQR";
 import { downloadQR } from "@/utils/qr/downloadQR";
 import { exportQRToPDF } from "@/utils/qr/exportPDF";
+import { loadPendingQR } from "@/utils/qr/pendingQR";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
 import { Input } from "@/app/components/ui/input";
 import { Textarea } from "@/app/components/ui/textarea";
@@ -22,11 +24,13 @@ import { Label } from "@/app/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 
 export default function QRCodeGenerator() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [settings, setSettings] = useState<QRSettings>(DEFAULT_QR_SETTINGS);
   const [isExporting, setIsExporting] = useState(false);
   const [savedId, setSavedId] = useState<string | undefined>(undefined);
   const [savedName, setSavedName] = useState("");
+  const [pendingRestored, setPendingRestored] = useState(false);
+  const [showPendingBanner, setShowPendingBanner] = useState(false);
 
   const qrContainerRef = useRef<HTMLDivElement>(null);
   const qrInstanceRef = useRef<QRCodeStyling | null>(null);
@@ -75,31 +79,42 @@ export default function QRCodeGenerator() {
       qrOptions: { errorCorrectionLevel: settings.logo ? "H" : "M" },
       dotsOptions: { color: settings.fgColor, type: settings.dotType as DotType },
       backgroundOptions: { color: settings.bgColor },
-      cornersSquareOptions: { color: settings.fgColor, type: settings.cornerType as CornerSquareType },
-      cornersDotOptions: { color: settings.fgColor },
+      cornersSquareOptions: { color: settings.cornerSquareColor, type: settings.cornerType as CornerSquareType },
+      cornersDotOptions: { color: settings.cornerDotColor },
       imageOptions: { margin: 5, hideBackgroundDots: true, imageSize: settings.logoSize },
     }),
     [settings, qrData],
   );
 
-  // Load preloaded QR from localStorage (set by profile page "Load in Editor")
+  // Restore QR from localStorage on mount (profile preload takes priority over pending)
   useEffect(() => {
     const raw = localStorage.getItem("qr-preload");
-    if (!raw) return;
-    try {
-      const { settings: preloadSettings, id, name } = JSON.parse(raw) as {
-        settings: QRSettings;
-        id?: string;
-        name?: string;
-      };
-      setSettings(preloadSettings);
-      if (id) setSavedId(id);
-      if (name) setSavedName(name);
-    } catch {
-      // ignore malformed data
+    if (raw) {
+      try {
+        const { settings: preloadSettings, id, name } = JSON.parse(raw) as {
+          settings: QRSettings;
+          id?: string;
+          name?: string;
+        };
+        setSettings(preloadSettings);
+        if (id) setSavedId(id);
+        if (name) setSavedName(name);
+      } catch {}
+      localStorage.removeItem("qr-preload");
+      return;
     }
-    localStorage.removeItem("qr-preload");
+
+    const pending = loadPendingQR();
+    if (pending) {
+      setSettings(pending);
+      setPendingRestored(true);
+    }
   }, []);
+
+  // Show save banner once auth resolves, user is confirmed logged in, and a pending QR was restored
+  useEffect(() => {
+    if (!authLoading && user && pendingRestored) setShowPendingBanner(true);
+  }, [authLoading, user, pendingRestored]);
 
   useEffect(() => {
     return () => {
@@ -153,13 +168,19 @@ export default function QRCodeGenerator() {
       const svgEl = label
         ? (qrContainerRef.current?.querySelector("svg") as SVGSVGElement | null)
         : null;
+      const labelStyle = {
+        color: settings.labelColor,
+        fontSize: settings.labelFontSize,
+        bold: settings.labelBold,
+        italic: settings.labelItalic,
+      };
 
       try {
         setIsExporting(true);
         if (format === "pdf") {
-          await exportQRToPDF(qr, settings.fileName, settings.size, label, settings.fgColor, settings.bgColor);
+          await exportQRToPDF(qr, settings.fileName, settings.size, label, labelStyle, settings.bgColor);
         } else {
-          await downloadQR(qr, format, settings.fileName, label, settings.fgColor, settings.bgColor, settings.size, svgEl);
+          await downloadQR(qr, format, settings.fileName, label, labelStyle, settings.bgColor, settings.size, svgEl);
         }
       } catch (err) {
         console.error("QR download failed:", err);
@@ -167,13 +188,22 @@ export default function QRCodeGenerator() {
         setIsExporting(false);
       }
     },
-    [settings.fileName, settings.size, settings.label, settings.fgColor, settings.bgColor],
+    [settings.fileName, settings.size, settings.label, settings.labelColor, settings.labelFontSize, settings.labelBold, settings.labelItalic, settings.bgColor],
   );
 
   const handleReset = useCallback(() => setSettings(DEFAULT_QR_SETTINGS), []);
 
   return (
     <div className="space-y-6">
+
+      {/* ── Pending QR save banner (shown after login when a guest QR was saved) */}
+      {showPendingBanner && (
+        <PendingQRBanner
+          settings={settings}
+          onSaved={(id, name) => { setSavedId(id); setSavedName(name); setShowPendingBanner(false); }}
+          onDismiss={() => setShowPendingBanner(false)}
+        />
+      )}
 
       {/* ── Step 1: Content input ─────────────────────────────────── */}
       <Card className="shadow-sm !border-gray-100 gap-3!">
@@ -304,10 +334,7 @@ export default function QRCodeGenerator() {
            Always in the DOM (display:none when no content) so the
            qrContainerRef stays attached and the QR doesn't need
            re-mounting every time the user starts typing.          */}
-      <div
-        className="flex flex-col md:grid md:grid-cols-12 gap-6"
-        style={{ display: hasContent ? undefined : "none" }}
-      >
+      <div className="flex flex-col md:grid md:grid-cols-12 gap-6" >
         {/* Style panel – 2 cols */}
         <div className="md:col-span-3 lg:col-span-4">
           <QRControls
@@ -322,7 +349,6 @@ export default function QRCodeGenerator() {
           <QRPreview
             qrContainerRef={qrContainerRef}
             label={settings.label}
-            labelColor={settings.fgColor}
             bgColor={settings.bgColor}
             fileName={settings.fileName}
             onLabelChange={(label) => updateSettings({ label })}
