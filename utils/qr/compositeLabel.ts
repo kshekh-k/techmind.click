@@ -22,16 +22,40 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
+// Parses the <image> element from a qr-code-styling SVG to get the logo rect.
+// Coordinates are scaled to match our target canvas size.
+function extractLogoRect(
+  svgText: string,
+  canvasSize: number,
+): { x: number; y: number; width: number; height: number } | null {
+  const tagMatch = svgText.match(/<image\b([^>]*)(?:\/>|>[\s\S]*?<\/image>)/);
+  if (!tagMatch) return null;
+  const attrs = tagMatch[1];
+  const attr = (name: string) => {
+    const m = attrs.match(new RegExp(`\\b${name}="([^"]*)"`));
+    return m ? parseFloat(m[1]) : 0;
+  };
+  const svgWidthMatch = svgText.match(/<svg\b[^>]+\bwidth="([^"]*)"/);
+  const svgNativeWidth = svgWidthMatch ? parseFloat(svgWidthMatch[1]) : canvasSize;
+  const scale = canvasSize / svgNativeWidth;
+  return {
+    x: attr("x") * scale,
+    y: attr("y") * scale,
+    width: attr("width") * scale,
+    height: attr("height") * scale,
+  };
+}
+
 // Renders the QR to an untainted canvas.
 //
-// In SVG mode with an embedded logo, drawing the SVG blob to canvas taints it
-// (Chrome security model: any SVG with <image> elements is treated as cross-origin
-// when drawn via new Image()).  A tainted canvas produces null from toBlob() and
-// an empty string from toDataURL().
+// Chrome taints any canvas that has an SVG containing <image> elements drawn
+// onto it via new Image(), even with data: URL sources. A tainted canvas returns
+// null from toBlob() and an empty string from toDataURL().
 //
-// Fix: get the raw SVG text, strip <image> elements, render the clean SVG to
-// canvas (no taint), then draw the logo directly from its data URL (data: URLs
-// are same-origin and never taint the canvas).
+// Fix: get the raw SVG, extract the logo's exact position from the <image> tag,
+// strip <image> elements, render the clean SVG (no taint), then draw the logo
+// from its data URL at the coordinates qr-code-styling used — so PNG/PDF output
+// is pixel-accurate to the SVG live preview.
 async function renderQRToCanvas(
   qrInstance: QRCodeStyling,
   qrSize: number,
@@ -43,6 +67,9 @@ async function renderQRToCanvas(
   if (!svgBlob || !(svgBlob instanceof Blob)) throw new Error("Failed to get QR SVG");
 
   const svgText = await (svgBlob as Blob).text();
+
+  // Extract exact logo rect before stripping so canvas placement matches SVG exactly
+  const logoRect = logo ? extractLogoRect(svgText, qrSize) : null;
 
   // Strip <image> elements before drawing to canvas to prevent tainting
   const cleanSvg = logo
@@ -63,13 +90,18 @@ async function renderQRToCanvas(
   ctx.drawImage(qrImg, 0, 0, qrSize, qrSize);
 
   // Draw logo separately — data: URLs are same-origin and never taint canvas
-  if (logo && logoSize) {
+  if (logo) {
     const logoImg = await loadImage(logo);
-    const LOGO_MARGIN = 5; // matches imageOptions.margin set in buildOptions
-    const totalArea = qrSize * logoSize;
-    const drawSize = Math.max(totalArea - 2 * LOGO_MARGIN, 1);
-    const offset = (qrSize - drawSize) / 2;
-    ctx.drawImage(logoImg, offset, offset, drawSize, drawSize);
+    if (logoRect) {
+      // Use coordinates extracted from the SVG for pixel-perfect match with live preview
+      ctx.drawImage(logoImg, logoRect.x, logoRect.y, logoRect.width, logoRect.height);
+    } else if (logoSize) {
+      // Fallback when SVG parsing fails: manual center calculation
+      const LOGO_MARGIN = 8;
+      const drawSize = Math.max(qrSize * logoSize - 2 * LOGO_MARGIN, 1);
+      const offset = (qrSize - drawSize) / 2;
+      ctx.drawImage(logoImg, offset, offset, drawSize, drawSize);
+    }
   }
 
   return canvas;

@@ -81,7 +81,7 @@ export default function QRCodeGenerator() {
       backgroundOptions: { color: settings.bgColor },
       cornersSquareOptions: { color: settings.cornerSquareColor, type: settings.cornerType as CornerSquareType },
       cornersDotOptions: { color: settings.cornerDotColor },
-      imageOptions: { margin: 5, hideBackgroundDots: true, imageSize: settings.logoSize },
+      imageOptions: { margin: 8, hideBackgroundDots: true, imageSize: settings.logoSize },
     }),
     [settings, qrData],
   );
