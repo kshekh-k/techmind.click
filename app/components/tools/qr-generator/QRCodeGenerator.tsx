@@ -178,9 +178,9 @@ export default function QRCodeGenerator() {
       try {
         setIsExporting(true);
         if (format === "pdf") {
-          await exportQRToPDF(qr, settings.fileName, settings.size, label, labelStyle, settings.bgColor);
+          await exportQRToPDF(qr, settings.fileName, settings.size, label, labelStyle, settings.bgColor, settings.logo, settings.logoSize);
         } else {
-          await downloadQR(qr, format, settings.fileName, label, labelStyle, settings.bgColor, settings.size, svgEl);
+          await downloadQR(qr, format, settings.fileName, label, labelStyle, settings.bgColor, settings.size, svgEl, settings.logo, settings.logoSize);
         }
       } catch (err) {
         console.error("QR download failed:", err);
