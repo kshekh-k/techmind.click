@@ -69,7 +69,7 @@ export const DEFAULT_QR_SETTINGS: QRSettings = {
   cornerType: "square",
   margin: 10,
   logo: null,
-  logoSize: 0.4,
+  logoSize: 0.3,
   label: "",
   labelColor: "#000000",
   labelFontSize: 14,

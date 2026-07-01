@@ -81,7 +81,7 @@ export default function QRCodeGenerator() {
       backgroundOptions: { color: settings.bgColor },
       cornersSquareOptions: { color: settings.cornerSquareColor, type: settings.cornerType as CornerSquareType },
       cornersDotOptions: { color: settings.cornerDotColor },
-      imageOptions: { margin: 5, hideBackgroundDots: true, imageSize: settings.logoSize },
+      imageOptions: { margin: 8, hideBackgroundDots: true, imageSize: settings.logoSize },
     }),
     [settings, qrData],
   );
@@ -96,7 +96,7 @@ export default function QRCodeGenerator() {
           id?: string;
           name?: string;
         };
-        setSettings(preloadSettings);
+        setSettings({ ...DEFAULT_QR_SETTINGS, ...preloadSettings });
         if (id) setSavedId(id);
         if (name) setSavedName(name);
       } catch {}
@@ -169,18 +169,18 @@ export default function QRCodeGenerator() {
         ? (qrContainerRef.current?.querySelector("svg") as SVGSVGElement | null)
         : null;
       const labelStyle = {
-        color: settings.labelColor,
-        fontSize: settings.labelFontSize,
-        bold: settings.labelBold,
-        italic: settings.labelItalic,
+        color: settings.labelColor || "#000000",
+        fontSize: settings.labelFontSize || 14,
+        bold: settings.labelBold ?? false,
+        italic: settings.labelItalic ?? false,
       };
 
       try {
         setIsExporting(true);
         if (format === "pdf") {
-          await exportQRToPDF(qr, settings.fileName, settings.size, label, labelStyle, settings.bgColor);
+          await exportQRToPDF(qr, settings.fileName, settings.size, label, labelStyle, settings.bgColor, settings.logo, settings.logoSize);
         } else {
-          await downloadQR(qr, format, settings.fileName, label, labelStyle, settings.bgColor, settings.size, svgEl);
+          await downloadQR(qr, format, settings.fileName, label, labelStyle, settings.bgColor, settings.size, svgEl, settings.logo, settings.logoSize);
         }
       } catch (err) {
         console.error("QR download failed:", err);
