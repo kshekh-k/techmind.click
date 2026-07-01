@@ -1,4 +1,5 @@
 import type QRCodeStyling from "qr-code-styling";
+import type { LabelStyle } from "@/app/types/qr";
 import { downloadPNGWithLabel, downloadSVGWithLabel } from "./compositeLabel";
 
 type DownloadFormat = "png" | "svg";
@@ -8,7 +9,7 @@ export async function downloadQR(
   format: DownloadFormat,
   fileName: string,
   label?: string,
-  labelColor?: string,
+  labelStyle?: LabelStyle,
   bgColor?: string,
   qrSize?: number,
   svgElement?: SVGSVGElement | null,
@@ -21,13 +22,13 @@ export async function downloadQR(
     return;
   }
 
-  const color = labelColor || "#000000";
+  const style: LabelStyle = labelStyle ?? { color: "#000000", fontSize: 14, bold: false, italic: false };
   const bg = bgColor || "#ffffff";
   const size = qrSize || 300;
 
   if (format === "svg" && svgElement) {
-    downloadSVGWithLabel(svgElement, trimmedLabel, color, size, name);
+    downloadSVGWithLabel(svgElement, trimmedLabel, style, size, name);
   } else {
-    await downloadPNGWithLabel(qrInstance, trimmedLabel, color, bg, size, name);
+    await downloadPNGWithLabel(qrInstance, trimmedLabel, style, bg, size, name);
   }
 }
