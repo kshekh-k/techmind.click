@@ -26,26 +26,27 @@ export async function exportQRToPDF(
 
   const trimmedLabel = label?.trim() ?? "";
   const bg = bgColor || "#ffffff";
+  const safeSize = size || 300;
 
   if (trimmedLabel) {
     const style: LabelStyle = labelStyle ?? { color: "#000000", fontSize: 14, bold: false, italic: false };
-    const canvas = await buildCompositeCanvasForPDF(qrInstance, trimmedLabel, style, bg, size, logo, logoSize);
+    const canvas = await buildCompositeCanvasForPDF(qrInstance, trimmedLabel, style, bg, safeSize, logo, logoSize);
     const base64 = canvas.toDataURL("image/png", 0.95);
 
     const labelHeight = getLabelHeight(style.fontSize);
-    const totalPx = size + labelHeight;
-    const widthMM = Math.min(160, size * 0.2646);
-    const heightMM = widthMM * (totalPx / size);
+    const totalPx = safeSize + labelHeight;
+    const widthMM = Math.min(160, safeSize * 0.2646);
+    const heightMM = widthMM * (totalPx / safeSize);
     const x = (210 - widthMM) / 2;
     const y = (297 - heightMM) / 2;
 
     pdf.addImage(base64, "PNG", x, y, widthMM, heightMM);
   } else {
     // Use safe canvas path to avoid tainting issues when a logo is present
-    const blob = await renderQRToPNGBlob(qrInstance, size, bg, logo, logoSize);
+    const blob = await renderQRToPNGBlob(qrInstance, safeSize, bg, logo, logoSize);
     const base64 = await blobToBase64(blob);
 
-    const imgMM = Math.min(160, size * 0.2646);
+    const imgMM = Math.min(160, safeSize * 0.2646);
     const x = (210 - imgMM) / 2;
     const y = (297 - imgMM) / 2;
 

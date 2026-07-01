@@ -4,7 +4,7 @@ import type { LabelStyle } from "@/app/types/qr";
 export const LABEL_PADDING = 14;
 
 export function getLabelHeight(fontSize: number): number {
-  return LABEL_PADDING * 2 + fontSize;
+  return LABEL_PADDING * 2 + (fontSize || 14);
 }
 
 function buildFont(style: LabelStyle): string {
