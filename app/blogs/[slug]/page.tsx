@@ -8,12 +8,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TextFormatter from "@/app/components/text-format";
 import QRCodeGeneratorLoader from "@/app/components/tools/qr-generator/QRCodeGeneratorLoader";
+import { normalizeBlog } from "@/app/lib/normalizeBlog";
 
 const SITE_URL = "https://www.techmind.click";
 const DEFAULT_OG_IMAGE =
   "/images/text-case-converter-and-formatter-techmind-click-otg.png";
 
 export const dynamicParams = false;
+
 
 /* ---------- Types ---------- */
 type PageProps = {
@@ -34,11 +36,12 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
-  const blog = (blogs as BlogType[]).find(
+  const raw = (blogs as BlogType[]).find(
     (b) => b.slug === resolvedParams.slug,
   );
 
-  if (!blog) return {};
+  if (!raw) return {};
+  const blog = normalizeBlog(raw);
 
   const ogImage = blog.cover?.url
     ? `${SITE_URL}${blog.cover.url}`
@@ -85,11 +88,12 @@ export async function generateMetadata({
 /* ---------- Page ---------- */
 export default async function BlogPage({ params }: PageProps) {
   const resolvedParams = await params;
-  const blog = (blogs as BlogType[]).find(
+  const raw = (blogs as BlogType[]).find(
     (b) => b.slug === resolvedParams.slug,
   );
 
-  if (!blog) notFound();
+  if (!raw) notFound();
+  const blog = normalizeBlog(raw!);
 
   // ── JSON-LD Article schema ─────────────────────────────────────────────────
   // Helps Google understand the article structure → rich results in SERPs.

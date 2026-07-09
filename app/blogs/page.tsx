@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import blogs from "@/app/data/blog.json";
 import { BlogType } from "@/app/lib/types";
+import { normalizeBlog } from "@/app/lib/normalizeBlog";
 import Layout from "@/app/components/layout";
 import type { Metadata } from "next";
 import TextFormatter from "../components/text-format";
@@ -14,9 +15,9 @@ export const metadata: Metadata = {
 };
 
 export default function BlogsPage() {
-  const sortedBlogs = [...(blogs as BlogType[])].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  const sortedBlogs = [...(blogs as BlogType[])]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .map(normalizeBlog);
 
   const schemaGraph = {
     "@context": "https://schema.org",

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import blogs from "@/app/data/blog.json";
 import { BlogType } from "@/app/lib/types";
+import { normalizeBlog } from "@/app/lib/normalizeBlog";
 
 type Props = {
   relatedPosts: string[];
@@ -13,6 +14,7 @@ export default function RelatedPosts({ relatedPosts, currentSlug }: Props) {
     .filter((slug) => slug !== currentSlug)
     .map((slug) => (blogs as BlogType[]).find((b) => b.slug === slug))
     .filter((b): b is BlogType => b !== undefined)
+    .map(normalizeBlog)
     .slice(0, 4);
 
   if (posts.length === 0) return null;
