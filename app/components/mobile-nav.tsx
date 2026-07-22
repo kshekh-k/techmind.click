@@ -63,7 +63,7 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
           <li key={link.href}>
             <Link
               href={link.href}
-              className={`flex items-center gap-1 transition group ${link.badge ? "border border-indigo-500 text-indigo-500 rounded hover:bg-indigo-500 hover:text-white px-3 py-2" : "px-4 py-2 hover:bg-accent hover:text-accent-foreground"}`}
+              className={`flex items-center gap-1 transition group ${link.badge ? "border border-purple-500 text-purple-500 rounded hover:bg-purple-500 hover:text-white px-3 py-2" : "px-4 py-2 hover:bg-accent hover:text-accent-foreground"}`}
               onClick={() => {
                 setOpen(false);
                 setMoreOpen(false);
@@ -71,7 +71,7 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
             >
               {link.label}
               {link.badge && (
-                <span className="inline-flex items-center rounded-full bg-indigo-600 px-1.5 py-0.5 text-xs font-semibold leading-none text-white">
+                <span className="inline-flex items-center rounded-full bg-purple-600 px-1.5 py-0.5 text-xs font-semibold leading-none text-white">
                   {link.badge}
                 </span>
               )}

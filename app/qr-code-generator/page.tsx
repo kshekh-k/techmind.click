@@ -2,7 +2,12 @@ import { Suspense } from "react";
 import Layout from "@/app/components/layout";
 import type { Metadata } from "next";
 import QRCodeGeneratorLoader from "@/app/components/tools/qr-generator/QRCodeGeneratorLoader";
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/app/components/ui/card";
 import Link from "next/link";
 
 /* ─── Constants ─────────────────────────────────────────────────────────────── */
@@ -13,9 +18,9 @@ const ORG_ID = `${SITE_URL}#organization`;
 const WEBSITE_ID = `${SITE_URL}#website`;
 const APP_ID = `${PAGE_URL}#app`;
 
-const TITLE = "Free QR Code Generator — Custom QR Codes Online | TechMind";
+const TITLE = "Free QR Code Generator - Custom QR Codes Online | TechMind";
 const DESCRIPTION =
-  "Generate free custom QR codes online for URLs, text, phone numbers, and WiFi. Add a logo, choose colors and dot styles, then download in PNG, SVG, or PDF — no sign-up required. Save your QR codes to your profile and update them anytime.";
+  "Generate free custom QR codes online for URLs, text, phone numbers, and WiFi. Add a logo, choose colors and dot styles, then download in PNG, SVG, or PDF - no sign-up required. Save QR code projects to your account and reopen them later for editing.";
 
 /* ─── Metadata ───────────────────────────────────────────────────────────────── */
 
@@ -39,7 +44,11 @@ export const metadata: Metadata = {
     "generate qr code",
     "qr code download",
   ],
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   alternates: { canonical: "/qr-code-generator" },
   openGraph: {
     type: "website",
@@ -81,7 +90,13 @@ const schemaGraph = {
         "https://www.linkedin.com/in/kshekh/",
         "https://www.facebook.com/kshekh01011986",
       ],
-      contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", url: `${SITE_URL}/contact-us` }],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          url: `${SITE_URL}/contact-us`,
+        },
+      ],
     },
 
     // WebSite
@@ -218,7 +233,12 @@ const schemaGraph = {
       "@id": `${PAGE_URL}#howto`,
       name: "How to Create a Custom QR Code",
       totalTime: "PT2M",
-      supply: [{ "@type": "HowToSupply", name: "URL, text, phone number, or WiFi credentials" }],
+      supply: [
+        {
+          "@type": "HowToSupply",
+          name: "URL, text, phone number, or WiFi credentials",
+        },
+      ],
       step: [
         {
           "@type": "HowToStep",
@@ -242,7 +262,7 @@ const schemaGraph = {
           "@type": "HowToStep",
           position: 4,
           name: "Add a label (optional)",
-          text: "Add a text label below the QR code — it will be included in all downloaded files.",
+          text: "Add a text label below the QR code - it will be included in all downloaded files.",
         },
         {
           "@type": "HowToStep",
@@ -259,7 +279,12 @@ const schemaGraph = {
       "@id": `${PAGE_URL}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-        { "@type": "ListItem", position: 2, name: "QR Code Generator", item: PAGE_URL },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "QR Code Generator",
+          item: PAGE_URL,
+        },
       ],
     },
   ],
@@ -276,15 +301,15 @@ export default function QRCodeGeneratorPage() {
       />
 
       <div className="max-w-6xl mx-auto px-4 space-y-10">
-
         {/* Hero */}
         <div className="mb-2 text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Free QR Code Generator
           </h1>
           <p className="text-gray-500 text-sm max-w-xl mx-auto">
-            Create custom QR codes for URLs, text, phone numbers, or WiFi. Add a logo, pick colors
-            and a style, then download as PNG, SVG, or PDF — free, no sign-up required.
+            Create custom QR codes for websites, business cards, WiFi, phone
+            numbers, menus, and plain text. Add a logo, pick colors and a style,
+            then download as PNG, SVG, or PDF - free, no sign-up required.
           </p>
         </div>
 
@@ -293,71 +318,330 @@ export default function QRCodeGeneratorPage() {
           <QRCodeGeneratorLoader />
         </Suspense>
 
+ <Card className="shadow-sm !border-none">
+  <CardContent className="py-5">
+
+     <CardTitle
+              as="h2"
+              className="text-2xl md:text-3xl font-extrabold tracking-tight"
+            >
+      More Free Productivity Tools
+    </CardTitle>
+
+    <p className="text-sm text-muted-foreground mt-2">
+      Discover more free online tools and resources from TechMind for
+      productivity, document management, and content creation.
+    </p>
+
+    <div className="mt-4 flex flex-wrap gap-3">
+
+      <Link
+        href="/"
+        className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+      >
+        Text Formatter
+      </Link>
+
+      <Link
+        href="/image-to-pdf"
+        className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+      >
+        Image to PDF
+      </Link>
+
+      <Link
+        href="/blogs"
+        className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+      >
+        Blog Hub
+      </Link>
+
+      <Link
+        href="/glossary"
+        className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+      >
+        Glossary
+      </Link>
+
+    </div>
+
+  </CardContent>
+</Card>
+
+
         {/* SEO Content */}
         <Card className="shadow-sm !border-none">
           <CardHeader>
-            <CardTitle as="h2" className="text-2xl md:text-3xl font-extrabold tracking-tight">
-              Custom QR Code Generator — Free, Fast & No Sign-Up
+            <CardTitle
+              as="h2"
+              className="text-2xl md:text-3xl font-extrabold tracking-tight"
+            >
+              Custom QR Code Generator - Free, Fast & No Sign-Up
             </CardTitle>
             <p className="text-base text-muted-foreground mt-3 max-w-4xl">
-              Generate professional QR codes for any use case in seconds. Customize every detail —
-              colors, shapes, logo, and label — then download in the format you need.
+              Generate professional QR codes for any use case in seconds.
+              Customize every detail - colors, shapes, logo, and label - then
+              download in the format you need.
             </p>
           </CardHeader>
 
           <CardContent>
             <div className="space-y-5 text-muted-foreground leading-7 prose max-w-none">
-
               <h3>What types of QR codes can you create?</h3>
               <ul>
-                <li><strong>URL QR Code</strong> — Link directly to any website, product page, portfolio, or social profile.</li>
-                <li><strong>Text QR Code</strong> — Encode any plain text message. Scanners display the text without opening a browser.</li>
-                <li><strong>Phone QR Code</strong> — Dial a phone number instantly when scanned — ideal for business cards and flyers.</li>
-                <li><strong>WiFi QR Code</strong> — Let guests connect to your network by scanning a code, no password typing needed.</li>
+                <li>
+                  <strong>URL QR Code</strong> - Link directly to any website,
+                  product page, portfolio, or social profile.
+                </li>
+                <li>
+                  <strong>Text QR Code</strong> - Encode any plain text message.
+                  Scanners display the text without opening a browser.
+                </li>
+                <li>
+                  <strong>Phone QR Code</strong> - Dial a phone number instantly
+                  when scanned - ideal for business cards and flyers.
+                </li>
+                <li>
+                  <strong>WiFi QR Code</strong> - Let guests connect to your
+                  network by scanning a code, no password typing needed.
+                </li>
               </ul>
 
               <h3>Customization options</h3>
               <p>
-                Every QR code you generate on TechMind is fully customizable. Change the foreground
-                and background colors to match your brand, choose from six dot styles (square, dots,
-                rounded, extra-rounded, classy, classy-rounded), pick your corner shape, and upload
-                any logo image to embed in the center. Adjust the size from 200px to 500px and set
-                the margin to control white space around the code.
+                Every QR code you generate on TechMind is fully customizable.
+                Change the foreground and background colors to match your brand,
+                choose from six dot styles (square, dots, rounded,
+                extra-rounded, classy, classy-rounded), pick your corner shape,
+                and upload any logo image to embed in the center. Adjust the
+                size from 200px to 500px and set the margin to control white
+                space around the code.
               </p>
 
-              <h3>Download formats</h3>
+              <h3>Popular Uses of QR Codes</h3>
+
+              <p>
+                QR codes have become one of the easiest ways to connect printed
+                materials with digital content. Whether you're a business owner,
+                student, teacher, marketer, or event organizer, QR codes make it
+                simple for people to access information instantly by scanning
+                with their smartphone camera.
+              </p>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                <div>
+                  <h4>🏬 Restaurant Menus</h4>
+                  <p>
+                    Create contactless digital menus for restaurants, cafés,
+                    food trucks, and hotels. Download your menu QR code as a PDF
+                    for easy printing using our{" "}
+                    <Link
+                      href="/image-to-pdf"
+                      className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
+                    >
+                      Image to PDF Converter
+                    </Link>
+                    . Customers can scan the QR code to view your menu without
+                    downloading an app.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>💼 Business Cards</h4>
+                  <p>
+                    Add a QR code to your business card that links directly to
+                    your website, portfolio, LinkedIn profile, contact page, or
+                    digital vCard. If you need to prepare names or text before
+                    creating your QR code, try our{" "}
+                    <Link
+                      href="/"
+                      className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
+                    >
+                      Text Formatter
+                    </Link>
+                    .
+                  </p>
+                </div>
+
+                <div>
+                  <h4>📶 WiFi Sharing</h4>
+                  <p>
+                    Allow guests to join your WiFi network instantly without
+                    manually typing the password. Simply scan the QR code to
+                    connect.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>📦 Product Packaging</h4>
+                  <p>
+                    Add QR codes to packaging that link to product manuals,
+                    installation guides, warranty information, user videos, or
+                    customer support.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>📢 Marketing & Advertising</h4>
+                  <p>
+                    Increase engagement by adding QR codes to posters,
+                    brochures, flyers, newspapers, magazines, billboards, and
+                    product catalogs.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>🎫 Events & Tickets</h4>
+                  <p>
+                    Share registration pages, digital tickets, event schedules,
+                    venue maps, speaker information, or check-in links using QR
+                    codes.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>📍 Google Maps & Locations</h4>
+                  <p>
+                    Help visitors find your office, restaurant, shop, or event
+                    venue by linking directly to Google Maps directions.
+                    Businesses can also include Google Maps QR codes on flyers,
+                    brochures, posters, and marketing materials. Learn more
+                    about creative QR code ideas in our{" "}
+                    <Link
+                      href="/blogs"
+                      className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
+                    >
+                      Blog Knowledge Hub
+                    </Link>
+                    .
+                  </p>
+                </div>
+
+                <div>
+                  <h4>📱 Social Media & Websites</h4>
+                  <p>
+                    Connect people to your Instagram, Facebook, YouTube,
+                    LinkedIn, X, or any website with a single scan.
+                  </p>
+                </div>
+              </div>
+
+              <p>
+                Because TechMind QR Code Generator supports custom colors, logo
+                uploads, labels, and downloads in PNG, SVG, and PDF formats,
+                it's suitable for both personal projects and professional
+                business use.
+              </p>
+
+              <h3>Download QR Codes in PNG, SVG, or PDF</h3>
+
+              <p>
+                After customizing your QR code, you can download it in PNG, SVG,
+                or PDF format. Each format is optimized for different use cases,
+                whether you're sharing online, printing business materials, or
+                creating large-format marketing assets. Need help choosing the
+                right file format? Browse our{" "}
+                <Link
+                  href="/glossary"
+                  className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
+                >
+                  Glossary
+                </Link>{" "}
+                for explanations of PNG, SVG, PDF, and other common web terms.
+              </p>
+
+              <div className="grid gap-5 md:grid-cols-3">
+                <div>
+                  <h4>🖼 PNG Image</h4>
+                  <p>
+                    PNG is the best choice for websites, social media, email
+                    signatures, presentations, digital menus, and everyday
+                    sharing. It provides excellent image quality and works on
+                    virtually every device and platform.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>🎨 SVG Vector</h4>
+                  <p>
+                    SVG is a scalable vector format that stays perfectly sharp
+                    at any size. It's ideal for professional printing, business
+                    cards, product packaging, stickers, banners, posters, and
+                    graphic design software.
+                  </p>
+                </div>
+
+                <div>
+                  <h4>📄 PDF Document</h4>
+                  <p>
+                    PDF is perfect for printing and sharing documents. Download
+                    a print-ready QR code for restaurant menus, flyers,
+                    brochures, invoices, event tickets, and other printable
+                    materials.
+                  </p>
+                </div>
+              </div>
+
+              <h3>Which QR Code Format Should You Choose?</h3>
+
+              <p>
+                Choosing the right format depends on how you plan to use your QR
+                code.
+              </p>
+
               <ul>
-                <li><strong>PNG</strong> — Best for digital use: social media, websites, emails, and presentations.</li>
-                <li><strong>SVG</strong> — Vector format that scales to any size without losing quality. Ideal for print.</li>
-                <li><strong>PDF</strong> — Print-ready single-page document. Perfect for flyers, posters, and packaging.</li>
+                <li>
+                  <strong>Choose PNG</strong> for websites, social media,
+                  presentations, and digital sharing.
+                </li>
+                <li>
+                  <strong>Choose SVG</strong> for professional printing, logos,
+                  packaging, and large graphics.
+                </li>
+                <li>
+                  <strong>Choose PDF</strong> when sending files directly to a
+                  print shop or including QR codes in printable documents.
+                </li>
               </ul>
+
               <p>
-                All formats include any label text you add below the QR code, rendered in the same color as the QR dots.
+                Every download preserves your selected colors, logo, corner
+                style, dot style, margin, and optional label, ensuring your QR
+                code looks consistent across digital and printed materials.
               </p>
 
-              <h3>Save and manage your QR codes</h3>
-              <p>
-                Sign in with Google or create a free account to save QR codes to your profile. Load any
-                saved QR back into the editor, make changes, and update it at any time — useful for
-                campaign links, menus, or anything that changes over time.
-              </p>
+              <div className="rounded-xl border border-green-200 bg-green-50 p-4">
+                <h4 className="font-semibold text-green-900 mt-0!">
+                  High-Quality QR Codes for Print & Digital
+                </h4>
+
+                <p className="mb-0! text-sm text-green-800">
+                  Every QR code is generated with high clarity for reliable
+                  scanning on both digital screens and printed materials. SVG
+                  downloads remain perfectly sharp at any size, making them
+                  ideal for professional printing.
+                </p>
+              </div>
 
               <h3>Privacy and data</h3>
               <p>
-                QR codes are generated entirely in your browser using JavaScript. Your URLs, text,
-                and WiFi credentials are never sent to any server unless you explicitly choose to
-                save a QR code to your account. No tracking, no ads, no data collection.
+                QR codes are generated entirely in your browser using
+                JavaScript. Your URLs, text, and WiFi credentials are never sent
+                to any server unless you explicitly choose to save a QR code to
+                your account. No tracking, no ads, no data collection.
               </p>
             </div>
 
             {/* FAQ */}
             <div className="mt-8 space-y-4">
-              <h3 className="text-xl font-bold text-gray-900">Frequently Asked Questions</h3>
+              <h3 className="text-xl font-bold text-gray-900">
+                Frequently Asked Questions
+              </h3>
 
               {[
                 {
                   q: "Is the QR code generator really free?",
-                  a: "Yes — completely free. No watermarks, no limits, no credit card. Generate and download as many QR codes as you like.",
+                  a: "Yes - completely free. No watermarks, no limits, no credit card. Generate and download as many QR codes as you like.",
                 },
                 {
                   q: "Do I need to create an account?",
@@ -369,41 +653,72 @@ export default function QRCodeGeneratorPage() {
                 },
                 {
                   q: "How do I make a WiFi QR code?",
-                  a: "Select the WiFi tab, enter your network name (SSID), password, and encryption type. The QR code is generated instantly — scanning it connects the phone without typing the password.",
+                  a: "Select the WiFi tab, enter your network name (SSID), password, and encryption type. The QR code is generated instantly - scanning it connects the phone without typing the password.",
                 },
                 {
                   q: "Can I print the QR code?",
                   a: "Yes. Download as SVG or PDF for the sharpest print quality at any size.",
                 },
               ].map(({ q, a }) => (
-                <details key={q} className="group rounded-xl border border-gray-100 bg-gray-50 px-5 py-4">
+                <details
+                  key={q}
+                  className="group rounded-xl border border-gray-100 bg-gray-50 px-5 py-4"
+                >
                   <summary className="cursor-pointer font-medium text-gray-900 list-none flex items-center justify-between gap-4">
                     {q}
-                    <span className="text-gray-400 group-open:rotate-180 transition-transform shrink-0">▾</span>
+                    <span className="text-gray-400 group-open:rotate-180 transition-transform shrink-0">
+                      ▾
+                    </span>
                   </summary>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">{a}</p>
+                  <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                    {a}
+                  </p>
                 </details>
               ))}
             </div>
 
             {/* Internal links */}
-            <div className="mt-8 flex flex-wrap gap-4 text-sm">
-              <Link href="/image-to-pdf" className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors">
-                Image to PDF Converter
-              </Link>
-              <Link href="/blogs" className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors">
-                Blog Knowledge Hub
-              </Link>
-              <Link href="/glossary" className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors">
-                Glossary
-              </Link>
-              <Link href="/" className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors">
-                Text Case Converter
-              </Link>
+            <div className="mt-8 flex flex-col gap-4 text-sm">
+              <h3 className="text-xl font-bold">Related Tools & Resources</h3>
+
+              <p className="text-muted-foreground">
+                Explore more free online tools and helpful guides from TechMind
+                to improve productivity, document management, and digital
+                workflows.
+              </p>
+
+              <div className="flex flex-wrap gap-4  ">
+                <Link
+                  href="/image-to-pdf"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Image to PDF Converter
+                </Link>
+
+                <Link
+                  href="/"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Text Formatter & Case Converter
+                </Link>
+
+                <Link
+                  href="/blogs"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  QR Code Guides & Tutorials
+                </Link>
+
+                <Link
+                  href="/glossary"
+                  className="underline underline-offset-4 text-purple-700 font-medium hover:text-purple-900 transition-colors"
+                >
+                  Tech Glossary
+                </Link>
+              </div>
             </div>
           </CardContent>
         </Card>
-
       </div>
     </Layout>
   );
