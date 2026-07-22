@@ -31,6 +31,7 @@ const Footer = () => {
                     <a href="https://fazier.com/launches/www.techmind.click" target="_blank" rel="noopener noreferrer">
                         <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral" width="250" alt="Fazier badge" />
                     </a>
+                   <a href="https://tooldirs.com" target="_blank"><img src="https://tooldirs.com/badge/badge_light.svg" alt="Featured on ToolDirs" width="200" height="54" /></a>
                 </div>
                  <div className="flex flex-col items-center justify-between gap-4 md:flex-row border-t border-gray-200 pt-3 mt-2">
                 <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
