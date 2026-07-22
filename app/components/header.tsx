@@ -58,7 +58,7 @@ const MORE_LINKS = [
 // Only the mobile toggle subtree is hydrated.
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-white backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto flex h-14 items-center justify-between">
         <nav
           aria-label="Main navigation"

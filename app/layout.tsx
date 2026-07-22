@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { AuthProvider } from "@/app/components/auth/AuthProvider";
-
+import { Analytics } from "@vercel/analytics/next";
 // ─── Font ────────────────────────────────────────────────────────────────────
 // next/font downloads and self-hosts the font, eliminating render-blocking
 // Google Fonts requests and preventing FOIT/FOUT.
@@ -19,31 +19,41 @@ const inter = Inter({
 // ─── Site-wide defaults (can be overridden per page) ─────────────────────────
 const SITE_URL = "https://www.techmind.click";
 const OG_IMAGE = `${SITE_URL}/images/text-case-converter-and-formatter-techmind-click-otg.png`;
-
+const siteName = "TechMind.click"
+const title = "Free Online Text Formatter & Case Converter | TechMind";
+const description = "Free online text formatter and case converter for converting uppercase, lowercase, sentence case, title case, and cleaning text instantly. Fast, private, and browser-based."
+const keywords = [
+  "text formatter",
+  "text formatter online",
+  "case converter",
+  "text case converter",
+  "uppercase lowercase converter",
+  "sentence case converter",
+  "title case converter",
+]
+const featureList = [
+  "Uppercase conversion",
+  "Lowercase conversion",
+  "Sentence case conversion",
+  "Title case conversion",
+  "Toggle case conversion",
+  "Inverse case conversion",
+  "Slug formatting",
+  "Whitespace cleanup",
+  "Line break cleanup",
+  "Text formatting"]
 export const metadata: Metadata = {
   // metadataBase is required for relative OG image URLs to resolve correctly
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Free Online Text Formatter Tool - TechMind Click",
+    default: title,
     // Pages that export their own title inherit this template automatically
-    template: "%s - TechMind Click",
+    template: `%s | ${siteName}`,
   },
-  description:
-    "Use our free online text formatter to convert case, clean, and edit text instantly. Perfect for students, writers, and professionals to format content fast and easily.",
-  keywords: [
-    "text case converter",
-    "text formatter",
-    "slug converter",
-    "case converter online",
-    "uppercase to lowercase",
-    "sentence case converter",
-    "title case converter",
-    "online text tools",
-    "seo slug generator",
-    "content formatting tool",
-  ],
-  authors: [{ name: "TechMind" }],
+  description: description,
+  keywords: keywords,
+  authors: [{ name: siteName }],
   robots: { index: true, follow: true },
 
   // Canonical for the root — child pages override via their own metadata
@@ -61,17 +71,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    siteName: "TechMind Click",
-    title: "Free Online Text Formatter Tool - TechMind Click",
-    description:
-      "Use our free online text formatter to convert case, clean, and edit text instantly.",
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "TechMind Click" }],
+    siteName: siteName,
+    title: title,
+    description:  description,
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: siteName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Text Formatter Tool - TechMind Click",
-    description:
-      "Use our free online text formatter to convert case, clean, and edit text instantly.",
+    title: title,
+    description: description, 
     images: [OG_IMAGE],
   },
 
@@ -91,31 +99,20 @@ export const metadata: Metadata = {
 const softwareAppSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "TechMind.click",
-  url: "https://www.techmind.click",
-  description:
-    "Free browser-based text formatter with 18 tools including case converter, URL slug generator, Unicode bold and italic text, remove spaces, reverse text, and image to PDF. No sign-up. No character limit.",
+  name: "TechMind Text Formatter & Case Converter",
+  url: SITE_URL,
+  description: description,
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Any modern web browser",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  featureList: [
-    "UPPERCASE converter",
-    "lowercase converter",
-    "Title Case converter",
-    "Sentence case converter",
-    "URL slug generator",
-    "Remove extra spaces",
-    "Bold text generator",
-    "Italic text generator",
-    "Image to PDF converter",
-  ],
+  featureList: featureList,
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "TechMind.click",
-  url: "https://www.techmind.click",
+  name: "Free Online Text Formatter & Case Converter",
+  url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",
     target: "https://www.techmind.click/blogs?q={search_term_string}",
@@ -166,6 +163,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-1LY4EXMSGY');
           `}
         </Script>
+        {/* Vercel Analytics */}
+  <Analytics />
       </body>
     </html>
   );

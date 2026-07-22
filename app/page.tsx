@@ -8,39 +8,51 @@ import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
 /* ---------------------------------------
  * SEO Metadata
  * ------------------------------------- */
-
+const siteUrl = "https://www.techmind.click"
+const siteName = "TechMind.click"
+const title = "Free Online Text Formatter & Case Converter | TechMind"
+const description =
+  "Format text instantly with our free online text formatter. Convert uppercase, lowercase, sentence case, title case, and more. Fast, private, and no sign-up required.";
+const keywords = [
+  "text formatter",
+  "text formatter online",
+  "case converter",
+  "text case converter",
+  "uppercase lowercase converter",
+  "sentence case converter",
+  "title case converter",
+];
+const featureList = [
+  "Uppercase conversion",
+  "Lowercase conversion",
+  "Sentence case conversion",
+  "Title case conversion",
+  "Toggle case conversion",
+  "Inverse case conversion",
+  "Slug formatting",
+  "Whitespace cleanup",
+  "Line break cleanup",
+  "Text formatting",
+];
 export const metadata: Metadata = {
-  title: "Free Online Text Formatter & Case Converter - TechMind",
+  title: title,
 
-  description:
-    "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
+  description: description,
 
-  keywords: [
-    "text formatter",
-    "case converter",
-    "uppercase converter",
-    "lowercase converter",
-    "sentence case converter",
-    "title case converter",
-    "slug generator",
-    "text formatting tool",
-    "online text converter",
-    "free text formatter",
-  ],
+  keywords: keywords,
 
   alternates: {
     canonical: "/",
   },
 
   openGraph: {
-    title: "Free Online Text Formatter & Case Converter - TechMind",
+    title: title,
 
-    description:
-      "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
+    description: description,
 
-    url: "https://www.techmind.click",
+    url: siteUrl,
 
-    siteName: "TechMind",
+    siteName: siteName,
 
     type: "website",
 
@@ -49,7 +61,7 @@ export const metadata: Metadata = {
         url: "/images/text-case-converter-and-formatter-techmind-click-otg.png",
         width: 1200,
         height: 630,
-        alt: "TechMind Text Formatter & Case Converter",
+        alt: "Free Online Text Formatter & Case Converter | TechMind",
       },
     ],
   },
@@ -57,10 +69,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Free Online Text Formatter & Case Converter - TechMind",
+    title: title,
 
-    description:
-      "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents. Our simple text formatting utilities help improve readability, content structure, and writing consistency without complicated software or installation. Quickly format Sentence case, Title Case, camelCase, snake_case, and slug text with one click. Whether you are preparing blog content, cleaning copied text, formatting UI labels, generating readable slugs, or organizing written content, these tools make text cleanup faster and easier.",
+    description: description,
 
     images: [
       "/images/text-case-converter-and-formatter-techmind-click-otg.png",
@@ -79,30 +90,14 @@ export const metadata: Metadata = {
 };
 
 /* ---------------------------------------
- * Dynamic Import
- * ------------------------------------- */
-
-const TextFormatter = dynamic(() => import("./components/text-format"), {
-  loading: () => (
-    <div
-      className="min-h-[400px] flex items-center justify-center text-muted-foreground"
-      aria-busy="true"
-      aria-label="Loading text formatter"
-    >
-      Loading...
-    </div>
-  ),
-});
-
-/* ---------------------------------------
  * Constants
  * ------------------------------------- */
 
-const SITE_URL = "https://www.techmind.click";
+const SITE_URL = siteUrl;
 const ORG_ID = `${SITE_URL}#organization`;
 const WEBSITE_ID = `${SITE_URL}#website`;
 const APP_ID = `${SITE_URL}#text-formatter-app`;
-const SEO_DESCRIPTION =  "Convert text instantly with free online case converter and text formatting tools designed for writers, developers, students, bloggers, and content creators. Easily transform uppercase to lowercase, generate clean URL slugs, remove extra spaces, clean line breaks, and organize text for blogs, notes, coding projects, and documents.";
+const SEO_DESCRIPTION = description;
 
 /* ---------------------------------------
  * Schema Graph
@@ -116,7 +111,7 @@ const schemaGraph = {
       "@type": "Organization",
       "@id": ORG_ID,
 
-      name: "TechMind",
+      name: siteName,
       url: SITE_URL,
       logo: `${SITE_URL}/techmind-click-logo.svg`,
 
@@ -141,7 +136,7 @@ const schemaGraph = {
       "@id": WEBSITE_ID,
 
       url: SITE_URL,
-      name: "TechMind",
+      name: siteName,
 
       publisher: {
         "@id": ORG_ID,
@@ -153,8 +148,7 @@ const schemaGraph = {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
-          urlTemplate:
-            `${SITE_URL}/blogs?query={search_term_string}`,
+          urlTemplate: `${SITE_URL}/blogs?q={search_term_string}`,
         },
         "query-input": "required name=search_term_string",
       },
@@ -167,7 +161,7 @@ const schemaGraph = {
 
       url: SITE_URL,
 
-      name: "Free Online Text Formatter & Case Converter - TechMind",
+      name: "Free Online Text Formatter & Case Converter",
 
       isPartOf: {
         "@id": WEBSITE_ID,
@@ -195,14 +189,13 @@ const schemaGraph = {
 
       "@id": APP_ID,
 
-      name: "TechMind Text Formatter",
+      name: "TechMind Text Formatter & Case Converter",
 
       applicationCategory: "UtilitiesApplication",
 
       operatingSystem: "Any",
 
-      browserRequirements:
-        "Requires JavaScript and a modern browser",
+      browserRequirements: "Requires JavaScript and a modern browser",
 
       isAccessibleForFree: true,
 
@@ -218,66 +211,28 @@ const schemaGraph = {
         priceCurrency: "USD",
       },
 
-      featureList: [
-        "Uppercase converter",
-        "Lowercase converter",
-        "Sentence case converter",
-        "Title case formatter",
-        "Toggle case converter",
-        "Inverse case converter",
-        "Slug generator",
-        "Whitespace cleanup",
-        "Line break cleanup",
-        "Text formatting",
-      ],
+      featureList: featureList,
 
-      keywords: [
-        "text formatter",
-        "case converter",
-        "sentence case converter",
-        "slug generator",
-      ],
+      keywords: keywords,
 
       description: SEO_DESCRIPTION,
     },
 
     // Platform Schema (AEO)
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebSite",
 
       "@id": `${SITE_URL}#platform`,
 
-      name: "TechMind.click",
-
-      applicationCategory: "UtilitiesApplication",
-
-      operatingSystem: "Web Browser",
+      name: siteName,     
 
       url: SITE_URL,
 
       publisher: {
         "@id": ORG_ID,
-      },
+      },      
 
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-      },
-
-      featureList: [
-        "Text Formatter",
-        "Case Converter",
-        "Slug Generator",
-        "Camel Case Converter",
-        "Snake Case Converter",
-        "Slug/Snake Case Remover",
-        "Line Break Remover",
-        "Image to PDF Converter",
-      ],
-
-      description:
-        "Free browser-based productivity tools for text formatting and document conversion.",
+      description: SEO_DESCRIPTION,
     },
 
     // FAQ
@@ -367,6 +322,23 @@ const schemaGraph = {
     },
   ],
 };
+
+/* ---------------------------------------
+ * Dynamic Import
+ * ------------------------------------- */
+
+const TextFormatter = dynamic(() => import("./components/text-format"), {
+  loading: () => (
+    <div
+      className="min-h-[400px] flex items-center justify-center text-muted-foreground"
+      aria-busy="true"
+      aria-label="Loading text formatter"
+    >
+      Loading...
+    </div>
+  ),
+});
+
 export default function Home() {
   return (
     <Layout>
@@ -403,14 +375,14 @@ export default function Home() {
                 as="h1"
                 className="text-3xl md:text-4xl font-extrabold tracking-tight text-left leading-tight"
               >
-                Free Case Converter, Slug Generator & Text Formatting Tools
+                Free Online Text Formatter & Case Converter
               </CardTitle>
 
               <p className="text-base md:text-lg text-muted-foreground mt-3 max-w-4xl">
-                Convert text case, generate clean URL slugs, remove extra
-                spaces, clean line breaks, and format content instantly with
-                simple online text utilities designed for modern writing and
-                content workflows.
+                Format text instantly with our free online text formatter.
+                Convert uppercase, lowercase, sentence case, title case, and
+                other text formats in seconds. Fast, private, and no sign-up
+                required.
               </p>
             </CardHeader>
 
@@ -433,7 +405,7 @@ export default function Home() {
                   <li>Toggle case</li>
                   <li>Inverse case</li>
                 </ul>
-                <h3>Slug Generator & Text Cleanup</h3>
+                <h3>Text Cleanup & Slug Formatting</h3>
                 <p>
                   Generate clean and readable URL slugs from any text instantly.
                   Remove unwanted characters, extra spaces, duplicate line
@@ -507,7 +479,7 @@ export default function Home() {
 
                 <div className="rounded-xl border p-4 bg-muted/30">
                   <h2 className="font-semibold text-lg mb-2">
-                    Built for SEO, Developers & Daily Productivity
+                    Why Use Our Text Formatter?
                   </h2>
 
                   <p className="text-sm text-muted-foreground">
