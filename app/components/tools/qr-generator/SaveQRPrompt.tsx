@@ -5,6 +5,7 @@ import { Save } from "lucide-react"
 import { useAuth } from "@/app/components/auth/AuthProvider"
 import { savePendingQR } from "@/utils/qr/pendingQR"
 import type { QRSettings } from "@/app/types/qr"
+import { Button } from "../../ui/button"
 
 type Props = {
   settings: QRSettings
@@ -23,22 +24,28 @@ export default function SaveQRPrompt({ settings }: Props) {
   }
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 px-4 py-3 text-sm">
-      <Save className="size-4 text-gray-400 shrink-0" />
-      <span className="flex-1 text-gray-600">Want to save this QR code?</span>
+    <div className="flex flex-col gap-3 rounded-lg border border-gray-100 bg-gray-50  text-sm">
+      <p className="text-sm text-gray-600 flex items-center gap-1">
+        <Save className="size-3.5 text-gray-400 shrink-0" />
+        <span className="text-gray-600 text-xs">Save this QR code?</span>
+      </p>
       <div className="flex items-center gap-2 shrink-0">
-        <button
+        <Button
+          variant="cyan"
+          size="xs"
+          className="gap-1 flex-1 px-3 rounded-sm! text-xs"
           onClick={() => handleRedirect("login")}
-          className="inline-flex items-center justify-center rounded-md border border-input bg-background h-7 px-2.5 text-xs font-medium shadow-xs transition-colors hover:bg-accent hover:text-accent-foreground"
         >
           Login
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="blue"
+          size="xs"
+          className="gap-1 flex-1 px-3 rounded-sm! text-xs"
           onClick={() => handleRedirect("signup")}
-          className="inline-flex items-center justify-center rounded-md bg-gray-900 text-white h-7 px-2.5 text-xs font-medium transition-colors hover:bg-gray-800"
         >
           Sign up
-        </button>
+        </Button>
       </div>
     </div>
   )

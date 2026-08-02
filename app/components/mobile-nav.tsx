@@ -54,7 +54,7 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
         role="list"
         className={`
           md:flex md:gap-4 md:static
-          absolute right-0 w-60 md:w-auto px-3 md:px-0
+          absolute right-0 w-60 md:w-auto px-3 md:px-0 text-xs lg:text-base
           max-h-[calc(100vh-3.5rem)] overflow-y-auto md:max-h-none md:overflow-visible
           ${open ? "block bg-white rounded-b-md shadow-md top-full " : "hidden"}
         `}
@@ -99,7 +99,7 @@ export default function MobileNav({ links, moreLinks }: MobileNavProps) {
           >
             <span>More</span>
             <span aria-hidden="true" className={`text-xs transition ${moreOpen ? "rotate-180" : "rotate-0"}`}>
-                  <ChevronDown size={16} />
+              <ChevronDown size={16} />
 
             </span>
           </button>
