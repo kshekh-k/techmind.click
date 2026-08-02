@@ -432,8 +432,8 @@ export default function QRCodeGenerator() {
       <div className="flex flex-col lg:grid lg:grid-cols-20 gap-4 xl:gap-6">
         <div className="col-span-8">
           {/* Hero */}
-          <div className="mb-2 space-y-3 text-center ">
-            <div className="max-w-lg space-y-3 ">
+          <div className="mb-2 space-y-2 text-center ">
+            <div className="max-w-lg space-y-2 ">
               <div className="flex justify-start">
                 <p className="border border-slate-200 text-xs hidden sm:flex gap-2 items-center p-2 px-4 rounded text-purple-500">
                   <Star className="size-4  fill-purple-500 " /> 100% Free |{" "}
@@ -450,7 +450,7 @@ export default function QRCodeGenerator() {
             </div>
 
             <Tabs
-              className="space-y-2"
+              className="space-y-1"
               value={settings.inputType}
               onValueChange={(v) =>
                 updateSettings({ inputType: v as QRInputType })
@@ -473,12 +473,12 @@ export default function QRCodeGenerator() {
                 ))}
               </TabsList>
 
-              <TabsContent value="url" className="space-y-1.5">
+              <TabsContent value="url" className="space-y-2">
                 <div className="relative">
                   <Input
                     placeholder="Enter URL e.g. https://www.techmind.click"
                     value={settings.url}
-                    className={`px-5! py-3! h-auto text-base! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 ${urlError ? "!border-red-400 focus-visible:!ring-red-200" : "border-transparent"}`}
+                    className={`px-5! py-3! h-auto text-sm! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 ${urlError ? "!border-red-400 focus-visible:!ring-red-200" : "border-transparent"}`}
                     onChange={(e) => updateSettings({ url: e.target.value })}
                     type="text"
                     autoFocus
@@ -497,7 +497,7 @@ export default function QRCodeGenerator() {
                   placeholder="Enter your text…"
                   value={settings.text}
                   onChange={(e) => updateSettings({ text: e.target.value })}
-                  className={`min-h-[90px] resize-none py-3! px-5! text-base! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 ${urlError ? "!border-red-400 focus-visible:!ring-red-200" : "border-transparent"}`}
+                  className={`min-h-[90px] resize-none py-3! px-5! text-sm! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 ${urlError ? "!border-red-400 focus-visible:!ring-red-200" : "border-transparent"}`}
                 />
               </TabsContent>
 
@@ -508,7 +508,7 @@ export default function QRCodeGenerator() {
                     value={settings.phone}
                     onChange={(e) => updateSettings({ phone: e.target.value })}
                     type="tel"
-                    className={`px-5! py-3! h-auto text-base! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 `}
+                    className={`px-5! py-3! h-auto text-sm! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 `}
                   />
 
                 </div>
@@ -519,7 +519,7 @@ export default function QRCodeGenerator() {
                   <Input
                     placeholder="e.g. hello@example.com"
                     value={settings.email}
-                    className={`px-5! py-3! h-auto text-base! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500
+                    className={`px-5! py-3! h-auto text-sm! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500
                     ${emailError
                         ? "!border-red-400 focus-visible:!ring-red-200"
                         : ""
@@ -537,27 +537,29 @@ export default function QRCodeGenerator() {
               </TabsContent>
 
               <TabsContent value="wifi" className="space-y-3">
-                <Input
-                  placeholder="Network name (SSID)"
-                  value={settings.wifi.ssid}
-                  className={`px-5! py-3! h-auto text-base! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500`}
-                  onChange={(e) =>
-                    updateSettings({
-                      wifi: { ...settings.wifi, ssid: e.target.value },
-                    })
-                  }
-                />
-                <Input
-                  placeholder="Password"
-                  value={settings.wifi.password}
-                  className={`px-5! py-3! h-auto text-base! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500`}
-                  onChange={(e) =>
-                    updateSettings({
-                      wifi: { ...settings.wifi, password: e.target.value },
-                    })
-                  }
-                  type="password"
-                />
+                <div className="flex flex-col sm:grid grid-cols-2 gap-4">
+                  <Input
+                    placeholder="Network name (SSID)"
+                    value={settings.wifi.ssid}
+                    className={`px-4! py-2.5! h-auto text-xs! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500`}
+                    onChange={(e) =>
+                      updateSettings({
+                        wifi: { ...settings.wifi, ssid: e.target.value },
+                      })
+                    }
+                  />
+                  <Input
+                    placeholder="Password"
+                    value={settings.wifi.password}
+                    className={`px-4! py-2.5! h-auto text-xs! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500`}
+                    onChange={(e) =>
+                      updateSettings({
+                        wifi: { ...settings.wifi, password: e.target.value },
+                      })
+                    }
+                    type="password"
+                  />
+                </div>
                 <div className="flex items-center gap-4">
                   <div className="flex-1 space-y-1">
                     <Label className="text-[10px] text-muted-foreground block text-left">
@@ -576,7 +578,7 @@ export default function QRCodeGenerator() {
                           },
                         })
                       }
-                      className={`px-5! py-3! w-full rounded text-base! bg-white border border-transparent shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500`}
+                      className={`px-4! py-2! w-full rounded text-xs! bg-white border border-transparent shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500`}
                     >
                       <option value="WPA">WPA / WPA2</option>
                       <option value="WEP">WEP</option>
@@ -593,7 +595,7 @@ export default function QRCodeGenerator() {
                           wifi: { ...settings.wifi, hidden: e.target.checked },
                         })
                       }
-                      className="size-6 rounded text-purple-500"
+                      className="size-4 rounded text-purple-500"
                     />
                     <Label
                       htmlFor="wifi-hidden"
@@ -616,7 +618,7 @@ export default function QRCodeGenerator() {
                   { id: "csq", label: "Corner Frame", key: "cornerSquareColor" as const },
                   { id: "cdot", label: "Corner Dots", key: "cornerDotColor" as const },
                 ].map(({ id, label, key }) => (
-                  <div key={id} className="space-y-1 bg-white shadow-1! p-2 rounded-sm">
+                  <div key={id} className="space-y-1 bg-white shadow-1! p-1.5 rounded-sm">
                     <Label className="text-[10px] text-muted-foreground block text-left">{label}</Label>
                     <div className="flex items-center gap-1 ">
                       <div className="relative flex items-center ">
@@ -644,7 +646,7 @@ export default function QRCodeGenerator() {
 
             <div className="flex flex-wrap sm:grid sm:grid-cols-3 gap-4 w-full">
               {/* ── Margin ────────────────────────────────────────────── */}
-              <div className="space-y-2 w-full sm:w-auto">
+              <div className="space-y-1 w-full sm:w-auto">
 
                 <Label className="text-[10px] text-muted-foreground block text-left">Margin</Label>
                 <div className="bg-white shadow-1! p-2.5   rounded-sm items-center flex gap-1">
@@ -665,7 +667,7 @@ export default function QRCodeGenerator() {
               </div>
 
               {/* ── Dot Style ─────────────────────────────────────────── */}
-              <div ref={dotDropdownRef} className="space-y-2 flex-1 relative">
+              <div ref={dotDropdownRef} className="space-y-1 flex-1 relative">
                 <Label className="text-[10px] text-muted-foreground block text-left">Dot Style</Label>
                 <div>
                   <button
@@ -721,7 +723,7 @@ export default function QRCodeGenerator() {
               </div>
 
               {/* ── Corner Style ──────────────────────────────────────── */}
-              <div ref={cornerDropdownRef} className="space-y-2 flex-1 relative">
+              <div ref={cornerDropdownRef} className="space-y-1 flex-1 relative">
                 <Label className="text-[10px] text-muted-foreground block text-left">Corner Style</Label>
                 <div>
                   <button
@@ -947,7 +949,7 @@ export default function QRCodeGenerator() {
           </div>
 
           {/* ── Label Style ───────────────────────────────────────── */}
-          <div className="flex gap-2 justify-between items-center">
+          <div className="flex gap-2 justify-between items-start">
             {/* Color */}
             <div className="space-y-1">
               <Label className="text-[10px] text-muted-foreground block">Color</Label>
@@ -981,10 +983,10 @@ export default function QRCodeGenerator() {
                 onChange={(e) => updateSettings({ labelFontSize: Number(e.target.value) })}
                 className="w-full px-1! py-1! h-6 text-[10px]! bg-white shadow-1! border border-transparent rounded-sm! focus:outline-none!"
               >
-                <option value={12}>SM (12px)</option>
-                <option value={14}>MD (14px)</option>
-                <option value={18}>LG (18px)</option>
-                <option value={22}>XL (22px)</option>
+                <option value={12}>12px</option>
+                <option value={14}>14px</option>
+                <option value={18}>18px</option>
+                <option value={22}>22px</option>
               </select>
             </div>
 
@@ -1021,7 +1023,7 @@ export default function QRCodeGenerator() {
           </div>
 
           {/* ── Size ──────────────────────────────────────────────── */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <Label className="text-[10px] text-muted-foreground block">Size</Label>
             <div className="grid grid-cols-3 gap-1.5">
               {SIZE_OPTIONS.map(({ value, label }) => (
@@ -1044,7 +1046,7 @@ export default function QRCodeGenerator() {
           </div>
 
           {/* ── File name ───────────────────────────────────────── */}
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <Label htmlFor="qr-filename" className="text-[10px] text-muted-foreground block">
               File name
             </Label>
@@ -1058,7 +1060,7 @@ export default function QRCodeGenerator() {
           </div>
 
           {/* ── Download ────────────────────────────────────────── */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             <Label className="text-[10px] text-muted-foreground block">Download</Label>
             <div className="flex flex-wrap gap-2">
               <Button
