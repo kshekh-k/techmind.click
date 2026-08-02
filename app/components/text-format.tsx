@@ -628,13 +628,13 @@ export default function TextFormatter() {
 
   return (
     <Card className="shadow-sm !border-none">
-      <CardHeader>
+      <CardHeader className="px-3! sm:px-6!">
         <CardTitle as="p" className="text-2xl font-bold text-center">
           Advanced Case Converter
         </CardTitle>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="px-3! sm:px-6!">
         <div className="flex flex-col">
           <div className="flex justify-between items-center mb-2">
             <Label htmlFor="text-formatter-input">Edit your text below:</Label>
@@ -646,7 +646,7 @@ export default function TextFormatter() {
           <div className="flex justify-between flex-wrap gap-2 pb-2">
             <div className="flex flex-wrap gap-2">
               <div className="flex">
-                <Button 
+                <Button
                   variant="outline"
                   onClick={undo}
                   disabled={!canUndo}
@@ -672,61 +672,61 @@ export default function TextFormatter() {
                 <Button
                   variant="outline"
                   onClick={() => formatText("uppercase")}
-                  className="rounded-r-none border-r-0"
+                  className="rounded-r-none border-r-0 px-3!"
                   aria-label="Convert to uppercase"
                   title="Uppercase"
                 >
-                  <CaseUpper className="size-5" />
+                  <CaseUpper className="size-4 sm:size-5" />
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => formatText("lowercase")}
-                  className="rounded-none border-r-0"
+                  className="rounded-none border-r-0 px-3!"
                   aria-label="Convert to lowercase"
                   title="Lowercase"
                 >
-                  <CaseLower className="size-5" />
+                  <CaseLower className="size-4 sm:size-5" />
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => formatText("propercase")}
-                  className="rounded-none border-r-0"
+                  className="rounded-none border-r-0 px-3!"
                   aria-label="Convert to proper case"
                   title="Proper Case"
                 >
-                  <CaseSensitive className="size-5" />
+                  <CaseSensitive className="size-4 sm:size-5" />
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => formatText("sentencecase")}
-                  className="rounded-none border-r-0"
+                  className="rounded-none border-r-0 px-3!"
                   aria-label="Convert to sentence case"
                   title="Sentence Case"
                 >
-                  <SpellCheck className="size-5" />
+                  <SpellCheck className="size-4 sm:size-5" />
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => formatText("slug")}
-                  className="rounded-none border-r-0"
+                  className="rounded-none border-r-0 px-3!"
                   aria-label="Convert text to slug"
                   title="Slugify"
                 >
-                  <Hash className="size-5" />
+                  <Hash className="size-4 sm:size-5" />
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => formatText("snakecase")}
-                  className="rounded-none border-r-0"
+                  className="rounded-none border-r-0 px-3!"
                   aria-label="Convert text to snake case"
                   title="Snake Case"
                 >
-                  _
+                  <span className="font-mono text-xs leading-none">_</span>
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => formatText("camelcase")}
-                  className="rounded-none border-r-0"
+                  className="rounded-none border-r-0 px-3!"
                   aria-label="Toggle camelCase"
                   title="camelCase toggle — words→camelCase or camelCase→words"
                 >
@@ -735,11 +735,11 @@ export default function TextFormatter() {
                 <Button
                   variant="outline"
                   onClick={() => formatText("slug-snake-to-text")}
-                  className="rounded-l-none"
+                  className="rounded-l-none px-3!"
                   aria-label="Convert slug or snake case to readable text"
                   title="Slug/Snake to Text"
                 >
-                  T
+                  <span className="font-mono text-xs leading-none">T</span>
                 </Button>
               </div>
 
@@ -910,24 +910,24 @@ export default function TextFormatter() {
             />
           )}
         </div>
-        
+
       </CardContent>
 
-      <CardFooter className="flex flex-col gap-3 border-t border-gray-200">
-      <div className="flex justify-end gap-3 w-full">
-        <Button variant="outlineRed" onClick={() => formatText("clear")}>
-          Clear All
-        </Button>
-        <Button variant="success" onClick={() => formatText("copy")}>
-          Copy Text
-        </Button>
+      <CardFooter className="flex flex-col gap-3 border-t border-gray-200 px-3! sm:px-6!">
+        <div className="flex justify-end gap-3 w-full">
+          <Button variant="outlineRed" onClick={() => formatText("clear")}>
+            Clear All
+          </Button>
+          <Button variant="success" onClick={() => formatText("copy")}>
+            Copy Text
+          </Button>
         </div>
         <div className="w-full rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-700">
-  <strong>Note:</strong> Unicode formatting (Bold / Italic) works separately
-  from Case Converter tools. For best results, apply case conversion first,
-  then use Unicode formatting.
-</div>
-      
+          <strong>Note:</strong> Unicode formatting (Bold / Italic) works separately
+          from Case Converter tools. For best results, apply case conversion first,
+          then use Unicode formatting.
+        </div>
+
       </CardFooter>
     </Card>
   );
