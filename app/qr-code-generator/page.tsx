@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/app/components/ui/card";
 import Link from "next/link";
+import { Star } from "lucide-react";
 
 /* ─── Constants ─────────────────────────────────────────────────────────────── */
 
@@ -300,74 +301,59 @@ export default function QRCodeGeneratorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 space-y-10">
-        {/* Hero */}
-        <div className="mb-2 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Free QR Code Generator
-          </h1>
-          <p className="text-gray-500 text-sm max-w-xl mx-auto">
-            Create custom QR codes for websites, business cards, WiFi, phone
-            numbers, menus, and plain text. Add a logo, pick colors and a style,
-            then download as PNG, SVG, or PDF - free, no sign-up required.
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto px-4 space-y-10">
+        
 
         {/* Tool */}
         <Suspense>
           <QRCodeGeneratorLoader />
         </Suspense>
 
- <Card className="shadow-sm !border-none">
-  <CardContent className="py-5">
-
-     <CardTitle
+        <Card className="shadow-sm !border-none">
+          <CardContent className="py-5">
+            <CardTitle
               as="h2"
               className="text-2xl md:text-3xl font-extrabold tracking-tight"
             >
-      More Free Productivity Tools
-    </CardTitle>
+              More Free Productivity Tools
+            </CardTitle>
 
-    <p className="text-sm text-muted-foreground mt-2">
-      Discover more free online tools and resources from TechMind for
-      productivity, document management, and content creation.
-    </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              Discover more free online tools and resources from TechMind for
+              productivity, document management, and content creation.
+            </p>
 
-    <div className="mt-4 flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/"
+                className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+              >
+                Text Formatter
+              </Link>
 
-      <Link
-        href="/"
-        className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-      >
-        Text Formatter
-      </Link>
+              <Link
+                href="/image-to-pdf"
+                className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+              >
+                Image to PDF
+              </Link>
 
-      <Link
-        href="/image-to-pdf"
-        className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-      >
-        Image to PDF
-      </Link>
+              <Link
+                href="/blogs"
+                className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+              >
+                Blog Hub
+              </Link>
 
-      <Link
-        href="/blogs"
-        className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-      >
-        Blog Hub
-      </Link>
-
-      <Link
-        href="/glossary"
-        className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-      >
-        Glossary
-      </Link>
-
-    </div>
-
-  </CardContent>
-</Card>
-
+              <Link
+                href="/glossary"
+                className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+              >
+                Glossary
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* SEO Content */}
         <Card className="shadow-sm !border-none">

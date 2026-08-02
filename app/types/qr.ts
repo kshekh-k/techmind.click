@@ -97,7 +97,6 @@ export const SIZE_OPTIONS: { value: number; label: string }[] = [
   { value: 200, label: "SM" },
   { value: 300, label: "MD" },
   { value: 400, label: "LG" },
-  { value: 500, label: "XL" },
 ];
 
 export type SocialPreset = {

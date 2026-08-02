@@ -100,7 +100,7 @@ export default function SaveQRButton({ settings, savedId, onSaved }: Props) {
           autoFocus
         />
         <div className="flex gap-2">
-          <Button
+          <Button variant="purple"
             className="flex-1 gap-2"
             onClick={handleConfirmSave}
             disabled={loading}
@@ -123,8 +123,8 @@ export default function SaveQRButton({ settings, savedId, onSaved }: Props) {
 
   return (
     <Button
-      variant="outline"
-      className="w-full gap-2"
+      variant="purple"
+      className="w-full gap-1"
       onClick={handleSaveClick}
       disabled={loading}
     >

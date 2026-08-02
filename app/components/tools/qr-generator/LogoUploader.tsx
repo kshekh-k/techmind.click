@@ -53,21 +53,27 @@ export default function LogoUploader({
   }
 
   return (
-    <div className="space-y-3">
-      <Label>Center Logo (optional)</Label>
+    <div className="space-y-1 ">
+      <Label className="text-[10px] text-muted-foreground block text-left">Center Logo (optional)</Label>
 
       {logo ? (
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="size-12 rounded border overflow-hidden flex-shrink-0 bg-gray-50">
+        <div className="space-y-3 bg-white shadow-1! p-2.5 rounded-sm">
+          <div className="flex items-center gap-1">
+            <div className="size-14 rounded-sm border overflow-hidden shrink-0 bg-gray-50 p-2 shadow-1">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={logo} alt="Logo preview" className="size-full object-contain" />
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={() => inputRef.current?.click()}>
+              <Button
+                variant="cyan"
+                size="xs"
+                className="gap-1 flex-1 px-3 rounded-sm! text-xs" onClick={() => inputRef.current?.click()}>
                 Change
               </Button>
-              <Button variant="outlineRed" size="sm" onClick={() => onLogoChange(null)}>
+              <Button
+                variant="blue"
+                size="xs"
+                className="gap-1 flex-1 px-3 rounded-sm! text-xs" onClick={() => onLogoChange(null)}>
                 <X className="size-3.5" />
                 Remove
               </Button>
@@ -75,31 +81,36 @@ export default function LogoUploader({
           </div>
 
           <div>
-            <div className="flex justify-between mb-1.5">
-              <Label className="text-xs text-muted-foreground">Logo size</Label>
-              <span className="text-xs text-muted-foreground">{Math.round(logoSize * 100)}%</span>
+
+            <Label className="text-[10px] text-muted-foreground block text-left">Logo size</Label>
+
+
+            <div className="bg-white items-center flex gap-1">
+              <input
+                type="range"
+                min={0.15}
+                max={0.6}
+                step={0.05}
+                value={logoSize}
+                onChange={(e) => onLogoSizeChange(Number(e.target.value))}
+                className="w-full accent-purple-600 h-1.5 cursor-pointer"
+              /> <span className="text-[10px] text-muted-foreground">{Math.round(logoSize * 100)}%</span>
             </div>
-            <input
-              type="range"
-              min={0.15}
-              max={0.6}
-              step={0.05}
-              value={logoSize}
-              onChange={(e) => onLogoSizeChange(Number(e.target.value))}
-              className="w-full accent-black h-1.5"
-            />
           </div>
         </div>
       ) : (
-        <button
-          type="button"
-          onClick={() => inputRef.current?.click()}
-          className="w-full flex flex-col items-center gap-2 rounded-lg border-2 border-dashed border-gray-200 px-4 py-5 text-sm text-muted-foreground hover:border-gray-300 hover:bg-gray-50 transition-colors cursor-pointer"
-        >
-          <ImageIcon className="size-6 text-gray-400" />
-          <span>Click to upload logo</span>
-          <span className="text-xs">PNG, JPG, SVG</span>
-        </button>
+        <div className="bg-white shadow-1! p-1 rounded-sm">
+          <button
+            type="button"
+            onClick={() => inputRef.current?.click()}
+            className="w-full flex items-center gap-2 rounded-sm border-2 border-dashed border-gray-200 p-1 text-xs text-muted-foreground hover:border-gray-300 hover:bg-gray-50 transition-colors cursor-pointer"
+          >
+            <ImageIcon className="size-5 text-gray-400" strokeWidth={1.5} />
+            <span>
+              <span className="text-[10px] text-muted-foreground block text-left">Click to upload logo</span>
+              <span className="text-[8px] text-muted-foreground block text-left italic">PNG, JPG, SVG</span></span>
+          </button>
+        </div>
       )}
 
       <input

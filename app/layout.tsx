@@ -136,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" type="text/plain" href="https://ai.techmind.click/humans.txt" title="Humans.txt" data-ai="true" data-purpose="credits" data-format="plain" data-frequency="monthly" data-version="2026-06-21" />
         <link rel="alternate" type="application/json" href="https://ai.techmind.click/index.og.json" title="Open Graph" data-ai="true" data-purpose="open-graph" data-format="json" data-frequency="weekly" data-version="2026-06-21" />
       </head>
-      <body className="flex flex-col min-h-screen font-sans bg-gray-50">
+      <body className="flex flex-col min-h-screen font-sans bg-gray-50" cz-shortcut-listen="true">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
