@@ -152,8 +152,10 @@ export default function QRCodeGenerator() {
   const [pendingRestored, setPendingRestored] = useState(false);
   const [showPendingBanner, setShowPendingBanner] = useState(false);
 
-  const qrContainerRef = useRef<HTMLDivElement>(null);
-  const qrInstanceRef = useRef<QRCodeStyling | null>(null);
+  const qrContainerRefDesktop = useRef<HTMLDivElement>(null);
+  const qrContainerRefMobile = useRef<HTMLDivElement>(null);
+  const qrInstanceRefDesktop = useRef<QRCodeStyling | null>(null);
+  const qrInstanceRefMobile = useRef<QRCodeStyling | null>(null);
   const prevLogoRef = useRef<string | null>(null);
   const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -311,27 +313,42 @@ export default function QRCodeGenerator() {
   useEffect(() => {
     return () => {
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-      if (qrContainerRef.current) qrContainerRef.current.innerHTML = "";
-      qrInstanceRef.current = null;
+      if (qrContainerRefDesktop.current) qrContainerRefDesktop.current.innerHTML = "";
+      if (qrContainerRefMobile.current) qrContainerRefMobile.current.innerHTML = "";
+      qrInstanceRefDesktop.current = null;
+      qrInstanceRefMobile.current = null;
     };
   }, []);
 
   useEffect(() => {
-    if (!qrContainerRef.current) return;
-
     const logoChanged = prevLogoRef.current !== settings.logo;
     const opts = buildOptions();
 
     const apply = () => {
-      if (!qrContainerRef.current) return;
       prevLogoRef.current = settings.logo;
-      if (!qrInstanceRef.current || logoChanged) {
-        qrContainerRef.current.innerHTML = "";
-        const qr = new QRCodeStyling(opts);
-        qr.append(qrContainerRef.current);
-        qrInstanceRef.current = qr;
-      } else {
-        qrInstanceRef.current.update(opts);
+
+      // Update Desktop Container
+      if (qrContainerRefDesktop.current) {
+        if (!qrInstanceRefDesktop.current || logoChanged) {
+          qrContainerRefDesktop.current.innerHTML = "";
+          const qr = new QRCodeStyling(opts);
+          qr.append(qrContainerRefDesktop.current);
+          qrInstanceRefDesktop.current = qr;
+        } else {
+          qrInstanceRefDesktop.current.update(opts);
+        }
+      }
+
+      // Update Mobile Container
+      if (qrContainerRefMobile.current) {
+        if (!qrInstanceRefMobile.current || logoChanged) {
+          qrContainerRefMobile.current.innerHTML = "";
+          const qr = new QRCodeStyling(opts);
+          qr.append(qrContainerRefMobile.current);
+          qrInstanceRefMobile.current = qr;
+        } else {
+          qrInstanceRefMobile.current.update(opts);
+        }
       }
     };
 
@@ -353,12 +370,13 @@ export default function QRCodeGenerator() {
 
   const handleDownload = useCallback(
     async (format: QRFormat) => {
-      const qr = qrInstanceRef.current;
+      const qr = qrInstanceRefDesktop.current || qrInstanceRefMobile.current;
       if (!qr) return;
 
       const label = settings.label.trim();
+      const activeContainer = qrContainerRefDesktop.current || qrContainerRefMobile.current;
       const svgEl = label
-        ? (qrContainerRef.current?.querySelector("svg") as SVGSVGElement | null)
+        ? (activeContainer?.querySelector("svg") as SVGSVGElement | null)
         : null;
       const labelStyle = {
         color: settings.labelColor || "#000000",
@@ -433,7 +451,7 @@ export default function QRCodeGenerator() {
         <div className="col-span-8">
           {/* Hero */}
           <div className="mb-2 space-y-2 text-center ">
-            <div className="max-w-lg space-y-2 ">
+            <div className="xl:max-w-lg space-y-2 ">
               <div className="flex justify-start">
                 <p className="border border-slate-200 text-xs hidden sm:flex gap-2 items-center p-2 px-4 rounded text-purple-500">
                   <Star className="size-4  fill-purple-500 " /> 100% Free |{" "}
@@ -447,10 +465,41 @@ export default function QRCodeGenerator() {
                 <span className="text-purple-500">QR Code</span> in Seconds
               </h1>
 
+              <div className="flex lg:hidden w-full flex-1 items-center justify-center md:bg-gray-100 md:rounded md:p-3 ">
+                <div
+                  className="rounded-lg p-2 shadow-1!"
+                  style={{ backgroundColor: settings.bgColor }}
+                >
+                  <div ref={qrContainerRefMobile} className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full" />
+
+                  {/* Label preview — always rendered so layout doesn't jump */}
+                  <div className="mt-2 flex min-h-[26px] w-full items-center justify-center px-2">
+                    {settings.label ? (
+                      <p
+                        className="tracking-wide text-center break-words leading-snug max-w-full"
+                        style={{
+                          color: settings.labelColor,
+                          fontSize: `${settings.labelFontSize}px`,
+                          fontWeight: settings.labelBold ? 700 : 400,
+                          fontStyle: settings.labelItalic ? "italic" : "normal",
+                        }}
+                      >
+                        {settings.label}
+                      </p>
+                    ) : (
+                      <p className="text-xs italic" style={{ color: settings.labelColor, opacity: 0.3 }}>
+                        label text
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+
             </div>
 
             <Tabs
-              className="space-y-1"
+              className="space-y-1 pt-2"
               value={settings.inputType}
               onValueChange={(v) =>
                 updateSettings({ inputType: v as QRInputType })
@@ -902,32 +951,34 @@ export default function QRCodeGenerator() {
 
 
         {/* ── QR code display ─────────────────────────────────── */}
-        <div className="col-span-8 flex items-center justify-center bg-gray-100 rounded">
-          <div
-            className="rounded-lg p-2 shadow-1!"
-            style={{ backgroundColor: settings.bgColor }}
-          >
-            <div ref={qrContainerRef} className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full" />
+        <div className="hidden lg:flex lg:col-span-8 flex-col">
+          <div className="flex flex-1 items-center justify-center bg-gray-100 rounded">
+            <div
+              className="rounded-lg p-2 shadow-1!"
+              style={{ backgroundColor: settings.bgColor }}
+            >
+              <div ref={qrContainerRefDesktop} className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full" />
 
-            {/* Label preview — always rendered so layout doesn't jump */}
-            <div className="mt-2 flex min-h-[26px] w-full items-center justify-center px-2">
-              {settings.label ? (
-                <p
-                  className="tracking-wide text-center break-words leading-snug max-w-full"
-                  style={{
-                    color: settings.labelColor,
-                    fontSize: `${settings.labelFontSize}px`,
-                    fontWeight: settings.labelBold ? 700 : 400,
-                    fontStyle: settings.labelItalic ? "italic" : "normal",
-                  }}
-                >
-                  {settings.label}
-                </p>
-              ) : (
-                <p className="text-xs italic" style={{ color: settings.labelColor, opacity: 0.3 }}>
-                  label text
-                </p>
-              )}
+              {/* Label preview — always rendered so layout doesn't jump */}
+              <div className="mt-2 flex min-h-[26px] w-full items-center justify-center px-2">
+                {settings.label ? (
+                  <p
+                    className="tracking-wide text-center break-words leading-snug max-w-full"
+                    style={{
+                      color: settings.labelColor,
+                      fontSize: `${settings.labelFontSize}px`,
+                      fontWeight: settings.labelBold ? 700 : 400,
+                      fontStyle: settings.labelItalic ? "italic" : "normal",
+                    }}
+                  >
+                    {settings.label}
+                  </p>
+                ) : (
+                  <p className="text-xs italic" style={{ color: settings.labelColor, opacity: 0.3 }}>
+                    label text
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
