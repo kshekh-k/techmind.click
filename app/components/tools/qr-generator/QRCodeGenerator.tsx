@@ -463,7 +463,7 @@ export default function QRCodeGenerator() {
                     value={value}
                     className="rounded-sm! font-medium transition-all text-xs! bg-white shadow-1! text-(color:--text-color)
                    data-[state=active]:bg-(--text-color)
-                   data-[state=active]:text-white" style={{ '--text-color': `var(${color as string})` }}
+                   data-[state=active]:text-white" style={{ '--text-color': `var(${color as string})` } as React.CSSProperties}
                   >
                     <span className="flex items-center justify-center gap-1 py-1">
                       <Icon className="size-3.5" strokeWidth={2.5} />
