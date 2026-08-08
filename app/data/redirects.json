@@ -1,0 +1,42 @@
+[
+  {
+    "source": "/blogs/techMind-helps-writers",
+    "destination": "/blogs/techmind-helps-writers",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/url-slug-generator",
+    "destination": "/blogs/what-is-a-url-slug-how-to-create-seo-friendly-slugs",
+    "permanent": true
+  },
+  {
+    "source": "/Text",
+    "destination": "/glossary/text-formatting",
+    "permanent": true
+  },
+  {
+    "source": "/signup",
+    "destination": "/login",
+    "permanent": true
+  },
+  {
+    "source": "/&",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/contact",
+    "destination": "/contact-us",
+    "permanent": true
+  },
+  {
+    "source": "/$",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/technind.click/contact",
+    "destination": "/contact-us",
+    "permanent": true
+  }
+]

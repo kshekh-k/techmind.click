@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import fs from "fs";
+import path from "path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -41,13 +43,19 @@ const nextConfig: NextConfig = {
   compress: true,
 
   async redirects() {
-    return [
-      {
-        source: "/blogs/techMind-helps-writers",
-        destination: "/blogs/techmind-helps-writers",
-        permanent: true,
-      },
-    ];
+    try {
+      const filePath = path.join(process.cwd(), "app/data/redirects.json");
+      if (fs.existsSync(filePath)) {
+        const fileContent = fs.readFileSync(filePath, "utf8");
+        const customRedirects = JSON.parse(fileContent);
+        if (Array.isArray(customRedirects)) {
+          return customRedirects;
+        }
+      }
+    } catch (error) {
+      console.error("Error loading redirects from redirects.json:", error);
+    }
+    return [];
   },
 
   async headers() {
