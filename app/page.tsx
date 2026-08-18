@@ -393,10 +393,7 @@ export default function Home() {
               </CardTitle>
 
               <p className="text-base md:text-lg text-muted-foreground mt-3 ">
-                Format text instantly with our free online text formatter.
-                Convert uppercase, lowercase, sentence case, title case, and
-                other text formats in seconds. Fast, private, and no sign-up
-                required.
+                Need to change the way your text is written? Paste it into the formatter and choose the format you need. You can change capitalization, clean up text, or create a URL slug without installing another app.
               </p>
             </CardHeader>
 
@@ -406,9 +403,7 @@ export default function Home() {
                   <h3 className="text-center">Featured & Trusted</h3>
 
                   <p className="max-w-4xl mx-auto text-center">
-                    TechMind is trusted by thousands of users for fast, private,
-                    and free online productivity tools. We're also recognized by
-                    leading product discovery platforms.
+                    TechMind has been listed on several product discovery and software directories.
                   </p>
 
                   <div className="grid gap-6 md:grid-cols-2">
@@ -475,24 +470,21 @@ export default function Home() {
                       </div>
 
                       <h3 className="text-xl font-semibold mt-2! text-center">
-                        Built for Everyone
+                        Everyone can use
                       </h3>
 
-                        <p className="mx-auto max-w-4xl text-muted-foreground">
-                        TechMind helps writers, developers, students, marketers,
-                        business owners, educators, and content creators
-                        simplify everyday tasks with fast, browser-based tools
-                        that are free, secure, and easy to use.
+                      <p className="mx-auto max-w-4xl text-muted-foreground">
+                        There are plenty of small situations where changing text by hand becomes annoying. You might need to fix the capitalization of a heading, clean text copied from another website, or turn a page title into a URL slug. That's what this formatter is for.
                       </p>
 
                       <div className="mt-6 flex flex-wrap justify-center gap-3">
                         {[
-                          "✍️ Writers",
+                          "✍️ Writers & Bloggers",
                           "💻 Developers",
                           "🎓 Students",
                           "📈 Marketers",
                           "🏢 Businesses",
-                          "🎥 Creators",
+                          "🎥 Content Creators",
                           "👨‍🏫 Educators",
                           "🧑‍💼 Professionals",
                         ].map((item) => (
@@ -509,71 +501,61 @@ export default function Home() {
                 </div>
                 <div className="pb-8">
                   <h3 className="text-center">Who Uses Our Free Text Formatter?</h3>
-                    <p className="mx-auto max-w-4xl text-muted-foreground text-center">
-                    Whether you're writing content, coding, studying, or
-                    managing business documents, our text formatting tools help
-                    you save time and improve consistency.
+                  <p className="mx-auto max-w-4xl text-muted-foreground text-center">
+                    Different people use the formatter for different things. A blogger might use it for a headline, a developer might need a slug or camelCase text, and a student might simply need to fix capitalization in copied notes.
                   </p>
                   <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     <div>
                       <h4 className="mt-0!">✍️ Writers & Bloggers</h4>
                       <p className="mb-0!">
-                        Format titles, convert sentence case, clean copied
-                        content, and prepare articles for publishing.
+                        Format article titles, clean up copied text, change capitalization, and prepare text before publishing.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">💻 Developers</h4>
                       <p className="mb-0!">
-                        Generate URL slugs, convert camelCase, snake_case, clean
-                        code snippets, and organize text.
+                        Developers can use the converter when a piece of text needs to follow a particular naming style. For example, a phrase can be changed into camelCase, snake_case, or a URL slug.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">🎓 Students</h4>
                       <p className="mb-0!">
-                        Prepare assignments, organize notes, fix copied text,
-                        and improve readability.
+                        If you have copied text from a website or document, you can use the formatter to fix capitalization, spacing, or unwanted line breaks before using it in your notes or assignment.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">📈 SEO Professionals</h4>
                       <p className="mb-0!">
-                        Create SEO-friendly slugs, optimize headings, and
-                        standardize content formatting.
+                        Create readable URL slugs, clean up text, and prepare headings and other content for websites.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">🏢 Businesses</h4>
                       <p className="mb-0!">
-                        Format emails, documents, product descriptions, and
-                        reports quickly.
+                        Format product names, emails, documents, and other text used in day-to-day work.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">📱 Content Creators</h4>
                       <p className="mb-0!">
-                        Prepare captions, social posts, and video descriptions
-                        with ease.
+                        Captions and video descriptions often get edited in several places before they are published. The formatter can help clean up the text and fix its capitalization before you post it.
                       </p>
                     </div>
                   </div>
                 </div>
-                 <div className="pb-8">
+                <div className="pb-8">
                   <div className="text-center">
                     <h3 >
                       See the Difference Instantly
                     </h3>
 
                     <p className="mx-auto max-w-4xl text-muted-foreground">
-                      Transform messy or inconsistent text into clean, readable
-                      content with just one click. Compare how different
-                      formatting options work using the same example.
+                      Use the same piece of text to see how different formatting options change it.
                     </p>
                   </div>
 
@@ -594,7 +576,7 @@ export default function Home() {
                         <span className="flex text-xs font-semibold text-purple-500">
                           Sentence Case
                         </span>
-                       <pre className="my-0! py-1.5! px-2! leading-none! whitespace-pre-wrap break-words text-sm font-medium bg-muted text-gray-900">
+                        <pre className="my-0! py-1.5! px-2! leading-none! whitespace-pre-wrap break-words text-sm font-medium bg-muted text-gray-900">
                           {`This is my first blog post.`}
                         </pre>
                       </div>
@@ -623,7 +605,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                 <div className="pb-8">
+                <div className="pb-8">
                   {/* Why This Matters */}
                   <div className="mt-10 rounded-xl border border-green-200 bg-green-50 p-5">
                     <h3 className="text-lg mt-0! font-semibold text-green-800">
@@ -631,18 +613,14 @@ export default function Home() {
                     </h3>
 
                     <p className="mt-3 leading-7 text-green-700 mb-0!">
-                      Consistent text formatting improves readability, creates
-                      professional-looking documents, helps writers maintain
-                      style consistency, and generates clean, SEO-friendly URLs
-                      for websites and blogs. With TechMind, every
-                      transformation happens instantly in your browser—no
-                      uploads, no sign-up, and no waiting.
+                      Changing text manually can take time, especially when you need to format several lines or use the same text in different places. A case converter can handle these changes quickly and help you keep your formatting consistent.
                     </p>
+                    <p className="mt-1 leading-7 text-green-700 mb-0! text-sm italic">For example, the same text may need to appear as a heading, a sentence, or a URL slug depending on where you use it.</p>
                   </div>
                 </div>
-                 <div className="pb-8">
-                  <h3>Case Converter Tools</h3>
-                  <p>Quickly convert text into:</p>
+                <div className="pb-8">
+                  <h3>Choose a format below to change your text.</h3>
+
 
                   <ul>
                     <li>Uppercase Converter</li>
@@ -661,56 +639,92 @@ export default function Home() {
                 <div className="pb-8">
                   <h3>Text Cleanup & Slug Formatting</h3>
                   <p>
-                    Generate clean and readable URL slugs from any text
-                    instantly. Remove unwanted characters, extra spaces,
-                    duplicate line breaks, and messy formatting with one click.
+                    Clean up text by removing extra spaces, unwanted characters, and unnecessary line breaks. You can also turn a title or phrase into a URL-friendly slug.
                   </p>
                   <h4>Useful for:</h4>
                   <ul>
-                    <li>blog titles</li>
-                    <li>content writing</li>
-                    <li>document cleanup</li>
-                    <li>project organization</li>
-                    <li>readable text formatting</li>
+                    <li>Blog titles</li>
+                    <li>Website URLs</li>
+                    <li>Content editing</li>
+                    <li>Notes and documents</li>
+                    <li>Cleaning copied text</li>
                   </ul>
                   <h3>Simple Tools for Everyday Writing</h3>
                   <p>
-                    Whether you are formatting articles, preparing assignments,
-                    organizing notes, cleaning copied text, or structuring
-                    content for websites and apps, these utilities help make
-                    text cleaner, more readable, and easier to manage.
+                    Not every text problem needs a separate editor. If a copied paragraph has extra spaces or broken lines, you can clean it here. If you need a URL from a title, the slug converter can handle that too.
                   </p>
-                  <p>
-                    Explore free online text formatting tools built for fast,
-                    simple, and distraction-free usage.
-                  </p>
+
                 </div>
-                 <div className="pb-8">
+                <div className="pb-8">
                   <h3>Why Choose TechMind?</h3>
+                  <p>The formatter is designed for simple text formatting tasks without requiring an account or additional software.</p>
+                  <div className="w-full overflow-x-auto">
+                    <table className="w-full border-collapse overflow-hidden rounded-lg border border-gray-200 text-left text-sm">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="border-b border-gray-200 px-4 py-3 font-semibold text-gray-900">
+                            Feature
+                          </th>
+                          <th className="border-b border-gray-200 px-4 py-3 font-semibold text-gray-900">
+                            TechMind
+                          </th>
+                        </tr>
+                      </thead>
 
-                  <ul>
-                    <li>⚡ Instant formatting</li>
+                      <tbody className="divide-y divide-gray-200">
+                        <tr className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-gray-700">
+                            No sign-up required
+                          </td>
+                          <td className="px-4 py-3 text-green-600">
+                            ✅
+                          </td>
+                        </tr>
 
-                    <li>🔒 100% browser processing</li>
+                        <tr className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-gray-700">
+                            Browser-based
+                          </td>
+                          <td className="px-4 py-3 text-green-600">
+                            ✅
+                          </td>
+                        </tr>
 
-                    <li>🆓 Completely free</li>
+                        <tr className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-gray-700">
+                            Multiple formatting options
+                          </td>
+                          <td className="px-4 py-3 text-green-600">
+                            ✅
+                          </td>
+                        </tr>
 
-                    <li>🚫 No signup</li>
+                        <tr className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-gray-700">
+                            Mobile-friendly
+                          </td>
+                          <td className="px-4 py-3 text-green-600">
+                            ✅
+                          </td>
+                        </tr>
 
-                    <li>📱 Mobile friendly</li>
+                        <tr className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-gray-700">
+                            Free to use
+                          </td>
+                          <td className="px-4 py-3 text-green-600">
+                            ✅
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
 
-                    <li>♾ Unlimited usage</li>
-
-                    <li>⚙️ Multiple formatting options</li>
-
-                    <li>🌎 Works in every modern browser</li>
-                  </ul>
                 </div>
-                 <div className="pb-8">
+                <div className="pb-8">
                   <h3>Related Tools & Resources</h3>
                   <p>
-                    Explore more free productivity tools and helpful resources
-                    from TechMind to simplify your everyday tasks.
+                    Looking for something else? These are a few other tools and resources available on TechMind.
                   </p>
                   <ul className="list-none pl-0! grid gap-4 md:grid-cols-2">
                     <li>
@@ -725,8 +739,7 @@ export default function Home() {
                               QR Code Generator
                             </h4>
                             <p className="text-sm text-muted-foreground">
-                              Create custom QR codes for URLs, Wi-Fi, contacts,
-                              and more.
+                              Create QR codes for links, contact details, Wi-Fi, and other information.
                             </p>
                           </div>
                         </div>
@@ -746,8 +759,7 @@ export default function Home() {
                               Image to PDF
                             </h4>
                             <p className="text-sm text-muted-foreground">
-                              Convert JPG, PNG, and other images into PDF
-                              instantly.
+                              Convert JPG, PNG, and other images into PDF files.
                             </p>
                           </div>
                         </div>
@@ -765,8 +777,7 @@ export default function Home() {
                           <div>
                             <h4 className="font-semibold mt-0!">Blog Hub</h4>
                             <p className="text-sm text-muted-foreground">
-                              Learn tips, tutorials, and best practices for
-                              productivity.
+                              Browse tutorials and articles about TechMind tools and related topics.
                             </p>
                           </div>
                         </div>
@@ -784,8 +795,7 @@ export default function Home() {
                           <div>
                             <h4 className="font-semibold mt-0!">Glossary</h4>
                             <p className="text-sm text-muted-foreground">
-                              Understand common technology and productivity
-                              terms.
+                              Learn the meaning of common technology and productivity terms.
                             </p>
                           </div>
                         </div>
@@ -795,12 +805,11 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-                 <div className="pb-8">
+                <div className="pb-8">
                   <h3>Popular Guides</h3>
 
                   <p>
-                    Learn how to format text, improve productivity, and use
-                    TechMind's free online tools with our step-by-step guides.
+                    These guides explain common text-formatting tasks and show you how to handle them.
                   </p>
 
                   <div className="grid gap-4 md:grid-cols-2">
@@ -817,9 +826,7 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Learn the easiest ways to convert uppercase text
-                            into lowercase, sentence case, and title case in
-                            seconds.
+                            Learn how to change uppercase text to lowercase and other common formats.
                           </p>
                         </div>
 
@@ -840,8 +847,7 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Remove unwanted spaces, broken line breaks, and
-                            formatting issues before sending messages.
+                            Remove unwanted spaces, line breaks, and other formatting problems from copied text.
                           </p>
                         </div>
 
@@ -862,8 +868,7 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Discover how to combine JPG, PNG, and other images
-                            into a professional PDF document online.
+                            Learn how to combine images into a PDF file.
                           </p>
                         </div>
 
@@ -884,8 +889,7 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Learn how businesses use QR codes for menus,
-                            payments, Wi-Fi, marketing, and customer engagement.
+                            Learn how businesses can use QR codes for links, payments, menus, Wi-Fi, and other purposes.
                           </p>
                         </div>
 
@@ -906,9 +910,7 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Understand URL slugs, naming conventions, and SEO
-                            best practices to improve rankings and user
-                            experience.
+                            Learn how to create short, readable URLs from page or article titles.
                           </p>
                         </div>
 
@@ -931,136 +933,18 @@ export default function Home() {
                   <h3>Why Text Formatting Matters</h3>
 
                   <p>
-                    Proper text formatting improves readability, maintains
-                    consistency across documents, helps search engines
-                    understand page titles, creates cleaner URLs, and makes
-                    digital content easier to read on every device. Whether
-                    you're writing articles, preparing assignments, creating
-                    software documentation, or publishing business content,
-                    proper formatting helps present information professionally.
+                    Formatting changes how text looks and how easily people can read it. A consistent style also makes headings, documents, captions, and other content easier to organize.
+                  </p><p>
+                    For example, a blog title may need Title Case, while a URL usually works better as a short, lowercase slug.
                   </p>
 
-                  <h3>Why Choose TechMind?</h3>
 
-                  <p>
-                    Compare TechMind's free online text formatter with the
-                    features commonly found in many text formatting tools.
-                  </p>
-
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-sm">
-                      <thead>
-                        <tr className="border-b bg-muted/50">
-                          <th className="px-4 py-3 text-left font-semibold">
-                            Feature
-                          </th>
-
-                          <th className="px-4 py-3 text-center font-semibold text-primary">
-                            TechMind
-                          </th>
-
-                          <th className="px-4 py-3 text-center font-semibold">
-                            Many Online Tools
-                          </th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <tr className="border-b">
-                          <td className="px-4 py-3">No Sign-Up Required</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Sometimes</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Unlimited Usage</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">
-                            May have limits
-                          </td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">
-                            Browser-Based Processing
-                          </td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Varies</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Privacy Focused</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Varies</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Fast Text Conversion</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Usually</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Mobile Friendly</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Varies</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Modern, Clean Interface</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Varies</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Free Forever</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Not always</td>
-                        </tr>
-
-                        <tr className="border-b">
-                          <td className="px-4 py-3">Works on Any Device</td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Usually</td>
-                        </tr>
-
-                        <tr>
-                          <td className="px-4 py-3">
-                            Multiple Text Formatting Options
-                          </td>
-                          <td className="px-4 py-3 text-center text-green-600 font-semibold">
-                            <Check className="size-4 mx-auto" />
-                          </td>
-                          <td className="px-4 py-3 text-center">Varies</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
                 </div>
-                 <div className="pb-8">
+                <div className="pb-8">
                   <h3>More Free Productivity Tools</h3>
 
                   <p className="text-sm text-muted-foreground mt-2">
-                    Discover more free online tools and resources from TechMind
-                    for productivity, document management, and content creation.
+                    You can also use these free TechMind tools:
                   </p>
 
                   <div className="mt-4 flex flex-wrap gap-3">
