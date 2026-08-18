@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/app/components/ui/card";
 import Link from "next/link";
-import { Star } from "lucide-react";
+import { ChevronDown, Star } from "lucide-react";
 
 /* ─── Constants ─────────────────────────────────────────────────────────────── */
 
@@ -302,7 +302,7 @@ export default function QRCodeGeneratorPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 space-y-10">
-        
+
 
         {/* Tool */}
         <Suspense>
@@ -319,8 +319,7 @@ export default function QRCodeGeneratorPage() {
             </CardTitle>
 
             <p className="text-sm text-muted-foreground mt-2">
-              Discover more free online tools and resources from TechMind for
-              productivity, document management, and content creation.
+              Looking for another tool? Try these free tools from TechMind.
             </p>
 
             <div className="mt-4 flex flex-wrap gap-3">
@@ -365,9 +364,7 @@ export default function QRCodeGeneratorPage() {
               Custom QR Code Generator - Free, Fast & No Sign-Up
             </CardTitle>
             <p className="text-base text-muted-foreground mt-3 max-w-4xl">
-              Generate professional QR codes for any use case in seconds.
-              Customize every detail - colors, shapes, logo, and label - then
-              download in the format you need.
+              Create a QR code from a URL, text, phone number, email address, or Wi-Fi details. You can change its colors, add a logo, choose different dot and corner styles, and add a label before saving the QR code.
             </p>
           </CardHeader>
 
@@ -376,157 +373,113 @@ export default function QRCodeGeneratorPage() {
               <h3>What types of QR codes can you create?</h3>
               <ul>
                 <li>
-                  <strong>URL QR Code</strong> - Link directly to any website,
-                  product page, portfolio, or social profile.
+                  <strong>URL QR Code</strong> - Turn a website or page URL into a QR code that opens when it is scanned.
                 </li>
                 <li>
-                  <strong>Text QR Code</strong> - Encode any plain text message.
-                  Scanners display the text without opening a browser.
+                  <strong>Text QR Code</strong> - Add a short text message that can be displayed after scanning the code.
                 </li>
                 <li>
-                  <strong>Phone QR Code</strong> - Dial a phone number instantly
-                  when scanned - ideal for business cards and flyers.
+                  <strong>Phone QR Code</strong> - Add a phone number so someone can start a call after scanning the code.
                 </li>
                 <li>
-                  <strong>WiFi QR Code</strong> - Let guests connect to your
-                  network by scanning a code, no password typing needed.
+                  <strong>WiFi QR Code</strong> - Add your Wi-Fi network details so guests can connect without typing the password manually.
                 </li>
               </ul>
 
               <h3>Customization options</h3>
               <p>
-                Every QR code you generate on TechMind is fully customizable.
-                Change the foreground and background colors to match your brand,
-                choose from six dot styles (square, dots, rounded,
-                extra-rounded, classy, classy-rounded), pick your corner shape,
-                and upload any logo image to embed in the center. Adjust the
-                size from 200px to 500px and set the margin to control white
-                space around the code.
-              </p>
+                You can change several parts of the QR code before downloading it. Choose the foreground and background colors, change the dot and corner styles, add a logo, and adjust the size and margin.              </p>
 
               <h3>Popular Uses of QR Codes</h3>
 
               <p>
-                QR codes have become one of the easiest ways to connect printed
-                materials with digital content. Whether you're a business owner,
-                student, teacher, marketer, or event organizer, QR codes make it
-                simple for people to access information instantly by scanning
-                with their smartphone camera.
+                A QR code is useful when you want to give someone quick access to a link or other information without asking them to type it. You can put one on a menu, business card, product package, poster, event ticket, or Wi-Fi sign.
               </p>
 
               <div className="grid gap-5 md:grid-cols-2">
                 <div>
                   <h4>🏬 Restaurant Menus</h4>
                   <p>
-                    Create contactless digital menus for restaurants, cafés,
-                    food trucks, and hotels. Download your menu QR code as a PDF
-                    for easy printing using our{" "}
+                    Put a QR code on a table, counter, poster, or menu card and link it to your online menu. Customers can scan the code with their phone and open the menu without typing the URL.{" "}
                     <Link
                       href="/image-to-pdf"
                       className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
                     >
                       Image to PDF Converter
                     </Link>
-                    . Customers can scan the QR code to view your menu without
-                    downloading an app.
+
                   </p>
                 </div>
 
                 <div>
                   <h4>💼 Business Cards</h4>
                   <p>
-                    Add a QR code to your business card that links directly to
-                    your website, portfolio, LinkedIn profile, contact page, or
-                    digital vCard. If you need to prepare names or text before
-                    creating your QR code, try our{" "}
+                    Add a QR code to a business card and link it to your website, portfolio, LinkedIn profile, contact page, or other online information.{" "}
                     <Link
                       href="/"
                       className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
                     >
                       Text Formatter
                     </Link>
-                    .
+
                   </p>
                 </div>
 
                 <div>
                   <h4>📶 WiFi Sharing</h4>
                   <p>
-                    Allow guests to join your WiFi network instantly without
-                    manually typing the password. Simply scan the QR code to
-                    connect.
+                    Add the Wi-Fi network name and password to a QR code. Guests can scan it with a compatible phone instead of entering the network details manually.
                   </p>
                 </div>
 
                 <div>
                   <h4>📦 Product Packaging</h4>
                   <p>
-                    Add QR codes to packaging that link to product manuals,
-                    installation guides, warranty information, user videos, or
-                    customer support.
+                    A QR code on product packaging can link customers to a manual, setup instructions, warranty information, product videos, or a support page.
                   </p>
                 </div>
 
                 <div>
                   <h4>📢 Marketing & Advertising</h4>
                   <p>
-                    Increase engagement by adding QR codes to posters,
-                    brochures, flyers, newspapers, magazines, billboards, and
-                    product catalogs.
+                    Add a QR code to posters, flyers, brochures, magazines, or product catalogs when you want people to visit a website or landing page from printed material.
                   </p>
                 </div>
 
                 <div>
                   <h4>🎫 Events & Tickets</h4>
                   <p>
-                    Share registration pages, digital tickets, event schedules,
-                    venue maps, speaker information, or check-in links using QR
-                    codes.
+                    Use a QR code to share an event page, registration form, ticket information, venue map, schedule, or other event details.
                   </p>
                 </div>
 
                 <div>
                   <h4>📍 Google Maps & Locations</h4>
                   <p>
-                    Help visitors find your office, restaurant, shop, or event
-                    venue by linking directly to Google Maps directions.
-                    Businesses can also include Google Maps QR codes on flyers,
-                    brochures, posters, and marketing materials. Learn more
-                    about creative QR code ideas in our{" "}
+                    Link a QR code to a Google Maps location so visitors can open directions from their phone.{" "}
                     <Link
                       href="/blogs"
                       className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
                     >
-                      Blog Knowledge Hub
+                      You can place the code on flyers, posters, signs, or other printed material.
                     </Link>
-                    .
+
                   </p>
                 </div>
 
                 <div>
                   <h4>📱 Social Media & Websites</h4>
                   <p>
-                    Connect people to your Instagram, Facebook, YouTube,
-                    LinkedIn, X, or any website with a single scan.
+                    Link the QR code to your Instagram, Facebook, YouTube, LinkedIn, X profile, or website. Someone scanning the code can open the selected page directly.
                   </p>
                 </div>
               </div>
 
-              <p>
-                Because TechMind QR Code Generator supports custom colors, logo
-                uploads, labels, and downloads in PNG, SVG, and PDF formats,
-                it's suitable for both personal projects and professional
-                business use.
-              </p>
 
               <h3>Download QR Codes in PNG, SVG, or PDF</h3>
 
               <p>
-                After customizing your QR code, you can download it in PNG, SVG,
-                or PDF format. Each format is optimized for different use cases,
-                whether you're sharing online, printing business materials, or
-                creating large-format marketing assets. Need help choosing the
-                right file format? Browse our{" "}
+                Once your QR code looks the way you want, choose PNG, SVG, or PDF and save it to your device.{" "}
                 <Link
                   href="/glossary"
                   className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
@@ -540,30 +493,21 @@ export default function QRCodeGeneratorPage() {
                 <div>
                   <h4>🖼 PNG Image</h4>
                   <p>
-                    PNG is the best choice for websites, social media, email
-                    signatures, presentations, digital menus, and everyday
-                    sharing. It provides excellent image quality and works on
-                    virtually every device and platform.
+                    PNG works well for websites, social media posts, emails, presentations, and other digital content.
                   </p>
                 </div>
 
                 <div>
                   <h4>🎨 SVG Vector</h4>
                   <p>
-                    SVG is a scalable vector format that stays perfectly sharp
-                    at any size. It's ideal for professional printing, business
-                    cards, product packaging, stickers, banners, posters, and
-                    graphic design software.
+                    SVG is useful when you need to resize the QR code without making it blurry, especially for print and design work.
                   </p>
                 </div>
 
                 <div>
                   <h4>📄 PDF Document</h4>
                   <p>
-                    PDF is perfect for printing and sharing documents. Download
-                    a print-ready QR code for restaurant menus, flyers,
-                    brochures, invoices, event tickets, and other printable
-                    materials.
+                    PDF is convenient when you need to print the QR code or include it in a document.
                   </p>
                 </div>
               </div>
@@ -571,29 +515,23 @@ export default function QRCodeGeneratorPage() {
               <h3>Which QR Code Format Should You Choose?</h3>
 
               <p>
-                Choosing the right format depends on how you plan to use your QR
-                code.
+                Pick the format based on where you plan to use the QR code:
               </p>
 
               <ul>
                 <li>
-                  <strong>Choose PNG</strong> for websites, social media,
-                  presentations, and digital sharing.
+                  <strong>Choose PNG</strong> Good for websites, social media, presentations, and digital sharing.
                 </li>
                 <li>
-                  <strong>Choose SVG</strong> for professional printing, logos,
-                  packaging, and large graphics.
+                  <strong>Choose SVG</strong> Better when the QR code needs to be resized or used in a design or print project.
                 </li>
                 <li>
-                  <strong>Choose PDF</strong> when sending files directly to a
-                  print shop or including QR codes in printable documents.
+                  <strong>Choose PDF</strong> Useful when you want a print-ready file or need to include the QR code in a document.
                 </li>
               </ul>
 
               <p>
-                Every download preserves your selected colors, logo, corner
-                style, dot style, margin, and optional label, ensuring your QR
-                code looks consistent across digital and printed materials.
+                Your selected QR code settings are included in the downloaded file.
               </p>
 
               <div className="rounded-xl border border-green-200 bg-green-50 p-4">
@@ -602,19 +540,13 @@ export default function QRCodeGeneratorPage() {
                 </h4>
 
                 <p className="mb-0! text-sm text-green-800">
-                  Every QR code is generated with high clarity for reliable
-                  scanning on both digital screens and printed materials. SVG
-                  downloads remain perfectly sharp at any size, making them
-                  ideal for professional printing.
+                  Use the downloaded QR code on a screen or in printed material. SVG is a good choice when you need to resize the code because it can be scaled without losing sharpness.
                 </p>
               </div>
 
               <h3>Privacy and data</h3>
               <p>
-                QR codes are generated entirely in your browser using
-                JavaScript. Your URLs, text, and WiFi credentials are never sent
-                to any server unless you explicitly choose to save a QR code to
-                your account. No tracking, no ads, no data collection.
+                QR codes are generated in your browser. The information you enter, such as a URL, text, or Wi-Fi details, is used to create the QR code. It is not sent to our server unless you choose a feature that requires saving it to your account.
               </p>
             </div>
 
@@ -627,15 +559,15 @@ export default function QRCodeGeneratorPage() {
               {[
                 {
                   q: "Is the QR code generator really free?",
-                  a: "Yes - completely free. No watermarks, no limits, no credit card. Generate and download as many QR codes as you like.",
+                  a: "Yes. You can create and download QR codes without paying for the basic generator.",
                 },
                 {
                   q: "Do I need to create an account?",
-                  a: "No account is needed to generate and download QR codes. Sign in only if you want to save codes to your profile for future editing.",
+                  a: "No account is required to create and download a QR code.",
                 },
                 {
                   q: "Will my QR code work on all phones?",
-                  a: "Yes. QR codes generated here follow the standard QR format and are compatible with the camera apps on all modern iOS and Android devices.",
+                  a: "Yes! Our QR codes work perfectly on all devices.",
                 },
                 {
                   q: "How do I make a WiFi QR code?",
@@ -653,7 +585,7 @@ export default function QRCodeGeneratorPage() {
                   <summary className="cursor-pointer font-medium text-gray-900 list-none flex items-center justify-between gap-4">
                     {q}
                     <span className="text-gray-400 group-open:rotate-180 transition-transform shrink-0">
-                      ▾
+                      <ChevronDown className="size-4" />
                     </span>
                   </summary>
                   <p className="mt-3 text-sm text-gray-600 leading-relaxed">
@@ -668,9 +600,7 @@ export default function QRCodeGeneratorPage() {
               <h3 className="text-xl font-bold">Related Tools & Resources</h3>
 
               <p className="text-muted-foreground">
-                Explore more free online tools and helpful guides from TechMind
-                to improve productivity, document management, and digital
-                workflows.
+                You may also find these TechMind tools and guides useful.
               </p>
 
               <div className="flex flex-wrap gap-4  ">
