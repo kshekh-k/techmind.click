@@ -1,10 +1,5 @@
 [
   {
-    "source": "/blogs/techMind-helps-writers",
-    "destination": "/blogs/techmind-helps-writers",
-    "permanent": true
-  },
-  {
     "source": "/blogs/url-slug-generator",
     "destination": "/blogs/what-is-a-url-slug-how-to-create-seo-friendly-slugs",
     "permanent": true
