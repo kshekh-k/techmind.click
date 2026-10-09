@@ -122,10 +122,28 @@ const websiteSchema = {
 
 // ─── Root Layout ──────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const rawAdsenseKey =
+    process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_KEY || process.env.GOOGLE_ADSENSE_KEY;
+  const adsenseKey = rawAdsenseKey?.startsWith("ca-pub-")
+    ? rawAdsenseKey
+    : rawAdsenseKey
+    ? `ca-pub-${rawAdsenseKey}`
+    : undefined;
+
   return (
     // Apply the font CSS variable; Tailwind picks it up via --font-inter
     <html lang="en" className={inter.variable}>
       <head>
+        {/* ── Google AdSense ────────────────────────────────────────────────── */}
+        {adsenseKey && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseKey}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+
         {/* AI/LLM Resources — Geordy (2026-06-21) */}
         <link rel="alternate" type="application/yaml" href="https://ai.techmind.click/index.yaml" title="YAML" data-ai="true" data-purpose="configuration" data-format="yaml" data-frequency="daily" data-version="2026-06-21" />
         <link rel="alternate" type="text/markdown" href="https://ai.techmind.click/index.md" title="Markdown" data-ai="true" data-purpose="documentation" data-format="markdown" data-frequency="daily" data-version="2026-06-21" />

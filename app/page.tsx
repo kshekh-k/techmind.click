@@ -24,18 +24,9 @@ import {
  * ------------------------------------- */
 const siteUrl = "https://www.techmind.click";
 const siteName = "TechMind.click";
-const title = "Free Online Text Formatter & Case Converter | TechMind";
+const title = "Free Text Formatter & Case Converter Online | TechMind";
 const description =
-  "Format text instantly with our free online text formatter. Convert uppercase, lowercase, sentence case, title case, and more. Fast, private, and no sign-up required.";
-const keywords = [
-  "text formatter",
-  "text formatter online",
-  "case converter",
-  "text case converter",
-  "uppercase lowercase converter",
-  "sentence case converter",
-  "title case converter",
-];
+  "Format and clean text online with uppercase, lowercase, sentence case, title case, slug formatting, and more. Free to use with no sign-up required.";
 const featureList = [
   "Uppercase conversion",
   "Lowercase conversion",
@@ -53,7 +44,7 @@ export const metadata: Metadata = {
 
   description: description,
 
-  keywords: keywords,
+
 
   alternates: {
     canonical: "/",
@@ -111,7 +102,6 @@ const SITE_URL = siteUrl;
 const ORG_ID = `${SITE_URL}#organization`;
 const WEBSITE_ID = `${SITE_URL}#website`;
 const APP_ID = `${SITE_URL}#text-formatter-app`;
-const SEO_DESCRIPTION = description;
 
 /* ---------------------------------------
  * Schema Graph
@@ -227,9 +217,8 @@ const schemaGraph = {
 
       featureList: featureList,
 
-      keywords: keywords,
 
-      description: SEO_DESCRIPTION,
+      description: description,
     },
 
     // Platform Schema (AEO)
@@ -246,7 +235,7 @@ const schemaGraph = {
         "@id": ORG_ID,
       },
 
-      description: SEO_DESCRIPTION,
+      description: description,
     },
 
     // FAQ
