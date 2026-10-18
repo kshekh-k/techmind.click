@@ -33,5 +33,110 @@
     "source": "/technind.click/contact",
     "destination": "/contact-us",
     "permanent": true
+  },
+  {
+    "source": "/blogs/slug-converter-text-formatter",
+    "destination": "/blogs/what-is-a-url-slug-how-to-create-seo-friendly-slugs",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/techmind-helps-writers",
+    "destination": "/about-us",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/text-case-converter",
+    "destination": "/text-format",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/advanced-text-formatter-tool-free-online-case-converter-text-editor",
+    "destination": "/text-format",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/how-to-convert-text-to-uppercase-online-fast-and-free",
+    "destination": "/blogs/title-case-vs-sentence-case-which-one-should-you-use",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/what-is-sentence-case-how-to-use-it-for-better-writing",
+    "destination": "/blogs/title-case-vs-sentence-case-which-one-should-you-use",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/how-to-remove-extra-spaces-from-text-online",
+    "destination": "/blogs/remove-line-breaks-online-fix-broken-text",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/bold-text-generator-online-copy-paste",
+    "destination": "/blogs/unicode-bold-italic-whatsapp-telegram-list-formatting",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/best-case-converter-tools-techmind-review",
+    "destination": "/blogs/best-case-converter-tools-2026-comparison",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/why-techmind-offers-a-better-text-formatting-experience",
+    "destination": "/text-format",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/how-to-convert-text-to-lowercase-online-free",
+    "destination": "/blogs/title-case-vs-sentence-case-which-one-should-you-use",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/alternating-case-small-caps-text-generator-copy-paste",
+    "destination": "/blogs/unicode-bold-italic-whatsapp-telegram-list-formatting",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/snake-case-converter-online-free",
+    "destination": "/blogs/camelcase-proper-case-converter-online-free",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/slug-remover-convert-url-slug-to-normal-text",
+    "destination": "/blogs/what-is-a-url-slug-how-to-create-seo-friendly-slugs",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/free-qr-code-generator-online-custom-no-sign-up",
+    "destination": "/blogs/best-free-qr-code-generator-2026-no-sign-up",
+    "permanent": true
+  },
+  {
+    "source": "/blogs/qr-code-label-custom-text-bold-italic-free",
+    "destination": "/blogs/qr-code-color-size-print-guide-png-svg-resolution",
+    "permanent": true
+  },
+  {
+    "source": "/fix-whatsapp-text-formatting-online",
+    "destination": "/blogs/unicode-bold-italic-whatsapp-telegram-list-formatting",
+    "permanent": true
+  },
+  {
+    "source": "/does-techmind-store-uploaded-files",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/is-online-text-converter-safe",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/how-techmind-protects-user-privacy",
+    "destination": "/privacy-policy",
+    "permanent": true
+  },
+  {
+    "source": "/convert-jpg-to-pdf-on-mobile-without-app",
+    "destination": "/image-to-pdf",
+    "permanent": true
   }
 ]
