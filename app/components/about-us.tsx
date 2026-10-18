@@ -78,6 +78,13 @@ export default function AboutPage() {
 
                         </div>
 
+                        <div>
+                            <h3 className="font-semibold text-lg mb-2">Leadership &amp; Editorial Team</h3>
+                            <p className="text-muted-foreground">
+                                TechMind.click was conceived and developed by <a href="https://kshekh.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Kamran Shekh</a>, an engineer and web developer dedicated to building fast, privacy-preserving productivity utilities. All content, tutorials, and formatting guides are curated and fact-checked under our <Link href="/editorial-policy" className="text-primary hover:underline font-medium">Editorial Policy</Link>. Meet our contributors on the <Link href="/authors/admin" className="text-primary hover:underline font-medium">TechMind Editorial Team Profile</Link>.
+                            </p>
+                        </div>
+
                     </CardContent>
                 </Card>
 
@@ -94,7 +101,7 @@ export default function AboutPage() {
                                 <div>
                                     <h3 className="font-semibold text-lg mb-2">Advanced Text Formatting</h3>
                                     <p className="text-muted-foreground">
-                                        Transform your plain text into beautifully formatted content with our powerful tools. Whether you need Markdown conversion, code formatting, or rich text editing, we've got you covered.
+                                        Transform your plain text into beautifully formatted content with our powerful tools. Whether you need Markdown conversion, code formatting, or rich text editing, we&apos;ve got you covered.
                                     </p>
                                 </div>
                             </div>
@@ -150,7 +157,7 @@ export default function AboutPage() {
                                 <Rocket className="h-5 w-5 text-primary" />
                             </div>
                             <div>
-                                <h3 className="font-semibold">Speed & Efficiency</h3>
+                                <h3 className="font-semibold">Speed &amp; Efficiency</h3>
                                 <p className="text-muted-foreground">
                                     Our tools are optimized for performance, delivering instant results without compromising quality.
                                 </p>
@@ -186,7 +193,7 @@ export default function AboutPage() {
                 <div className="text-center mt-8">
                     <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Content?</h2>
                     <Button asChild>
-                        <Link href="/contact">Get in Touch</Link>
+                        <Link href="/contact-us">Get in Touch</Link>
                     </Button>
                 </div>
             </div>

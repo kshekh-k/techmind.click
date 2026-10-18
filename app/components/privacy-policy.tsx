@@ -1,238 +1,200 @@
-import React from "react"
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Separator } from "@/app/components/ui/separator";
-function Privacypolicy() {
-    return (
-        <div className="container mx-auto px-4 py-8">
-            <Card className="max-w-4xl mx-auto">
-                <CardHeader>
-                    <CardTitle className="text-3xl font-bold">Privacy Policy</CardTitle>
-                    <p className="text-muted-foreground">Last updated: May 04, 2025</p>
-                </CardHeader>
 
-                <CardContent className="space-y-6">
-                    <section>
-                        <p>
-                            This Privacy Policy describes Our policies and procedures on the collection,
-                            use and disclosure of Your information when You use the Service and tells
-                            You about Your privacy rights and how the law protects You.
-                        </p>
-                        <p className="mt-2">
-                            We use Your Personal data to provide and improve the Service. By using the Service,
-                            You agree to the collection and use of information in accordance with this Privacy Policy.
-                            This Privacy Policy has been created with the help of the{" "}
-                            <a
-                                href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-primary hover:underline"
-                            >
-                                Free Privacy Policy Generator
-                            </a>.
-                        </p>
-                    </section>
+export default function Privacypolicy() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <Card className="max-w-4xl mx-auto shadow-sm">
+        <CardHeader className="space-y-2">
+          <CardTitle className="text-3xl font-bold tracking-tight">Privacy Policy</CardTitle>
+          <p className="text-sm text-muted-foreground">Last updated: May 15, 2026</p>
+        </CardHeader>
 
-                    <Separator />
+        <CardContent className="space-y-6 text-gray-700 leading-relaxed">
+          <section className="space-y-3">
+            <p>
+              At <strong>TechMind.click</strong> (&quot;TechMind&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), we take your personal privacy seriously. This Privacy Policy outlines how your information is handled when you visit and use our website (accessible from{" "}
+              <a href="https://www.techmind.click" className="text-primary hover:underline font-medium">
+                https://www.techmind.click
+              </a>
+              ) and our suite of free online utilities, including our text case converters, URL slug generators, QR code generators, and PDF tools.
+            </p>
+            <p>
+              By accessing or using TechMind.click, you agree to the collection and use of information in accordance with this Privacy Policy.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-semibold mb-4">Interpretation and Definitions</h2>
+          <Separator />
 
-                        <h3 className="text-xl font-medium mb-2">Interpretation</h3>
-                        <p>
-                            The words of which the initial letter is capitalized have meanings defined under the following conditions.
-                            The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.
-                        </p>
+          {/* Core Privacy Proposition */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">1. Client-Side Processing &amp; Zero File Storage</h2>
+            <p>
+              Our primary commitment to our users is privacy by design:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Text Formatter &amp; Case Converter:</strong> All text transformation operations (such as converting to uppercase, lowercase, sentence case, slug generation, line break cleaning, and space removal) run 100% locally in your web browser using client-side JavaScript. What you paste into the text editor is never transmitted to, monitored by, or stored on our servers.
+              </li>
+              <li>
+                <strong>Image &amp; PDF Utilities:</strong> File processing (including Image to PDF and Image to WebP conversion) is performed directly inside your browser using client-side libraries. Your documents and uploaded images remain entirely on your local device and are not uploaded to remote databases.
+              </li>
+              <li>
+                <strong>QR Code Generator:</strong> All QR codes are generated dynamically in-memory on your device and rendered directly onto your screen for download.
+              </li>
+            </ul>
+          </section>
 
-                        <h3 className="text-xl font-medium mt-4 mb-2">Definitions</h3>
-                        <p>For the purposes of this Privacy Policy:</p>
+          <Separator />
 
-                        <ul className="list-disc pl-6 space-y-2 mt-2">
-                            <li>
-                                <strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.
-                            </li>
-                            <li>
-                                <strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party,
-                                where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled
-                                to vote for election of directors or other managing authority.
-                            </li>
-                            <li>
-                                <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement)
-                                refers to Techmin.click Text formatter.
-                            </li>
-                            <li>
-                                <strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website,
-                                containing the details of Your browsing history on that website among its many uses.
-                            </li>
-                            <li>
-                                <strong>Country</strong> refers to: Rajasthan, India
-                            </li>
-                            <li>
-                                <strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.
-                            </li>
-                            <li>
-                                <strong>Personal Data</strong> is any information that relates to an identified or identifiable individual.
-                            </li>
-                            <li>
-                                <strong>Service</strong> refers to the Website.
-                            </li>
-                            <li>
-                                <strong>Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company.
-                                It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the
-                                Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing
-                                how the Service is used.
-                            </li>
-                            <li>
-                                <strong>Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or
-                                from the Service infrastructure itself (for example, the duration of a page visit).
-                            </li>
-                            <li>
-                                <strong>Website</strong> refers to Techmin.click Text formatter, accessible from{" "}
-                                <a
-                                    href="techind.click"
-                                    rel="external nofollow noopener"
-                                    target="_blank"
-                                    className="text-primary hover:underline"
-                                >
-                                    techind.click
-                                </a>
-                            </li>
-                            <li>
-                                <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity
-                                on behalf of which such individual is accessing or using the Service, as applicable.
-                            </li>
-                        </ul>
-                    </section>
+          {/* Information We Collect */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">2. Information We Collect</h2>
+            <p>
+              We do not require users to create an account or provide personal details to use our core utilities. However, certain standard technical data may be gathered automatically when navigating our site:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Log and Usage Data:</strong> Like most online services, our web servers and analytics systems automatically record standard technical log data when you access TechMind.click. This may include your IP address, browser type and version, operating system, referring URLs, pages visited, time spent on pages, and diagnostic timestamps.
+              </li>
+              <li>
+                <strong>Contact Inquiries:</strong> If you voluntarily reach out to us via our contact form or email, we receive your name, email address, and message content solely to respond to your support request or inquiry.
+              </li>
+            </ul>
+          </section>
 
-                    <Separator />
+          <Separator />
 
-                    <section>
-                        <h2 className="text-2xl font-semibold mb-4">Collecting and Using Your Personal Data</h2>
+          {/* Cookies and Tracking */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">3. Cookies and Tracking Technologies</h2>
+            <p>
+              Cookies are small files stored on your computer or mobile device. TechMind.click uses cookies and similar technologies for the following purposes:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Essential &amp; Preference Cookies:</strong> To remember your UI preferences (such as dark/light theme or editor settings) and ensure reliable site navigation.
+              </li>
+              <li>
+                <strong>Performance &amp; Analytics Cookies:</strong> We utilize Google Analytics (measurement ID: G-1LY4EXMSGY) and Vercel Analytics to understand anonymous aggregate visitor traffic, bounce rates, and popular tools so we can optimize site speed and reliability.
+              </li>
+              <li>
+                <strong>Advertising Cookies:</strong> Used by third-party advertising partners, including Google AdSense, to deliver relevant ads as described in Section 4 below.
+              </li>
+            </ul>
+            <p>
+              You can instruct your browser to refuse all cookies or indicate when a cookie is being sent. However, some interactive features may not function properly without cookies enabled.
+            </p>
+          </section>
 
-                        <h3 className="text-xl font-medium mb-2">Types of Data Collected</h3>
+          <Separator />
 
-                        <h4 className="text-lg font-medium mb-2">Personal Data</h4>
-                        <p>
-                            While using Our Service, We may ask You to provide Us with certain personally identifiable information
-                            that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:
-                        </p>
-                        <ul className="list-disc pl-6 mt-2">
-                            <li>Usage Data</li>
-                        </ul>
+          {/* Google AdSense Disclosures */}
+          <section className="space-y-3 bg-slate-50 p-5 rounded-lg border border-slate-200">
+            <h2 className="text-xl font-bold text-gray-900">4. Third-Party Advertising &amp; Google AdSense Compliance</h2>
+            <p>
+              We use third-party advertising companies, specifically <strong>Google AdSense</strong>, to serve advertisements when you visit TechMind.click.
+            </p>
+            <p className="font-semibold text-gray-800">Please review Google&apos;s advertising disclosures:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to TechMind.click or other websites on the internet.
+              </li>
+              <li>
+                Google&apos;s use of advertising cookies enables it and its partners to serve ads to our users based on their visits to our site and/or other sites across the internet.
+              </li>
+              <li>
+                Users may opt out of personalized advertising by visiting{" "}
+                <a
+                  href="https://www.google.com/settings/ads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline font-medium"
+                >
+                  Google Ads Settings
+                </a>
+                .
+              </li>
+              <li>
+                Alternatively, users can opt out of a third-party vendor&apos;s use of cookies for personalized advertising by visiting{" "}
+                <a
+                  href="https://www.aboutads.info/choices/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline font-medium"
+                >
+                  www.aboutads.info/choices/
+                </a>{" "}
+                or the Network Advertising Initiative at{" "}
+                <a
+                  href="https://optout.networkadvertising.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline font-medium"
+                >
+                  optout.networkadvertising.org
+                </a>
+                .
+              </li>
+            </ul>
+          </section>
 
-                        <h4 className="text-lg font-medium mt-4 mb-2">Usage Data</h4>
-                        <p>Usage Data is collected automatically when using the Service.</p>
-                        <p className="mt-2">
-                            Usage Data may include information such as Your Device&apos;s Internet Protocol address (e.g. IP address),
-                            browser type, browser version, the pages of our Service that You visit, the time and date of Your visit,
-                            the time spent on those pages, unique device identifiers and other diagnostic data.
-                        </p>
-                        <p className="mt-2">
-                            When You access the Service by or through a mobile device, We may collect certain information automatically,
-                            including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address
-                            of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device
-                            identifiers and other diagnostic data.
-                        </p>
-                        <p className="mt-2">
-                            We may also collect information that Your browser sends whenever You visit our Service or when You access the
-                            Service by or through a mobile device.
-                        </p>
+          <Separator />
 
-                        <h4 className="text-lg font-medium mt-4 mb-2">Tracking Technologies and Cookies</h4>
-                        <p>
-                            We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information.
-                            Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze
-                            Our Service. The technologies We use may include:
-                        </p>
-                        <ul className="list-disc pl-6 mt-2 space-y-2">
-                            <li>
-                                <strong>Cookies or Browser Cookies.</strong> A cookie is a small file placed on Your Device. You can instruct Your
-                                browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies,
-                                You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will
-                                refuse Cookies, our Service may use Cookies.
-                            </li>
-                            <li>
-                                <strong>Web Beacons.</strong> Certain sections of our Service and our emails may contain small electronic files known
-                                as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example,
-                                to count users who have visited those pages or opened an email and for other related website statistics (for example,
-                                recording the popularity of a certain section and verifying system and server integrity).
-                            </li>
-                        </ul>
-                        <p className="mt-2">
-                            Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your personal computer or mobile
-                            device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. Learn more about
-                            cookies on the{" "}
-                            <a
-                                href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-primary hover:underline"
-                            >
-                                Free Privacy Policy website
-                            </a>{" "}
-                            article.
-                        </p>
-                        <p className="mt-2">We use both Session and Persistent Cookies for the purposes set out below:</p>
-                        <ul className="list-disc pl-6 mt-2 space-y-4">
-                            <li>
-                                <strong>Necessary / Essential Cookies</strong>
-                                <p className="mt-1">Type: Session Cookies</p>
-                                <p>Administered by: Us</p>
-                                <p>
-                                    Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use
-                                    some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies,
-                                    the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.
-                                </p>
-                            </li>
-                            <li>
-                                <strong>Cookies Policy / Notice Acceptance Cookies</strong>
-                                <p className="mt-1">Type: Persistent Cookies</p>
-                                <p>Administered by: Us</p>
-                                <p>Purpose: These Cookies identify if users have accepted the use of cookies on the Website.</p>
-                            </li>
-                            <li>
-                                <strong>Functionality Cookies</strong>
-                                <p className="mt-1">Type: Persistent Cookies</p>
-                                <p>Administered by: Us</p>
-                                <p>
-                                    Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login
-                                    details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to
-                                    avoid You having to re-enter your preferences every time You use the Website.
-                                </p>
-                            </li>
-                        </ul>
-                        <p className="mt-4">
-                            For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the
-                            Cookies section of our Privacy Policy.
-                        </p>
-                    </section>
+          {/* Rights */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">5. User Privacy Rights (GDPR &amp; CCPA)</h2>
+            <p>
+              Depending on your location, you may have specific statutory privacy rights regarding your personal information:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>European Economic Area (GDPR) &amp; UK:</strong> You have the right to access, correct, update, or request deletion of your personal data; object to processing; and request data portability. If you wish to exercise any of these rights, contact us at info@techmind.click.
+              </li>
+              <li>
+                <strong>California Residents (CCPA/CPRA):</strong> You have the right to request disclosure of categories and specific pieces of personal information collected, request deletion, and opt out of the sale or sharing of personal information. TechMind.click does not sell or rent personal information to third parties.
+              </li>
+            </ul>
+          </section>
 
-                    {/* Continue with the rest of the sections in the same pattern */}
-                    {/* I&apos;ve shown the first few sections - you would continue with the remaining content */}
+          <Separator />
 
-                    <Separator />
+          {/* Children */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">6. Children&apos;s Privacy (COPPA)</h2>
+            <p>
+              TechMind.click is not directed at children under the age of 13. We do not knowingly collect or solicit personal information from children under 13. If you believe that a child under 13 has provided us with personal information, please contact us immediately, and we will promptly remove such information from our records.
+            </p>
+          </section>
 
-                    <section>
-                        <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-                        <p>If you have any questions about this Privacy Policy, You can contact us:</p>
-                        <ul className="list-disc pl-6 mt-2 space-y-1">
-                            <li>By email: info@techind.click</li>
-                            <li>
-                                By visiting this page on our website:{" "}
-                                <a
-                                    href="technind.click/contact"
-                                    rel="external nofollow noopener"
-                                    target="_blank"
-                                    className="text-blue-500 hover:underline"
-                                >
-                                    www.technind.click/contact
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </CardContent>
-            </Card>
-        </div>
-    )
+          <Separator />
+
+          {/* External Links */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">7. Links to Third-Party Websites</h2>
+            <p>
+              Our website and blog articles may contain links to external sites not operated by us. If you click on a third-party link, you will be directed to that party&apos;s site. We strongly advise you to review the Privacy Policy and terms of every site you visit, as we have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.
+            </p>
+          </section>
+
+          <Separator />
+
+          {/* Contact */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-gray-900">8. Contact Us &amp; Legal Entity</h2>
+            <p>
+              If you have any questions, feedback, or concerns regarding this Privacy Policy or our data practices, please contact us:
+            </p>
+            <div className="bg-slate-50 p-4 rounded-lg border text-sm space-y-1">
+              <p><strong>Website:</strong> <a href="https://www.techmind.click" className="text-primary hover:underline">https://www.techmind.click</a></p>
+              <p><strong>Email:</strong> <a href="mailto:info@techmind.click" className="text-primary hover:underline">info@techmind.click</a> / <a href="mailto:kshekh@gmail.com" className="text-primary hover:underline">kshekh@gmail.com</a></p>
+              <p><strong>Founder &amp; Operator:</strong> Kamran Shekh</p>
+              <p><strong>Address:</strong> Plot No 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012, India</p>
+            </div>
+          </section>
+        </CardContent>
+      </Card>
+    </div>
+  );
 }
-
-export default Privacypolicy

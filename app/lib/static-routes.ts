@@ -13,7 +13,7 @@ export type StaticRoute = {
  */
 export const STATIC_ROUTES: StaticRoute[] = [
   { label: "Home",                                                path: "/",                                                          changeFrequency: "weekly",  priority: 1.0 },
-  { label: "Text Format",                                         path: "/text-format",                                               changeFrequency: "weekly",  priority: 0.9 },
+  { label: "Text Format",                                         path: "/text-format",                                               changeFrequency: "weekly",  priority: 0.8 },
   { label: "QR Code Generator",                                    path: "/qr-code-generator",                                         changeFrequency: "monthly", priority: 0.9 },
   { label: "QR Code for Business",                                 path: "/qr-code-generator-for-business",                             changeFrequency: "monthly", priority: 0.8 },
   { label: "WiFi QR Code Free",                                    path: "/create-wifi-qr-code-free",                                   changeFrequency: "monthly", priority: 0.8 },
@@ -24,9 +24,13 @@ export const STATIC_ROUTES: StaticRoute[] = [
   { label: "Blogs",                                               path: "/blogs",                                                     changeFrequency: "weekly",  priority: 0.7 },
   { label: "Glossary",                                            path: "/glossary",                                                  changeFrequency: "weekly",  priority: 0.7 },
   { label: "How to Convert Uppercase to Lowercase Without Excel", path: "/how-to-convert-uppercase-to-lowercase-without-excel",       changeFrequency: "monthly", priority: 0.6 },
-  { label: "Change Caps Lock Text to Sentence Case Online Free",  path: "/change-caps-lock-text-to-sentence-case-online-free",        changeFrequency: "monthly", priority: 0.7 },
+  { label: "Change Caps Lock Text to Sentence Case Online Free",  path: "/change-caps-lock-text-to-sentence-case-online-free",        changeFrequency: "monthly", priority: 0.6 },
   { label: "About Us",                                            path: "/about-us",                                                  changeFrequency: "monthly", priority: 0.5 },
   { label: "Contact Us",                                          path: "/contact-us",                                                changeFrequency: "monthly", priority: 0.5 },
   { label: "Authors",                                             path: "/authors",                                                   changeFrequency: "monthly", priority: 0.5 },
+  { label: "Privacy Policy",                                      path: "/privacy-policy",                                            changeFrequency: "monthly", priority: 0.5 },
+  { label: "Terms & Conditions",                                  path: "/terms-conditions",                                          changeFrequency: "monthly", priority: 0.5 },
+  { label: "Editorial Policy",                                    path: "/editorial-policy",                                          changeFrequency: "monthly", priority: 0.5 },
+  { label: "Disclaimer",                                          path: "/disclaimer",                                                changeFrequency: "monthly", priority: 0.5 },
   { label: "Sitemap",                                             path: "/sitemap.html",                                              changeFrequency: "weekly",  priority: 0.4 },
 ];

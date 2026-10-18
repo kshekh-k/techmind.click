@@ -1,10 +1,14 @@
 import Layout from "@/app/components/layout";
 import TextFormatter from "@/app/components/text-format";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: "Text Formatter - TechMind",
+  title: "Online Text Formatter & Editor",
   description:
-    "Text Formarter - Free online tools to Convert case and format text",
+    "Free online text formatter and case converter tool to convert uppercase, lowercase, sentence case, and clean extra spaces instantly.",
+  alternates: {
+    canonical: "/text-format",
+  },
 };
 
 export default function TextFormat() {

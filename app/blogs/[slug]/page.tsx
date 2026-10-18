@@ -51,7 +51,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: `${blog.title} | TechMind`,
+    title: blog.title,
     description: blog.description,
     keywords: Array.isArray(blog.keywords)
       ? blog.keywords.join(", ")
@@ -182,63 +182,70 @@ export default async function BlogPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
+      <div className="max-w-4xl mx-auto px-3 md:px-4 space-y-8">
+        <article className="prose prose-lg bg-white w-full max-w-full border rounded-xl p-6 md:p-8 shadow-sm overflow-hidden">
+          <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground mb-4">
+            <Link href="/" className="hover:underline">Home</Link>
+            <span className="mx-2">/</span>
+            <Link href="/blogs" className="hover:underline">Blogs</Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-700 font-medium">{blog.title}</span>
+          </nav>
 
-        {blog.tool === "qr-code-generator" ? (
-          <QRCodeGeneratorLoader />
-        ) : (
-          <TextFormatter />
-        )}
-
-        <article className="prose prose-lg bg-white w-full max-w-full border rounded p-5 shadow-sm overflow-hidden">
-          <h1 className="leading-tight mb-0 pb-2 font-bold">{blog.title}</h1>
+          <h1 className="leading-tight mb-2 font-bold text-gray-900">{blog.title}</h1>
 
           {/* Meta info */}
-          <p className="text-gray-500 m-0! py-1 flex gap-2">
-            <span>
-              <time dateTime={blog.date}>
-                {new Date(blog.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-            </span>
-            <span aria-label={`Author: ${blog.author}`}>{blog.author}</span>
-          </p>
+          <div className="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100 flex flex-wrap items-center gap-3">
+            <time dateTime={blog.date}>
+              {new Date(blog.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            <span>•</span>
+            <Link href="/authors/admin" className="text-primary hover:underline font-medium">
+              By {blog.author === "Admin" ? "TechMind Editorial Team" : blog.author}
+            </Link>
+            <span>•</span>
+            <span>Educational Guide</span>
+          </div>
 
           {blog.cover && (
-            <Link
-              href="/"
-              className="flex flex-col"
-              aria-label={`Cover image for ${blog.title}`}
-              title={blog.title}
-            >
+            <div className="mb-6">
               <Image
                 src={blog.cover.url}
                 alt={blog.title}
                 title={blog.title}
                 width={blog.cover.width}
                 height={blog.cover.height}
-                // priority + eager: this IS the LCP element for blog pages
                 priority
                 loading="eager"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
-                className="rounded w-full h-auto"
+                className="rounded-lg w-full h-auto border"
               />
-            </Link>
+            </div>
           )}
 
-          <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-          <div className="mt-3">
-            <Link
-              href="/"
-              className="text-sm text-purple-700 italic underline underline-offset-4"
-            >
-              Use Case Converter now
-            </Link>
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: blog.content }} className="blog-content leading-relaxed" />
         </article>
+
+        {/* Interactive Tool Section */}
+        <section className="bg-white border rounded-xl p-6 shadow-sm">
+          <div className="mb-4">
+            <h2 className="text-xl font-bold text-gray-900">
+              {blog.tool === "qr-code-generator" ? "Interactive QR Code Generator" : "Interactive Text Formatter"}
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Try the tool mentioned in this guide directly below — free, instant, and runs locally in your browser.
+            </p>
+          </div>
+          {blog.tool === "qr-code-generator" ? (
+            <QRCodeGeneratorLoader />
+          ) : (
+            <TextFormatter />
+          )}
+        </section>
 
         {blog.relatedPosts && blog.relatedPosts.length > 0 && (
           <RelatedPosts

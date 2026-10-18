@@ -1,18 +1,21 @@
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Layout from "@/app/components/layout";
 import Terms from "@/app/components/terms-and-conditions";
+
 export const metadata: Metadata = {
-  title: "Terms and Conditions - TechMind",
+  title: "Terms and Conditions",
   description:
-    "Read our Terms and Conditions to understand the rules and guidelines for using our services.",
+    "Read the Terms and Conditions for using TechMind.click text formatting utilities, QR tools, and educational content.",
+  alternates: {
+    canonical: "/terms-conditions",
+  },
 };
-function TermsPage() {
+
+export default function TermsPage() {
   return (
     <Layout>
       <Terms />
     </Layout>
   );
 }
-
-export default TermsPage;
