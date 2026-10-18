@@ -803,7 +803,7 @@ export default function Home() {
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <Link
-                      href="/blogs/how-to-convert-text-to-uppercase-online-fast-and-free"
+                      href="/blogs/title-case-vs-sentence-case-which-one-should-you-use"
                       className="group rounded-xl border p-4 transition-all hover:border-primary hover:bg-muted/30 no-underline! flex"
                     >
                       <div className="flex items-start gap-3">
@@ -824,7 +824,7 @@ export default function Home() {
                     </Link>
 
                     <Link
-                      href="/blogs/alternating-case-small-caps-text-generator-copy-paste"
+                      href="/blogs/unicode-bold-italic-whatsapp-telegram-list-formatting"
                       className="group rounded-xl border p-4 transition-all hover:border-primary hover:bg-muted/30 no-underline!"
                     >
                       <div className="flex items-start gap-3">

@@ -1,7 +1,20 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import FAQAccordion from "@/app/components/faq-accordion";
 import TextFormatter from "@/app/components/text-format";
 import type { LongTailPage } from "@/app/content/long-tail-pages";
+
+const ImageToPdf = dynamic(() => import("@/app/components/image-to-pdf"), {
+  loading: () => (
+    <div
+      className="min-h-[400px] flex items-center justify-center text-muted-foreground"
+      aria-busy="true"
+      aria-label="Loading converter…"
+    >
+      Loading…
+    </div>
+  ),
+});
 
 type SolutionPageTemplateProps = {
   page: LongTailPage;
@@ -45,10 +58,15 @@ function InfoCards({
 }
 
 export default function SolutionPageTemplate({ page }: SolutionPageTemplateProps) {
+  const isImageToPdf =
+    page.toolType === "image-to-pdf" ||
+    page.slug === "convert-image-to-pdf-for-government-form" ||
+    page.slug === "convert-jpg-to-pdf-on-mobile-without-app";
+
   return (
     <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
       <section id="tool">
-        <TextFormatter />
+        {isImageToPdf ? <ImageToPdf /> : <TextFormatter />}
       </section>
 
       <section className="relative overflow-hidden rounded-3xl border border-purple-200/50 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">

@@ -29,11 +29,11 @@
 - Tools API: https://www.techmind.click/api/tools
 
 ## High-Value Guides
-- https://www.techmind.click/blogs/slug-converter-text-formatter
-- https://www.techmind.click/blogs/text-case-converter
-- https://www.techmind.click/blogs/advanced-text-formatter-tool-free-online-case-converter-text-editor
-- https://www.techmind.click/blogs/how-to-convert-text-to-uppercase-online-fast-and-free
-- https://www.techmind.click/blogs/how-to-remove-extra-spaces-from-text-online
+- https://www.techmind.click/blogs/what-is-a-url-slug-how-to-create-seo-friendly-slugs
+- https://www.techmind.click/blogs/best-case-converter-tools-2026-comparison
+- https://www.techmind.click/blogs/title-case-vs-sentence-case-which-one-should-you-use
+- https://www.techmind.click/blogs/remove-line-breaks-online-fix-broken-text
+- https://www.techmind.click/blogs/unicode-bold-italic-whatsapp-telegram-list-formatting
 - https://www.techmind.click/blogs/how-to-convert-image-to-pdf-free-no-app-needed
 
 ## Key Entity Pages

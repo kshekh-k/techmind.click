@@ -431,17 +431,14 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blogs/what-is-sentence-case-how-to-use-it-for-better-writing">Sentence Case guides</Link>
-            </li>
-            <li>
-              <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">Title Case comparisons</Link>
+              <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">Sentence and Title Case guides</Link>
             </li>
             <li>
               <Link href="/text-format">Text formatter and case converter</Link>
             </li>
             <li>
-              <Link href="/blogs/how-to-remove-extra-spaces-from-text-online">
-                Remove Extra Spaces tutorial
+              <Link href="/blogs/remove-line-breaks-online-fix-broken-text">
+                Remove Extra Spaces & Broken Line Breaks tutorial
               </Link>
             </li>
             <li>Slug Generator</li>
@@ -456,13 +453,13 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blogs/what-is-sentence-case-how-to-use-it-for-better-writing">
-                What is sentence case and when should you use it?
+              <Link href="/blogs/remove-line-breaks-online-fix-broken-text">
+                How to fix broken line breaks and clean copied text
               </Link>
             </li>
             <li>
               <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">
-                Title case vs sentence case: complete comparison
+                Title case vs sentence case: complete comparison and capitalization guide
               </Link>
             </li>
           </ul>

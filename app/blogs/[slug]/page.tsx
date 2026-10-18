@@ -16,7 +16,6 @@ const DEFAULT_OG_IMAGE =
 
 export const dynamicParams = false;
 
-
 /* ---------- Types ---------- */
 type PageProps = {
   params: {
@@ -36,9 +35,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
-  const raw = (blogs as BlogType[]).find(
-    (b) => b.slug === resolvedParams.slug,
-  );
+  const raw = (blogs as BlogType[]).find((b) => b.slug === resolvedParams.slug);
 
   if (!raw) return {};
   const blog = normalizeBlog(raw);
@@ -88,9 +85,7 @@ export async function generateMetadata({
 /* ---------- Page ---------- */
 export default async function BlogPage({ params }: PageProps) {
   const resolvedParams = await params;
-  const raw = (blogs as BlogType[]).find(
-    (b) => b.slug === resolvedParams.slug,
-  );
+  const raw = (blogs as BlogType[]).find((b) => b.slug === resolvedParams.slug);
 
   if (!raw) notFound();
   const blog = normalizeBlog(raw!);
@@ -107,7 +102,7 @@ export default async function BlogPage({ params }: PageProps) {
   // Extract FAQ Q&A pairs from HTML content: <p><strong>Q?</strong></p><p>A</p>
   const faqMatches = [
     ...blog.content.matchAll(
-      /<p>\s*<strong>([\s\S]*?\?)<\/strong>\s*<\/p>\s*<p>([\s\S]*?)<\/p>/g
+      /<p>\s*<strong>([\s\S]*?\?)<\/strong>\s*<\/p>\s*<p>([\s\S]*?)<\/p>/g,
     ),
   ];
   const faqEntities = faqMatches.map((m) => ({
@@ -182,17 +177,31 @@ export default async function BlogPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-4xl mx-auto px-3 md:px-4 space-y-8">
+      <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
+        {blog.tool === "qr-code-generator" ? (
+          <QRCodeGeneratorLoader />
+        ) : (
+          <TextFormatter />
+        )}
         <article className="prose prose-lg bg-white w-full max-w-full border rounded-xl p-6 md:p-8 shadow-sm overflow-hidden">
-          <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground mb-4">
-            <Link href="/" className="hover:underline">Home</Link>
+          <nav
+            aria-label="Breadcrumb"
+            className="text-xs text-muted-foreground mb-4"
+          >
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
             <span className="mx-2">/</span>
-            <Link href="/blogs" className="hover:underline">Blogs</Link>
+            <Link href="/blogs" className="hover:underline">
+              Blogs
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-gray-700 font-medium">{blog.title}</span>
           </nav>
 
-          <h1 className="leading-tight mb-2 font-bold text-gray-900">{blog.title}</h1>
+          <h1 className="leading-tight mb-2 font-bold text-gray-900">
+            {blog.title}
+          </h1>
 
           {/* Meta info */}
           <div className="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100 flex flex-wrap items-center gap-3">
@@ -204,8 +213,14 @@ export default async function BlogPage({ params }: PageProps) {
               })}
             </time>
             <span>•</span>
-            <Link href="/authors/admin" className="text-primary hover:underline font-medium">
-              By {blog.author === "Admin" ? "TechMind Editorial Team" : blog.author}
+            <Link
+              href="/authors/admin"
+              className="text-primary hover:underline font-medium"
+            >
+              By{" "}
+              {blog.author === "Admin"
+                ? "TechMind Editorial Team"
+                : blog.author}
             </Link>
             <span>•</span>
             <span>Educational Guide</span>
@@ -227,24 +242,25 @@ export default async function BlogPage({ params }: PageProps) {
             </div>
           )}
 
-          <div dangerouslySetInnerHTML={{ __html: blog.content }} className="blog-content leading-relaxed" />
+          <div
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+            className="blog-content leading-relaxed"
+          />
         </article>
 
         {/* Interactive Tool Section */}
         <section className="bg-white border rounded-xl p-6 shadow-sm">
           <div className="mb-4">
             <h2 className="text-xl font-bold text-gray-900">
-              {blog.tool === "qr-code-generator" ? "Interactive QR Code Generator" : "Interactive Text Formatter"}
+              {blog.tool === "qr-code-generator"
+                ? "Interactive QR Code Generator"
+                : "Interactive Text Formatter"}
             </h2>
             <p className="text-sm text-muted-foreground">
-              Try the tool mentioned in this guide directly below — free, instant, and runs locally in your browser.
+              Try the tool mentioned in this guide directly below — free,
+              instant, and runs locally in your browser.
             </p>
           </div>
-          {blog.tool === "qr-code-generator" ? (
-            <QRCodeGeneratorLoader />
-          ) : (
-            <TextFormatter />
-          )}
         </section>
 
         {blog.relatedPosts && blog.relatedPosts.length > 0 && (

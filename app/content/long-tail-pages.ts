@@ -37,8 +37,11 @@ export type FAQItem = {
   answer: string;
 };
 
+export type ToolType = "text-formatter" | "image-to-pdf";
+
 export type LongTailPage = {
   slug: string;
+  toolType?: ToolType;
   title: string;
   h1: string;
   description: string;
@@ -118,6 +121,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     description:
       "Create submission-ready PDF files from photos for SSC, UPSC, Railway, and other application forms.",
     intent: "government-form",
+    toolType: "image-to-pdf",
     priority: "P1",
     quickAnswer:
       "Capture clear document photos, crop unnecessary areas, convert to PDF using TechMind Image to PDF, and confirm file size and readability before upload. This improves acceptance rate for government form submissions.",
@@ -209,11 +213,11 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     relatedTools: baseRelatedTools,
     internalLinks: [
       {
-        title: "Merge PDF files for job application",
-        href: "/merge-pdf-files-for-job-application",
-        description: "Combine multiple documents before final submission.",
+        title: "Image to PDF Online Converter",
+        href: "/image-to-pdf",
+        description: "Convert photos and document scans to PDF right in your browser.",
       },
-      ],
+    ],
     glossaryLinks: [
       {
         title: "PDF upload glossary",
@@ -336,16 +340,16 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     relatedTools: baseRelatedTools,
     internalLinks: [
       {
-        title: "How TechMind protects user privacy",
-        href: "/how-techmind-protects-user-privacy",
-        description: "Read a plain-language breakdown of trust practices.",
+        title: "TechMind Privacy Policy",
+        href: "/privacy-policy",
+        description: "Read our comprehensive privacy policy and data-handling commitments.",
       },
       {
-        title: "Is online text converter safe",
-        href: "/is-online-text-converter-safe",
-        description: "Understand safety checks before text conversion.",
+        title: "About TechMind",
+        href: "/about-us",
+        description: "Learn about the mission, architecture, and team behind TechMind.",
       },
-      ],
+    ],
     glossaryLinks: [
       {
         title: "Trust and privacy glossary",
@@ -428,6 +432,7 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     description:
       "Use a mobile browser workflow to convert JPG photos into upload-ready PDFs for forms and applications.",
     intent: "government-form",
+    toolType: "image-to-pdf",
     priority: "P1",
     quickAnswer:
       "Open TechMind Image to PDF in your mobile browser, select JPG images, reorder if needed, and export a single PDF. Check file size and readability before uploading.",
@@ -465,7 +470,6 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     relatedTools: baseRelatedTools,
     internalLinks: [
       { title: "Convert image to PDF for government form", href: "/convert-image-to-pdf-for-government-form", description: "Use the full form-oriented process." },
-      { title: "Merge PDF files for job application", href: "/merge-pdf-files-for-job-application", description: "Combine and finalize documents." },
     ],
     glossaryLinks: [
       { title: "Mobile document glossary", href: "/glossary", description: "Understand upload and conversion terms." },
@@ -473,60 +477,6 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     ctaLabel: "Convert JPG on Mobile",
     ctaHref: "/image-to-pdf",
     keywords: ["convert jpg to pdf on mobile without app", "jpg to pdf mobile browser", "mobile image to pdf converter", "no app jpg to pdf"],
-    updatedAt: "2026-05-15",
-  },
-  {
-    slug: "merge-pdf-files-for-job-application",
-    title: "Merge PDF Files for Job Application",
-    h1: "Merge PDF Files for Job Applications with Fewer Upload Errors",
-    description:
-      "Create one clean PDF package for resumes and supporting documents to reduce job application upload problems.",
-    intent: "workflow",
-    priority: "P1",
-    quickAnswer:
-      "Convert all required documents to clean PDF files, order them logically, merge into one final PDF, and check size limits before upload. This reduces rejection and confusion in job portals.",
-    conciseDefinition: "Job-application PDF merge means combining multiple required files into a single organized document package.",
-    problemExplanation: "Job portals often accept one upload slot, but candidates have multiple required documents.",
-    whyItHappens: [
-      "Resume, cover letter, and certificates are stored separately.",
-      "Portals may limit number of attachments.",
-      "Wrong order creates recruiter confusion.",
-      "Large combined files can exceed portal limits.",
-    ],
-    steps: [
-      { title: "Collect required docs", description: "Prepare resume and supporting pages in PDF format." },
-      { title: "Set page order", description: "Keep resume first, then supporting documents." },
-      { title: "Merge and review", description: "Create one file and verify readability." },
-      { title: "Check upload rules", description: "Confirm final size and naming before submit." },
-    ],
-    examples: [
-      { label: "Application packet", before: "4 separate files", after: "1 ordered PDF package" },
-      { label: "Portal upload", before: "Rejected due to multiple files", after: "Accepted single-file submission" },
-    ],
-    comparisonRows: [
-      { criteria: "Workflow fit", techmind: "Job-focused", alternative: "Generic", notes: "Improves completion speed." },
-      { criteria: "Mobile usage", techmind: "Supported", alternative: "Varies", notes: "Useful for quick updates." },
-      { criteria: "No-signup", techmind: "Yes", alternative: "Sometimes", notes: "Less friction near deadlines." },
-    ],
-    faqs: [
-      { question: "Can I merge resume and certificates into one PDF?", answer: "Yes, that is the recommended workflow for many portals." },
-      { question: "What order should I keep?", answer: "Resume first, then supporting proofs in logical order." },
-      { question: "Will this help with job portal errors?", answer: "Yes, one clean file reduces upload and validation issues." },
-      { question: "Can I do this on phone?", answer: "Yes, you can run mobile browser workflows." },
-    ],
-    trustIndicators: ["Application-focused guidance", "Checklist-driven process", "No-signup entry", "Mobile compatible"],
-    relatedArticles: baseRelatedArticles,
-    relatedTools: baseRelatedTools,
-    internalLinks: [
-      { title: "Convert image to PDF for government form", href: "/convert-image-to-pdf-for-government-form", description: "Prepare source files before merging." },
-      { title: "Convert JPG to PDF on mobile without app", href: "/convert-jpg-to-pdf-on-mobile-without-app", description: "Start from mobile photos if needed." },
-      ],
-    glossaryLinks: [
-      { title: "Application document glossary", href: "/glossary", description: "Read file preparation terms used in job portals." },
-    ],
-    ctaLabel: "Start PDF Workflow",
-    ctaHref: "/image-to-pdf",
-    keywords: ["merge pdf files for job application", "combine resume and documents pdf", "single pdf for job portal", "job application document merge"],
     updatedAt: "2026-05-15",
   },
   {
@@ -660,7 +610,6 @@ export const LONG_TAIL_KEYWORD_ROADMAP: LongTailKeywordIdea[] = [
     { slug: "convert-image-to-pdf-for-government-form", keyword: "convert image to pdf for government form", category: "Government forms", intent: "government-form", priority: "P1", opportunity: "Direct workflow intent." },
   { slug: "resize-photo-for-passport-upload-online", keyword: "resize photo for passport upload online", category: "Government forms", intent: "government-form", priority: "P1", opportunity: "Compliance-driven traffic." },
   { slug: "convert-jpg-to-pdf-on-mobile-without-app", keyword: "convert jpg to pdf on mobile without app", category: "Government forms", intent: "government-form", priority: "P1", opportunity: "High mobile relevance." },
-  { slug: "merge-pdf-files-for-job-application", keyword: "merge pdf files for job application", category: "Government forms", intent: "workflow", priority: "P1", opportunity: "Application process pain point." },
   { slug: "compress-pdf-under-100kb-for-online-forms", keyword: "compress pdf under 100kb for online forms", category: "Government forms", intent: "government-form", priority: "P2", opportunity: "Strict portal limit use case." },
   { slug: "mobile-scan-to-pdf-for-railway-form", keyword: "mobile scan to pdf for railway form", category: "Government forms", intent: "government-form", priority: "P2", opportunity: "Railway-specific intent." },
   { slug: "create-single-pdf-from-multiple-photos-for-upsc", keyword: "create single pdf from multiple photos for upsc", category: "Government forms", intent: "government-form", priority: "P2", opportunity: "UPSC workflow angle." },
@@ -688,7 +637,6 @@ export const LONG_TAIL_KEYWORD_ROADMAP: LongTailKeywordIdea[] = [
   { slug: "sentence-case-converter-for-emails", keyword: "sentence case converter for emails", category: "Workflows", intent: "workflow", priority: "P1", opportunity: "Business communication use case." },
   { slug: "remove-extra-spaces-from-text-online-free", keyword: "remove extra spaces from text online free", category: "Workflows", intent: "problem-solving", priority: "P1", opportunity: "Direct utility and retention-friendly." },
   { slug: "resize-photo-for-passport-upload-online", keyword: "resize photo for passport upload online", category: "Government forms", intent: "government-form", priority: "P1", opportunity: "Compliance and urgency search." },
-  { slug: "merge-pdf-files-for-job-application", keyword: "merge pdf files for job application", category: "Government forms", intent: "workflow", priority: "P1", opportunity: "Application completion query." },
   { slug: "convert-jpg-to-pdf-on-mobile-without-app", keyword: "convert jpg to pdf on mobile without app", category: "Government forms", intent: "government-form", priority: "P1", opportunity: "High mobile-intent coverage." },
   { slug: "is-online-text-converter-safe", keyword: "is online text converter safe", category: "Trust", intent: "trust", priority: "P1", opportunity: "Core trust barrier for first-time users." },
   { slug: "how-techmind-protects-user-privacy", keyword: "how techmind protects user privacy", category: "Trust", intent: "trust", priority: "P1", opportunity: "AI answer-engine trust signal." },
