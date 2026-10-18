@@ -7,23 +7,23 @@ function Terms() {
             <Card className="max-w-4xl mx-auto">
                 <CardHeader>
                     <CardTitle className="text-3xl font-bold">Terms and Conditions</CardTitle>
-                    <p className="text-muted-foreground">Last updated: May 04, 2025</p>
+                    <p className="text-muted-foreground">Last updated: May 15, 2026</p>
                 </CardHeader>
 
                 <CardContent className="space-y-6">
                     <section className="">
                         <h2 className="text-2xl font-bold mb-4">1. AGREEMENT TO OUR LEGAL TERMS</h2>
                         <p>
-                            We are Technind.click (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our,&quot;), a company registered in India at plot no 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012.
+                            We are TechMind.click (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; &quot;our&quot;), operated in India at Plot No 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012.
                         </p>
                         <p>
-                            We operate the website www.techmind.click (the `&quot;Site`&quot;), as well as any other related products and services that refer or link to these legal terms (the `&quot;Legal Terms`&quot;) (collectively, the `&quot;Services`&quot;).
+                            We operate the website https://www.techmind.click (the &quot;Site&quot;), as well as any other related products and services that refer or link to these legal terms (the &quot;Legal Terms&quot;) (collectively, the &quot;Services&quot;).
                         </p>
                         <p>
-                            You can contact us by email at info@techmind.click or by mail to plot no 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012, India.
+                            You can contact us by email at info@techmind.click or by mail to Plot No 47, Narayanpuri, Jhotwara, Jaipur, Rajasthan 302012, India.
                         </p>
                         <p>
-                            These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;), and Technind.click, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+                            These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;), and TechMind.click, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
                         </p>
                     </section>
 

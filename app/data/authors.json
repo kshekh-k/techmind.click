@@ -1,19 +1,37 @@
 [
   {
+    "slug": "kamran-shekh",
+    "name": "Kamran Shekh",
+    "role": "Founder & Lead Engineer",
+    "bio": "Kamran Shekh is the founder and lead developer behind TechMind.click. He specializes in full-stack web engineering, client-side algorithms, Next.js application architecture, and privacy-preserving browser utilities.",
+    "expertise": [
+      "Client-side text algorithms",
+      "Web performance & Next.js",
+      "QR code & PDF browser processing",
+      "Data privacy by design"
+    ],
+    "sameAs": [
+      "https://kshekh.com",
+      "https://x.com/kamranshekh",
+      "https://www.linkedin.com/in/kshekh/"
+    ],
+    "updatedAt": "2026-05-15"
+  },
+  {
     "slug": "admin",
     "name": "TechMind Editorial Team",
-    "role": "Publisher and Content Team",
-    "bio": "TechMind Editorial Team creates and reviews practical tutorials on text formatting, case conversion, and productivity-focused content workflows.",
+    "role": "Content & Review Board",
+    "bio": "The TechMind Editorial Team develops and peer-reviews practical guides on text formatting, typography standards, SEO-friendly URL structuring, and document productivity workflows.",
     "expertise": [
-      "Text formatting",
+      "Text formatting & typography",
       "Content optimization",
-      "SEO-friendly writing",
-      "Productivity tools"
+      "SEO slug best practices",
+      "Productivity workflows"
     ],
     "sameAs": [
       "https://x.com/kamranshekh",
       "https://www.linkedin.com/in/kshekh/"
     ],
-    "updatedAt": "2026-05-10"
+    "updatedAt": "2026-05-15"
   }
 ]

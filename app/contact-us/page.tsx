@@ -1,13 +1,18 @@
 import Contactus from "@/app/components/contact-us";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: "Contact Us | TechMind",
+  title: "Contact Us",
   description:
-    "Get in touch with TechMind for inquiries, support, or collaborations.",
+    "Get in touch with the TechMind.click team for support inquiries, feedback, feature requests, or technical assistance.",
+  alternates: {
+    canonical: "/contact-us",
+  },
 };
-function ContactPage() {
+
+export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -18,5 +23,3 @@ function ContactPage() {
     </div>
   );
 }
-
-export default ContactPage;
