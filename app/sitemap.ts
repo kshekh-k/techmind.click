@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import blogs from "@/app/data/blog.json";
-import glossary from "@/app/data/glossary.json";
 import authors from "@/app/data/authors.json";
 import { getAllLongTailSlugs } from "@/app/content/long-tail-pages";
 import { STATIC_ROUTES } from "@/app/lib/static-routes";
@@ -11,11 +10,6 @@ export const revalidate = 86400;
 type Blog = {
   slug: string;
   date?: string;
-};
-
-type GlossaryItem = {
-  slug: string;
-  updatedAt?: string;
 };
 
 type Author = {
@@ -54,12 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: toDate(blog.date),
   }));
 
-  const glossaryRoutes: MetadataRoute.Sitemap = (glossary as GlossaryItem[]).map((term) => ({
-    url: `${SITE_URL}/glossary/${normalizeSlug(term.slug)}`,
-    changeFrequency: "monthly",
-    priority: 0.6,
-    lastModified: toDate(term.updatedAt),
-  }));
+  // NOTE (Technical SEO):
+  // Individual glossary term routes (/glossary/[slug]) intentionally emit
+  // `robots: { index: false, follow: true }` (see app/glossary/[slug]/page.tsx)
+  // to prevent indexing of thin or programmatic definitions while preserving internal link equity.
+  // In accordance with Google Search Central and XML sitemap standards, noindex URLs
+  // MUST NOT be included in the XML sitemap to prevent "Submitted URL marked noindex" coverage errors.
+  // The primary glossary hub (/glossary) remains fully indexable and is included via STATIC_ROUTES.
 
   const authorRoutes: MetadataRoute.Sitemap = (authors as Author[]).map((author) => ({
     url: `${SITE_URL}/authors/${normalizeSlug(author.slug)}`,
@@ -78,7 +73,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const uniqueEntries = new Map<string, MetadataRoute.Sitemap[number]>();
   for (const entry of [
     ...staticRoutes,
-    ...glossaryRoutes,
     ...authorRoutes,
     ...blogRoutes,
     ...longTailRoutes,

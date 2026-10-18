@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "generate:blogs": "tsx app/scripts/generate-blogs.ts",
-    "validate:redirects": "tsx app/scripts/validate-redirects.ts"
+    "validate:redirects": "tsx app/scripts/validate-redirects.ts",
+    "validate:sitemap": "tsx app/scripts/validate-sitemap.ts",
+    "test": "tsx app/scripts/validate-sitemap.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
