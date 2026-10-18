@@ -50,7 +50,9 @@ export function generateStaticParams() {
   return getGlossaryTerms().map((term) => ({ slug: term.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const term = getGlossaryTermBySlug(slug);
 
@@ -71,6 +73,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "TechMind",
       type: "article",
       modifiedTime: term.updatedAt,
+    },
+    robots: {
+      index: false,
+      follow: true,
     },
     twitter: {
       card: "summary_large_image",
@@ -114,7 +120,9 @@ export default async function GlossaryTermPage({ params }: PageProps) {
   const canonicalUrl = `${SITE_URL}/glossary/${term.slug}`;
 
   // Calculate Reading Time (avg. 200 words per minute)
-  const wordCount = term.definition.split(/\s+/).length + (term.whyItMatters || "").split(/\s+/).length;
+  const wordCount =
+    term.definition.split(/\s+/).length +
+    (term.whyItMatters || "").split(/\s+/).length;
   const readingTime = Math.max(1, Math.round(wordCount / 200));
 
   // Related data computed dynamically on the server
@@ -131,8 +139,18 @@ export default async function GlossaryTermPage({ params }: PageProps) {
         "@id": `${canonicalUrl}#breadcrumb`,
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: "Glossary", item: `${SITE_URL}/glossary` },
-          { "@type": "ListItem", position: 3, name: term.term, item: canonicalUrl },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Glossary",
+            item: `${SITE_URL}/glossary`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: term.term,
+            item: canonicalUrl,
+          },
         ],
       },
       {
@@ -233,7 +251,9 @@ export default async function GlossaryTermPage({ params }: PageProps) {
               <Zap className="size-4 text-amber-500 fill-amber-500" />
               <span>Interactive {toolDetails.title}</span>
             </div>
-            <span className="text-[10px] text-slate-400">Launch tool in-place</span>
+            <span className="text-[10px] text-slate-400">
+              Launch tool in-place
+            </span>
           </div>
           {renderTool()}
         </section>
@@ -272,11 +292,16 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                 ) : (
                   <div className="space-y-3">
                     {term.examples.map((ex, i) => (
-                      <div key={i} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
+                      <div
+                        key={i}
+                        className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1"
+                      >
                         <span className="text-[10px] font-bold text-purple-400 uppercase tracking-wider">
                           {ex.label}
                         </span>
-                        <p className="text-xs md:text-sm font-mono text-emerald-400">{ex.value}</p>
+                        <p className="text-xs md:text-sm font-mono text-emerald-400">
+                          {ex.value}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -346,10 +371,12 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                 Recommended Tool
               </h3>
               <div className="space-y-2">
-                <h4 className="font-bold text-slate-900 text-base">{toolDetails.title}</h4>
+                <h4 className="font-bold text-slate-900 text-base">
+                  {toolDetails.title}
+                </h4>
                 <p className="text-xs text-slate-500 leading-relaxed">
-                  Apply this concept instantly using TechMind&apos;s clean, optimized workflow
-                  utilities.
+                  Apply this concept instantly using TechMind&apos;s clean,
+                  optimized workflow utilities.
                 </p>
               </div>
               <Link
@@ -389,11 +416,16 @@ export default async function GlossaryTermPage({ params }: PageProps) {
                 </h3>
                 <div className="space-y-3">
                   {relatedBlogs.map((blog) => (
-                    <article key={blog.slug} className="group flex flex-col gap-1">
+                    <article
+                      key={blog.slug}
+                      className="group flex flex-col gap-1"
+                    >
                       <h4 className="text-xs font-bold text-slate-900 group-hover:text-purple-700 transition">
                         <Link href={`/blogs/${blog.slug}`}>{blog.title}</Link>
                       </h4>
-                      <p className="text-[10px] text-slate-400 line-clamp-1">{blog.description}</p>
+                      <p className="text-[10px] text-slate-400 line-clamp-1">
+                        {blog.description}
+                      </p>
                     </article>
                   ))}
                 </div>
@@ -409,8 +441,9 @@ export default async function GlossaryTermPage({ params }: PageProps) {
               Ready to Solve This in Under 2 Minutes?
             </h2>
             <p className="max-w-2xl text-xs md:text-sm text-purple-100 leading-relaxed">
-              Use TechMind&apos;s optimized workflow dashboard to complete this task quickly with clean
-              output, robust security, and no account requirements.
+              Use TechMind&apos;s optimized workflow dashboard to complete this
+              task quickly with clean output, robust security, and no account
+              requirements.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
@@ -432,4 +465,3 @@ export default async function GlossaryTermPage({ params }: PageProps) {
     </Layout>
   );
 }
-
