@@ -1,9 +1,18 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/app/components/layout";
 import FAQAccordion from "@/app/components/faq-accordion";
-import QRCodeGeneratorLoader from "@/app/components/tools/qr-generator/QRCodeGeneratorLoader";
+import {
+  ArrowRight,
+  AlertTriangle,
+  CheckCircle2,
+  FileCheck,
+  Layers,
+  Printer,
+  QrCode,
+  ShieldAlert,
+  Sparkles,
+} from "lucide-react";
 
 const SITE_URL = "https://www.techmind.click";
 const PAGE_PATH = "/qr-code-generator-for-business";
@@ -11,80 +20,119 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
 const faqs = [
   {
-    question: "Can I put a QR code on my business card?",
+    question:
+      "Should I link my business card QR code to a vCard or a website URL?",
     answer:
-      "Yes. Generate a URL QR code pointing to your website or LinkedIn, download as PDF or SVG for print quality, and add it to your card design.",
+      "For most business cards, linking to a mobile-friendly digital business card page or website landing page is recommended over a raw vCard. Raw vCards encode extensive text directly into the QR code matrix, creating a very dense, high-module pattern that requires a larger print size (at least 3.5cm) to scan reliably. A short URL keeps the QR code simple, clean, and easily scannable even at compact 2.5cm dimensions.",
   },
   {
-    question: "What URL should I use for a business QR code?",
+    question:
+      "What is the minimum physical size for a QR code on a business card?",
     answer:
-      "Link to your website homepage, a specific landing page, your LinkedIn profile, or a contact vCard page.",
+      "The minimum recommended print size is 2.5 cm × 2.5 cm (approximately 1 inch × 1 inch). Printing smaller than 2 cm significantly reduces camera autofocus reliability, especially on older smartphone lenses or under dim ambient lighting.",
   },
   {
-    question: "Can I add my company logo to the QR code?",
+    question:
+      "Which file format should I download for professional card printing?",
     answer:
-      "Yes. Upload your logo in the customization panel. The error correction is automatically raised so the code stays scannable.",
+      "Always download in vector SVG or PDF format. Unlike raster PNG or JPEG images that have a fixed pixel resolution and blur when scaled or printed, SVG and PDF files are mathematically defined vectors that render at the maximum DPI of any offset press or digital print shop.",
   },
   {
-    question: "What format should I download for printing?",
+    question: "Can I print a colored QR code that matches my brand identity?",
     answer:
-      "Download SVG or PDF for print — they are vector formats that scale to any size without blurring.",
+      "Yes, provided you maintain a strong contrast ratio of at least 4:1 between the dark foreground modules and the light background. Dark navy, forest green, deep purple, and charcoal on white or light cream scan consistently. Avoid yellow, light grey, or inverted (white dots on dark background) codes, as many smartphone camera sensors fail to recognize them.",
+  },
+  {
+    question: "How does adding a company logo affect scanning reliability?",
+    answer:
+      "When embedding a logo in the center of a QR code, TechMind automatically raises the Reed-Solomon error correction to Level H (30% redundancy). This ensures that even though the center modules are obscured by the logo, the remaining data and finder patterns allow phones to decode the destination instantly.",
   },
 ];
 
 const trustBadges = [
-  "Free No Sign-Up",
-  "Print-Ready PDF & SVG",
-  "Logo Support",
-  "Custom Brand Colors",
+  "Print-Ready SVG & PDF",
+  "Error Correction Level H",
+  "High-Contrast Standards",
+  "No Sign-Up Required",
 ];
 
 const steps = [
   {
-    title: "Enter Your Business URL",
-    description: "Enter your business URL or contact page link into the QR generator.",
-    icon: "01",
+    title: "1. Select Destination Type",
+    description:
+      "Choose a concise website URL, portfolio link, or digital card landing page rather than a heavy raw vCard.",
   },
   {
-    title: "Add Logo and Brand Colors",
-    description: "Upload your logo and set your brand colors in the style options panel.",
-    icon: "02",
+    title: "2. Style with Brand Colors & Logo",
+    description:
+      "Apply your primary brand color to the foreground dots and embed your company logo with Level H error correction.",
   },
   {
-    title: "Download and Print",
-    description: "Download as SVG or PDF and print on business cards at any size.",
-    icon: "03",
+    title: "3. Export Vector SVG or PDF",
+    description:
+      "Download resolution-independent vector files to provide directly to your print shop or design template.",
+  },
+  {
+    title: "4. Test Physical Proof Before Full Run",
+    description:
+      "Print a 1:1 scale sample on the actual paper stock and test scan with both iOS and Android cameras before printing hundreds of cards.",
+  },
+];
+
+const commonMistakes = [
+  {
+    title: "Printing with Glossy or Spot-UV Coating Over the Code",
+    description:
+      "High-gloss laminates reflect overhead lighting directly into phone camera lenses, creating glare that prevents barcode sensors from reading the matrix. Always specify a matte finish over the QR code area.",
+  },
+  {
+    title: "Encoding Too Much Data Directly (Dense Matrix)",
+    description:
+      "Encoding a full contact card with phone, multiple emails, street address, and notes creates hundreds of tiny data modules that blur together on standard cardstock. Link to a hosted contact page instead.",
+  },
+  {
+    title: "Ignoring the Quiet Zone (Border Margin)",
+    description:
+      "Every QR code requires an unbroken margin of at least 4 module widths around all four sides. Cropping the border too close to graphic elements or card edges stops scanning software from identifying code boundaries.",
+  },
+  {
+    title: "Inverting Foreground and Background Colors",
+    description:
+      "While modern iPhone cameras can often detect white QR codes on dark cards, many Android default camera apps still expect dark modules on a light background. Never use inverted colors on business-critical collateral.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Free QR Code Generator for Business Cards & Marketing | TechMind",
+  title:
+    "Business Card QR Code Guide: Print Sizing, Formats & Design - TechMind",
   description:
-    "Create professional QR codes for business cards, marketing materials, and campaigns. Customize colors, add your logo, and download in PNG, SVG, or PDF — free.",
+    "Comprehensive guide for creating professional QR codes on business cards. Learn minimum print dimensions, SVG vector requirements, logo error correction, and scanning test checklists.",
   keywords: [
     "qr code generator for business",
-    "business card qr code",
-    "qr code for marketing",
-    "custom qr code for business",
-    "qr code generator free business",
-    "qr code business card maker",
-    "professional qr code generator",
+    "business card qr code guide",
+    "qr code print size business card",
+    "vcard qr code best practices",
+    "svg qr code business card",
+    "custom branded qr code printing",
   ],
   alternates: {
     canonical: PAGE_PATH,
   },
   openGraph: {
-    title: "Free QR Code Generator for Business Cards & Marketing | TechMind",
+    title:
+      "Business Card QR Code Guide: Print Sizing, Formats & Design - TechMind",
     description:
-      "Create professional QR codes for business cards, marketing materials, and campaigns. Customize colors, add your logo, and download in PNG, SVG, or PDF — free.",
+      "Comprehensive guide for creating professional QR codes on business cards. Learn minimum print dimensions, SVG vector requirements, logo error correction, and scanning test checklists.",
     url: PAGE_URL,
     type: "article",
+    siteName: "TechMind",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free QR Code Generator for Business Cards & Marketing | TechMind",
+    title:
+      "Business Card QR Code Guide: Print Sizing, Formats & Design - TechMind",
     description:
-      "Create professional QR codes for business cards, marketing materials, and campaigns. Customize colors, add your logo, and download in PNG, SVG, or PDF — free.",
+      "Comprehensive guide for creating professional QR codes on business cards. Learn minimum print dimensions, SVG vector requirements, logo error correction, and scanning test checklists.",
   },
 };
 
@@ -110,30 +158,28 @@ export default function QRCodeGeneratorForBusinessPage() {
           {
             "@type": "ListItem",
             position: 3,
-            name: "Free QR Code Generator for Business Cards and Marketing",
+            name: "Business Card QR Code Guide",
             item: PAGE_URL,
           },
         ],
       },
       {
-        "@type": "HowTo",
-        name: "How to create a QR code for business cards and marketing",
+        "@type": "Article",
+        headline:
+          "Business Card QR Code Guide: Print Sizing, Formats & Design Best Practices",
         description:
-          "Generate a professional QR code for your business card or marketing materials using TechMind's free QR code generator.",
-        totalTime: "PT2M",
-        tool: [
-          {
-            "@type": "HowToTool",
-            name: "TechMind QR Code Generator",
-            url: `${SITE_URL}/qr-code-generator`,
-          },
-        ],
-        step: steps.map((step, i) => ({
-          "@type": "HowToStep",
-          position: i + 1,
-          name: step.title,
-          text: step.description,
-        })),
+          "Practical guidance on creating high-converting, scannable QR codes for business cards, brochures, and corporate stationery.",
+        author: {
+          "@type": "Organization",
+          name: "TechMind",
+          url: SITE_URL,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "TechMind",
+          url: SITE_URL,
+        },
+        mainEntityOfPage: PAGE_URL,
       },
       {
         "@type": "FAQPage",
@@ -146,26 +192,6 @@ export default function QRCodeGeneratorForBusinessPage() {
           },
         })),
       },
-      {
-        "@type": "SoftwareApplication",
-        name: "TechMind QR Code Generator for Business",
-        applicationCategory: "UtilitiesApplication",
-        operatingSystem: "Web",
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-        },
-        url: `${SITE_URL}/qr-code-generator`,
-        featureList: [
-          "Business card QR code generation",
-          "Logo upload support",
-          "Custom brand colors",
-          "PNG, SVG, and PDF download",
-          "Print-ready vector export",
-          "No sign-up required",
-        ],
-      },
     ],
   };
 
@@ -176,213 +202,310 @@ export default function QRCodeGeneratorForBusinessPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
 
-      <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
-        <section id="tool">
-          <Suspense fallback={<div className="min-h-[500px] flex items-center justify-center text-muted-foreground">Loading QR Code Generator…</div>}>
-            <QRCodeGeneratorLoader />
-          </Suspense>
-        </section>
-
-        <section className="relative overflow-hidden rounded-3xl border border-indigo-200/40 bg-gradient-to-br from-indigo-700 via-blue-600 to-cyan-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
-          <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-200/20 blur-3xl" />
-
-          <div className="relative grid items-center gap-8 lg:grid-cols-2">
-            <div>
-              <p className="mb-3 inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium tracking-wide backdrop-blur-sm">
-                Business QR Code Generator
-              </p>
-              <h1 className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
-                Free QR Code Generator for Business Cards and Marketing
-              </h1>
-              <p className="mt-4 max-w-xl text-sm text-indigo-50 sm:text-base">
-                Create professional, branded QR codes for business cards, flyers, and
-                marketing campaigns. Add your logo, set brand colors, and download
-                print-ready SVG or PDF — completely free.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="/qr-code-generator"
-                  className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
-                >
-                  Create Business QR Code
-                </Link>
-                <Link
-                  href="/create-qr-code-with-logo-free"
-                  className="rounded-xl border border-white/40 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/20"
-                >
-                  Add Logo to QR Code
-                </Link>
+      <main className="mx-auto w-full max-w-7xl space-y-6 md:space-y-10 px-3 md:px-4 py-4">
+        {/* Tool Launch Banner (Replacing Duplicate Widget) */}
+        <section
+          aria-label="Create QR Code Tool Callout"
+          className="rounded-2xl border border-indigo-200 bg-linear-to-r from-indigo-900 via-indigo-800 to-blue-900 p-6 text-white shadow-md sm:p-8"
+        >
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="space-y-3 max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-100">
+                <Sparkles className="h-3.5 w-3.5 text-cyan-300" />
+                <span>Primary Interactive Tool</span>
               </div>
-
-              <ul className="mt-6 grid grid-cols-2 gap-2 text-xs sm:text-sm">
+              <h1 className="text-2xl font-extrabold sm:text-3xl lg:text-4xl leading-tight">
+                Business Card QR Code Guide &amp; Generator
+              </h1>
+              <p className="text-sm sm:text-base text-indigo-100 leading-relaxed">
+                Need to create a print-ready QR code for your business card,
+                flyer, or packaging? Use our full interactive generator to
+                customize colors, embed your company logo, and download vector
+                SVG or PDF files ready for the print shop.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1 text-xs">
                 {trustBadges.map((badge) => (
-                  <li
+                  <span
                     key={badge}
-                    className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-indigo-50 backdrop-blur-md"
+                    className="rounded-md border border-white/20 bg-white/10 px-2.5 py-1 text-indigo-100 font-medium"
                   >
                     {badge}
-                  </li>
+                  </span>
                 ))}
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-white/25 bg-white/10 p-4 shadow-xl backdrop-blur-xl sm:p-5">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
-                <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                <span className="ml-2 text-xs text-indigo-100">www.techmind.click</span>
-              </div>
-
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/15 bg-slate-950/40 p-5 ring-1 ring-white/10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_42%),radial-gradient(circle_at_80%_80%,rgba(6,182,212,0.3),transparent_40%)]" />
-                <div className="relative flex h-full flex-col items-center justify-center gap-3">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-indigo-100">
-                    Business Card QR Code
-                  </p>
-                  {/* QR code illustration */}
-                  <div className="grid grid-cols-7 gap-0.5 rounded-lg border-2 border-white/40 bg-white/10 p-2.5">
-                    {Array.from({ length: 49 }).map((_, i) => {
-                      const corners = [0,1,2,7,8,9,14,6,13,20,42,43,44,49,48,47,41,35,36,37,38];
-                      const isDark = corners.includes(i) || Math.random() > 0.5;
-                      return (
-                        <span
-                          key={i}
-                          className={`h-3 w-3 rounded-sm ${isDark ? "bg-white" : "bg-transparent"}`}
-                        />
-                      );
-                    })}
-                  </div>
-                  <p className="text-xs text-cyan-100">Scan to visit website</p>
-                </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className="rounded-2xl border border-indigo-200/70 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
-          <div className="prose prose-lg max-w-none">
-            <p>
-              A QR code on your business card bridges the physical and digital worlds.
-              Instead of asking someone to type a URL, they scan your code and land
-              directly on your website, LinkedIn profile, or portfolio — in seconds.
-              TechMind&apos;s free QR code generator lets you create branded, print-ready
-              codes with no account required.
-            </p>
-          </div>
-        </section>
-
-        <section aria-label="How to create a business QR code" className="space-y-4">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-            Create Your Business QR Code in 3 Steps
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {steps.map((step) => (
-              <article
-                key={step.title}
-                className="group rounded-2xl border border-indigo-200/70 bg-gradient-to-b from-white/90 to-indigo-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+            <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+              <Link
+                href="/qr-code-generator"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg transition hover:bg-cyan-300 hover:shadow-cyan-400/25"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-600 text-sm font-bold text-white shadow">
-                  {step.icon}
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">
+                <QrCode className="h-5 w-5" />
+                <span>Launch QR Code Generator</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <p className="text-center text-xs text-indigo-200">
+                Free &bull; No Sign-Up &bull; High-Res Vector SVG
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Strategy Guide */}
+        <section className="space-y-6">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm space-y-6">
+            <div className="space-y-2 border-b pb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+                Choosing the Right QR Destination for Your Business Card
+              </h2>
+              <p className="text-slate-600 text-sm md:text-base">
+                The most critical decision when adding a QR code to business
+                stationery is selecting what the code actually contains.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-xl border border-slate-200 p-5 space-y-3 bg-slate-50/50">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                  <h3 className="font-bold text-slate-900">
+                    Recommended: Digital Contact Landing Page
+                  </h3>
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  Link your code to a clean, mobile-optimized personal landing
+                  page (or LinkedIn profile). Because the QR code only encodes a
+                  short URL, the barcode grid remains spacious and easily
+                  scanned by any camera.
+                </p>
+                <ul className="text-xs text-slate-700 space-y-1 list-disc pl-5">
+                  <li>
+                    Small, low-density QR matrix fits in tight card corners
+                  </li>
+                  <li>
+                    Destination can be updated without reprinting physical cards
+                  </li>
+                  <li>Scan analytics can be tracked via UTM parameters</li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-slate-200 p-5 space-y-3 bg-slate-50/50">
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="h-5 w-5 text-amber-600" />
+                  <h3 className="font-bold text-slate-900">
+                    Use with Caution: Raw vCard Text
+                  </h3>
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  A raw vCard embeds your entire contact card (full name, phone
+                  numbers, job title, company, address) directly into the code
+                  itself without internet access.
+                </p>
+                <ul className="text-xs text-slate-700 space-y-1 list-disc pl-5">
+                  <li>
+                    Creates a very dense matrix with hundreds of microscopic
+                    dots
+                  </li>
+                  <li>
+                    Requires a minimum physical footprint of 3.5cm to scan
+                    reliably
+                  </li>
+                  <li>Cannot be updated once cards are printed</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Print Sizing and Optical Rules */}
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm space-y-6">
+          <div className="space-y-2 border-b pb-4">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-700">
+              <Printer className="h-4 w-4" />
+              <span>Print Specifications</span>
+            </div>
+            <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+              Optical Print Rules &amp; Dimensional Requirements
+            </h2>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4 space-y-2">
+              <span className="text-xs font-bold text-indigo-700 uppercase">
+                Minimum Size
+              </span>
+              <div className="text-2xl font-black text-slate-900">
+                2.5 &times; 2.5 cm
+              </div>
+              <p className="text-xs text-slate-600">
+                Approximately 1 &times; 1 inch. Below this size, smartphone
+                camera lenses struggle with optical focus.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4 space-y-2">
+              <span className="text-xs font-bold text-indigo-700 uppercase">
+                Quiet Zone
+              </span>
+              <div className="text-2xl font-black text-slate-900">
+                &ge; 4 Modules
+              </div>
+              <p className="text-xs text-slate-600">
+                Leave an unbroken margin of at least 4 module widths of blank
+                background around all four sides.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4 space-y-2">
+              <span className="text-xs font-bold text-indigo-700 uppercase">
+                Export Format
+              </span>
+              <div className="text-2xl font-black text-slate-900">
+                SVG or PDF
+              </div>
+              <p className="text-xs text-slate-600">
+                Never supply JPEG or 72 DPI PNG to a print vendor. Vectors scale
+                crisply to any DPI plate.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-4 pt-2">
+            <h3 className="font-bold text-slate-900 text-lg">
+              Card Finishes: Matte vs. Glossy vs. Textured Papers
+            </h3>
+            <div className="grid gap-4 md:grid-cols-3 text-sm">
+              <div className="p-4 rounded-xl border border-slate-200 space-y-1">
+                <h4 className="font-semibold text-slate-900">
+                  Matte Laminate (Recommended)
+                </h4>
+                <p className="text-xs text-slate-600">
+                  Scatters ambient light evenly and prevents optical
+                  reflections. Scanning apps achieve near-100% first-pass read
+                  rates.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl border border-slate-200 space-y-1">
+                <h4 className="font-semibold text-slate-900">
+                  Spot-UV / Gloss (Warning)
+                </h4>
+                <p className="text-xs text-slate-600">
+                  Reflects ceiling lamps and outdoor sunlight like a mirror. Do
+                  not apply spot-gloss varnish directly across the QR matrix.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl border border-slate-200 space-y-1">
+                <h4 className="font-semibold text-slate-900">
+                  Kraft &amp; Textured Linen
+                </h4>
+                <p className="text-xs text-slate-600">
+                  Porous cardstock causes wet ink to bleed, narrowing the white
+                  margins between dots. Size up by at least 20% on textured
+                  stock.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4 Steps to Production */}
+        <section aria-label="Step-by-step workflow" className="space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900">
+            Step-by-Step Business Card QR Preparation
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step) => (
+              <div
+                key={step.title}
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm space-y-2"
+              >
+                <h3 className="font-bold text-slate-900 text-sm md:text-base">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">{step.description}</p>
-              </article>
+                <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="prose prose-lg max-w-none rounded-2xl border border-slate-200 bg-white p-6 shadow-sm prose-headings:text-slate-900 prose-a:text-indigo-700 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900">
-          <h2>Why QR Codes on Business Cards Increase Engagement</h2>
-
-          <p>
-            Studies consistently show that business cards with QR codes generate more
-            follow-through than those without. When someone receives your card, typing a
-            URL is friction. Scanning a QR code is effortless — it takes under two
-            seconds on any modern smartphone.
-          </p>
-
-          <p>
-            Linking your QR code to a dedicated landing page (rather than just your
-            homepage) allows you to track campaign performance, personalize the message
-            for the event or audience, and update the destination without reprinting
-            cards.
-          </p>
-
-          <h2>Best Practices for Business Card QR Codes</h2>
-
-          <h3>Minimum Print Size</h3>
-          <p>
-            Print your QR code at a minimum of 2cm × 2cm (about 0.8 inches). Below
-            this size, cameras struggle to focus and scanning reliability drops sharply.
-            For business cards, 2.5cm–3cm is ideal.
-          </p>
-
-          <h3>Color Contrast</h3>
-          <p>
-            Always use a dark foreground on a light background. Avoid low-contrast
-            combinations like light grey on white or yellow on white — scanning apps
-            rely on contrast to detect the QR pattern. A minimum contrast ratio of 4:1
-            is recommended.
-          </p>
-
-          <h3>What URL to Link</h3>
-          <ul>
-            <li><strong>Website homepage</strong> — suitable for general networking</li>
-            <li><strong>LinkedIn profile</strong> — great for professional events and conferences</li>
-            <li><strong>Portfolio or case study page</strong> — ideal for designers, developers, and freelancers</li>
-            <li><strong>vCard contact page</strong> — lets people save your contact details directly</li>
-          </ul>
-
-          <h3>Logo and Branding</h3>
-          <p>
-            Adding your logo to the center of the QR code increases brand recognition
-            and scan rates. TechMind automatically raises error correction to H-level
-            (30% redundancy) when a logo is present, ensuring the code remains fully
-            scannable even with the center obscured.
-          </p>
-
-          <h2>Marketing Materials Beyond Business Cards</h2>
-
-          <p>
-            Business QR codes work equally well on brochures, exhibition banners, email
-            signatures (as an image), packaging inserts, and product labels. Any
-            printed touchpoint where you want to drive someone to a digital destination
-            is a candidate for a QR code.
-          </p>
-
-          <h2>Saving Your QR Code for Future Updates</h2>
-
-          <p>
-            Save your QR code configuration to your TechMind profile so you can reload
-            and regenerate it if your URL or branding changes. Updating a saved QR code
-            takes seconds — no need to redesign from scratch.
-          </p>
-
-          <p>
-            Ready to build your business QR code? Use the{" "}
-            <Link href="/qr-code-generator">TechMind QR Code Generator</Link>, or learn
-            how to add a logo with the guide on{" "}
-            <Link href="/create-qr-code-with-logo-free">
-              creating a custom QR code with logo
-            </Link>.
-          </p>
+        {/* Common Mistakes */}
+        <section className="rounded-2xl border border-rose-200 bg-rose-50/50 p-6 md:p-8 space-y-5">
+          <div className="flex items-center gap-2 text-rose-900 font-bold text-lg md:text-xl">
+            <ShieldAlert className="h-6 w-6 text-rose-600 shrink-0" />
+            <h2>4 Costly Business Card QR Mistakes to Avoid</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {commonMistakes.map((mistake) => (
+              <div
+                key={mistake.title}
+                className="rounded-xl border border-rose-200/80 bg-white p-4 space-y-1.5 shadow-xs"
+              >
+                <h3 className="font-bold text-rose-950 text-sm">
+                  {mistake.title}
+                </h3>
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  {mistake.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
-        <section className="rounded-2xl border border-indigo-200/70 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+        {/* Related Guides and Tools */}
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 border-b pb-2">
+            Related QR Code Guides &amp; Resources
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Link
+              href="/qr-code-generator"
+              className="rounded-xl border border-slate-200 p-4 bg-white transition hover:border-indigo-300 hover:shadow-md space-y-1"
+            >
+              <h3 className="font-bold text-slate-900 text-sm">
+                QR Code Generator Tool
+              </h3>
+              <p className="text-xs text-slate-600">
+                Access the full customizable generator with vector SVG and PDF
+                export options.
+              </p>
+            </Link>
+
+            <Link
+              href="/create-wifi-qr-code-free"
+              className="rounded-xl border border-slate-200 p-4 bg-white transition hover:border-indigo-300 hover:shadow-md space-y-1"
+            >
+              <h3 className="font-bold text-slate-900 text-sm">
+                Wi-Fi QR Code Guide
+              </h3>
+              <p className="text-xs text-slate-600">
+                Setup instant network guest access for offices, venues, and
+                hospitality spaces.
+              </p>
+            </Link>
+
+            <Link
+              href="/blogs/qr-code-color-size-print-guide-png-svg-resolution"
+              className="rounded-xl border border-slate-200 p-4 bg-white transition hover:border-indigo-300 hover:shadow-md space-y-1"
+            >
+              <h3 className="font-bold text-slate-900 text-sm">
+                Color &amp; Print Sizing Deep-Dive
+              </h3>
+              <p className="text-xs text-slate-600">
+                Read our in-depth analysis on contrast ratios, CMYK color
+                shifts, and resolution rules.
+              </p>
+            </Link>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900">
             Frequently Asked Questions
           </h2>
-          <p className="mt-2 text-sm text-slate-600 sm:text-base">
-            Common questions about creating QR codes for business cards and marketing.
-          </p>
-          <div className="mt-5">
-            <FAQAccordion items={faqs} />
-          </div>
+          <FAQAccordion items={faqs} />
         </section>
       </main>
     </Layout>

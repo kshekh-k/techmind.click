@@ -1,6 +1,7 @@
 import sitemap from "@/app/sitemap";
 import robots from "@/app/robots";
 import glossary from "@/app/data/glossary.json";
+import redirects from "@/app/data/redirects.json";
 import { generateMetadata as generateGlossaryMetadata } from "@/app/glossary/[slug]/page";
 
 async function runSitemapValidation() {
@@ -82,6 +83,20 @@ async function runSitemapValidation() {
       console.error(`❌ Forbidden auth route found in sitemap: "${forbiddenUrl}"`);
       hasErrors = true;
     }
+  }
+
+  // 6b. Ensure NO redirected routes (from redirects.json) are present in sitemap
+  let redirectedInSitemapCount = 0;
+  for (const entry of (redirects as { source: string }[])) {
+    const fullRedirectedUrl = `https://www.techmind.click${entry.source}`;
+    if (urlSet.has(fullRedirectedUrl)) {
+      console.error(`❌ Sitemap Error: Redirected URL found in sitemap: "${fullRedirectedUrl}"`);
+      redirectedInSitemapCount++;
+      hasErrors = true;
+    }
+  }
+  if (redirectedInSitemapCount === 0) {
+    console.log(`✅ Verified zero redirected URLs from redirects.json are present in sitemap.`);
   }
 
   // 7. Ensure vital indexable routes remain present

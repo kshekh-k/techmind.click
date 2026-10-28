@@ -13,12 +13,12 @@ const OG_IMAGE = `${SITE_URL}/images/text-case-converter-and-formatter-techmind-
 const faqs = [
   {
     question: "Can I fix CAPS LOCK text for free?",
-    answer: "Yes, TechMind's sentence case converter is completely free to use.",
+    answer:
+      "Yes, TechMind's sentence case converter is completely free to use.",
   },
   {
     question: "Does this tool work on mobile devices?",
-    answer:
-      "Yes, it works on Android, iPhone, tablets, and desktop devices.",
+    answer: "Yes, it works on Android, iPhone, tablets, and desktop devices.",
   },
   {
     question: "Can I convert long paragraphs?",
@@ -197,7 +197,7 @@ export default function ChangeCapsLockToSentenceCasePage() {
           { "@type": "HowToStep", text: "Click the Uppercase button" },
           { "@type": "HowToStep", text: "Click Copy Text to copy the result" },
         ],
-      }
+      },
     ],
   };
 
@@ -209,12 +209,11 @@ export default function ChangeCapsLockToSentenceCasePage() {
       />
 
       <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
-        <section id="tool" >
+        <section id="tool">
           <TextFormatter />
         </section>
-        
-        
-        <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
+
+        <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-linear-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-fuchsia-200/20 blur-3xl" />
 
@@ -264,7 +263,9 @@ export default function ChangeCapsLockToSentenceCasePage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                <span className="ml-2 text-xs text-purple-100">www.techmind.click</span>
+                <span className="ml-2 text-xs text-purple-100">
+                  www.techmind.click
+                </span>
               </div>
 
               <div className="relative aspect-[1080/460] overflow-hidden rounded-xl border border-white/15 bg-slate-950/40 p-4 ring-1 ring-white/10 sm:p-5">
@@ -300,13 +301,16 @@ export default function ChangeCapsLockToSentenceCasePage() {
           <section className="prose prose-lg max-w-none">
             <p>
               Accidentally typed your email, message, or document in CAPS LOCK?
-              Use TechMind's free online sentence case converter to instantly fix
-              uppercase text and turn it into clean, readable sentence case.
+              Use TechMind's free online sentence case converter to instantly
+              fix uppercase text and turn it into clean, readable sentence case.
             </p>
           </section>
         </section>
 
-        <section aria-label="Sentence case conversion steps" className="space-y-4">
+        <section
+          aria-label="Sentence case conversion steps"
+          className="space-y-4"
+        >
           <h2 className="text-2xl font-bold tracking-tight text-slate-900">
             Convert in 3 Simple Steps
           </h2>
@@ -314,34 +318,35 @@ export default function ChangeCapsLockToSentenceCasePage() {
             {steps.map((step) => (
               <article
                 key={step.title}
-                className="group rounded-2xl border border-purple-200/70 bg-gradient-to-b from-white/90 to-purple-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group rounded-2xl border border-purple-200/70 bg-linear-to-b from-white/90 to-purple-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-600 to-fuchsia-600 text-sm font-bold text-white shadow">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-purple-600 to-fuchsia-600 text-sm font-bold text-white shadow">
                   {step.icon}
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-slate-900">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  {step.description}
+                </p>
               </article>
             ))}
           </div>
         </section>
 
-        
-
         <section className="prose prose-lg max-w-none rounded-2xl border border-slate-200 bg-white p-6 shadow-sm prose-headings:text-slate-900 prose-a:text-purple-700 prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-purple-500 prose-blockquote:text-slate-700 prose-strong:text-slate-900">
           <h2>Why CAPS LOCK Text Is Hard to Read</h2>
 
           <p>
-            Writing entire paragraphs in uppercase can make text difficult to read and
-            look unprofessional in emails, documents, and social media posts.
+            Writing entire paragraphs in uppercase can make text difficult to
+            read and look unprofessional in emails, documents, and social media
+            posts.
           </p>
 
           <p>
-            Many users accidentally leave CAPS LOCK enabled while typing quickly.
-            Instead of manually rewriting everything, a sentence case converter can fix
-            the formatting instantly.
+            Many users accidentally leave CAPS LOCK enabled while typing
+            quickly. Instead of manually rewriting everything, a sentence case
+            converter can fix the formatting instantly.
           </p>
 
           <blockquote>
@@ -351,8 +356,8 @@ export default function ChangeCapsLockToSentenceCasePage() {
           <h2>What Is Sentence Case?</h2>
 
           <p>
-            Sentence case is a writing format where only the first letter of a sentence
-            is capitalized while the remaining letters stay lowercase.
+            Sentence case is a writing format where only the first letter of a
+            sentence is capitalized while the remaining letters stay lowercase.
           </p>
 
           <h3>Example</h3>
@@ -436,49 +441,64 @@ export default function ChangeCapsLockToSentenceCasePage() {
           </ul>
 
           <p>
-            Need related help? Try the <Link href="/text-format">TechMind text case converter</Link>,
-            learn the basics in <Link href="/blogs/what-is-sentence-case">what is sentence case</Link>,
-            compare styles with <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">title case vs sentence case</Link>,
-            or follow this tutorial:
+            Need related help? Try the{" "}
+            <Link href="/text-format">TechMind text case converter</Link>, learn
+            the basics in{" "}
+            <Link href="/blogs/what-is-sentence-case">
+              what is sentence case
+            </Link>
+            , compare styles with{" "}
+            <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">
+              title case vs sentence case
+            </Link>
+            , or follow this tutorial:
             <Link href="/how-to-convert-uppercase-to-lowercase-without-excel">
               how to convert uppercase to lowercase without excel
-            </Link>.
+            </Link>
+            .
           </p>
 
           <h2>Frequently Asked Questions</h2>
 
           <h3>Can I fix CAPS LOCK text for free?</h3>
-          <p>Yes, TechMind's sentence case converter is completely free to use.</p>
+          <p>
+            Yes, TechMind's sentence case converter is completely free to use.
+          </p>
 
           <h3>Does this tool work on mobile devices?</h3>
           <p>Yes, it works on Android, iPhone, tablets, and desktop devices.</p>
 
           <h3>Can I convert long paragraphs?</h3>
           <p>
-            Yes, you can convert emails, articles, assignments, and long text instantly.
+            Yes, you can convert emails, articles, assignments, and long text
+            instantly.
           </p>
 
           <h3>Is my text saved?</h3>
-          <p>No, your text is processed securely and is not permanently stored.</p>
+          <p>
+            No, your text is processed securely and is not permanently stored.
+          </p>
 
           <h2>Final Thoughts</h2>
 
           <p>
-            If you accidentally typed text with CAPS LOCK enabled, you do not need to
-            rewrite everything manually. TechMind's free sentence case converter can
-            instantly transform uppercase text into readable sentence case in one click.
+            If you accidentally typed text with CAPS LOCK enabled, you do not
+            need to rewrite everything manually. TechMind's free sentence case
+            converter can instantly transform uppercase text into readable
+            sentence case in one click.
           </p>
         </section>
 
-        <section className="relative overflow-hidden rounded-3xl border border-purple-200/60 bg-gradient-to-br from-white to-purple-50/70 p-6 shadow-xl sm:p-8">
+        <section className="relative overflow-hidden rounded-3xl border border-purple-200/60 bg-linear-to-br from-white to-purple-50/70 p-6 shadow-xl sm:p-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(168,85,247,0.15),transparent_36%),radial-gradient(circle_at_90%_90%,rgba(236,72,153,0.15),transparent_38%)]" />
           <div className="relative space-y-4">
             <h2 className="text-2xl font-bold text-slate-900">
               Real TechMind Tool Preview
             </h2>
             <p className="max-w-3xl text-sm text-slate-600 sm:text-base">
-              A live look at TechMind's text formatter interface to build trust and
-              show exactly how quickly you can fix uppercase email text online.
+              A live look at TechMind's text formatter interface to build trust
+              and show exactly how quickly you can fix uppercase email text
+              online.
             </p>
 
             <div className="overflow-hidden rounded-2xl border border-purple-200/70 bg-slate-950 p-2 shadow-sm">
@@ -486,7 +506,9 @@ export default function ChangeCapsLockToSentenceCasePage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                <span className="ml-2 text-xs text-slate-300">www.techmind.click</span>
+                <span className="ml-2 text-xs text-slate-300">
+                  www.techmind.click
+                </span>
               </div>
               <Image
                 src="/images/text-case-converter-and-formatter-techmind-click.png"
@@ -501,20 +523,26 @@ export default function ChangeCapsLockToSentenceCasePage() {
           </div>
         </section>
 
-        <section aria-label="Writing quotes" className="grid gap-4 md:grid-cols-2">
-          {["Simplicity is the ultimate sophistication.", "Good writing is clear thinking made visible."].map(
-            (quote, index) => (
-              <figure
-                key={quote}
-                className="rounded-2xl border border-purple-200/70 bg-white/55 p-6 shadow-md backdrop-blur-md"
-              >
-                <blockquote className="text-lg font-medium text-slate-800">"{quote}"</blockquote>
-                <figcaption className="mt-3 text-sm text-purple-700">
-                  {index === 0 ? "- Leonardo da Vinci" : "- Bill Wheeler"}
-                </figcaption>
-              </figure>
-            )
-          )}
+        <section
+          aria-label="Writing quotes"
+          className="grid gap-4 md:grid-cols-2"
+        >
+          {[
+            "Simplicity is the ultimate sophistication.",
+            "Good writing is clear thinking made visible.",
+          ].map((quote, index) => (
+            <figure
+              key={quote}
+              className="rounded-2xl border border-purple-200/70 bg-white/55 p-6 shadow-md backdrop-blur-md"
+            >
+              <blockquote className="text-lg font-medium text-slate-800">
+                "{quote}"
+              </blockquote>
+              <figcaption className="mt-3 text-sm text-purple-700">
+                {index === 0 ? "- Leonardo da Vinci" : "- Bill Wheeler"}
+              </figcaption>
+            </figure>
+          ))}
         </section>
 
         <section className="rounded-2xl border border-purple-200/70 bg-white/80 p-6 shadow-sm backdrop-blur-sm">

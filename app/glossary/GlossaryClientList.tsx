@@ -2,7 +2,15 @@
 
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
-import { Search, X, ArrowRight, Sparkles, Clock, SlidersHorizontal, BookOpen } from "lucide-react";
+import {
+  Search,
+  X,
+  ArrowRight,
+  Sparkles,
+  Clock,
+  SlidersHorizontal,
+  BookOpen,
+} from "lucide-react";
 import { GlossaryTerm } from "@/app/lib/glossary";
 
 type GlossaryClientListProps = {
@@ -34,7 +42,7 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
     // Filter by category
     if (selectedCategory !== "All") {
       result = result.filter(
-        (t) => t.category.toLowerCase() === selectedCategory.toLowerCase()
+        (t) => t.category.toLowerCase() === selectedCategory.toLowerCase(),
       );
     }
 
@@ -47,7 +55,8 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
           t.shortDefinition.toLowerCase().includes(query) ||
           t.definition.toLowerCase().includes(query) ||
           t.aliases.some((alias) => alias.toLowerCase().includes(query)) ||
-          (t.keywords && t.keywords.some((kw) => kw.toLowerCase().includes(query)))
+          (t.keywords &&
+            t.keywords.some((kw) => kw.toLowerCase().includes(query))),
       );
     }
 
@@ -130,8 +139,9 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
           TechMind Knowledge Hub
         </h1>
         <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-          Unlock clear, detailed explanations for text formatting, SEO optimization, QR codes,
-          PDF operations, AI writing models, and modern programming terms.
+          Unlock clear, detailed explanations for text formatting, SEO
+          optimization, QR codes, PDF operations, AI writing models, and modern
+          programming terms.
         </p>
       </div>
 
@@ -139,7 +149,7 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
       {featuredTerm && !searchQuery && selectedCategory === "All" && (
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Featured Card */}
-          <div className="lg:col-span-2 rounded-3xl border border-purple-200 bg-gradient-to-br from-white via-white to-purple-50/50 p-6 md:p-8 shadow-sm flex flex-col justify-between relative overflow-hidden group">
+          <div className="lg:col-span-2 rounded-3xl border border-purple-200 bg-linear-to-br from-white via-white to-purple-50/50 p-6 md:p-8 shadow-sm flex flex-col justify-between relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100/50 rounded-full blur-2xl -mr-8 -mt-8" />
             <div className="space-y-4 relative">
               <div className="flex items-center gap-2">
@@ -166,7 +176,10 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
                   </span>
                   <ul className="grid sm:grid-cols-2 gap-2 text-xs text-slate-600">
                     {featuredTerm.useCases.slice(0, 2).map((uc, i) => (
-                      <li key={i} className="flex items-center gap-2 bg-slate-50 border border-slate-100 p-2 rounded-lg">
+                      <li
+                        key={i}
+                        className="flex items-center gap-2 bg-slate-50 border border-slate-100 p-2 rounded-lg"
+                      >
                         <span className="w-1.5 h-1.5 bg-purple-500 rounded-full shrink-0" />
                         <span className="truncate">{uc}</span>
                       </li>
@@ -199,7 +212,10 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
               </h3>
               <div className="divide-y divide-slate-100">
                 {latestTerms.map((term) => (
-                  <article key={term.slug} className="py-3.5 first:pt-0 last:pb-0 group">
+                  <article
+                    key={term.slug}
+                    className="py-3.5 first:pt-0 last:pb-0 group"
+                  >
                     <span className="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md">
                       {term.category}
                     </span>
@@ -214,14 +230,19 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
               </div>
             </div>
             <div className="pt-4 border-t border-slate-100 mt-4 text-center">
-              <span className="text-xs text-slate-400">Real-time developer & SEO updates</span>
+              <span className="text-xs text-slate-400">
+                Real-time developer & SEO updates
+              </span>
             </div>
           </div>
         </div>
       )}
 
       {/* Control Panel: Search & Filters */}
-      <div id="glossary-list-start" className="rounded-2xl border border-slate-200 bg-white p-4 md:p-6 shadow-xs space-y-4">
+      <div
+        id="glossary-list-start"
+        className="rounded-2xl border border-slate-200 bg-white p-4 md:p-6 shadow-xs space-y-4"
+      >
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
           {/* Search Box */}
           <div className="relative w-full md:max-w-md">
@@ -286,7 +307,8 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
       <div className="space-y-8">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-bold text-slate-900">
-            {filteredTerms.length} {filteredTerms.length === 1 ? "term" : "terms"}{" "}
+            {filteredTerms.length}{" "}
+            {filteredTerms.length === 1 ? "term" : "terms"}{" "}
             {selectedCategory !== "All" && `in ${selectedCategory}`}
           </h3>
           {searchQuery && (
@@ -314,7 +336,9 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
                     <span className="text-[10px] font-bold text-purple-700 bg-purple-50 px-2.5 py-1 rounded-md">
                       {term.category}
                     </span>
-                    <span className="text-[10px] text-slate-400">{term.updatedAt}</span>
+                    <span className="text-[10px] text-slate-400">
+                      {term.updatedAt}
+                    </span>
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
                     <Link href={`/glossary/${term.slug}`}>{term.term}</Link>
@@ -345,7 +369,9 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
           </div>
         ) : (
           <div className="text-center py-12 border border-dashed border-slate-200 rounded-3xl space-y-3">
-            <p className="text-slate-500 text-sm">No glossary terms matched your query.</p>
+            <p className="text-slate-500 text-sm">
+              No glossary terms matched your query.
+            </p>
             <button
               onClick={() => {
                 setSearchQuery("");
@@ -369,22 +395,24 @@ export default function GlossaryClientList({ terms }: GlossaryClientListProps) {
               Previous
             </button>
             <div className="flex items-center gap-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                const isActive = currentPage === page;
-                return (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`size-8 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      isActive
-                        ? "bg-purple-700 text-white shadow-xs"
-                        : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
-                    }`}
-                  >
-                    {page}
-                  </button>
-                );
-              })}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => {
+                  const isActive = currentPage === page;
+                  return (
+                    <button
+                      key={page}
+                      onClick={() => handlePageChange(page)}
+                      className={`size-8 rounded-xl text-xs font-bold transition cursor-pointer ${
+                        isActive
+                          ? "bg-purple-700 text-white shadow-xs"
+                          : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  );
+                },
+              )}
             </div>
             <button
               onClick={() => handlePageChange(currentPage + 1)}

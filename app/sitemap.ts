@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import blogs from "@/app/data/blog.json";
 import authors from "@/app/data/authors.json";
+import redirects from "@/app/data/redirects.json";
 import { getAllLongTailSlugs } from "@/app/content/long-tail-pages";
 import { STATIC_ROUTES } from "@/app/lib/static-routes";
 
@@ -15,6 +16,12 @@ type Blog = {
 type Author = {
   slug: string;
   updatedAt?: string;
+};
+
+type RedirectEntry = {
+  source: string;
+  destination: string;
+  permanent?: boolean;
 };
 
 const SITE_URL = "https://www.techmind.click";
@@ -34,6 +41,11 @@ function normalizeSlug(slug: string): string {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Build lookup of retired/redirected paths so they are never submitted to search engines
+  const redirectedSources = new Set<string>(
+    (redirects as RedirectEntry[]).map((r) => r.source.trim().toLowerCase())
+  );
+
   const staticRoutes: MetadataRoute.Sitemap = STATIC_ROUTES.map((r) => ({
     url: `${SITE_URL}${r.path}`,
     changeFrequency: r.changeFrequency,
@@ -41,12 +53,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: toDate(),
   }));
 
-  const blogRoutes: MetadataRoute.Sitemap = (blogs as Blog[]).map((blog) => ({
-    url: `${SITE_URL}/blogs/${normalizeSlug(blog.slug)}`,
-    changeFrequency: "monthly",
-    priority: 0.6,
-    lastModified: toDate(blog.date),
-  }));
+  // Only include active, non-redirected blog articles in the XML sitemap
+  const blogRoutes: MetadataRoute.Sitemap = (blogs as Blog[])
+    .filter((blog) => !redirectedSources.has(`/blogs/${normalizeSlug(blog.slug)}`))
+    .map((blog) => ({
+      url: `${SITE_URL}/blogs/${normalizeSlug(blog.slug)}`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+      lastModified: toDate(blog.date),
+    }));
 
   // NOTE (Technical SEO):
   // Individual glossary term routes (/glossary/[slug]) intentionally emit
@@ -63,12 +78,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: toDate(author.updatedAt),
   }));
 
-  const longTailRoutes: MetadataRoute.Sitemap = getAllLongTailSlugs().map((slug) => ({
-    url: `${SITE_URL}/${slug}`,
-    changeFrequency: "monthly",
-    priority: 0.7,
-    lastModified: toDate("2026-05-15T00:00:00.000Z"),
-  }));
+  // Only include active, non-redirected long-tail guide pages
+  const longTailRoutes: MetadataRoute.Sitemap = getAllLongTailSlugs()
+    .filter((slug) => !redirectedSources.has(`/${normalizeSlug(slug)}`))
+    .map((slug) => ({
+      url: `${SITE_URL}/${slug}`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: toDate("2026-05-15T00:00:00.000Z"),
+    }));
 
   const uniqueEntries = new Map<string, MetadataRoute.Sitemap[number]>();
   for (const entry of [
