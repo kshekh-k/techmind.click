@@ -44,8 +44,6 @@ export const metadata: Metadata = {
 
   description: description,
 
-
-
   alternates: {
     canonical: "/",
   },
@@ -217,7 +215,6 @@ const schemaGraph = {
 
       featureList: featureList,
 
-
       description: description,
     },
 
@@ -367,12 +364,15 @@ export default function Home() {
             <span className="mt-0.5 text-base leading-none">🔒</span>
             <div>
               <span className="font-semibold">Privacy First</span>
-              {" — "}All text is processed locally in your browser. Nothing you
-              type is ever sent to any server. Your content stays private.
+              {" — "}We don't manually read or monitor your content. Text
+              formatting happens locally in your browser, without sending your
+              text to our servers. Optional spellcheck sends submitted text
+              securely to LanguageTool for checking. Your formatting text isn't
+              stored in our database.
             </div>
           </div>
 
-          <Card className="shadow-sm !border-none">
+          <Card className="shadow-sm border-none!">
             <CardHeader>
               <CardTitle
                 as="h1"
@@ -382,7 +382,10 @@ export default function Home() {
               </CardTitle>
 
               <p className="text-base md:text-lg text-muted-foreground mt-3 ">
-                Need to change the way your text is written? Paste it into the formatter and choose the format you need. You can change capitalization, clean up text, or create a URL slug without installing another app.
+                Need to change the way your text is written? Paste it into the
+                formatter and choose the format you need. You can change
+                capitalization, clean up text, or create a URL slug without
+                installing another app.
               </p>
             </CardHeader>
 
@@ -392,7 +395,8 @@ export default function Home() {
                   <h3 className="text-center">Featured & Trusted</h3>
 
                   <p className="max-w-4xl mx-auto text-center">
-                    TechMind has been listed on several product discovery and software directories.
+                    TechMind has been listed on several product discovery and
+                    software directories.
                   </p>
 
                   <div className="grid gap-6 md:grid-cols-2">
@@ -463,7 +467,11 @@ export default function Home() {
                       </h3>
 
                       <p className="mx-auto max-w-4xl text-muted-foreground">
-                        There are plenty of small situations where changing text by hand becomes annoying. You might need to fix the capitalization of a heading, clean text copied from another website, or turn a page title into a URL slug. That's what this formatter is for.
+                        There are plenty of small situations where changing text
+                        by hand becomes annoying. You might need to fix the
+                        capitalization of a heading, clean text copied from
+                        another website, or turn a page title into a URL slug.
+                        That's what this formatter is for.
                       </p>
 
                       <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -489,62 +497,78 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-center">Who Uses Our Free Text Formatter?</h3>
+                  <h3 className="text-center">
+                    Who Uses Our Free Text Formatter?
+                  </h3>
                   <p className="mx-auto max-w-4xl text-muted-foreground text-center">
-                    Different people use the formatter for different things. A blogger might use it for a headline, a developer might need a slug or camelCase text, and a student might simply need to fix capitalization in copied notes.
+                    Different people use the formatter for different things. A
+                    blogger might use it for a headline, a developer might need
+                    a slug or camelCase text, and a student might simply need to
+                    fix capitalization in copied notes.
                   </p>
                   <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     <div>
                       <h4 className="mt-0!">✍️ Writers & Bloggers</h4>
                       <p className="mb-0!">
-                        Format article titles, clean up copied text, change capitalization, and prepare text before publishing.
+                        Format article titles, clean up copied text, change
+                        capitalization, and prepare text before publishing.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">💻 Developers</h4>
                       <p className="mb-0!">
-                        Developers can use the converter when a piece of text needs to follow a particular naming style. For example, a phrase can be changed into camelCase, snake_case, or a URL slug.
+                        Developers can use the converter when a piece of text
+                        needs to follow a particular naming style. For example,
+                        a phrase can be changed into camelCase, snake_case, or a
+                        URL slug.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">🎓 Students</h4>
                       <p className="mb-0!">
-                        If you have copied text from a website or document, you can use the formatter to fix capitalization, spacing, or unwanted line breaks before using it in your notes or assignment.
+                        If you have copied text from a website or document, you
+                        can use the formatter to fix capitalization, spacing, or
+                        unwanted line breaks before using it in your notes or
+                        assignment.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">📈 SEO Professionals</h4>
                       <p className="mb-0!">
-                        Create readable URL slugs, clean up text, and prepare headings and other content for websites.
+                        Create readable URL slugs, clean up text, and prepare
+                        headings and other content for websites.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">🏢 Businesses</h4>
                       <p className="mb-0!">
-                        Format product names, emails, documents, and other text used in day-to-day work.
+                        Format product names, emails, documents, and other text
+                        used in day-to-day work.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="mt-0!">📱 Content Creators</h4>
                       <p className="mb-0!">
-                        Captions and video descriptions often get edited in several places before they are published. The formatter can help clean up the text and fix its capitalization before you post it.
+                        Captions and video descriptions often get edited in
+                        several places before they are published. The formatter
+                        can help clean up the text and fix its capitalization
+                        before you post it.
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="pb-8">
                   <div className="text-center">
-                    <h3 >
-                      See the Difference Instantly
-                    </h3>
+                    <h3>See the Difference Instantly</h3>
 
                     <p className="mx-auto max-w-4xl text-muted-foreground">
-                      Use the same piece of text to see how different formatting options change it.
+                      Use the same piece of text to see how different formatting
+                      options change it.
                     </p>
                   </div>
 
@@ -602,14 +626,21 @@ export default function Home() {
                     </h3>
 
                     <p className="mt-3 leading-7 text-green-700 mb-0!">
-                      Changing text manually can take time, especially when you need to format several lines or use the same text in different places. A case converter can handle these changes quickly and help you keep your formatting consistent.
+                      Changing text manually can take time, especially when you
+                      need to format several lines or use the same text in
+                      different places. A case converter can handle these
+                      changes quickly and help you keep your formatting
+                      consistent.
                     </p>
-                    <p className="mt-1 leading-7 text-green-700 mb-0! text-sm italic">For example, the same text may need to appear as a heading, a sentence, or a URL slug depending on where you use it.</p>
+                    <p className="mt-1 leading-7 text-green-700 mb-0! text-sm italic">
+                      For example, the same text may need to appear as a
+                      heading, a sentence, or a URL slug depending on where you
+                      use it.
+                    </p>
                   </div>
                 </div>
                 <div className="pb-8">
                   <h3>Choose a format below to change your text.</h3>
-
 
                   <ul>
                     <li>Uppercase Converter</li>
@@ -628,7 +659,9 @@ export default function Home() {
                 <div className="pb-8">
                   <h3>Text Cleanup & Slug Formatting</h3>
                   <p>
-                    Clean up text by removing extra spaces, unwanted characters, and unnecessary line breaks. You can also turn a title or phrase into a URL-friendly slug.
+                    Clean up text by removing extra spaces, unwanted characters,
+                    and unnecessary line breaks. You can also turn a title or
+                    phrase into a URL-friendly slug.
                   </p>
                   <h4>Useful for:</h4>
                   <ul>
@@ -640,13 +673,18 @@ export default function Home() {
                   </ul>
                   <h3>Simple Tools for Everyday Writing</h3>
                   <p>
-                    Not every text problem needs a separate editor. If a copied paragraph has extra spaces or broken lines, you can clean it here. If you need a URL from a title, the slug converter can handle that too.
+                    Not every text problem needs a separate editor. If a copied
+                    paragraph has extra spaces or broken lines, you can clean it
+                    here. If you need a URL from a title, the slug converter can
+                    handle that too.
                   </p>
-
                 </div>
                 <div className="pb-8">
                   <h3>Why Choose TechMind?</h3>
-                  <p>The formatter is designed for simple text formatting tasks without requiring an account or additional software.</p>
+                  <p>
+                    The formatter is designed for simple text formatting tasks
+                    without requiring an account or additional software.
+                  </p>
                   <div className="w-full overflow-x-auto">
                     <table className="w-full border-collapse overflow-hidden rounded-lg border border-gray-200 text-left text-sm">
                       <thead className="bg-gray-50">
@@ -665,55 +703,45 @@ export default function Home() {
                           <td className="px-4 py-3 text-gray-700">
                             No sign-up required
                           </td>
-                          <td className="px-4 py-3 text-green-600">
-                            ✅
-                          </td>
+                          <td className="px-4 py-3 text-green-600">✅</td>
                         </tr>
 
                         <tr className="hover:bg-gray-50">
                           <td className="px-4 py-3 text-gray-700">
                             Browser-based
                           </td>
-                          <td className="px-4 py-3 text-green-600">
-                            ✅
-                          </td>
+                          <td className="px-4 py-3 text-green-600">✅</td>
                         </tr>
 
                         <tr className="hover:bg-gray-50">
                           <td className="px-4 py-3 text-gray-700">
                             Multiple formatting options
                           </td>
-                          <td className="px-4 py-3 text-green-600">
-                            ✅
-                          </td>
+                          <td className="px-4 py-3 text-green-600">✅</td>
                         </tr>
 
                         <tr className="hover:bg-gray-50">
                           <td className="px-4 py-3 text-gray-700">
                             Mobile-friendly
                           </td>
-                          <td className="px-4 py-3 text-green-600">
-                            ✅
-                          </td>
+                          <td className="px-4 py-3 text-green-600">✅</td>
                         </tr>
 
                         <tr className="hover:bg-gray-50">
                           <td className="px-4 py-3 text-gray-700">
                             Free to use
                           </td>
-                          <td className="px-4 py-3 text-green-600">
-                            ✅
-                          </td>
+                          <td className="px-4 py-3 text-green-600">✅</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-
                 </div>
                 <div className="pb-8">
                   <h3>Related Tools & Resources</h3>
                   <p>
-                    Looking for something else? These are a few other tools and resources available on TechMind.
+                    Looking for something else? These are a few other tools and
+                    resources available on TechMind.
                   </p>
                   <ul className="list-none pl-0! grid gap-4 md:grid-cols-2">
                     <li>
@@ -728,7 +756,8 @@ export default function Home() {
                               QR Code Generator
                             </h4>
                             <p className="text-sm text-muted-foreground">
-                              Create QR codes for links, contact details, Wi-Fi, and other information.
+                              Create QR codes for links, contact details, Wi-Fi,
+                              and other information.
                             </p>
                           </div>
                         </div>
@@ -766,7 +795,8 @@ export default function Home() {
                           <div>
                             <h4 className="font-semibold mt-0!">Blog Hub</h4>
                             <p className="text-sm text-muted-foreground">
-                              Browse tutorials and articles about TechMind tools and related topics.
+                              Browse tutorials and articles about TechMind tools
+                              and related topics.
                             </p>
                           </div>
                         </div>
@@ -784,7 +814,8 @@ export default function Home() {
                           <div>
                             <h4 className="font-semibold mt-0!">Glossary</h4>
                             <p className="text-sm text-muted-foreground">
-                              Learn the meaning of common technology and productivity terms.
+                              Learn the meaning of common technology and
+                              productivity terms.
                             </p>
                           </div>
                         </div>
@@ -798,7 +829,8 @@ export default function Home() {
                   <h3>Popular Guides</h3>
 
                   <p>
-                    These guides explain common text-formatting tasks and show you how to handle them.
+                    These guides explain common text-formatting tasks and show
+                    you how to handle them.
                   </p>
 
                   <div className="grid gap-4 md:grid-cols-2">
@@ -815,7 +847,8 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Learn how to change uppercase text to lowercase and other common formats.
+                            Learn how to change uppercase text to lowercase and
+                            other common formats.
                           </p>
                         </div>
 
@@ -836,7 +869,8 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Remove unwanted spaces, line breaks, and other formatting problems from copied text.
+                            Remove unwanted spaces, line breaks, and other
+                            formatting problems from copied text.
                           </p>
                         </div>
 
@@ -878,7 +912,8 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Learn how businesses can use QR codes for links, payments, menus, Wi-Fi, and other purposes.
+                            Learn how businesses can use QR codes for links,
+                            payments, menus, Wi-Fi, and other purposes.
                           </p>
                         </div>
 
@@ -899,7 +934,8 @@ export default function Home() {
                           </h4>
 
                           <p className="mt-1 text-sm text-muted-foreground">
-                            Learn how to create short, readable URLs from page or article titles.
+                            Learn how to create short, readable URLs from page
+                            or article titles.
                           </p>
                         </div>
 
@@ -922,12 +958,14 @@ export default function Home() {
                   <h3>Why Text Formatting Matters</h3>
 
                   <p>
-                    Formatting changes how text looks and how easily people can read it. A consistent style also makes headings, documents, captions, and other content easier to organize.
-                  </p><p>
-                    For example, a blog title may need Title Case, while a URL usually works better as a short, lowercase slug.
+                    Formatting changes how text looks and how easily people can
+                    read it. A consistent style also makes headings, documents,
+                    captions, and other content easier to organize.
                   </p>
-
-
+                  <p>
+                    For example, a blog title may need Title Case, while a URL
+                    usually works better as a short, lowercase slug.
+                  </p>
                 </div>
                 <div className="pb-8">
                   <h3>More Free Productivity Tools</h3>
