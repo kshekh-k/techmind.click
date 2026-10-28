@@ -924,7 +924,7 @@ export default function TextFormatter() {
         </div>
       </CardContent>
 
-      <CardFooter className="flex flex-col sm:flex-row gap-3 border-t border-gray-200 px-3! sm:px-6! pt-2.5!">
+      <CardFooter className="flex flex-col-reverse sm:flex-row gap-3 border-t border-gray-200 px-3! sm:px-6! pt-2.5!">
         <div className="w-full text-xs text-amber-800">
           <strong>Note:</strong> Unicode formatting (Bold / Italic) works
           separately from Case Converter tools. For best results, apply case
