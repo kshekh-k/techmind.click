@@ -159,7 +159,7 @@ function Terms() {
                     <section className="">
                         <h2 className="text-2xl font-bold mb-4">12. GOVERNING LAW</h2>
                         <p>
-                            These Legal Terms shall be governed by and defined following the laws of India. Technind.click and yourself irrevocably consent that the courts of India shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these Legal Terms.
+                            These Legal Terms shall be governed by and defined following the laws of India. TechMind.click and yourself irrevocably consent that the courts of Jaipur, Rajasthan, India shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these Legal Terms.
                         </p>
                     </section>
 
@@ -168,12 +168,12 @@ function Terms() {
 
                         <h3 className="text-xl font-semibold mb-2">Informal Negotiations</h3>
                         <p>
-                            To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms (each a `&quot;Dispute`&quot; and collectively, the `&quot;Disputes`&quot;) brought by either you or us (individually, a `&quot;Party`&quot; and collectively, the `&quot;Parties`&quot;), the Parties agree to first attempt to negotiate any Dispute informally for at least thirty (30) days before initiating arbitration. Such informal negotiations commence upon written notice from one Party to the other Party.
+                            To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms (each a &quot;Dispute&quot; and collectively, the &quot;Disputes&quot;) brought by either you or us (individually, a &quot;Party&quot; and collectively, the &quot;Parties&quot;), the Parties agree to first attempt to negotiate any Dispute informally for at least thirty (30) days before initiating formal legal proceedings. Such informal negotiations commence upon written notice from one Party to the other Party.
                         </p>
 
-                        <h3 className="text-xl font-semibold mb-2 mt-6">Binding Arbitration</h3>
+                        <h3 className="text-xl font-semibold mb-2 mt-6">Arbitration &amp; Jurisdiction</h3>
                         <p>
-                            Any dispute arising out of or in connection with these Legal Terms, including any question regarding its existence, validity, or termination, shall be referred to and finally resolved by the International Commercial Arbitration Court under the European Arbitration Chamber (Belgium, Brussels, Avenue Louise, 146) according to the Rules of this ICAC. The number of arbitrators shall be three (3). The seat, or legal place, or arbitration shall be Jaipur, India. The language of the proceedings shall be English. The governing law of these Legal Terms shall be substantive law of India.
+                            Any dispute arising out of or in connection with these Legal Terms that cannot be resolved through informal negotiations shall be subject to the exclusive jurisdiction of the competent civil courts in Jaipur, Rajasthan, India, in accordance with applicable Indian laws.
                         </p>
 
                         <h3 className="text-xl font-semibold mb-2 mt-6">Restrictions</h3>
@@ -249,7 +249,7 @@ function Terms() {
                             In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:
                         </p>
                         <address className="not-italic mt-4">
-                            <strong>Technind.click</strong><br />
+                            <strong>TechMind.click</strong><br />
                             <strong>info@techmind.click</strong>
                         </address>
                     </section>

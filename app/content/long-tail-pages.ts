@@ -522,9 +522,9 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     relatedArticles: baseRelatedArticles,
     relatedTools: baseRelatedTools,
     internalLinks: [
-      { title: "Does TechMind store uploaded files", href: "/does-techmind-store-uploaded-files", description: "Read platform-specific handling details." },
-      { title: "How TechMind protects user privacy", href: "/how-techmind-protects-user-privacy", description: "Review trust architecture and controls." },
-      ],
+      { title: "TechMind Privacy Policy", href: "/privacy-policy", description: "Read our comprehensive privacy policy and data-handling commitments." },
+      { title: "About TechMind", href: "/about-us", description: "Learn about the mission, architecture, and team behind TechMind." },
+    ],
     glossaryLinks: [
       { title: "Privacy glossary", href: "/glossary", description: "Understand terms used in online tool safety." },
     ],
@@ -579,9 +579,9 @@ export const LONG_TAIL_PAGES: LongTailPage[] = [
     ],
     relatedTools: baseRelatedTools,
     internalLinks: [
-      { title: "Is online text converter safe", href: "/is-online-text-converter-safe", description: "Read the quick trust-check version." },
-      { title: "Does TechMind store uploaded files", href: "/does-techmind-store-uploaded-files", description: "Get direct data-handling context." },
-      ],
+      { title: "TechMind Privacy Policy", href: "/privacy-policy", description: "Read our comprehensive privacy policy and data-handling commitments." },
+      { title: "Editorial Policy", href: "/editorial-policy", description: "Review our editorial guidelines and review procedures." },
+    ],
     glossaryLinks: [
       { title: "Trust and policy glossary", href: "/glossary", description: "Understand trust and governance terms." },
     ],

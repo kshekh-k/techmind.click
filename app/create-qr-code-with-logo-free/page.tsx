@@ -1,9 +1,7 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/app/components/layout";
 import FAQAccordion from "@/app/components/faq-accordion";
-import QRCodeGeneratorLoader from "@/app/components/tools/qr-generator/QRCodeGeneratorLoader";
 
 const SITE_URL = "https://www.techmind.click";
 const PAGE_PATH = "/create-qr-code-with-logo-free";
@@ -177,11 +175,6 @@ export default function CreateQRCodeWithLogoFreePage() {
       />
 
       <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
-        <section id="tool">
-          <Suspense fallback={<div className="min-h-[500px] flex items-center justify-center text-muted-foreground">Loading QR Code Generator…</div>}>
-            <QRCodeGeneratorLoader />
-          </Suspense>
-        </section>
 
         <section className="relative overflow-hidden rounded-3xl border border-indigo-200/40 bg-gradient-to-br from-indigo-700 via-blue-600 to-cyan-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />

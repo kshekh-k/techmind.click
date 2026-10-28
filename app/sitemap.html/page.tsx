@@ -3,6 +3,7 @@ import Link from "next/link";
 import blogs from "@/app/data/blog.json";
 import glossary from "@/app/data/glossary.json";
 import authors from "@/app/data/authors.json";
+import redirects from "@/app/data/redirects.json";
 import { getAllLongTailSlugs } from "@/app/content/long-tail-pages";
 import { STATIC_ROUTES } from "@/app/lib/static-routes";
 import Layout from "@/app/components/layout";
@@ -27,6 +28,10 @@ type SitemapSection = {
 };
 
 function buildSections(): SitemapSection[] {
+  const redirectedSources = new Set<string>(
+    (redirects as { source: string }[]).map((r) => r.source.trim().toLowerCase())
+  );
+
   const staticPages: SitemapEntry[] = STATIC_ROUTES.map((r) => ({
     label: r.label,
     href: r.path,
@@ -34,6 +39,7 @@ function buildSections(): SitemapSection[] {
 
   const blogEntries: SitemapEntry[] = (blogs as { slug: string; title?: string; date?: string }[])
     .slice()
+    .filter((b) => !redirectedSources.has(`/blogs/${b.slug.trim().toLowerCase()}`))
     .sort((a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime())
     .map((b) => ({
       label: b.title ?? b.slug,
@@ -50,10 +56,12 @@ function buildSections(): SitemapSection[] {
     href: `/authors/${a.slug.trim().toLowerCase()}`,
   }));
 
-  const longTailEntries: SitemapEntry[] = getAllLongTailSlugs().map((slug) => ({
-    label: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-    href: `/${slug}`,
-  }));
+  const longTailEntries: SitemapEntry[] = getAllLongTailSlugs()
+    .filter((slug) => !redirectedSources.has(`/${slug.trim().toLowerCase()}`))
+    .map((slug) => ({
+      label: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      href: `/${slug}`,
+    }));
 
   return [
     { title: "Main Pages", entries: staticPages },
