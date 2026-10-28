@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   CaseLower,
   CaseSensitive,
@@ -33,6 +33,8 @@ import {
 } from "@/utils/text";
 import type { SpellcheckMatch } from "@/lib/spellcheck";
 import { convertUnicode } from "@/utils/unicode";
+import AdsterraBanner from "./ads/AdsterraBanner";
+// import AdsterraMobileBanner from "./ads/AdsterraMobileBanner";
 
 type FormatAction =
   | "uppercase"
@@ -627,8 +629,8 @@ export default function TextFormatter() {
   );
 
   return (
-    <Card className="shadow-sm !border-none">
-      <CardHeader className="px-3! sm:px-6!">
+    <Card className="shadow-sm border-none! pt-2! gap-2!">
+      <CardHeader className="px-3! sm:px-6! pb-0!">
         <CardTitle as="p" className="text-2xl font-bold text-center">
           Advanced Case Converter
         </CardTitle>
@@ -824,70 +826,80 @@ export default function TextFormatter() {
           />
 
           <div className="flex flex-wrap gap-3 pt-5">
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineBlue"
               onClick={() => formatText("uppercase")}
               className="rounded !uppercase"
             >
               Uppercase
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlinePurple"
               onClick={() => formatText("lowercase")}
               className="rounded lowercase"
             >
               Lowercase
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineTeal"
               onClick={() => formatText("propercase")}
               className="capitalize"
             >
               Proper Case
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineOrange"
               onClick={() => formatText("sentencecase")}
               className="rounded"
             >
               Sentence case
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineRose"
               onClick={() => formatText("slug")}
               className="rounded"
             >
               Slugify
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineCyan"
               onClick={() => formatText("snakecase")}
               className="rounded"
             >
               Snake Case
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineTeal"
               onClick={() => formatText("camelcase")}
               className="rounded"
             >
               camelCase
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlinePurple"
               onClick={() => formatText("slug-snake-to-text")}
               className="rounded"
             >
               No Slug/Snake
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineBlue"
               onClick={() => formatText("remove-line-breaks")}
               className="rounded"
             >
               Line Breaks
             </Button>
-            <Button size={'sm'}
+            <Button
+              size={"sm"}
               variant="outlineLime"
               onClick={handleSpellCheck}
               disabled={isSpellChecking}
@@ -910,11 +922,15 @@ export default function TextFormatter() {
             />
           )}
         </div>
-
       </CardContent>
 
-      <CardFooter className="flex flex-col gap-3 border-t border-gray-200 px-3! sm:px-6!">
-        <div className="flex justify-end gap-3 w-full">
+      <CardFooter className="flex flex-col sm:flex-row gap-3 border-t border-gray-200 px-3! sm:px-6! pt-2.5!">
+        <div className="w-full text-xs text-amber-800">
+          <strong>Note:</strong> Unicode formatting (Bold / Italic) works
+          separately from Case Converter tools. For best results, apply case
+          conversion first, then use Unicode formatting.
+        </div>
+        <div className="flex justify-end gap-3">
           <Button variant="outlineRed" onClick={() => formatText("clear")}>
             Clear All
           </Button>
@@ -922,13 +938,13 @@ export default function TextFormatter() {
             Copy Text
           </Button>
         </div>
-        <div className="w-full rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-700">
-          <strong>Note:</strong> Unicode formatting (Bold / Italic) works separately
-          from Case Converter tools. For best results, apply case conversion first,
-          then use Unicode formatting.
-        </div>
-
       </CardFooter>
+
+      <AdsterraBanner />
+
+      {/* <div className="md:hidden">
+        <AdsterraMobileBanner />
+      </div> */}
     </Card>
   );
 }

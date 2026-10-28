@@ -81,8 +81,12 @@ import {
   RiGooglePlayLine,
   RiRestartLine,
 } from "react-icons/ri";
+import AdsterraMobileBanner from "../../ads/AdsterraMobileBanner";
 
-const SOCIAL_ICONS: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+const SOCIAL_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string; style?: React.CSSProperties }>
+> = {
   Default: RiRestartLine,
   Instagram: RiInstagramLine,
   Facebook: RiFacebookCircleLine,
@@ -108,7 +112,10 @@ const DOT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "extra-rounded": Hexagon,
 };
 
-const CORNER_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const CORNER_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
   dot: CircleDot,
   square: Square,
   "extra-rounded": Shield,
@@ -162,7 +169,8 @@ export default function QRCodeGenerator() {
   const [dotDropdownOpen, setDotDropdownOpen] = useState(false);
   const [cornerDropdownOpen, setCornerDropdownOpen] = useState(false);
   const [socialDropdownOpen, setSocialDropdownOpen] = useState(false);
-  const [selectedPresetName, setSelectedPresetName] = useState<string>("Default");
+  const [selectedPresetName, setSelectedPresetName] =
+    useState<string>("Default");
 
   const dotDropdownRef = useRef<HTMLDivElement>(null);
   const cornerDropdownRef = useRef<HTMLDivElement>(null);
@@ -203,7 +211,12 @@ export default function QRCodeGenerator() {
   const qrTypes = [
     { value: "url", label: "URL", icon: Link, color: "--color-purple-500" },
     { value: "text", label: "Text", icon: FileText, color: "--color-blue-500" },
-    { value: "phone", label: "Phone", icon: Smartphone, color: "--color-red-500" },
+    {
+      value: "phone",
+      label: "Phone",
+      icon: Smartphone,
+      color: "--color-red-500",
+    },
     { value: "email", label: "Email", icon: Mail, color: "--color-cyan-500" },
     { value: "wifi", label: "Wi-Fi", icon: Wifi, color: "--color-emerald-500" },
   ] as const;
@@ -293,7 +306,7 @@ export default function QRCodeGenerator() {
         setSettings({ ...DEFAULT_QR_SETTINGS, ...preloadSettings });
         if (id) setSavedId(id);
         if (name) setSavedName(name);
-      } catch { }
+      } catch {}
       localStorage.removeItem("qr-preload");
       return;
     }
@@ -313,8 +326,10 @@ export default function QRCodeGenerator() {
   useEffect(() => {
     return () => {
       if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
-      if (qrContainerRefDesktop.current) qrContainerRefDesktop.current.innerHTML = "";
-      if (qrContainerRefMobile.current) qrContainerRefMobile.current.innerHTML = "";
+      if (qrContainerRefDesktop.current)
+        qrContainerRefDesktop.current.innerHTML = "";
+      if (qrContainerRefMobile.current)
+        qrContainerRefMobile.current.innerHTML = "";
       qrInstanceRefDesktop.current = null;
       qrInstanceRefMobile.current = null;
     };
@@ -374,7 +389,8 @@ export default function QRCodeGenerator() {
       if (!qr) return;
 
       const label = settings.label.trim();
-      const activeContainer = qrContainerRefDesktop.current || qrContainerRefMobile.current;
+      const activeContainer =
+        qrContainerRefDesktop.current || qrContainerRefMobile.current;
       const svgEl = label
         ? (activeContainer?.querySelector("svg") as SVGSVGElement | null)
         : null;
@@ -470,13 +486,16 @@ export default function QRCodeGenerator() {
                   className="rounded-lg p-2 shadow-1!"
                   style={{ backgroundColor: settings.bgColor }}
                 >
-                  <div ref={qrContainerRefMobile} className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full" />
+                  <div
+                    ref={qrContainerRefMobile}
+                    className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full"
+                  />
 
                   {/* Label preview — always rendered so layout doesn't jump */}
-                  <div className="mt-2 flex min-h-[26px] w-full items-center justify-center px-2">
+                  <div className="mt-2 flex min-h-6.5 w-full items-center justify-center px-2">
                     {settings.label ? (
                       <p
-                        className="tracking-wide text-center break-words leading-snug max-w-full"
+                        className="tracking-wide text-center wrap-break-word leading-snug max-w-full"
                         style={{
                           color: settings.labelColor,
                           fontSize: `${settings.labelFontSize}px`,
@@ -487,15 +506,16 @@ export default function QRCodeGenerator() {
                         {settings.label}
                       </p>
                     ) : (
-                      <p className="text-xs italic" style={{ color: settings.labelColor, opacity: 0.3 }}>
+                      <p
+                        className="text-xs italic"
+                        style={{ color: settings.labelColor, opacity: 0.3 }}
+                      >
                         label text
                       </p>
                     )}
                   </div>
                 </div>
               </div>
-
-
             </div>
 
             <Tabs
@@ -512,7 +532,12 @@ export default function QRCodeGenerator() {
                     value={value}
                     className="rounded-sm! font-medium transition-all text-xs! bg-white shadow-1! text-(color:--text-color)
                    data-[state=active]:bg-(--text-color)
-                   data-[state=active]:text-white" style={{ '--text-color': `var(${color as string})` } as React.CSSProperties}
+                   data-[state=active]:text-white"
+                    style={
+                      {
+                        "--text-color": `var(${color as string})`,
+                      } as React.CSSProperties
+                    }
                   >
                     <span className="flex items-center justify-center gap-1 py-1">
                       <Icon className="size-3.5" strokeWidth={2.5} />
@@ -532,7 +557,6 @@ export default function QRCodeGenerator() {
                     type="text"
                     autoFocus
                   />
-
                 </div>
                 {urlError && (
                   <p className="flex items-center gap-1.5 text-xs text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
@@ -559,7 +583,6 @@ export default function QRCodeGenerator() {
                     type="tel"
                     className={`px-5! py-3! h-auto text-sm! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500 `}
                   />
-
                 </div>
               </TabsContent>
 
@@ -569,14 +592,14 @@ export default function QRCodeGenerator() {
                     placeholder="e.g. hello@example.com"
                     value={settings.email}
                     className={`px-5! py-3! h-auto text-sm! bg-white shadow-1! focus:ring-black/5! focus:border-transparent focus:outline-transparent focus-visible:!ring-transparent focus-visible:!border-purple-500
-                    ${emailError
+                    ${
+                      emailError
                         ? "!border-red-400 focus-visible:!ring-red-200"
                         : ""
-                      }`}
+                    }`}
                     onChange={(e) => updateSettings({ email: e.target.value })}
                     type="text"
                   />
-
                 </div>
                 {emailError && (
                   <p className="flex items-center gap-1.5 text-xs text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
@@ -621,9 +644,7 @@ export default function QRCodeGenerator() {
                           wifi: {
                             ...settings.wifi,
                             encryption: e.target.value as
-                              | "WPA"
-                              | "WEP"
-                              | "nopass",
+                              "WPA" | "WEP" | "nopass",
                           },
                         })
                       }
@@ -659,23 +680,40 @@ export default function QRCodeGenerator() {
 
             {/* ── Colors ────────────────────────────────────────────── */}
             <div className="space-y-1">
-              <Label className="text-[10px] text-muted-foreground block text-left">QR Colors</Label>
+              <Label className="text-[10px] text-muted-foreground block text-left">
+                QR Colors
+              </Label>
               <div className="sm:grid sm:grid-cols-4 gap-3 flex flex-wrap">
                 {[
                   { id: "fg", label: "Foreground", key: "fgColor" as const },
                   { id: "bg", label: "Background", key: "bgColor" as const },
-                  { id: "csq", label: "Corner Frame", key: "cornerSquareColor" as const },
-                  { id: "cdot", label: "Corner Dots", key: "cornerDotColor" as const },
+                  {
+                    id: "csq",
+                    label: "Corner Frame",
+                    key: "cornerSquareColor" as const,
+                  },
+                  {
+                    id: "cdot",
+                    label: "Corner Dots",
+                    key: "cornerDotColor" as const,
+                  },
                 ].map(({ id, label, key }) => (
-                  <div key={id} className="space-y-1 bg-white shadow-1! p-1.5 rounded-sm">
-                    <Label className="text-[10px] text-muted-foreground block text-left">{label}</Label>
+                  <div
+                    key={id}
+                    className="space-y-1 bg-white shadow-1! p-1.5 rounded-sm"
+                  >
+                    <Label className="text-[10px] text-muted-foreground block text-left">
+                      {label}
+                    </Label>
                     <div className="flex items-center gap-1 ">
                       <div className="relative flex items-center ">
                         <input
                           type="color"
                           id={`${id}-color-picker`}
                           value={settings[key]}
-                          onChange={(e) => updateSettings({ [key]: e.target.value })}
+                          onChange={(e) =>
+                            updateSettings({ [key]: e.target.value })
+                          }
                           className="sr-only"
                         />
                         <label
@@ -684,7 +722,10 @@ export default function QRCodeGenerator() {
                           style={{ backgroundColor: settings[key] }}
                         />
                       </div>
-                      <label htmlFor={`${id}-color-picker`} className="text-[10px] font-mono text-muted-foreground uppercase">
+                      <label
+                        htmlFor={`${id}-color-picker`}
+                        className="text-[10px] font-mono text-muted-foreground uppercase"
+                      >
                         {settings[key]}
                       </label>
                     </div>
@@ -696,28 +737,32 @@ export default function QRCodeGenerator() {
             <div className="flex flex-wrap sm:grid sm:grid-cols-3 gap-4 w-full">
               {/* ── Margin ────────────────────────────────────────────── */}
               <div className="space-y-1 w-full sm:w-auto">
-
-                <Label className="text-[10px] text-muted-foreground block text-left">Margin</Label>
+                <Label className="text-[10px] text-muted-foreground block text-left">
+                  Margin
+                </Label>
                 <div className="bg-white shadow-1! p-2.5   rounded-sm items-center flex gap-1">
-
-
                   <input
                     type="range"
                     min={0}
                     max={40}
                     step={5}
                     value={settings.margin}
-                    onChange={(e) => updateSettings({ margin: Number(e.target.value) })}
+                    onChange={(e) =>
+                      updateSettings({ margin: Number(e.target.value) })
+                    }
                     className="w-full accent-purple-600 h-1.5 cursor-pointer"
                   />
-                  <span className="text-[10px] text-muted-foreground">{settings.margin}px</span>
-
+                  <span className="text-[10px] text-muted-foreground">
+                    {settings.margin}px
+                  </span>
                 </div>
               </div>
 
               {/* ── Dot Style ─────────────────────────────────────────── */}
               <div ref={dotDropdownRef} className="space-y-1 flex-1 relative">
-                <Label className="text-[10px] text-muted-foreground block text-left">Dot Style</Label>
+                <Label className="text-[10px] text-muted-foreground block text-left">
+                  Dot Style
+                </Label>
                 <div>
                   <button
                     type="button"
@@ -729,17 +774,28 @@ export default function QRCodeGenerator() {
                   >
                     <span className="flex items-center gap-2">
                       {(() => {
-                        const SelectedIcon = DOT_ICONS[settings.dotType] || Circle;
-                        const currentOption = DOT_TYPE_OPTIONS.find((o) => o.value === settings.dotType) || DOT_TYPE_OPTIONS[0];
+                        const SelectedIcon =
+                          DOT_ICONS[settings.dotType] || Circle;
+                        const currentOption =
+                          DOT_TYPE_OPTIONS.find(
+                            (o) => o.value === settings.dotType,
+                          ) || DOT_TYPE_OPTIONS[0];
                         return (
                           <>
                             <SelectedIcon className="size-3.5 text-purple-600" />
-                            <span className="font-medium text-gray-700">{currentOption.label}</span>
+                            <span className="font-medium text-gray-700">
+                              {currentOption.label}
+                            </span>
                           </>
                         );
                       })()}
                     </span>
-                    <ChevronDown className={cn("size-3.5 text-gray-500 transition-transform", dotDropdownOpen && "rotate-180")} />
+                    <ChevronDown
+                      className={cn(
+                        "size-3.5 text-gray-500 transition-transform",
+                        dotDropdownOpen && "rotate-180",
+                      )}
+                    />
                   </button>
 
                   {dotDropdownOpen && (
@@ -758,10 +814,17 @@ export default function QRCodeGenerator() {
                               "flex items-center gap-2 w-full px-3 py-2 text-xs text-left hover:bg-purple-50 transition-colors",
                               settings.dotType === opt.value
                                 ? "bg-purple-50 text-purple-700 font-semibold"
-                                : "text-gray-600"
+                                : "text-gray-600",
                             )}
                           >
-                            <IconComponent className={cn("size-3.5", settings.dotType === opt.value ? "text-purple-700" : "text-gray-400")} />
+                            <IconComponent
+                              className={cn(
+                                "size-3.5",
+                                settings.dotType === opt.value
+                                  ? "text-purple-700"
+                                  : "text-gray-400",
+                              )}
+                            />
                             {opt.label}
                           </button>
                         );
@@ -772,8 +835,13 @@ export default function QRCodeGenerator() {
               </div>
 
               {/* ── Corner Style ──────────────────────────────────────── */}
-              <div ref={cornerDropdownRef} className="space-y-1 flex-1 relative">
-                <Label className="text-[10px] text-muted-foreground block text-left">Corner Style</Label>
+              <div
+                ref={cornerDropdownRef}
+                className="space-y-1 flex-1 relative"
+              >
+                <Label className="text-[10px] text-muted-foreground block text-left">
+                  Corner Style
+                </Label>
                 <div>
                   <button
                     type="button"
@@ -785,23 +853,35 @@ export default function QRCodeGenerator() {
                   >
                     <span className="flex items-center gap-2">
                       {(() => {
-                        const SelectedIcon = CORNER_ICONS[settings.cornerType] || CircleDot;
-                        const currentOption = CORNER_TYPE_OPTIONS.find((o) => o.value === settings.cornerType) || CORNER_TYPE_OPTIONS[0];
+                        const SelectedIcon =
+                          CORNER_ICONS[settings.cornerType] || CircleDot;
+                        const currentOption =
+                          CORNER_TYPE_OPTIONS.find(
+                            (o) => o.value === settings.cornerType,
+                          ) || CORNER_TYPE_OPTIONS[0];
                         return (
                           <>
                             <SelectedIcon className="size-3.5 text-purple-600" />
-                            <span className="font-medium text-gray-700">{currentOption.label}</span>
+                            <span className="font-medium text-gray-700">
+                              {currentOption.label}
+                            </span>
                           </>
                         );
                       })()}
                     </span>
-                    <ChevronDown className={cn("size-3.5 text-gray-500 transition-transform", cornerDropdownOpen && "rotate-180")} />
+                    <ChevronDown
+                      className={cn(
+                        "size-3.5 text-gray-500 transition-transform",
+                        cornerDropdownOpen && "rotate-180",
+                      )}
+                    />
                   </button>
 
                   {cornerDropdownOpen && (
                     <div className="absolute z-30 w-full mt-1 bg-white border border-gray-100 rounded-sm shadow-lg max-h-48 overflow-y-auto py-1">
                       {CORNER_TYPE_OPTIONS.map((opt) => {
-                        const IconComponent = CORNER_ICONS[opt.value] || CircleDot;
+                        const IconComponent =
+                          CORNER_ICONS[opt.value] || CircleDot;
                         return (
                           <button
                             key={opt.value}
@@ -814,10 +894,17 @@ export default function QRCodeGenerator() {
                               "flex items-center gap-2 w-full px-3 py-2 text-xs text-left hover:bg-purple-50 transition-colors",
                               settings.cornerType === opt.value
                                 ? "bg-purple-50 text-purple-700 font-semibold"
-                                : "text-gray-600"
+                                : "text-gray-600",
                             )}
                           >
-                            <IconComponent className={cn("size-3.5", settings.cornerType === opt.value ? "text-purple-700" : "text-gray-400")} />
+                            <IconComponent
+                              className={cn(
+                                "size-3.5",
+                                settings.cornerType === opt.value
+                                  ? "text-purple-700"
+                                  : "text-gray-400",
+                              )}
+                            />
                             {opt.label}
                           </button>
                         );
@@ -837,7 +924,9 @@ export default function QRCodeGenerator() {
               />
               {/* ── Social Media Presets ───────────────────────────────── */}
               <div ref={socialDropdownRef} className="space-y-1 relative">
-                <Label className="text-[10px] text-muted-foreground block text-left">Social Presets</Label>
+                <Label className="text-[10px] text-muted-foreground block text-left">
+                  Social Presets
+                </Label>
                 <div>
                   <button
                     type="button"
@@ -846,18 +935,34 @@ export default function QRCodeGenerator() {
                   >
                     <span className="flex items-center gap-2">
                       {(() => {
-                        const SelectedIcon = SOCIAL_ICONS[selectedPresetName] || RiRestartLine;
-                        const preset = SOCIAL_PRESETS.find((p) => p.name === selectedPresetName);
-                        const displayColor = selectedPresetName === "Default" ? "#6B7280" : (preset?.brandColor || "#6B7280");
+                        const SelectedIcon =
+                          SOCIAL_ICONS[selectedPresetName] || RiRestartLine;
+                        const preset = SOCIAL_PRESETS.find(
+                          (p) => p.name === selectedPresetName,
+                        );
+                        const displayColor =
+                          selectedPresetName === "Default"
+                            ? "#6B7280"
+                            : preset?.brandColor || "#6B7280";
                         return (
                           <>
-                            <SelectedIcon className="size-4 shrink-0" style={{ color: displayColor }} />
-                            <span className="font-medium text-gray-700">{selectedPresetName}</span>
+                            <SelectedIcon
+                              className="size-4 shrink-0"
+                              style={{ color: displayColor }}
+                            />
+                            <span className="font-medium text-gray-700">
+                              {selectedPresetName}
+                            </span>
                           </>
                         );
                       })()}
                     </span>
-                    <ChevronDown className={cn("size-3.5 text-gray-500 transition-transform", socialDropdownOpen && "rotate-180")} />
+                    <ChevronDown
+                      className={cn(
+                        "size-3.5 text-gray-500 transition-transform",
+                        socialDropdownOpen && "rotate-180",
+                      )}
+                    />
                   </button>
 
                   {socialDropdownOpen && (
@@ -869,7 +974,8 @@ export default function QRCodeGenerator() {
                           updateSettings({
                             fgColor: DEFAULT_QR_SETTINGS.fgColor,
                             bgColor: DEFAULT_QR_SETTINGS.bgColor,
-                            cornerSquareColor: DEFAULT_QR_SETTINGS.cornerSquareColor,
+                            cornerSquareColor:
+                              DEFAULT_QR_SETTINGS.cornerSquareColor,
                             cornerDotColor: DEFAULT_QR_SETTINGS.cornerDotColor,
                             dotType: DEFAULT_QR_SETTINGS.dotType,
                             cornerType: DEFAULT_QR_SETTINGS.cornerType,
@@ -882,7 +988,7 @@ export default function QRCodeGenerator() {
                           "flex items-center justify-between w-full px-3 py-2 text-xs text-left hover:bg-purple-50 transition-colors",
                           selectedPresetName === "Default"
                             ? "bg-purple-50 text-purple-700 font-semibold"
-                            : "text-gray-600"
+                            : "text-gray-600",
                         )}
                       >
                         <span className="flex items-center gap-2">
@@ -893,7 +999,8 @@ export default function QRCodeGenerator() {
 
                       {/* Social Options */}
                       {SOCIAL_PRESETS.map((preset) => {
-                        const IconComponent = SOCIAL_ICONS[preset.name] || RiRestartLine;
+                        const IconComponent =
+                          SOCIAL_ICONS[preset.name] || RiRestartLine;
                         return (
                           <button
                             key={preset.name}
@@ -911,7 +1018,9 @@ export default function QRCodeGenerator() {
                                 logo: null,
                               });
                               try {
-                                const dataUrl = await fetchLogoAsPng(preset.logoUrl);
+                                const dataUrl = await fetchLogoAsPng(
+                                  preset.logoUrl,
+                                );
                                 updateSettings({ logo: dataUrl });
                               } catch {
                                 updateSettings({ logo: preset.logoUrl });
@@ -921,11 +1030,14 @@ export default function QRCodeGenerator() {
                               "flex items-center justify-between w-full px-3 py-2 text-xs text-left hover:bg-purple-50 transition-colors",
                               selectedPresetName === preset.name
                                 ? "bg-purple-50 text-purple-700 font-semibold"
-                                : "text-gray-600"
+                                : "text-gray-600",
                             )}
                           >
                             <span className="flex items-center gap-2">
-                              <IconComponent className="size-4 shrink-0" style={{ color: preset.brandColor }} />
+                              <IconComponent
+                                className="size-4 shrink-0"
+                                style={{ color: preset.brandColor }}
+                              />
                               <span>{preset.name}</span>
                             </span>
                           </button>
@@ -938,17 +1050,20 @@ export default function QRCodeGenerator() {
             </div>
 
             {/* ── Reset ─────────────────────────────────────────────── */}
-            <Button variant="outline" className="w-full gap-2 border-transparent shadow-1! bg-white " onClick={handleReset}>
+            <Button
+              variant="outline"
+              className="w-full gap-2 border-transparent shadow-1! bg-white "
+              onClick={handleReset}
+            >
               <RotateCcw className="size-3.5" />
               Reset to Defaults
             </Button>
 
+            <AdsterraMobileBanner />
           </div>
         </div>
 
-
         {/* QR + label + file name + download – merged from QRPreview */}
-
 
         {/* ── QR code display ─────────────────────────────────── */}
         <div className="hidden lg:flex lg:col-span-8 flex-col">
@@ -957,13 +1072,16 @@ export default function QRCodeGenerator() {
               className="rounded-lg p-2 shadow-1!"
               style={{ backgroundColor: settings.bgColor }}
             >
-              <div ref={qrContainerRefDesktop} className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full" />
+              <div
+                ref={qrContainerRefDesktop}
+                className="[&>svg]:rounded-sm [&>canvas]:rounded-sm [&>svg]:max-w-full"
+              />
 
               {/* Label preview — always rendered so layout doesn't jump */}
-              <div className="mt-2 flex min-h-[26px] w-full items-center justify-center px-2">
+              <div className="mt-2 flex min-h-6.5 w-full items-center justify-center px-2">
                 {settings.label ? (
                   <p
-                    className="tracking-wide text-center break-words leading-snug max-w-full"
+                    className="tracking-wide text-center wrap-break-word leading-snug max-w-full"
                     style={{
                       color: settings.labelColor,
                       fontSize: `${settings.labelFontSize}px`,
@@ -974,7 +1092,10 @@ export default function QRCodeGenerator() {
                     {settings.label}
                   </p>
                 ) : (
-                  <p className="text-xs italic" style={{ color: settings.labelColor, opacity: 0.3 }}>
+                  <p
+                    className="text-xs italic"
+                    style={{ color: settings.labelColor, opacity: 0.3 }}
+                  >
                     label text
                   </p>
                 )}
@@ -986,7 +1107,10 @@ export default function QRCodeGenerator() {
         <div className="col-span-4 space-y-4">
           {/* ── Label ───────────────────────────────────────────── */}
           <div className="space-y-1.5">
-            <Label htmlFor="qr-label" className="text-[10px] text-muted-foreground block">
+            <Label
+              htmlFor="qr-label"
+              className="text-[10px] text-muted-foreground block"
+            >
               Label
             </Label>
             <Input
@@ -1003,14 +1127,18 @@ export default function QRCodeGenerator() {
           <div className="flex gap-2 justify-between items-start">
             {/* Color */}
             <div className="space-y-1">
-              <Label className="text-[10px] text-muted-foreground block">Color</Label>
+              <Label className="text-[10px] text-muted-foreground block">
+                Color
+              </Label>
               <div className="flex flex-col items-center gap-1 ">
                 <div className="relative flex items-center rounded-sm! bg-white shadow-1! p-1">
                   <input
                     type="color"
                     id="label-color-picker"
                     value={settings.labelColor}
-                    onChange={(e) => updateSettings({ labelColor: e.target.value })}
+                    onChange={(e) =>
+                      updateSettings({ labelColor: e.target.value })
+                    }
                     className="sr-only"
                   />
                   <label
@@ -1019,7 +1147,10 @@ export default function QRCodeGenerator() {
                     style={{ backgroundColor: settings.labelColor }}
                   />
                 </div>
-                <label htmlFor="label-color-picker" className="text-[10px] font-mono text-muted-foreground uppercase">
+                <label
+                  htmlFor="label-color-picker"
+                  className="text-[10px] font-mono text-muted-foreground uppercase"
+                >
                   {settings.labelColor}
                 </label>
               </div>
@@ -1027,11 +1158,18 @@ export default function QRCodeGenerator() {
 
             {/* Font size */}
             <div className="space-y-1">
-              <Label htmlFor="qr-label-fontsize" className="text-[10px] text-muted-foreground block">Font Size</Label>
+              <Label
+                htmlFor="qr-label-fontsize"
+                className="text-[10px] text-muted-foreground block"
+              >
+                Font Size
+              </Label>
               <select
                 id="qr-label-fontsize"
                 value={settings.labelFontSize}
-                onChange={(e) => updateSettings({ labelFontSize: Number(e.target.value) })}
+                onChange={(e) =>
+                  updateSettings({ labelFontSize: Number(e.target.value) })
+                }
                 className="w-full px-1! py-1! h-6 text-[10px]! bg-white shadow-1! border border-transparent rounded-sm! focus:outline-none!"
               >
                 <option value={12}>12px</option>
@@ -1043,11 +1181,15 @@ export default function QRCodeGenerator() {
 
             {/* Bold / Italic */}
             <div className="space-y-1">
-              <Label className="text-[10px] text-muted-foreground block">Style</Label>
+              <Label className="text-[10px] text-muted-foreground block">
+                Style
+              </Label>
               <div className="grid grid-cols-2 gap-1.5">
                 <button
                   type="button"
-                  onClick={() => updateSettings({ labelBold: !settings.labelBold })}
+                  onClick={() =>
+                    updateSettings({ labelBold: !settings.labelBold })
+                  }
                   className={cn(
                     "text-xs bg-white shadow-1! py-1 px-2 font-bold transition-colors rounded-sm!",
                     settings.labelBold
@@ -1059,7 +1201,9 @@ export default function QRCodeGenerator() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => updateSettings({ labelItalic: !settings.labelItalic })}
+                  onClick={() =>
+                    updateSettings({ labelItalic: !settings.labelItalic })
+                  }
                   className={cn(
                     "text-xs bg-white shadow-1! py-1 px-2 italic font-medium transition-colors rounded-sm!",
                     settings.labelItalic
@@ -1075,7 +1219,9 @@ export default function QRCodeGenerator() {
 
           {/* ── Size ──────────────────────────────────────────────── */}
           <div className="space-y-1">
-            <Label className="text-[10px] text-muted-foreground block">Size</Label>
+            <Label className="text-[10px] text-muted-foreground block">
+              Size
+            </Label>
             <div className="grid grid-cols-3 gap-1.5">
               {SIZE_OPTIONS.map(({ value, label }) => (
                 <button
@@ -1090,7 +1236,9 @@ export default function QRCodeGenerator() {
                   )}
                 >
                   {label}
-                  <span className="block text-[10px] opacity-70 pt-1" >{value}px</span>
+                  <span className="block text-[10px] opacity-70 pt-1">
+                    {value}px
+                  </span>
                 </button>
               ))}
             </div>
@@ -1098,7 +1246,10 @@ export default function QRCodeGenerator() {
 
           {/* ── File name ───────────────────────────────────────── */}
           <div className="space-y-1">
-            <Label htmlFor="qr-filename" className="text-[10px] text-muted-foreground block">
+            <Label
+              htmlFor="qr-filename"
+              className="text-[10px] text-muted-foreground block"
+            >
               File name
             </Label>
             <Input
@@ -1112,11 +1263,14 @@ export default function QRCodeGenerator() {
 
           {/* ── Download ────────────────────────────────────────── */}
           <div className="space-y-1">
-            <Label className="text-[10px] text-muted-foreground block">Download</Label>
+            <Label className="text-[10px] text-muted-foreground block">
+              Download
+            </Label>
             <div className="flex flex-wrap gap-2">
               <Button
                 variant="outlineBlue"
-                className="flex-1 gap-1 rounded-sm! text-xs! border-transparent shadow-1 bg-white" size={'xs'}
+                className="flex-1 gap-1 rounded-sm! text-xs! border-transparent shadow-1 bg-white"
+                size={"xs"}
                 onClick={() => handleDownload("png")}
                 disabled={isExporting}
               >
@@ -1125,7 +1279,8 @@ export default function QRCodeGenerator() {
               </Button>
               <Button
                 variant="outlinePurple"
-                className="flex-1 gap-1 rounded-sm! text-xs! border-transparent shadow-1 bg-white" size={'xs'}
+                className="flex-1 gap-1 rounded-sm! text-xs! border-transparent shadow-1 bg-white"
+                size={"xs"}
                 onClick={() => handleDownload("svg")}
                 disabled={isExporting}
               >
@@ -1134,7 +1289,8 @@ export default function QRCodeGenerator() {
               </Button>
               <Button
                 variant="outlineRose"
-                className="flex-1 gap-1 rounded-sm! text-xs! border-transparent shadow-1 bg-white" size={'xs'}
+                className="flex-1 gap-1 rounded-sm! text-xs! border-transparent shadow-1 bg-white"
+                size={"xs"}
                 onClick={() => handleDownload("pdf")}
                 disabled={isExporting}
               >
@@ -1154,20 +1310,19 @@ export default function QRCodeGenerator() {
 
           {/* ── Save ────────────────────────────────────────────── */}
           {user ? (
-            <SaveQRButton settings={settings} savedId={savedId} onSaved={(id, name) => {
-              setSavedId(id);
-              setSavedName(name);
-            }} />
+            <SaveQRButton
+              settings={settings}
+              savedId={savedId}
+              onSaved={(id, name) => {
+                setSavedId(id);
+                setSavedName(name);
+              }}
+            />
           ) : (
             <SaveQRPrompt settings={settings} />
           )}
         </div>
-
-
-
       </div>
-
-
     </div>
   );
 }
