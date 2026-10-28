@@ -178,11 +178,6 @@ export default async function BlogPage({ params }: PageProps) {
       />
 
       <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
-        {/* {blog.tool === "qr-code-generator" ? (
-          <QRCodeGeneratorLoader />
-        ) : (
-          <TextFormatter />
-        )} */}
         <article className="prose prose-lg bg-white w-full max-w-full border rounded-xl p-6 md:p-8 shadow-sm overflow-hidden">
           <nav
             aria-label="Breadcrumb"
@@ -249,19 +244,33 @@ export default async function BlogPage({ params }: PageProps) {
         </article>
 
         {/* Interactive Tool Section */}
-        <section className="bg-white border rounded-xl p-6 shadow-sm">
-          <div className="mb-4">
-            <h2 className="text-xl font-bold text-gray-900">
-              {blog.tool === "qr-code-generator"
-                ? "Interactive QR Code Generator"
-                : "Interactive Text Formatter"}
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              Try the tool mentioned in this guide directly below — free,
-              instant, and runs locally in your browser.
-            </p>
-          </div>
-        </section>
+        {/* {blog.tool === "qr-code-generator" ? (
+          <section className="bg-white border rounded-xl p-6 shadow-sm">
+            <div className="mb-4">
+              <h2 className="text-xl font-bold text-gray-900">
+                Interactive QR Code Generator
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Try the tool mentioned in this guide directly below — free,
+                instant, and runs locally in your browser.
+              </p>
+            </div>
+            <QRCodeGeneratorLoader />
+          </section>
+        ) : blog.tool === "text-formatter" ? (
+          <section className="bg-white border rounded-xl p-6 shadow-sm">
+            <div className="mb-4">
+              <h2 className="text-xl font-bold text-gray-900">
+                Interactive Text Formatter
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Try the tool mentioned in this guide directly below — free,
+                instant, and runs locally in your browser.
+              </p>
+            </div>
+            <TextFormatter />
+          </section>
+        ) : null} */}
 
         {blog.relatedPosts && blog.relatedPosts.length > 0 && (
           <RelatedPosts

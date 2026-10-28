@@ -126,13 +126,6 @@ export default function SolutionPageTemplate({
               <p className="mt-2 text-sm text-fuchsia-100">
                 {page.conciseDefinition}
               </p>
-
-              <div className="mt-4 rounded-lg bg-white/10 p-3">
-                <p className="text-[11px] text-purple-100">Priority</p>
-                <p className="text-sm font-semibold text-white">
-                  {page.priority}
-                </p>
-              </div>
             </div>
           </div>
         </div>

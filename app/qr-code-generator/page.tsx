@@ -280,60 +280,63 @@ export default function QRCodeGeneratorPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 space-y-10">
-
-
         {/* Tool */}
         <Suspense>
           <QRCodeGeneratorLoader />
         </Suspense>
 
-        <Card className="shadow-sm !border-none">
+        <Card className="shadow-sm border-none!">
           <CardContent className="py-5">
-            <CardTitle
-              as="h2"
-              className="text-2xl md:text-3xl font-extrabold tracking-tight"
-            >
-              More Free Productivity Tools
-            </CardTitle>
+            <div className="justify-between flex gap-2">
+              <div className="space-y-1">
+                <CardTitle
+                  as="h2"
+                  className="text-2xl md:text-3xl font-extrabold tracking-tight"
+                >
+                  More Free Productivity Tools
+                </CardTitle>
 
-            <p className="text-sm text-muted-foreground mt-2">
-              Looking for another tool? Try these free tools from TechMind.
-            </p>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Looking for another tool? Try these free tools from TechMind.
+                </p>
 
-            <div className="mt-4 flex flex-wrap gap-3">
-              <Link
-                href="/"
-                className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-              >
-                Text Formatter
-              </Link>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link
+                    href="/"
+                    className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                  >
+                    Text Formatter
+                  </Link>
 
-              <Link
-                href="/image-to-pdf"
-                className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-              >
-                Image to PDF
-              </Link>
+                  <Link
+                    href="/image-to-pdf"
+                    className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                  >
+                    Image to PDF
+                  </Link>
 
-              <Link
-                href="/blogs"
-                className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-              >
-                Blog Hub
-              </Link>
+                  <Link
+                    href="/blogs"
+                    className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                  >
+                    Blog Hub
+                  </Link>
 
-              <Link
-                href="/glossary"
-                className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-              >
-                Glossary
-              </Link>
+                  <Link
+                    href="/glossary"
+                    className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                  >
+                    Glossary
+                  </Link>
+                </div>
+              </div>
+
             </div>
           </CardContent>
         </Card>
 
         {/* SEO Content */}
-        <Card className="shadow-sm !border-none">
+        <Card className="shadow-sm border-none!">
           <CardHeader>
             <CardTitle
               as="h2"
@@ -342,9 +345,9 @@ export default function QRCodeGeneratorPage() {
               Create a QR Code for Whatever You Need to Share
             </CardTitle>
             <p className="text-base text-muted-foreground mt-3 max-w-4xl">
-              Paste a link, enter some text, add a phone number, or enter your Wi-Fi
-              details. The QR code is created in the browser, and you can change its
-              appearance before downloading the finished code.
+              Paste a link, enter some text, add a phone number, or enter your
+              Wi-Fi details. The QR code is created in the browser, and you can
+              change its appearance before downloading the finished code.
             </p>
           </CardHeader>
 
@@ -354,41 +357,50 @@ export default function QRCodeGeneratorPage() {
                 <h3>What can you turn into a QR code?</h3>
 
                 <p>
-                  The generator supports a few common types of information, so you
-                  don't have to use a different tool for each one.
+                  The generator supports a few common types of information, so
+                  you don't have to use a different tool for each one.
                 </p>
 
                 <ul>
                   <li>
-                    <strong>Website or URL:</strong> Paste the address of a website,
-                    landing page, portfolio, product page, or social profile.
+                    <strong>Website or URL:</strong> Paste the address of a
+                    website, landing page, portfolio, product page, or social
+                    profile.
                   </li>
 
                   <li>
-                    <strong>Text:</strong> Add a short message or other plain text
-                    that you want someone to read after scanning the code.
+                    <strong>Text:</strong> Add a short message or other plain
+                    text that you want someone to read after scanning the code.
                   </li>
 
                   <li>
-                    <strong>Phone number:</strong> Add a number that can be opened by
-                    a phone's calling application after scanning.
+                    <strong>Phone number:</strong> Add a number that can be
+                    opened by a phone's calling application after scanning.
                   </li>
 
                   <li>
-                    <strong>Wi-Fi:</strong> Enter the network name, password, and
-                    security type to create a QR code for connecting to the network.
+                    <strong>Wi-Fi:</strong> Enter the network name, password,
+                    and security type to create a QR code for connecting to the
+                    network.
                   </li>
                 </ul>
               </section>
               <section className="space-y-5">
                 <h3>Customization options</h3>
                 <p>
-                  You can change several parts of the QR code before downloading it. Choose the foreground and background colors, change the dot and corner styles, add a logo, and adjust the size and margin.              </p>
+                  You can change several parts of the QR code before downloading
+                  it. Choose the foreground and background colors, change the
+                  dot and corner styles, add a logo, and adjust the size and
+                  margin.{" "}
+                </p>
 
                 <h3>Popular Uses of QR Codes</h3>
 
                 <p>
-                  A QR code is useful when you want to give someone quick access to a link or other information without asking them to type it. You can put one on a menu, business card, product package, poster, event ticket, or Wi-Fi sign.
+                  A QR code is useful when you want to give someone quick access
+                  to a link or other information without asking them to type it.
+                  You can put one on a menu, business card, product package,
+                  poster, event ticket, or Wi-Fi sign.
                 </p>
               </section>
               <section className="space-y-5">
@@ -396,87 +408,101 @@ export default function QRCodeGeneratorPage() {
                   <div>
                     <h4>🏬 Restaurant Menus</h4>
                     <p>
-                      Put a QR code on a table, counter, poster, or menu card and link it to your online menu. Customers can scan the code with their phone and open the menu without typing the URL.{" "}
+                      Put a QR code on a table, counter, poster, or menu card
+                      and link it to your online menu. Customers can scan the
+                      code with their phone and open the menu without typing the
+                      URL.{" "}
                       <Link
                         href="/image-to-pdf"
                         className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
                       >
                         Image to PDF Converter
                       </Link>
-
                     </p>
                   </div>
 
                   <div>
                     <h4>💼 Business Cards</h4>
                     <p>
-                      Add a QR code to a business card and link it to your website, portfolio, LinkedIn profile, contact page, or other online information.{" "}
+                      Add a QR code to a business card and link it to your
+                      website, portfolio, LinkedIn profile, contact page, or
+                      other online information.{" "}
                       <Link
                         href="/"
                         className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
                       >
                         Text Formatter
                       </Link>
-
                     </p>
                   </div>
 
                   <div>
                     <h4>📶 WiFi Sharing</h4>
                     <p>
-                      Add the Wi-Fi network name and password to a QR code. Guests can scan it with a compatible phone instead of entering the network details manually.
+                      Add the Wi-Fi network name and password to a QR code.
+                      Guests can scan it with a compatible phone instead of
+                      entering the network details manually.
                     </p>
                   </div>
 
                   <div>
                     <h4>📦 Product Packaging</h4>
                     <p>
-                      A QR code on product packaging can link customers to a manual, setup instructions, warranty information, product videos, or a support page.
+                      A QR code on product packaging can link customers to a
+                      manual, setup instructions, warranty information, product
+                      videos, or a support page.
                     </p>
                   </div>
 
                   <div>
                     <h4>📢 Marketing & Advertising</h4>
                     <p>
-                      Add a QR code to posters, flyers, brochures, magazines, or product catalogs when you want people to visit a website or landing page from printed material.
+                      Add a QR code to posters, flyers, brochures, magazines, or
+                      product catalogs when you want people to visit a website
+                      or landing page from printed material.
                     </p>
                   </div>
 
                   <div>
                     <h4>🎫 Events & Tickets</h4>
                     <p>
-                      Use a QR code to share an event page, registration form, ticket information, venue map, schedule, or other event details.
+                      Use a QR code to share an event page, registration form,
+                      ticket information, venue map, schedule, or other event
+                      details.
                     </p>
                   </div>
 
                   <div>
                     <h4>📍 Google Maps & Locations</h4>
                     <p>
-                      Link a QR code to a Google Maps location so visitors can open directions from their phone.{" "}
+                      Link a QR code to a Google Maps location so visitors can
+                      open directions from their phone.{" "}
                       <Link
                         href="/blogs"
                         className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
                       >
-                        You can place the code on flyers, posters, signs, or other printed material.
+                        You can place the code on flyers, posters, signs, or
+                        other printed material.
                       </Link>
-
                     </p>
                   </div>
 
                   <div>
                     <h4>📱 Social Media & Websites</h4>
                     <p>
-                      Link the QR code to your Instagram, Facebook, YouTube, LinkedIn, X profile, or website. Someone scanning the code can open the selected page directly.
+                      Link the QR code to your Instagram, Facebook, YouTube,
+                      LinkedIn, X profile, or website. Someone scanning the code
+                      can open the selected page directly.
                     </p>
                   </div>
                 </div>
-
               </section>
               <section className="space-y-5">
                 <h3>Download QR Codes in PNG, SVG, or PDF</h3>
 
                 <p>
-                  Once your QR code looks the way you want, choose PNG, SVG, or PDF and save it to your device.{" "}
+                  Once your QR code looks the way you want, choose PNG, SVG, or
+                  PDF and save it to your device.{" "}
                   <Link
                     href="/glossary"
                     className="text-purple-700 underline underline-offset-4 hover:text-purple-900"
@@ -490,21 +516,24 @@ export default function QRCodeGeneratorPage() {
                   <div>
                     <h4>🖼 PNG Image</h4>
                     <p>
-                      PNG works well for websites, social media posts, emails, presentations, and other digital content.
+                      PNG works well for websites, social media posts, emails,
+                      presentations, and other digital content.
                     </p>
                   </div>
 
                   <div>
                     <h4>🎨 SVG Vector</h4>
                     <p>
-                      SVG is useful when you need to resize the QR code without making it blurry, especially for print and design work.
+                      SVG is useful when you need to resize the QR code without
+                      making it blurry, especially for print and design work.
                     </p>
                   </div>
 
                   <div>
                     <h4>📄 PDF Document</h4>
                     <p>
-                      PDF is convenient when you need to print the QR code or include it in a document.
+                      PDF is convenient when you need to print the QR code or
+                      include it in a document.
                     </p>
                   </div>
                 </div>
@@ -518,18 +547,23 @@ export default function QRCodeGeneratorPage() {
 
                 <ul>
                   <li>
-                    <strong>Choose PNG</strong> Good for websites, social media, presentations, and digital sharing.
+                    <strong>Choose PNG</strong> Good for websites, social media,
+                    presentations, and digital sharing.
                   </li>
                   <li>
-                    <strong>Choose SVG</strong> Better when the QR code needs to be resized or used in a design or print project.
+                    <strong>Choose SVG</strong> Better when the QR code needs to
+                    be resized or used in a design or print project.
                   </li>
                   <li>
-                    <strong>Choose PDF</strong> Useful when you want a print-ready file or need to include the QR code in a document.
+                    <strong>Choose PDF</strong> Useful when you want a
+                    print-ready file or need to include the QR code in a
+                    document.
                   </li>
                 </ul>
 
                 <p>
-                  Your selected QR code settings are included in the downloaded file.
+                  Your selected QR code settings are included in the downloaded
+                  file.
                 </p>
 
                 <div className="rounded-xl border border-green-200 bg-green-50 p-4">
@@ -538,15 +572,19 @@ export default function QRCodeGeneratorPage() {
                   </h4>
 
                   <p className="mb-0! text-sm text-green-800">
-                    Use the downloaded QR code on a screen or in printed material. SVG is a good choice when you need to resize the code because it can be scaled without losing sharpness.
+                    Use the downloaded QR code on a screen or in printed
+                    material. SVG is a good choice when you need to resize the
+                    code because it can be scaled without losing sharpness.
                   </p>
                 </div>
               </section>
               <section className="space-y-5">
-
                 <h3>Privacy and data</h3>
                 <p>
-                  QR codes are generated in your browser. The information you enter, such as a URL, text, or Wi-Fi details, is used to create the QR code. It is not sent to our server unless you choose a feature that requires saving it to your account.
+                  QR codes are generated in your browser. The information you
+                  enter, such as a URL, text, or Wi-Fi details, is used to
+                  create the QR code. It is not sent to our server unless you
+                  choose a feature that requires saving it to your account.
                 </p>
               </section>
             </div>

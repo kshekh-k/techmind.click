@@ -29,19 +29,30 @@ export default function Privacypolicy() {
 
           {/* Core Privacy Proposition */}
           <section className="space-y-3">
-            <h2 className="text-xl font-bold text-gray-900">1. Client-Side Processing &amp; Zero File Storage</h2>
+            <h2 className="text-xl font-bold text-gray-900">1. Data Processing Architecture &amp; File Handling</h2>
             <p>
-              Our primary commitment to our users is privacy by design:
+              We prioritize data minimization and transparent handling across all TechMind utilities:
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong>Text Formatter &amp; Case Converter:</strong> All text transformation operations (such as converting to uppercase, lowercase, sentence case, slug generation, line break cleaning, and space removal) run 100% locally in your web browser using client-side JavaScript. What you paste into the text editor is never transmitted to, monitored by, or stored on our servers.
+                <strong>Text Formatter &amp; Case Converter:</strong> Core text transformations (including uppercase, lowercase, sentence case, title case, slug generation, line break cleaning, space removal, word counting, and Unicode styling) execute locally within your web browser using client-side JavaScript. Text entered for these operations is processed in local memory and is not transmitted to our servers.
               </li>
               <li>
-                <strong>Image &amp; PDF Utilities:</strong> File processing (including Image to PDF and Image to WebP conversion) is performed directly inside your browser using client-side libraries. Your documents and uploaded images remain entirely on your local device and are not uploaded to remote databases.
+                <strong>Spell Check Processing:</strong> If you choose to use the optional spell check feature, your text is sent over an encrypted HTTPS connection to our server endpoint (<code>/api/spellcheck</code>), which queries LanguageTool (<code>api.languagetool.org</code>) to return grammar and spelling suggestions. We do not store or retain this text in any persistent database, but we recommend avoiding pasting sensitive personal or proprietary information into the spell checker.
               </li>
               <li>
-                <strong>QR Code Generator:</strong> All QR codes are generated dynamically in-memory on your device and rendered directly onto your screen for download.
+                <strong>Image &amp; PDF Utilities:</strong>
+                <ul className="list-circle pl-6 mt-1 space-y-1 text-sm">
+                  <li>
+                    <em>Image to WebP Converter:</em> Runs entirely inside your browser using client-side web workers (<code>browser-image-compression</code>). Your image files remain on your local device.
+                  </li>
+                  <li>
+                    <em>Image to PDF Converter:</em> When you convert images to a PDF, your selected files are uploaded over HTTPS to our Next.js server endpoint (<code>/api/image-to-pdf</code>). Our server assembles the PDF document in transient memory using the <code>pdf-lib</code> library and streams the resulting file back to your browser. Your images are not saved to disk or stored in a persistent database. Server logs may record standard diagnostic error details or unsupported file names if a conversion fails.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>QR Code Generator &amp; Account Storage:</strong> Standard QR code creation occurs dynamically in-memory on your device using client-side JavaScript (<code>qr-code-styling</code>). What you type into the QR inputs (such as URLs, text, phone numbers, or Wi-Fi credentials) is rendered locally and is not transmitted to or stored on our servers when generating or downloading codes. If you register an account and explicitly choose to save a QR design, your configuration payload (including label, styling settings, and encoded content) is stored in our managed cloud database powered by Supabase (PostgreSQL), strictly associated with your authenticated user ID and protected by Row Level Security (RLS) policies so that only you can access, update, or delete your saved history.
               </li>
             </ul>
           </section>

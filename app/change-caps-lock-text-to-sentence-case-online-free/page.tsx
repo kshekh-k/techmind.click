@@ -209,9 +209,9 @@ export default function ChangeCapsLockToSentenceCasePage() {
       />
 
       <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
-        <section id="tool">
+        {/* <section id="tool">
           <TextFormatter />
-        </section>
+        </section> */}
 
         <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-linear-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
