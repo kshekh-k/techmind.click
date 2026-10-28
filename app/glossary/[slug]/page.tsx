@@ -366,7 +366,7 @@ export default async function GlossaryTermPage({ params }: PageProps) {
           {/* Sidebar Column */}
           <div className="space-y-6">
             {/* 6. Related Tool Card */}
-            <div className="rounded-2xl border border-purple-200 bg-gradient-to-br from-white to-purple-50/40 p-5 shadow-xs space-y-4">
+            <div className="rounded-2xl border border-purple-200 bg-linear-to-br from-white to-purple-50/40 p-5 shadow-xs space-y-4">
               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">
                 Recommended Tool
               </h3>
@@ -435,7 +435,7 @@ export default async function GlossaryTermPage({ params }: PageProps) {
         </div>
 
         {/* 10. Bottom CTA */}
-        <section className="rounded-3xl border border-purple-200/60 bg-gradient-to-br from-purple-800 via-violet-700 to-fuchsia-700 p-6 md:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <section className="rounded-3xl border border-purple-200/60 bg-linear-to-br from-purple-800 via-violet-700 to-fuchsia-700 p-6 md:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2">
             <h2 className="text-xl md:text-2xl font-extrabold tracking-tight">
               Ready to Solve This in Under 2 Minutes?

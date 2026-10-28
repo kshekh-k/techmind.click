@@ -13,8 +13,7 @@ const OG_IMAGE = `${SITE_URL}/images/text-case-converter-and-formatter-techmind-
 const faqs = [
   {
     question: "Can I convert uppercase to lowercase for free?",
-    answer:
-      "Yes, TechMind's online case converter is completely free to use.",
+    answer: "Yes, TechMind's online case converter is completely free to use.",
   },
   {
     question: "Do I need Excel to convert text case?",
@@ -34,7 +33,8 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "How to Convert Uppercase to Lowercase Without Excel (Free Online Tool)",
+  title:
+    "How to Convert Uppercase to Lowercase Without Excel (Free Online Tool)",
   description:
     "Learn how to convert uppercase text to lowercase instantly without using Excel formulas. Use TechMind's free online case converter tool to format text in one click.",
   keywords: [
@@ -133,7 +133,7 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           },
         ],
       },
-       
+
       {
         "@type": "FAQPage",
         mainEntity: faqs.map((faq) => ({
@@ -164,7 +164,6 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           "Remove extra spaces",
         ],
       },
-      
     ],
   };
 
@@ -176,8 +175,8 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
       />
 
       <main className="mx-auto w-full max-w-7xl px-3 md:px-4 space-y-5 xl:space-y-10">
-        <TextFormatter />
-        <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-gradient-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
+        {/* <TextFormatter /> */}
+        <section className="relative overflow-hidden rounded-3xl border border-purple-200/40 bg-linear-to-br from-purple-700 via-violet-600 to-fuchsia-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-indigo-300/20 blur-3xl" />
 
@@ -187,11 +186,13 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
                 Free Online Text Tool
               </p>
               <h1 className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
-                How to Convert <span className="text-yellow-300">UPPERCASE</span> to <span className="text-teal-300">lowercase</span> Without Excel
+                How to Convert{" "}
+                <span className="text-yellow-300">UPPERCASE</span> to{" "}
+                <span className="text-teal-300">lowercase</span> Without Excel
               </h1>
               <p className="mt-4 max-w-xl text-sm text-purple-50 sm:text-base">
-                Convert capital letters into lowercase instantly using TechMind's
-                free online text case converter.
+                Convert capital letters into lowercase instantly using
+                TechMind's free online text case converter.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -216,10 +217,7 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
                   "Works on Mobile",
                   "No Sign-Up Required",
                 ].map((badge) => (
-                  <li
-                    key={badge}
-                    className=" py-1 backdrop-blur-md"
-                  >
+                  <li key={badge} className=" py-1 backdrop-blur-md">
                     {badge}
                   </li>
                 ))}
@@ -231,7 +229,9 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-green-300" />
-                <span className="ml-2 text-xs text-purple-50">techmind.click</span>
+                <span className="ml-2 text-xs text-purple-50">
+                  techmind.click
+                </span>
               </div>
 
               <div className="rounded-xl bg-slate-950/35 p-4 ring-1 ring-white/15">
@@ -253,7 +253,8 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
               </div>
 
               <p className="mt-4 text-xs text-purple-100">
-                TechMind text case converter delivers instant lowercase conversion.
+                TechMind text case converter delivers instant lowercase
+                conversion.
               </p>
             </div>
           </div>
@@ -262,9 +263,9 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
         <div className="mt-10 rounded-2xl border border-purple-100 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
           <section className="prose prose-lg max-w-none">
             <p>
-              Need to convert uppercase text into lowercase without Excel formulas?
-              TechMind's free online case converter helps you change capital letters into
-              lowercase instantly with one click.
+              Need to convert uppercase text into lowercase without Excel
+              formulas? TechMind's free online case converter helps you change
+              capital letters into lowercase instantly with one click.
             </p>
           </section>
         </div>
@@ -296,15 +297,17 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
             ].map((step) => (
               <article
                 key={step.title}
-                className="group rounded-2xl border border-purple-200/70 bg-gradient-to-b from-white/85 to-purple-50/80 p-5 shadow-md backdrop-blur-md transition hover:-translate-y-1 hover:shadow-xl"
+                className="group rounded-2xl border border-purple-200/70 bg-linear-to-b from-white/85 to-purple-50/80 p-5 shadow-md backdrop-blur-md transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-600 to-fuchsia-600 text-sm font-bold text-white shadow">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-purple-600 to-fuchsia-600 text-sm font-bold text-white shadow">
                   {step.icon}
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-slate-900">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  {step.description}
+                </p>
               </article>
             ))}
           </div>
@@ -315,14 +318,14 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
 
           <p>
             Many people accidentally type in ALL CAPS while writing emails,
-            documents, assignments, blog posts, or social media content. Manually
-            fixing large text can take a lot of time.
+            documents, assignments, blog posts, or social media content.
+            Manually fixing large text can take a lot of time.
           </p>
 
           <p>
-            While Microsoft Excel offers formulas like <strong>=LOWER(A1)</strong>,
-            most users simply want a faster and easier solution without learning
-            formulas.
+            While Microsoft Excel offers formulas like{" "}
+            <strong>=LOWER(A1)</strong>, most users simply want a faster and
+            easier solution without learning formulas.
           </p>
 
           <blockquote>
@@ -330,12 +333,22 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           </blockquote>
 
           <h2>Convert Uppercase to Lowercase Without Excel</h2>
-            <a
-                    href="#"
-                    className="flex flex-col items-center"
-                    aria-label="Back to top"
-                    title="Back to top"
-                  ><Image src={'/images/how-to-convert-uppercase-to-lowercase-without-excel.png'} alt="Convert Uppercase to Lowercase Without Excel" className="object-cover w-full h-auto" width={1280} height={600} /></a>
+          <a
+            href="#"
+            className="flex flex-col items-center"
+            aria-label="Back to top"
+            title="Back to top"
+          >
+            <Image
+              src={
+                "/images/how-to-convert-uppercase-to-lowercase-without-excel.png"
+              }
+              alt="Convert Uppercase to Lowercase Without Excel"
+              className="object-cover w-full h-auto"
+              width={1280}
+              height={600}
+            />
+          </a>
           <p>
             TechMind provides a free online case converter that instantly
             transforms UPPERCASE text into lowercase, sentence case, title case,
@@ -363,17 +376,26 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           <h2>How to Convert Text in 3 Easy Steps</h2>
           <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
             <a
-                    href="#"
-                    className="flex flex-col items-center"
-                    aria-label="Back to top"
-                    title="Back to top"
-                  >
-<Image src={'/images/how-to-convert-uppercase-to-lowercase-without-excel-step-2.png'} alt="Convert Uppercase to Lowercase Without Excel" className="object-cover max-w-full lg:max-w-md h-auto" width={580} height={600} /></a>
-          <ol>
-            <li>Paste your text into the input box</li>
-            <li>Select "lowercase" conversion</li>
-            <li>Copy the converted result instantly</li>
-          </ol>
+              href="#"
+              className="flex flex-col items-center"
+              aria-label="Back to top"
+              title="Back to top"
+            >
+              <Image
+                src={
+                  "/images/how-to-convert-uppercase-to-lowercase-without-excel-step-2.png"
+                }
+                alt="Convert Uppercase to Lowercase Without Excel"
+                className="object-cover max-w-full lg:max-w-md h-auto"
+                width={580}
+                height={600}
+              />
+            </a>
+            <ol>
+              <li>Paste your text into the input box</li>
+              <li>Select "lowercase" conversion</li>
+              <li>Copy the converted result instantly</li>
+            </ol>
           </div>
 
           <h2>Why Use an Online Case Converter Instead of Excel?</h2>
@@ -431,7 +453,9 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">Sentence and Title Case guides</Link>
+              <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">
+                Sentence and Title Case guides
+              </Link>
             </li>
             <li>
               <Link href="/text-format">Text formatter and case converter</Link>
@@ -459,24 +483,15 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
             </li>
             <li>
               <Link href="/blogs/title-case-vs-sentence-case-which-one-should-you-use">
-                Title case vs sentence case: complete comparison and capitalization guide
+                Title case vs sentence case: complete comparison and
+                capitalization guide
               </Link>
             </li>
           </ul>
-
-
-          
-
-
-
-
-
-
- 
         </section>
 
         <section className="mt-10">
-          <div className="rounded-2xl border border-purple-200/60 bg-gradient-to-b from-white to-purple-50/70 p-5 shadow-lg">
+          <div className="rounded-2xl border border-purple-200/60 bg-linear-to-b from-white to-purple-50/70 p-5 shadow-lg">
             <h2 className="text-2xl font-bold text-slate-900">
               Real Tool Screenshot
             </h2>
@@ -491,33 +506,36 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
                   <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
                   <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-                  <span className="ml-2 text-xs text-slate-500">https://www.techmind.click</span>
+                  <span className="ml-2 text-xs text-slate-500">
+                    https://www.techmind.click
+                  </span>
                 </div>
                 <a
-                    href="#"
-                    className="flex flex-col items-center"
-                    aria-label="Back to top"
-                    title="Back to top"
-                  >
-                <Image
-                  src="/images/how-to-convert-uppercase-to-lowercase-without-excel-step-3.png"
-                  alt="TechMind text case converter screenshot"
-                  width={1200}
-                  height={630}
-                  sizes="(max-width: 1024px) 100vw, 1000px"
-                  className="h-auto w-full rounded-lg"
-                  priority={false}
-                  aria-hidden="true"
-                />
+                  href="#"
+                  className="flex flex-col items-center"
+                  aria-label="Back to top"
+                  title="Back to top"
+                >
+                  <Image
+                    src="/images/how-to-convert-uppercase-to-lowercase-without-excel-step-3.png"
+                    alt="TechMind text case converter screenshot"
+                    width={1200}
+                    height={630}
+                    sizes="(max-width: 1024px) 100vw, 1000px"
+                    className="h-auto w-full rounded-lg"
+                    priority={false}
+                    aria-hidden="true"
+                  />
                 </a>
-                 
               </div>
             </div>
           </div>
         </section>
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ Accordion</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            FAQ Accordion
+          </h2>
           <div className="mt-4">
             <FAQAccordion items={faqs} />
           </div>
@@ -528,7 +546,8 @@ export default function UppercaseToLowercaseWithoutExcelPage() {
           <p>
             If you frequently work with text, using an online case converter can
             save time and improve productivity. Instead of using complicated
-            Excel formulas, TechMind lets you format text instantly in one click.
+            Excel formulas, TechMind lets you format text instantly in one
+            click.
           </p>
           <p>
             Start now with the <Link href="/">free case converter tool</Link>.

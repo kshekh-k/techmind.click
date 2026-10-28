@@ -178,11 +178,11 @@ export default async function BlogPage({ params }: PageProps) {
       />
 
       <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
-        {blog.tool === "qr-code-generator" ? (
+        {/* {blog.tool === "qr-code-generator" ? (
           <QRCodeGeneratorLoader />
         ) : (
           <TextFormatter />
-        )}
+        )} */}
         <article className="prose prose-lg bg-white w-full max-w-full border rounded-xl p-6 md:p-8 shadow-sm overflow-hidden">
           <nav
             aria-label="Breadcrumb"

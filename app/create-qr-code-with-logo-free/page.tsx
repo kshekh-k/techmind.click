@@ -40,17 +40,20 @@ const trustBadges = [
 const steps = [
   {
     title: "Enter Your URL or Content",
-    description: "Type or paste the URL or text content you want the QR code to encode.",
+    description:
+      "Type or paste the URL or text content you want the QR code to encode.",
     icon: "01",
   },
   {
     title: "Upload Your Logo",
-    description: "Click the logo upload option in Style Options and choose your brand image file.",
+    description:
+      "Click the logo upload option in Style Options and choose your brand image file.",
     icon: "02",
   },
   {
     title: "Adjust Colors and Download",
-    description: "Set foreground and background colors to match your brand, then download PNG, SVG, or PDF.",
+    description:
+      "Set foreground and background colors to match your brand, then download PNG, SVG, or PDF.",
     icon: "03",
   },
 ];
@@ -175,8 +178,7 @@ export default function CreateQRCodeWithLogoFreePage() {
       />
 
       <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
-
-        <section className="relative overflow-hidden rounded-3xl border border-indigo-200/40 bg-gradient-to-br from-indigo-700 via-blue-600 to-cyan-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
+        <section className="relative overflow-hidden rounded-3xl border border-indigo-200/40 bg-linear-to-br from-indigo-700 via-blue-600 to-cyan-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-200/20 blur-3xl" />
 
@@ -189,8 +191,9 @@ export default function CreateQRCodeWithLogoFreePage() {
                 Create a Custom QR Code with Logo for Free
               </h1>
               <p className="mt-4 max-w-xl text-sm text-indigo-50 sm:text-base">
-                Add your brand logo to the center of a QR code. Customize colors and
-                dot styles, then download in PNG, SVG, or PDF — no account needed.
+                Add your brand logo to the center of a QR code. Customize colors
+                and dot styles, then download in PNG, SVG, or PDF — no account
+                needed.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -225,7 +228,9 @@ export default function CreateQRCodeWithLogoFreePage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                <span className="ml-2 text-xs text-indigo-100">www.techmind.click</span>
+                <span className="ml-2 text-xs text-indigo-100">
+                  www.techmind.click
+                </span>
               </div>
 
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/15 bg-slate-950/40 p-5 ring-1 ring-white/10">
@@ -236,7 +241,11 @@ export default function CreateQRCodeWithLogoFreePage() {
                   </p>
                   {/* QR code with logo illustration */}
                   <div className="relative grid grid-cols-7 gap-0.5 rounded-lg border-2 border-white/40 bg-white/10 p-2.5">
-                    {[1,1,1,0,1,1,1, 1,0,1,0,1,0,1, 1,1,1,0,1,1,1, 0,0,0,0,0,0,0, 1,1,1,0,1,1,1, 1,0,1,0,1,0,1, 1,1,1,0,1,1,1].map((cell, i) => (
+                    {[
+                      1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1,
+                      1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
+                      0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
+                    ].map((cell, i) => (
                       <span
                         key={i}
                         className={`h-3 w-3 rounded-sm ${cell ? "bg-white" : "bg-transparent"}`}
@@ -249,7 +258,9 @@ export default function CreateQRCodeWithLogoFreePage() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-xs text-cyan-100">Logo embedded at center</p>
+                  <p className="text-xs text-cyan-100">
+                    Logo embedded at center
+                  </p>
                 </div>
               </div>
             </div>
@@ -259,16 +270,20 @@ export default function CreateQRCodeWithLogoFreePage() {
         <section className="rounded-2xl border border-indigo-200/70 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
           <div className="prose prose-lg max-w-none">
             <p>
-              Branded QR codes are more trustworthy and more memorable than plain black
-              and white codes. Research shows that QR codes with logos receive up to 80%
-              more scans than unbranded ones. TechMind&apos;s free QR code generator lets you
-              add your logo, match your brand colors, and download a print-ready file —
-              all without creating an account.
+              Branded QR codes are more trustworthy and more memorable than
+              plain black and white codes. Research shows that QR codes with
+              logos receive up to 80% more scans than unbranded ones.
+              TechMind&apos;s free QR code generator lets you add your logo,
+              match your brand colors, and download a print-ready file — all
+              without creating an account.
             </p>
           </div>
         </section>
 
-        <section aria-label="How to create a QR code with logo" className="space-y-4">
+        <section
+          aria-label="How to create a QR code with logo"
+          className="space-y-4"
+        >
           <h2 className="text-2xl font-bold tracking-tight text-slate-900">
             Add Your Logo to a QR Code in 3 Steps
           </h2>
@@ -276,15 +291,17 @@ export default function CreateQRCodeWithLogoFreePage() {
             {steps.map((step) => (
               <article
                 key={step.title}
-                className="group rounded-2xl border border-indigo-200/70 bg-gradient-to-b from-white/90 to-indigo-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group rounded-2xl border border-indigo-200/70 bg-linear-to-b from-white/90 to-indigo-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-600 text-sm font-bold text-white shadow">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-indigo-600 to-cyan-600 text-sm font-bold text-white shadow">
                   {step.icon}
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-slate-900">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  {step.description}
+                </p>
               </article>
             ))}
           </div>
@@ -294,8 +311,9 @@ export default function CreateQRCodeWithLogoFreePage() {
           <h2>Understanding QR Code Error Correction Levels</h2>
 
           <p>
-            QR codes have four error correction levels that determine how much damage or
-            obstruction a code can withstand while remaining scannable:
+            QR codes have four error correction levels that determine how much
+            damage or obstruction a code can withstand while remaining
+            scannable:
           </p>
 
           <table>
@@ -331,59 +349,84 @@ export default function CreateQRCodeWithLogoFreePage() {
           </table>
 
           <p>
-            When you upload a logo in TechMind, the generator automatically switches
-            to H-level error correction. This means even with 30% of the code covered
-            by your logo, the QR code will still scan reliably.
+            When you upload a logo in TechMind, the generator automatically
+            switches to H-level error correction. This means even with 30% of
+            the code covered by your logo, the QR code will still scan reliably.
           </p>
 
           <h2>Why Branded QR Codes Get More Scans</h2>
 
           <p>
-            A plain black-and-white QR code gives no indication of what it leads to.
-            A branded QR code with your logo communicates trust and intent. People are
-            more likely to scan a code that visually belongs to a brand they recognize
-            than an anonymous square of dots.
+            A plain black-and-white QR code gives no indication of what it leads
+            to. A branded QR code with your logo communicates trust and intent.
+            People are more likely to scan a code that visually belongs to a
+            brand they recognize than an anonymous square of dots.
           </p>
 
           <h2>Color Contrast Requirements</h2>
 
           <p>
-            QR code scanners detect the pattern based on contrast between light and dark
-            modules. For reliable scanning:
+            QR code scanners detect the pattern based on contrast between light
+            and dark modules. For reliable scanning:
           </p>
 
           <ul>
-            <li>Use a <strong>dark foreground</strong> on a <strong>light background</strong></li>
+            <li>
+              Use a <strong>dark foreground</strong> on a{" "}
+              <strong>light background</strong>
+            </li>
             <li>Maintain a minimum contrast ratio of 4:1</li>
-            <li>Avoid inverting (light dots on dark backgrounds can scan poorly on some apps)</li>
-            <li>Test your code with multiple devices before printing at scale</li>
+            <li>
+              Avoid inverting (light dots on dark backgrounds can scan poorly on
+              some apps)
+            </li>
+            <li>
+              Test your code with multiple devices before printing at scale
+            </li>
           </ul>
 
           <h2>Use Cases for Branded QR Codes</h2>
 
           <ul>
-            <li><strong>Product packaging</strong> — link to usage instructions, recipes, or reorder pages</li>
-            <li><strong>Flyers and print ads</strong> — track campaign traffic with a unique landing page URL</li>
-            <li><strong>Instagram bio</strong> — export a PNG for your link-in-bio image</li>
-            <li><strong>Event badges</strong> — link to a speaker profile or session schedule</li>
-            <li><strong>Restaurant menus</strong> — link to an online menu or ordering system</li>
+            <li>
+              <strong>Product packaging</strong> — link to usage instructions,
+              recipes, or reorder pages
+            </li>
+            <li>
+              <strong>Flyers and print ads</strong> — track campaign traffic
+              with a unique landing page URL
+            </li>
+            <li>
+              <strong>Instagram bio</strong> — export a PNG for your link-in-bio
+              image
+            </li>
+            <li>
+              <strong>Event badges</strong> — link to a speaker profile or
+              session schedule
+            </li>
+            <li>
+              <strong>Restaurant menus</strong> — link to an online menu or
+              ordering system
+            </li>
           </ul>
 
           <h2>Saving Your Branded QR Code</h2>
 
           <p>
-            Save your QR configuration to your TechMind profile to reuse colors, logo,
-            and style settings across multiple campaigns. This is especially useful when
-            creating a family of QR codes that all share the same visual identity.
+            Save your QR configuration to your TechMind profile to reuse colors,
+            logo, and style settings across multiple campaigns. This is
+            especially useful when creating a family of QR codes that all share
+            the same visual identity.
           </p>
 
           <p>
             Start creating your branded QR code now with the{" "}
-            <Link href="/qr-code-generator">TechMind QR Code Generator</Link>, or
-            learn about{" "}
+            <Link href="/qr-code-generator">TechMind QR Code Generator</Link>,
+            or learn about{" "}
             <Link href="/download-qr-code-png-svg-pdf">
               downloading in PNG, SVG, and PDF formats
-            </Link>.
+            </Link>
+            .
           </p>
         </section>
 

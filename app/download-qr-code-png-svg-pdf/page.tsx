@@ -40,17 +40,20 @@ const trustBadges = [
 const steps = [
   {
     title: "Generate Your QR Code",
-    description: "Enter your URL or content, customize the style, colors, and optional label.",
+    description:
+      "Enter your URL or content, customize the style, colors, and optional label.",
     icon: "01",
   },
   {
     title: "Choose Your Format",
-    description: "Click PNG for digital use, SVG for scalable print, or PDF for a print-ready document.",
+    description:
+      "Click PNG for digital use, SVG for scalable print, or PDF for a print-ready document.",
     icon: "02",
   },
   {
     title: "Use Your Downloaded File",
-    description: "Drop the PNG into your website or email, or send the SVG/PDF to your print shop.",
+    description:
+      "Drop the PNG into your website or email, or send the SVG/PDF to your print shop.",
     icon: "03",
   },
 ];
@@ -175,8 +178,7 @@ export default function DownloadQRCodePngSvgPdfPage() {
       />
 
       <main className="mx-auto w-full max-w-7xl space-y-5 px-3 md:px-4 xl:space-y-10">
-
-        <section className="relative overflow-hidden rounded-3xl border border-indigo-200/40 bg-gradient-to-br from-indigo-700 via-blue-600 to-cyan-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
+        <section className="relative overflow-hidden rounded-3xl border border-indigo-200/40 bg-linear-to-br from-indigo-700 via-blue-600 to-cyan-600 p-6 text-white shadow-sm sm:p-8 lg:p-10">
           <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-200/20 blur-3xl" />
 
@@ -189,9 +191,9 @@ export default function DownloadQRCodePngSvgPdfPage() {
                 Download QR Code as PNG, SVG, or PDF — Free
               </h1>
               <p className="mt-4 max-w-xl text-sm text-indigo-50 sm:text-base">
-                Generate a QR code and download it in the right format for your project.
-                PNG for digital, SVG for infinite scalability, PDF for print — all
-                formats include your label and logo, free.
+                Generate a QR code and download it in the right format for your
+                project. PNG for digital, SVG for infinite scalability, PDF for
+                print — all formats include your label and logo, free.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -226,7 +228,9 @@ export default function DownloadQRCodePngSvgPdfPage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                <span className="ml-2 text-xs text-indigo-100">www.techmind.click</span>
+                <span className="ml-2 text-xs text-indigo-100">
+                  www.techmind.click
+                </span>
               </div>
 
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/15 bg-slate-950/40 p-5 ring-1 ring-white/10">
@@ -237,7 +241,11 @@ export default function DownloadQRCodePngSvgPdfPage() {
                   </p>
                   {/* QR code illustration */}
                   <div className="grid grid-cols-7 gap-0.5 rounded-lg border-2 border-white/40 bg-white/10 p-2.5">
-                    {[1,1,1,0,1,1,1, 1,0,1,0,1,0,1, 1,1,1,0,1,1,1, 0,1,0,1,0,1,0, 1,1,1,0,1,1,1, 1,0,1,0,1,0,1, 1,1,1,0,1,1,1].map((cell, i) => (
+                    {[
+                      1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1,
+                      1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
+                      0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
+                    ].map((cell, i) => (
                       <span
                         key={i}
                         className={`h-3 w-3 rounded-sm ${cell ? "bg-white" : "bg-transparent"}`}
@@ -264,10 +272,10 @@ export default function DownloadQRCodePngSvgPdfPage() {
         <section className="rounded-2xl border border-indigo-200/70 bg-white/70 p-6 shadow-sm backdrop-blur-sm">
           <div className="prose prose-lg max-w-none">
             <p>
-              Choosing the right file format for your QR code makes the difference
-              between a crisp, professional result and a blurry printout. TechMind
-              exports QR codes in all three major formats — PNG, SVG, and PDF — so
-              you always have the right file for the job.
+              Choosing the right file format for your QR code makes the
+              difference between a crisp, professional result and a blurry
+              printout. TechMind exports QR codes in all three major formats —
+              PNG, SVG, and PDF — so you always have the right file for the job.
             </p>
           </div>
         </section>
@@ -280,15 +288,17 @@ export default function DownloadQRCodePngSvgPdfPage() {
             {steps.map((step) => (
               <article
                 key={step.title}
-                className="group rounded-2xl border border-indigo-200/70 bg-gradient-to-b from-white/90 to-indigo-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group rounded-2xl border border-indigo-200/70 bg-linear-to-b from-white/90 to-indigo-50/80 p-5 shadow-md backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-600 text-sm font-bold text-white shadow">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-indigo-600 to-cyan-600 text-sm font-bold text-white shadow">
                   {step.icon}
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-slate-900">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  {step.description}
+                </p>
               </article>
             ))}
           </div>
@@ -298,8 +308,8 @@ export default function DownloadQRCodePngSvgPdfPage() {
           <h2>PNG — Best for Digital Use</h2>
 
           <p>
-            PNG (Portable Network Graphics) is a raster image format. It stores the QR
-            code as a fixed grid of pixels. It is ideal for:
+            PNG (Portable Network Graphics) is a raster image format. It stores
+            the QR code as a fixed grid of pixels. It is ideal for:
           </p>
 
           <ul>
@@ -310,23 +320,24 @@ export default function DownloadQRCodePngSvgPdfPage() {
           </ul>
 
           <p>
-            <strong>Recommended size for digital PNG:</strong> 300px to 400px wide.
-            This gives sufficient resolution for on-screen display without creating an
-            unnecessarily large file.
+            <strong>Recommended size for digital PNG:</strong> 300px to 400px
+            wide. This gives sufficient resolution for on-screen display without
+            creating an unnecessarily large file.
           </p>
 
           <p>
             PNG supports transparency, so if you set a transparent background in
-            TechMind, the downloaded PNG will have no background — useful for placing
-            the QR code over colored sections of a webpage or graphic.
+            TechMind, the downloaded PNG will have no background — useful for
+            placing the QR code over colored sections of a webpage or graphic.
           </p>
 
           <h2>SVG — Best for Print at Any Scale</h2>
 
           <p>
-            SVG (Scalable Vector Graphics) is a vector format. Instead of pixels, it
-            describes the QR code using mathematical paths. This means it can be scaled
-            to any size — from a thumbnail to a billboard — without any loss of sharpness.
+            SVG (Scalable Vector Graphics) is a vector format. Instead of
+            pixels, it describes the QR code using mathematical paths. This
+            means it can be scaled to any size — from a thumbnail to a billboard
+            — without any loss of sharpness.
           </p>
 
           <ul>
@@ -337,17 +348,18 @@ export default function DownloadQRCodePngSvgPdfPage() {
           </ul>
 
           <p>
-            <strong>Why SVG for print?</strong> Print shops work at 300+ DPI. A 400px
-            PNG printed at 1 inch is fine, but at 3 inches it becomes blurry. An SVG
-            stays sharp at any print size because there are no pixels to stretch.
+            <strong>Why SVG for print?</strong> Print shops work at 300+ DPI. A
+            400px PNG printed at 1 inch is fine, but at 3 inches it becomes
+            blurry. An SVG stays sharp at any print size because there are no
+            pixels to stretch.
           </p>
 
           <h2>PDF — Print-Ready Single Page</h2>
 
           <p>
-            PDF (Portable Document Format) wraps the vector QR code in a standard
-            document format that any print service accepts. It is the most universally
-            compatible format for sending to a printer.
+            PDF (Portable Document Format) wraps the vector QR code in a
+            standard document format that any print service accepts. It is the
+            most universally compatible format for sending to a printer.
           </p>
 
           <ul>
@@ -359,15 +371,15 @@ export default function DownloadQRCodePngSvgPdfPage() {
           <h2>Labels Are Included in All Formats</h2>
 
           <p>
-            When you add a label below your QR code (such as &quot;Scan to visit our
-            website&quot; or your website URL), that label is embedded in all three download
-            formats. The label renders in the same color as your QR dots and is
-            positioned consistently below the QR pattern.
+            When you add a label below your QR code (such as &quot;Scan to visit
+            our website&quot; or your website URL), that label is embedded in
+            all three download formats. The label renders in the same color as
+            your QR dots and is positioned consistently below the QR pattern.
           </p>
 
           <p>
-            This means you can send a PDF directly to a printer and the label will
-            appear exactly as configured — no manual layout work needed.
+            This means you can send a PDF directly to a printer and the label
+            will appear exactly as configured — no manual layout work needed.
           </p>
 
           <h2>Recommended Sizes by Use Case</h2>
@@ -411,11 +423,13 @@ export default function DownloadQRCodePngSvgPdfPage() {
 
           <p>
             Ready to download? Use the{" "}
-            <Link href="/qr-code-generator">TechMind QR Code Generator</Link> to create
-            and download your QR code. For branded codes, visit the guide on{" "}
+            <Link href="/qr-code-generator">TechMind QR Code Generator</Link> to
+            create and download your QR code. For branded codes, visit the guide
+            on{" "}
             <Link href="/create-qr-code-with-logo-free">
               creating a QR code with a logo
-            </Link>.
+            </Link>
+            .
           </p>
         </section>
 

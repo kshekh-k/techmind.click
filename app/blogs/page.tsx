@@ -70,7 +70,7 @@ export default function BlogsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
       <div className="max-w-7xl mx-auto px-3 md:px-4 space-y-5 xl:space-y-10">
-        <TextFormatter />
+        {/* <TextFormatter /> */}
         <h1 className="text-4xl font-semibold">Blogs</h1>
         <p className="mt-2 text-muted-foreground max-w-3xl">
           Learn practical guides on text formatting, slug creation, content

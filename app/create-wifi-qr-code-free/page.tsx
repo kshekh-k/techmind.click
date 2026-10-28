@@ -25,12 +25,14 @@ const faqs = [
       "A Wi-Fi QR code encodes the network credentials using the standardized WIFI: URI format (e.g., WIFI:T:WPA;S:NetworkName;P:Password;;). When scanned with a native smartphone camera (iOS 11+ or Android 10+), the operating system parses the SSID and security key and prompts the user to join the wireless network in a single tap.",
   },
   {
-    question: "Is it safe to display a Wi-Fi QR code publicly in a cafe, office, or Airbnb?",
+    question:
+      "Is it safe to display a Wi-Fi QR code publicly in a cafe, office, or Airbnb?",
     answer:
       "Yes, provided you connect guests to a dedicated Guest Network rather than your primary private network. Most modern wireless routers let you enable a guest network with 'Client Isolation', which allows visitors to access the internet while strictly preventing them from accessing your private computers, point-of-sale systems, NAS drives, or internal printers.",
   },
   {
-    question: "What should I do if my Wi-Fi password contains special characters?",
+    question:
+      "What should I do if my Wi-Fi password contains special characters?",
     answer:
       "Special characters like semicolons (;), colons (:), commas (,), backslashes (\\), and quotes must be properly escaped with a backslash in the WIFI protocol string. TechMind's QR generator automatically handles syntax escaping so complex passwords encode and connect seamlessly.",
   },
@@ -56,19 +58,23 @@ const trustBadges = [
 const steps = [
   {
     title: "1. Open Wi-Fi Tab in Generator",
-    description: "Launch the TechMind QR Code Generator and click on the 'Wi-Fi' option in the type selector.",
+    description:
+      "Launch the TechMind QR Code Generator and click on the 'Wi-Fi' option in the type selector.",
   },
   {
     title: "2. Input Network SSID & Password",
-    description: "Enter your exact network name (case-sensitive) and security password. Choose WPA/WPA2 for standard routers.",
+    description:
+      "Enter your exact network name (case-sensitive) and security password. Choose WPA/WPA2 for standard routers.",
   },
   {
     title: "3. Choose Color & Optional Logo",
-    description: "Customize with high-contrast colors and download in vector SVG or PDF for print displays, or PNG for digital displays.",
+    description:
+      "Customize with high-contrast colors and download in vector SVG or PDF for print displays, or PNG for digital displays.",
   },
   {
     title: "4. Display at Key Guest Touchpoints",
-    description: "Frame your printed Wi-Fi code at reception desks, conference tables, cafe counters, or hotel bedside stands.",
+    description:
+      "Frame your printed Wi-Fi code at reception desks, conference tables, cafe counters, or hotel bedside stands.",
   },
 ];
 
@@ -132,7 +138,8 @@ export default function CreateWifiQRCodeFreePage() {
       },
       {
         "@type": "Article",
-        headline: "Wi-Fi QR Code Guide: Protocol Syntax, Security & Venue Setup",
+        headline:
+          "Wi-Fi QR Code Guide: Protocol Syntax, Security & Venue Setup",
         description:
           "Authoritative guide for creating secure, scannable Wi-Fi QR codes for offices, cafes, events, and short-term rentals.",
         author: {
@@ -172,7 +179,7 @@ export default function CreateWifiQRCodeFreePage() {
         {/* Tool Launch Callout (Consolidated tool interface) */}
         <section
           aria-label="Create Wi-Fi QR Code Tool Callout"
-          className="rounded-2xl border border-indigo-200 bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-900 p-6 text-white shadow-md sm:p-8"
+          className="rounded-2xl border border-indigo-200 bg-linear-to-r from-slate-900 via-indigo-950 to-blue-900 p-6 text-white shadow-md sm:p-8"
         >
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="space-y-3 max-w-2xl">
@@ -184,8 +191,9 @@ export default function CreateWifiQRCodeFreePage() {
                 Create a Free Wi-Fi QR Code for Guests &amp; Customers
               </h1>
               <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
-                Eliminate password typing friction. When guests scan your QR code with their phone camera,
-                their device joins your network automatically. Use our full interactive generator to produce
+                Eliminate password typing friction. When guests scan your QR
+                code with their phone camera, their device joins your network
+                automatically. Use our full interactive generator to produce
                 print-ready Wi-Fi codes with custom framing and logos.
               </p>
               <div className="flex flex-wrap gap-2 pt-1 text-xs">
@@ -223,34 +231,57 @@ export default function CreateWifiQRCodeFreePage() {
               How the Wi-Fi QR Code Standard Operates
             </h2>
             <p className="text-slate-600 text-sm md:text-base">
-              Wi-Fi QR codes follow the industry-standard ZXing URI syntax, supported natively by Apple iOS and Google Android.
+              Wi-Fi QR codes follow the industry-standard ZXing URI syntax,
+              supported natively by Apple iOS and Google Android.
             </p>
           </div>
 
           <div className="space-y-4">
             <div className="rounded-xl border border-slate-200 bg-slate-900 p-4 text-slate-100 font-mono text-xs md:text-sm overflow-x-auto">
-              <code>WIFI:T:WPA;S:CafeGuestNetwork;P:SuperSecretPass123!;H:false;;</code>
+              <code>
+                WIFI:T:WPA;S:CafeGuestNetwork;P:SuperSecretPass123!;H:false;;
+              </code>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-xs md:text-sm">
               <div className="rounded-xl border border-slate-200 p-3 bg-slate-50 space-y-1">
-                <span className="font-bold text-slate-900">T: (Authentication)</span>
-                <p className="text-slate-600">Specifies encryption mode: WPA, WEP, or nopass for open public Wi-Fi.</p>
+                <span className="font-bold text-slate-900">
+                  T: (Authentication)
+                </span>
+                <p className="text-slate-600">
+                  Specifies encryption mode: WPA, WEP, or nopass for open public
+                  Wi-Fi.
+                </p>
               </div>
 
               <div className="rounded-xl border border-slate-200 p-3 bg-slate-50 space-y-1">
-                <span className="font-bold text-slate-900">S: (Network SSID)</span>
-                <p className="text-slate-600">The exact broadcast name of your router. Must match case exactly.</p>
+                <span className="font-bold text-slate-900">
+                  S: (Network SSID)
+                </span>
+                <p className="text-slate-600">
+                  The exact broadcast name of your router. Must match case
+                  exactly.
+                </p>
               </div>
 
               <div className="rounded-xl border border-slate-200 p-3 bg-slate-50 space-y-1">
-                <span className="font-bold text-slate-900">P: (Pre-Shared Key)</span>
-                <p className="text-slate-600">Your network security password, parsed safely without displaying on screen.</p>
+                <span className="font-bold text-slate-900">
+                  P: (Pre-Shared Key)
+                </span>
+                <p className="text-slate-600">
+                  Your network security password, parsed safely without
+                  displaying on screen.
+                </p>
               </div>
 
               <div className="rounded-xl border border-slate-200 p-3 bg-slate-50 space-y-1">
-                <span className="font-bold text-slate-900">H: (Hidden Flag)</span>
-                <p className="text-slate-600">Set to true if your router does not broadcast its SSID beacon frame.</p>
+                <span className="font-bold text-slate-900">
+                  H: (Hidden Flag)
+                </span>
+                <p className="text-slate-600">
+                  Set to true if your router does not broadcast its SSID beacon
+                  frame.
+                </p>
               </div>
             </div>
           </div>
@@ -264,29 +295,42 @@ export default function CreateWifiQRCodeFreePage() {
           </div>
           <div className="space-y-3 text-sm md:text-base text-amber-900 leading-relaxed">
             <p>
-              Never create a public QR code that encodes your primary office or home network password.
-              If guests connect to your primary Wi-Fi, their devices reside on the same local subnet as your
-              personal computers, file servers, network-attached storage (NAS), and smart devices.
+              Never create a public QR code that encodes your primary office or
+              home network password. If guests connect to your primary Wi-Fi,
+              their devices reside on the same local subnet as your personal
+              computers, file servers, network-attached storage (NAS), and smart
+              devices.
             </p>
             <div className="grid gap-4 md:grid-cols-3 text-xs md:text-sm pt-2">
               <div className="rounded-xl border border-amber-300/80 bg-white p-4 space-y-1 text-slate-800">
-                <h3 className="font-bold text-amber-950">1. Enable Guest SSID</h3>
+                <h3 className="font-bold text-amber-950">
+                  1. Enable Guest SSID
+                </h3>
                 <p className="text-slate-600">
-                  Access your router settings (e.g. TP-Link, Netgear, Asus, UniFi) and create a separate network named &quot;Venue_Guest&quot;.
+                  Access your router settings (e.g. TP-Link, Netgear, Asus,
+                  UniFi) and create a separate network named
+                  &quot;Venue_Guest&quot;.
                 </p>
               </div>
 
               <div className="rounded-xl border border-amber-300/80 bg-white p-4 space-y-1 text-slate-800">
-                <h3 className="font-bold text-amber-950">2. Turn on Client Isolation</h3>
+                <h3 className="font-bold text-amber-950">
+                  2. Turn on Client Isolation
+                </h3>
                 <p className="text-slate-600">
-                  Ensure &quot;AP Isolation&quot; or &quot;Client Isolation&quot; is active. This prevents guest laptops from pinging or sniffing other connected phones.
+                  Ensure &quot;AP Isolation&quot; or &quot;Client
+                  Isolation&quot; is active. This prevents guest laptops from
+                  pinging or sniffing other connected phones.
                 </p>
               </div>
 
               <div className="rounded-xl border border-amber-300/80 bg-white p-4 space-y-1 text-slate-800">
-                <h3 className="font-bold text-amber-950">3. Rotate Key Periodically</h3>
+                <h3 className="font-bold text-amber-950">
+                  3. Rotate Key Periodically
+                </h3>
                 <p className="text-slate-600">
-                  Change the guest password every few months. Updating your QR code takes under 60 seconds with TechMind.
+                  Change the guest password every few months. Updating your QR
+                  code takes under 60 seconds with TechMind.
                 </p>
               </div>
             </div>
@@ -304,7 +348,9 @@ export default function CreateWifiQRCodeFreePage() {
                 key={step.title}
                 className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm space-y-2"
               >
-                <h3 className="font-bold text-slate-900 text-sm md:text-base">{step.title}</h3>
+                <h3 className="font-bold text-slate-900 text-sm md:text-base">
+                  {step.title}
+                </h3>
                 <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
                   {step.description}
                 </p>
@@ -320,32 +366,42 @@ export default function CreateWifiQRCodeFreePage() {
               Optimal Display Locations by Venue Type
             </h2>
             <p className="text-slate-600 text-sm">
-              Displaying the code where visitors naturally pause eliminates repeated staff inquiries.
+              Displaying the code where visitors naturally pause eliminates
+              repeated staff inquiries.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3 text-sm">
             <div className="rounded-xl border border-slate-200 p-4 space-y-2">
-              <h3 className="font-bold text-slate-900">Cafes &amp; Restaurants</h3>
+              <h3 className="font-bold text-slate-900">
+                Cafes &amp; Restaurants
+              </h3>
               <p className="text-xs text-slate-600">
-                Place small acrylic tent stands on each table or print on the bottom of physical menus.
-                Include a label: &quot;Free Wi-Fi &bull; Scan with your camera to connect&quot;.
+                Place small acrylic tent stands on each table or print on the
+                bottom of physical menus. Include a label: &quot;Free Wi-Fi
+                &bull; Scan with your camera to connect&quot;.
               </p>
             </div>
 
             <div className="rounded-xl border border-slate-200 p-4 space-y-2">
-              <h3 className="font-bold text-slate-900">Offices &amp; Co-Working</h3>
+              <h3 className="font-bold text-slate-900">
+                Offices &amp; Co-Working
+              </h3>
               <p className="text-xs text-slate-600">
-                Mount framed signs in conference rooms, reception desks, and lounge areas.
-                Ensures visiting clients connect immediately without interrupting ongoing meetings.
+                Mount framed signs in conference rooms, reception desks, and
+                lounge areas. Ensures visiting clients connect immediately
+                without interrupting ongoing meetings.
               </p>
             </div>
 
             <div className="rounded-xl border border-slate-200 p-4 space-y-2">
-              <h3 className="font-bold text-slate-900">Hotels &amp; Vacation Rentals</h3>
+              <h3 className="font-bold text-slate-900">
+                Hotels &amp; Vacation Rentals
+              </h3>
               <p className="text-xs text-slate-600">
-                Print on the inside cover of the guest house manual and on the bedside table.
-                Eliminates late-night host messaging about Wi-Fi access.
+                Print on the inside cover of the guest house manual and on the
+                bedside table. Eliminates late-night host messaging about Wi-Fi
+                access.
               </p>
             </div>
           </div>
@@ -361,9 +417,12 @@ export default function CreateWifiQRCodeFreePage() {
               href="/qr-code-generator"
               className="rounded-xl border border-slate-200 p-4 bg-white transition hover:border-indigo-300 hover:shadow-md space-y-1"
             >
-              <h3 className="font-bold text-slate-900 text-sm">Interactive QR Code Generator</h3>
+              <h3 className="font-bold text-slate-900 text-sm">
+                Interactive QR Code Generator
+              </h3>
               <p className="text-xs text-slate-600">
-                Create custom Wi-Fi, URL, and text QR codes with instant vector downloads.
+                Create custom Wi-Fi, URL, and text QR codes with instant vector
+                downloads.
               </p>
             </Link>
 
@@ -371,9 +430,12 @@ export default function CreateWifiQRCodeFreePage() {
               href="/qr-code-generator-for-business"
               className="rounded-xl border border-slate-200 p-4 bg-white transition hover:border-indigo-300 hover:shadow-md space-y-1"
             >
-              <h3 className="font-bold text-slate-900 text-sm">Business Card QR Guide</h3>
+              <h3 className="font-bold text-slate-900 text-sm">
+                Business Card QR Guide
+              </h3>
               <p className="text-xs text-slate-600">
-                Learn optical sizing, material laminates, and printing checklists for stationery.
+                Learn optical sizing, material laminates, and printing
+                checklists for stationery.
               </p>
             </Link>
 
@@ -381,9 +443,12 @@ export default function CreateWifiQRCodeFreePage() {
               href="/download-qr-code-png-svg-pdf"
               className="rounded-xl border border-slate-200 p-4 bg-white transition hover:border-indigo-300 hover:shadow-md space-y-1"
             >
-              <h3 className="font-bold text-slate-900 text-sm">PNG vs. SVG vs. PDF Guide</h3>
+              <h3 className="font-bold text-slate-900 text-sm">
+                PNG vs. SVG vs. PDF Guide
+              </h3>
               <p className="text-xs text-slate-600">
-                Understand resolution math and why vector formats are critical for physical signage.
+                Understand resolution math and why vector formats are critical
+                for physical signage.
               </p>
             </Link>
           </div>
