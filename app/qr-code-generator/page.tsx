@@ -10,7 +10,7 @@ import {
 } from "@/app/components/ui/card";
 import Link from "next/link";
 import { ChevronDown, Star } from "lucide-react";
-import MonetagAd from "../components/ads/MonetagAd";
+
 
 /* ─── Constants ─────────────────────────────────────────────────────────────── */
 
@@ -288,7 +288,6 @@ export default function QRCodeGeneratorPage() {
 
         <Card className="shadow-sm border-none!">
           <CardContent className="py-5">
-            {/* <div className="justify-between flex-wrap flex gap-2"> */}
             <div className="space-y-1">
               <CardTitle
                 as="h2"
@@ -331,9 +330,6 @@ export default function QRCodeGeneratorPage() {
                 </Link>
               </div>
             </div>
-
-            {/* <MonetagAd /> */}
-            {/* </div> */}
           </CardContent>
         </Card>
 
