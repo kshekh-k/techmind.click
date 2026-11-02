@@ -34,7 +34,7 @@ import {
 import type { SpellcheckMatch } from "@/lib/spellcheck";
 import { convertUnicode } from "@/utils/unicode";
 import AdsterraBanner from "./ads/AdsterraBanner";
-import MonetagAd from "./ads/MonetagAd";
+// import MonetagAd from "./ads/MonetagAd";
 
 type FormatAction =
   | "uppercase"
@@ -943,7 +943,7 @@ export default function TextFormatter() {
       <AdsterraBanner />
 
       {/* Second ad here: */}
-      <MonetagAd />
+      {/* <MonetagAd className="bottom-0 top-auto" /> */}
     </Card>
   );
 }
