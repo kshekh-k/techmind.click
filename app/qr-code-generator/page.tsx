@@ -10,6 +10,7 @@ import {
 } from "@/app/components/ui/card";
 import Link from "next/link";
 import { ChevronDown, Star } from "lucide-react";
+import MonetagAd from "../components/ads/MonetagAd";
 
 /* ─── Constants ─────────────────────────────────────────────────────────────── */
 
@@ -287,51 +288,52 @@ export default function QRCodeGeneratorPage() {
 
         <Card className="shadow-sm border-none!">
           <CardContent className="py-5">
-            <div className="justify-between flex gap-2">
-              <div className="space-y-1">
-                <CardTitle
-                  as="h2"
-                  className="text-2xl md:text-3xl font-extrabold tracking-tight"
+            {/* <div className="justify-between flex-wrap flex gap-2"> */}
+            <div className="space-y-1">
+              <CardTitle
+                as="h2"
+                className="text-2xl md:text-3xl font-extrabold tracking-tight"
+              >
+                More Free Productivity Tools
+              </CardTitle>
+
+              <p className="text-sm text-muted-foreground mt-2">
+                Looking for another tool? Try these free tools from TechMind.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link
+                  href="/"
+                  className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
                 >
-                  More Free Productivity Tools
-                </CardTitle>
+                  Text Formatter
+                </Link>
 
-                <p className="text-sm text-muted-foreground mt-2">
-                  Looking for another tool? Try these free tools from TechMind.
-                </p>
+                <Link
+                  href="/image-to-pdf"
+                  className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                >
+                  Image to PDF
+                </Link>
 
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <Link
-                    href="/"
-                    className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-                  >
-                    Text Formatter
-                  </Link>
+                <Link
+                  href="/blogs"
+                  className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                >
+                  Blog Hub
+                </Link>
 
-                  <Link
-                    href="/image-to-pdf"
-                    className="rounded border flex items-center px-3 py-1 .5leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-                  >
-                    Image to PDF
-                  </Link>
-
-                  <Link
-                    href="/blogs"
-                    className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-                  >
-                    Blog Hub
-                  </Link>
-
-                  <Link
-                    href="/glossary"
-                    className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
-                  >
-                    Glossary
-                  </Link>
-                </div>
+                <Link
+                  href="/glossary"
+                  className="rounded border flex items-center px-3 py-1.5 leading-none hover:border-purple-500 hover:bg-purple-500 hover:text-white transition"
+                >
+                  Glossary
+                </Link>
               </div>
-
             </div>
+
+            {/* <MonetagAd /> */}
+            {/* </div> */}
           </CardContent>
         </Card>
 
